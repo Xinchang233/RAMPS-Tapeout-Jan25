@@ -1,0 +1,29 @@
+# 45rf version of taper
+
+# Directory Locations
+project_name: /projectnb/siphot/djordje/TapeoutCode/TO_45RF_2020June/gen_libs/Taper
+
+# Output Settings
+lsf_filename: LinearTaper45RF
+gds_filename: LinearTaper45RF
+
+# # OPTIONAL: Specify a custom dataprep routine to run
+# dataprep: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/GF45RFSOI/Photonics/dataprep_routine_custom.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.Taper.LinearTaper'
+layout_class: 'LinearTaper'
+layout_params:
+  width0: 5
+  width1: 30
+  length: 20
+  layer: !!python/tuple ['si_full_free', 'drawing'] # Modify layers to work with 45RF layer map
+
+# Cadence related parameters
+impl_lib: 'photaper_test_lib'
+impl_cell: 'photaper_test_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

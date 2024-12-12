@@ -1,0 +1,64 @@
+# General Project Settings
+project_name: RingRingCoupler
+
+# Output Settings
+lsf_filename: ring_ring_example
+gds_filename: ring_ring_example
+
+layout_package: 'layout.SimpleRingRingCouplerTB.SimpleRingRingCoupler'
+layout_class: 'SimpleRingRingCoupler'
+layout_params:
+  input_ring_module: layout.SimpleRing.SimpleRing
+  input_ring_class: SimpleRing
+  input_ring_params:
+    layer: !!python/tuple [si_full_free, drawing]
+    port_layer: !!python/tuple [si_full_free, port]
+    r_out: 4.3
+    ring_width: 0.5
+
+  output_ring_module: layout.SimpleRing.SimpleRing
+  output_ring_class: SimpleRing
+  output_ring_params:
+    layer: !!python/tuple [si_full_free, drawing]
+    port_layer: !!python/tuple [si_full_free, port]
+    r_out: 4.3
+    ring_width: 0.5
+
+  gap: 0.2
+#------------------
+#   TB Config
+#------------------
+tb_package: 'layout.SimpleRingRingCouplerTB.SimpleRingRingCouplerTB'
+tb_class: 'SimpleRingRingCouplerFDTD'
+
+# These additional parameters are passed to the testbench class
+# Units are in meters, not um like in BPG generators
+tb_params:
+  filename_base: "RingRing"
+  simulate: True
+
+  # Source params
+  wavelength: 1.550e-6
+  wavelength_span: 50.0e-9
+  mode_selection: 'user select'
+
+  # FDTD params
+  z_span: 4.0e-6
+  bc_type: PML
+  mesh_accuracy: 6
+  sim_margin: 2.5e-6
+  monitor_size: 5.0e-6
+  monitor_offset_m: 40.0e-9
+
+  # Mode expansion monitor params
+  number_of_frequency_points: 11
+
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+
+# Cadence related parameters
+impl_lib: 'SimpleRingRingCoupler_lib'        # Module that contains the layout generator class
+impl_cell: 'SimpleRingRingCoupler_cell'      # Layout generator class name

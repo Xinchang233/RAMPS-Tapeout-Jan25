@@ -1,0 +1,38 @@
+# Directory Locations
+project_name: WaveguideBase
+
+# Output Settings
+lsf_filename: WaveguideBase
+gds_filename: WaveguideBase
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.WaveguideBase.WaveguideBase'
+layout_class: 'WaveguideBase'
+layout_params:
+  width: 0.5
+  layer: 'SI'
+  points:
+    - !!python/tuple [0, 0]
+    - !!python/tuple [1, 0]
+    - !!python/tuple [2, 0.5]
+    - !!python/tuple [3, 0.25]
+    - !!python/tuple [4, 0]
+    - !!python/tuple [5, -1]
+    - !!python/tuple [6, 0.6]
+    - !!python/tuple [7, 0.2]
+    - !!python/tuple [8, 0.1]
+    - !!python/tuple [9, 0.5]
+    - !!python/tuple [10, 0.1]
+    - !!python/tuple [11, -0.3]
+    - !!python/tuple [12, -0.6]
+    - !!python/tuple [13, -0.4]
+    - !!python/tuple [14, -0.4]
+
+# Cadence related parameters
+impl_lib: 'genwg_lib'
+impl_cell: 'genwg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

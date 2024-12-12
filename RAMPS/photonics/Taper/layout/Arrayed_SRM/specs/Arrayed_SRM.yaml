@@ -1,0 +1,157 @@
+# Directory Locations
+project_name: '/projectnb/siphot/djordje/TO_45RF_2019May/gen_libs/Arrayed_SRM'
+
+# Output Settings
+lsf_filename: ring.lsf
+gds_filename: Arrayed_SRM_gds
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'layout.Arrayed_SRM.Arrayed_SRM'  # Module that contains the layout generator class
+layout_class: 'Arrayed_SRM'  # Layout generator class name
+layout_params:
+  arrayable_params:
+    package: layout.SlotRacetrackModulator.SlotRacetrackModulator
+    class_name: SlotRacetrackModulator
+    left_top_port: 'left_up'
+    horizontal_distance: 100.2
+    instances_per_row: 7
+    vertical_distance: 90
+    horizontal_offset: 0
+    pack_params: False
+    params_per_cell: 1
+  spoked_ring_params:
+  ############################################# 1 ######################################
+    -
+      # Variant 8
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.230
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+ # variant 17
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.220
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw13phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+  # variant 20
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.220
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+   # variant 23
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.215
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+# Cadence related parameters
+impl_lib: 'ring_lib'
+impl_cell: 'ring_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

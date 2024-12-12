@@ -1,0 +1,99 @@
+# Directory Locations
+project_name: SerpentineGrating
+
+# Output Settings
+lsf_filename: SerpDualGrat
+gds_filename: SerpDualGrat
+
+# Generator Params
+layout_package: 'layout.SerpentineGrating.SerpentineDualGrating'
+layout_class: 'SerpentineDualGrating'
+
+# Key serpentine parameters (determine settings for components)
+wg_layer: &wg_layer !!python/tuple ['si_full','drawing']
+grat_length: &grat_length 180.0
+row_pitch: &pitch 8.0         # Grating row to row pitch
+radius: &radius 2.0           # Want to define based on pitch but can't figure out how to do math
+bend_pitch: &bend_pitch 4.0   # Defined from grating to grating pitch
+grat_width: &grat_width 4.5
+flyback_width: &flyback_width 1.5
+rout_width: &rout_width 0.48
+taper_length: &taper_length 36.0
+
+layout_params:
+  nrows: 20
+  input_offset: 20.0
+  output_offset: 10.0
+
+  #Component parameters
+  grating_params:
+    length: *grat_length
+    period: 0.516
+
+    box_layers: !!python/tuple ['grating','drawing']
+    box_ex_width: 5.0
+
+    wg_layer: *wg_layer
+    wg_width: *grat_width
+
+    first_grat: True
+    first_grat_layer: !!python/tuple ['sin','drawing']
+    first_grat_width: *grat_width
+    first_duty_cycle: 0.5
+    first_offset_ratio: 0.0
+
+    second_grat: False
+    second_grat_layer: !!python/tuple ['sin','drawing']
+    second_grat_width: *grat_width
+    second_duty_cycle: 0.3
+    second_offset_ratio: 0.2
+
+  flyback_params:
+    width: *flyback_width
+    layer: *wg_layer
+    points:
+      - !!python/tuple [0, 0]
+      - !!python/tuple [*grat_length, 0]
+
+  bend_params:
+    #Euler bend parameters
+    layer: *wg_layer
+    port_layer: *wg_layer
+    x_start:   0.0
+    y_start:   0.0
+    angle_start: 0.0
+    radius_threshold: 1.0
+    curvature_rate_threshold: 1.0
+    merge_arcs: False
+    show_plot: False
+    show_plot_labels: True
+    arc_params:
+      - arc_type: '180_bend'
+        size: *bend_pitch
+        turn_left: True
+        width: *rout_width
+    #Circular 180 bend parameters
+    #width: *rout_width
+    #layer: *wg_layer
+    #radius: *radius
+
+  grat_taper_params:
+    width0: *rout_width
+    width1: *grat_width
+    length: *taper_length
+    layer: *wg_layer
+
+  fly_taper_params:
+    width0: *rout_width
+    width1: *flyback_width
+    length: *taper_length
+    layer: *wg_layer
+
+# Cadence related parameters
+impl_lib: 'serpdualgrat_lib'
+impl_cell: 'serpdualgrat_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

@@ -1,0 +1,48 @@
+
+project_name: 'YBranch'
+
+# Output Settings
+lsf_filename: YBranch
+gds_filename: YBranch
+
+# # OPTIONAL: Specify a custom dataprep routine to run
+# dataprep: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/GF45RFSOI/Photonics/dataprep_routine_custom.yaml'
+
+# Generator Params
+layout_package: 'layout.Y_branch.Y_branch'
+layout_class: 'Y_branch'
+
+layout_params:
+  input_width: 0.55
+  init_taper_len: 1.5
+  w_temp_width: 2
+  w_temp_len: 1.15556
+  final_taper_len: 2.9
+  final_width: 1.4
+  final_wg_len: 1.84444
+  spoke_size: 0.1
+  num_spokes: 0
+  branch_width: 0.55
+  branch_length: 2
+  layer: !!python/tuple ['si_full_free', 'drawing'] # Modify layers to work with 45RF layer map
+  add_offset: True
+  rmin: 15
+  offset: 1
+  add_triangles_boolean: True
+  triangle_vertices:
+    - !!python/tuple [0, 0]
+    - !!python/tuple [1.1428, 0.185714]
+    - !!python/tuple [0, 0.185714]
+
+
+
+
+
+# Cadence related parameters
+impl_lib: 'y_branch_lib'
+impl_cell: 'y_branch_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

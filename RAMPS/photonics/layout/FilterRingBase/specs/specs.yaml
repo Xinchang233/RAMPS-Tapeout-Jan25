@@ -1,0 +1,41 @@
+# General Project Settings
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/FilterRingBase'
+
+# Output Settings
+lsf_filename: FilterRingBase
+gds_filename: FilterRingBase
+
+layout_package: 'layout.FilterRingBase.FilterRingBase'
+layout_class: 'FilterRingBaseCosine'
+
+layout_params:
+  layer: !!python/tuple [si_full_free, drawing]
+  port_layer: !!python/tuple [si_full_free, port]
+  radius: 10
+  ring_width: 3
+  input_wg:
+      length: 40
+      width: 3
+      gap: 1
+  place_output_wg: True
+  output_wg:
+      length: 30
+      width: 2
+      gap: 1.7
+      
+#  additional_layers:
+##      -  layer: !!python/tuple [n_heavy_sil, drawing]
+##         width: 2.3
+##      -  layer: !!python/tuple [n_heavy_sil, drawing]
+##         width: 2.4
+
+       
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

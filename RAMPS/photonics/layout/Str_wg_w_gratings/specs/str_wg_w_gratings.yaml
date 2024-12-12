@@ -1,0 +1,28 @@
+
+project_name: 'gen_libs/YBranch_chain'
+
+# Output Settings
+lsf_filename: Zero_structure
+gds_filename: Zero_structure
+
+# # OPTIONAL: Specify a custom dataprep routine to run
+# dataprep: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/GF45RFSOI/Photonics/dataprep_routine_custom.yaml'
+
+# Generator Params
+layout_package: 'layout.Str_wg_w_gratings.Str_wg_w_gratings'
+layout_class: 'Str_wg_w_gratings'
+
+layout_params:
+  length: 0.01
+  width: 0.55
+
+
+
+# Cadence related parameters
+impl_lib: 'Y_branch_chain_zero'
+impl_cell: 'Y_branch_chain_zero_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

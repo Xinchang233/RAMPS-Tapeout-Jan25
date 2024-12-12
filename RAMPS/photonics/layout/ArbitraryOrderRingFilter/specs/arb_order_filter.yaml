@@ -1,0 +1,54 @@
+# General Project Settings
+project_name: ArbitraryOrderRingFilter
+
+# Output Settings
+lsf_filename: ArbitraryOrderRingFilter
+gds_filename: ArbitraryOrderRingFilter
+layout_package: 'layout.ArbitraryOrderRingFilter.ArbitraryOrderRingFilter'
+layout_class: 'ArbitraryOrderRingFilter'
+
+layout_params:
+  wg_in_params:
+    layer: !!python/tuple [si_full_free, drawing]
+    port_layer: !!python/tuple [si_full_free, port]
+    length: 30
+    width: 1.6
+    gap: 1
+
+  wg_out_params:
+    layer: !!python/tuple [si_full_free, drawing]
+    port_layer: !!python/tuple [si_full_free, port]
+    length: 30
+    width: 0.7
+
+  ring_module: layout.BasicElements.SimpleRing.SimpleRing
+  ring_class: SimpleRing
+  ring_params:
+    layer: !!python/tuple [si_full_free, drawing]
+    port_layer: !!python/tuple [si_full_free, port]
+    r_out: [12, 14, 11]
+    ring_width: [0.8, 0.7, 0.8]
+    gap: [3, 1, 0.2]
+
+    side_coupler:
+      place: [True, False, True]
+      left: [True, False, False]
+      r_out: [8, 0, 9]
+      ring_width: [0.6, 0, 0.4]
+      theta_in: [-90, 90, 90]
+      theta_out: [90, 0, 270]
+      gap: [0.2, 0, 0.5]
+
+    additional_layers:
+      layer: !!python/tuple [PC, drawing]
+      width: [0.7, None, 0.2]
+
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

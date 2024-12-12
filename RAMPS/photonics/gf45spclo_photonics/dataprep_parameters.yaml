@@ -1,0 +1,363 @@
+# this file holds DRC rules, basically
+
+MinSpace:
+  NF : 0.190  #  pg 31
+  BFCUS : 0.190  #  See MIT cusTOM drc decK.
+  QF : 0.201  #  pg 31
+  UN : 0.190  #  pg 32
+  UP : 0.190  #  pg 32
+  KF : 0.201  #  pg 31
+  DG : 0.201  #  corrected from 0.190 of pg 32 to 0.201 as DRC requIREs.
+  RR : 0.260  #  pg 32
+  OP : 0.400  #  See SBLK drC DECk. Modified from 0.200 pg 32
+  SBLK : 0.400  # SBLK.S.1
+  BP : 0.190  #  pg 32
+  DV : 6.000  #  gr 657b
+  # ; phot levels: # TODO
+  # CLO device layers
+  KG : 0.202      # from ayar
+  PC : 0.1      # over PHOTON but not over IOGRAT
+  RX : 0.09     # over PHOTON was earlier 0.012;now 
+  WG : 0.19
+  JL : 0.4
+  GK : 0.3
+  # new PDK (AUG2020) CLO metal layers. Done by Djordje, pg 22.
+  M1 : 0.205 # was 0.1 before 11/21/2021. Changed by Djordje
+  M2 : 0.205 # was 0.1 before 11/21/2021. Changed by Djordje
+  M3 : 0.205 # was 0.1 before 11/21/2021. Changed by Djordje
+  M4 : 0.205 # was 0.1 before 11/21/2021. Changed by Djordje
+  M5 : 0.3 # was 0.1 before 09/10/2020. Changed by Djordje  ... # was 0.205 before 11/21/2020. Changed by manuj
+  BA : 0.3 # was 0.2 before 09/10/2020. Changed by Djordje
+  UA : 0.8
+  UB : 0.8
+  LB : 2.4
+  # new PDK (AUG2020) CLO vias. Done by Djordje, pg 22
+  CA : 0.09
+  V1 : 0.1
+  V2 : 0.1
+  V3 : 0.1
+  V4 : 0.1
+  WT : 0.25 #earlier was 0.2 before 11/21/2021 changed by mannuj  
+  TA : 0.36
+  GA : 0.8
+  VV : 2.0
+  XG : 0.6 # ADDED BY MANUJ
+
+  # CLO doping layers
+  IJ : 0.2
+  IH : 0.2
+  IQ : 0.2
+  IK : 0.52
+  IM : 0.52
+  PLN : 0.2
+  PLP : 0.2
+  PQ : 0.4  # added 1/12/2021 -kramnik
+  PK : 0.4  # rule: PK.W.1_FF, updated: 2021/01/18, user: kramnik
+  IS : 0.8
+  IX : 0.8
+  # CLO photonic layers
+  PHOTON : 0.52
+  WAVEGUIDE : 0.52
+  RXWGUIDE : 0.52
+  IOGRAT: 0.4
+  TMWAVE: 0.52
+  # CLO custom layers
+  si_full : 0.090
+  si_full_free : 0.090
+  si_free : 0.090
+  si : 0.090
+
+MinWidth:
+  NW : 0.201  # pg 31
+  NF : 0.201  # pg 31
+  BFCUS : 0.190  # See MIT CustOM Drc deck.
+  QF : 0.198  # 198 as DRC requiRES. corrected from 190 of pg 32,
+  UN : 0.190  # pg 32
+  UP : 0.190  # pg 32
+  KF : 0.190  # pg 32
+  DG : 0.319  # pg 32
+  RR : 0.640  # pg 32
+  OP : 0.200  # pg 32
+  SBLK : 0.200  # SBLK.W.1
+  BP : 0.190  # pg 32
+  DV : 14.000 # pg 36
+  # ; phot levels: TODO
+  # CLO device layers
+  KG : 0.200
+  PC : 0.04
+  RX : 0.12 # should be 0.08
+  WG : 0.12
+  JL : 0.3
+  GK : 0.5
+  XG : 1
+  # new PDK (AUG2020) CLO metal layers. Done by Djordje, pg 22.
+  M1 : 0.1
+  M2 : 0.1
+  M3 : 0.1
+  M4 : 0.1
+  M5 : 0.12 # was 0.1, changed by Djordje on 05/03/2022
+  BA : 0.2
+  UA : 0.8 #hyeongseok_oh 05/10/2022 DRC rule Ux.W.1 : was 1.6
+  UB : 0.8
+  LB : 2.4 #hyeongseok_oh 05/10/2022 DRC rule LB.W.1: was 1.4
+  # new PDK (AUG2020) CLO vias. Done by Djordje, pg 22
+  CA : 0.11
+  V1 : 0.1
+  V2 : 0.1
+  V3 : 0.1
+  V4 : 0.1
+  WT : 0.1
+  TA : 0.36
+  GA : 0.8
+  VV : 2.0
+  # CLO doping layers
+  IJ : 0.2
+  IH : 0.2
+  IQ : 0.2
+  IK : 0.52
+  IM : 0.52
+  PLN : 0.2
+  PLP : 0.2
+  PQ: 0.4 # rule: PK.S.1_FF, updated: 2021/01/18, user: kramnik
+  PK: 0.4
+  IS : 0.8
+  IX : 0.8
+  # CLO photonic layers
+  PHOTON : 0.52
+  WAVEGUIDE : 0.52
+  RXWGUIDE : 0.52
+  IOGRAT: 0.4
+  TMWAVE: 0.52
+  # custom layers
+  si_full : 0.090  # same as RX
+  si_full_free : 0.090
+  si_free: 0.090
+  si: 0.090
+  RXbar: 0.08
+  M1bar: 0.1
+  M2bar: 0.1
+  M3bar: 0.1
+  M4bar: 0.1
+  M5bar: 0.1
+
+MaxWidth:
+  RX: 1000
+  PC: 15
+  rx1phot: 100.0
+  pc1phot: 100.0
+  pc2phot: 100.0
+  pc3phot: 100.0
+  M1: 2  # OK as of 3/25/2020
+  M2: 2  # OK as of 3/25/2020
+  M3: 2  # OK as of 3/25/2020
+  M4: 2  # OK as of 3/25/2020
+  V4: 2.0
+  M5: 2  # OK as of 3/25/2020
+  WT: 4.0
+  BA: 4.0  # OK as of 3/25/2020
+  TA: 0.36
+  UA: 8  # OK as of 3/25/2020
+  GA: 8.0
+  UB: 8  # OK as of 3/25/2020
+  VV: 8.0
+  LB: 1000
+  RXbar: 1000
+  M1bar: 2
+  M2bar: 2
+  M3bar: 2
+  M4bar: 2
+  M5bar: 2
+
+# Maximum width of metals constrained by the biggest width a via array can have
+ViaMaxWidth:
+  RX: 100.0
+  rx1phot: 100.0
+  PC: 100.0
+  pc1phot: 100.0
+  pc2phot: 100.0
+  pc3phot: 100.0
+  M1: 1.14  # 0.800
+  M2: 1.14  # 0.800
+  M3: 1.14  # 0.800
+  M4: 1.14
+  M5: 1.14
+  BA: 4 #2.3 OK as of 05/07/2021 hyeongseok_oh
+  UA: 8
+  UB: 8
+  LB: 1000
+  # CLO vias
+  VV : 3.0
+  GT : 1.2
+  TA : 0.36 # Not sure what this one should be. 08/27/2020 Djordje
+  WT : 0.2
+  V4 : 0.1
+  V3 : 0.1
+  V2 : 0.1
+  V1 : 0.1
+  CA : 0.09
+  # Bar vias dont have array size limit
+  RXbar: 100
+  M1bar: 100
+  M2bar: 100
+  M3bar: 100
+  M4bar: 100
+  M5bar: 100
+
+
+MinArea:
+  # CLO mods
+  KG : 1.0
+  BA : 0.144
+  UA : 1.6
+  UB : 2.0
+  M1 : 0.042
+  M2 : 0.052
+  M3 : 0.052
+  M4 : 0.052
+  M5 : 0.052
+  PC : 0.021      # over PHOTON but not over IOGRAT
+  RX : 0.04     # over PHOTON
+  JL : 0.25
+  # CLO vias
+  VV : 0
+  GT : 0
+  TA : 0
+  WT : 0
+  V4 : 0
+  V3 : 0
+  V2 : 0
+  V1 : 0
+  CA : 0
+  # custom layers
+  si_full : 0.04  # same as RX
+
+MinEdgeLength: # TODO: WHAT IS IT??
+  RX : 0.1  # we got this waived.
+  M1 : 0.070  # gr SE4, pg 168.
+  M2 : 0.070  # gr SE5
+  M3 : 0.070  # gr SE5
+  M4 : 0.07   # Used the same values as for other Mx layers
+  M5 : 0.07   # Used the same values as for other Mx layers
+  LB : 0.140  # no rule found  # Custom layers
+#  si_full : 0.02  # we got this waived.
+
+Height:
+  RX: 0.0
+  PC: 0.161
+  M1: 0.536
+  M2: 0.923
+  M3: 1.310
+  M4: 1.697
+  M5: 2.304
+  BA: 2.624
+  UA: 3.849
+  UB: 5.049
+  LB: 6.649
+  RXbar: 0.0
+  M1bar: 0.536
+  M2bar: 0.923
+  M3bar: 1.310
+  M4bar: 1.697
+  M5bar: 2.304
+Thickness:
+  RX: 0.161
+  M1: 0.220
+  V1: 0.167
+  M2: 0.220
+  V2: 0.167
+  M3: 0.220
+  V3: 0.167
+  M4: 0.220
+  V4: 0.167
+  M5: 0.220
+  WT: 0.32
+  BA: 0.400
+  TA: 0.825
+  UA: 1.2
+  GA: 1.6
+  UB: 1.2
+  VV: 1.450
+  LB: 1.325
+  RXbar: 0.161
+  M1bar: 0.220
+  M2bar: 0.220
+  M3bar: 0.220
+  M4bar: 0.220
+  M5bar: 0.220
+
+
+Rs:         # Found in Table 145 in 45RFSOI Technology Design Man UAl (Rev1.0_1.0, March 26, 2018)
+  RX: 16.4  # Assumes the RX layer is salicided N+
+  si_full_free: 16.4 # Manuj added to make sheet rs work
+  si_full: 20.0 # Added for equip source rings
+
+MetalStack:
+  si_full:
+    index: 0
+    connect_to: 'M1'
+    base_name: 'RX'
+  si_partial:
+    index: 0
+    connect_to: 'M1'
+    base_name: 'KG'
+  si_full_free:
+    index: 0
+    connect_to: 'M1'
+    base_name: 'RX'
+  si_partial_free:
+    index: 0
+    connect_to: 'M1'
+    base_name: 'KG'
+  RX:
+    index: 0
+    connect_to: 'M1'
+  PC:
+    index: 0
+    connect_to: 'M1'
+  KG:
+    index: 0
+    connect_to: 'M1'
+  M1:
+    index: 1
+    connect_to: 'M2'
+  M2:
+    index: 2
+    connect_to: 'M3'
+  M3:
+    index: 3
+    connect_to: 'M4'
+  M4:
+    index: 4
+    connect_to: 'M5'
+  M5:
+    index: 5
+    connect_to: 'BA'
+  BA:
+    index: 6
+    connect_to: 'UA'
+  UA:
+    index: 7
+    connect_to: 'UB'
+  UB:
+    index: 8
+    connect_to: 'LB'
+  LB:
+    index: 9
+  RXbar:
+    index: 0
+    connect_to: 'M1bar'
+  M1bar:
+    index: 1
+    connect_to: 'M2bar'
+  M2bar:
+    index: 2
+    connect_to: 'M3bar'
+  M3bar:
+    index: 3
+    connect_to: 'M4bar'
+  M4bar:
+    index: 4
+    connect_to: 'M5bar'
+  M5bar:
+    index: 5
+    connect_to: 'BA'

@@ -1,0 +1,43 @@
+# General Project Settings
+project_name: RibSlotRing
+
+# Output Settings
+lsf_filename: rib_slot_ring.lsf
+gds_filename: rib_slot_ring
+
+#------------------
+#   layout config
+#------------------
+layout_package: 'layout.RibSlotRing.RibSlotRing'
+layout_class: 'RibSlotRing'
+layout_params:
+  ring_module: layout.RibSlotRing.SlotRing
+  ring_class: SlotRing
+  ring_params:
+    ring_params:
+      layer: !!python/tuple [ si_full_free, drawing ]
+      rout: 50
+      outer_rout: 50
+      outer_ring_width: 0.5
+      gap: 0.13
+      inner_ring_width: 0.5
+      partial_ring_layer: !!python/tuple ['si_partial_free', 'drawing']
+
+    coupler_in_through_params:
+      coupler_type: straight
+      gap: 0.25
+      length: 100
+      width: 0.5
+
+  gap: 0.25
+  wg_width: 0.5
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+
+
+# Cadence related parameters
+impl_lib: 'RibSlotRing_lib'        # Module that contains the layout generator class
+impl_cell: 'RibSlotRing_cell'      # Layout generator class name

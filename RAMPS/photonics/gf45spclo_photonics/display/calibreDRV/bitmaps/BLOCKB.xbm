@@ -1,0 +1,12 @@
+#define BLOCKB_width 8
+#define BLOCKB_height 8
+static unsigned char BLOCKB_bits[] = {
+0x11, 
+0x90, 
+0x50, 
+0x30, 
+0xFF, 
+0x18, 
+0x14, 
+0x12, 
+}

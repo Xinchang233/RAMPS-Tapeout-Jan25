@@ -1,0 +1,89 @@
+
+# Directory Locations
+project_name: RingRibWg
+
+# Output Settings
+lsf_filename: RingRibWg
+gds_filename: RingRibWg
+
+# Specify a generic technology as this is a public sample
+bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.Ring.ring_rib_wg'
+layout_class: 'RingRibWg'
+layout_params:
+        # Parameters of rib-waveguide ring
+        r_core_cent: 5.0
+
+        core_layer: !!python/tuple ['SI', 'drawing']
+        core_width: 0.6
+        core_slot_width: 0.2
+
+        slab_layer: !!python/tuple ['POLY', 'drawing']
+        slab_width: 3.6
+        slab_slot_width: 0.2
+
+        # Parameters of coupler waveguide
+        bent_coupler: True
+        coup_core_width: 0.45
+        coup_slab_length: 0.45
+        coup_length: 15.0
+        coup_gap: 0.2
+        coup_radius: 5.0
+        coup_angle: 60.0
+        curve_rate: 1.0
+        coup_angle_in: 35.0
+
+        # Parameters of doping and salicide layers
+        doping_info:
+          # p doing info
+          - {dist0: 0.1, dist1: 1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['P1', 'drawing']}
+          - {dist0: 1.3, dist1: 1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['PP', 'drawing']}
+
+          # n doping info
+          - {dist0: -0.1, dist1: -1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['N1', 'drawing']}
+          - {dist0: -1.3, dist1: -1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['NN', 'drawing']}
+
+          # salicide info
+          - {dist0: -1.3, dist1: -1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['SAL', 'drawing']}
+          - {dist0: 1.3, dist1: 1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['SAL', 'drawing']}
+
+        via_info:
+          - {dist: 1.45, angle0: -50, angle1: 235, azim_dist: 0.3,
+             layer_top: !!python/tuple ['M3', 'drawing'], layer_bottom: !!python/tuple ['SI', 'drawing']}
+          - {dist: 1.65, angle0: -50, angle1: 235, azim_dist: 0.3,
+             layer_top: !!python/tuple ['M3', 'drawing'], layer_bottom: !!python/tuple ['SI', 'drawing']}
+
+          - {dist: -1.45, angle0: -50, angle1: 235, azim_dist: 0.3,
+             layer_top: !!python/tuple ['M4', 'phot'], layer_bottom: !!python/tuple ['SI', 'drawing']}
+          - {dist: -1.65, angle0: -50, angle1: 235, azim_dist: 0.3,
+             layer_top: !!python/tuple ['M4', 'phot'], layer_bottom: !!python/tuple ['SI', 'drawing']}
+
+        # Parameters of inner and outer ring electrodes (including SI contact rails)
+        inner_electrode_info:
+          - {dist0: -1.3, dist1: -1.9, angle0: 0, angle1: 360, layer: !!python/tuple ['SI', 'drawing']}
+          - {dist0: -1.3, dist1: -1.9, angle0: 0, angle1: 360, layer: !!python/tuple ['M4', 'drawing']}
+
+        outer_electrode_info:
+          - {dist0: 1.3, dist1: 1.9, angle0: -55, angle1: 235, layer: !!python/tuple ['SI', 'drawing']}
+          - {dist0: 1.3, dist1: 1.9, angle0: 0, angle1: 360, layer: !!python/tuple ['M3', 'drawing']}
+
+        # Parameters of GS electrodes
+        gs_electrodes: True
+        gs_dist: 3.0
+        gs_bottom_width: 1.0
+        gs_bottom_length: 1.0
+        gs_pad_layer: !!python/tuple ['M6', 'drawing']
+        gs_pad_width: 38.0
+        gs_pad_length: 50.0
+        gs_pad_pitch: 42.0
+
+# Cadence related parameters
+impl_lib: 'RingRibWg'
+impl_cell: 'RingRibWg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

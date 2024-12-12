@@ -1,0 +1,29 @@
+project_name: /projectnb/siphot/djordje/TapeoutCode/2020_April_Nanotools/gen_libs/SplineBend
+
+# Output Settings
+lsf_filename: SplineBend
+gds_filename: SplineBend
+
+# Generator Params
+layout_package: layout.BasicElements.SplineBend.SplineBend
+layout_class: SplineBend
+
+layout_params:
+  layer: !!python/tuple ['SI', 'phot']
+  gap_out: 2
+  gap_in: 0.28
+  s: 0.05
+
+  w_in_section: 0.38
+  dx: 0.1
+  w_out_section: 0.35
+  length: 3
+
+# Cadence related parameters
+impl_lib: 'GenDum'
+impl_cell: 'GenDum'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

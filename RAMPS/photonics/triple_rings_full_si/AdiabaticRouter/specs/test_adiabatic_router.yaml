@@ -1,0 +1,25 @@
+project_name: 'AdiabaticRouter'
+
+# Output Settings
+lsf_filename: AdiabaticRouterTest
+gds_filename: AdiabaticRouterTest
+
+# # OPTIONAL: Specify a custom dataprep routine to run
+# dataprep: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/GF45RFSOI/Photonics/dataprep_routine_custom.yaml'
+
+# Generator Params
+layout_package: 'layout.AdiabaticRouter.Test_Adiabatic_router'
+layout_class: 'Test'
+
+layout_params:
+  some: None
+
+
+# Cadence related parameters
+impl_lib: 'AdiabaticRouter_lib_220'
+impl_cell: 'AdiabaticRouter_220_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

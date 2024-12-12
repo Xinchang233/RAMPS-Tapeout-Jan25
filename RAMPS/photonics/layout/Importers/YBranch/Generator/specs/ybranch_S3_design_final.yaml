@@ -1,0 +1,22 @@
+project_name: 'Ybranch'
+
+# Output Settings
+lsf_filename: Ybranch
+gds_filename: Ybranch_S3
+
+# Generator Params
+layout_package: 'layout.Importers.YBranch.YBranch_C_band_with_bends'
+layout_class: 'YBranch_CBand_with_bends'
+
+layout_params:
+  some: None
+
+
+# Cadence related parameters
+impl_lib: 'Ybranch_lib_220'
+impl_cell: 'Ybranch_220_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

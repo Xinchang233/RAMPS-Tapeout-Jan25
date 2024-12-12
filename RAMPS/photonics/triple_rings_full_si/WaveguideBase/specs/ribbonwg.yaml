@@ -1,0 +1,37 @@
+# ribbonwg.yaml
+# A sample specification file to generate a ribbon array of waveguides
+
+# Directory Locations
+project_name: RibbonWaveguide
+
+# Output Settings
+lsf_filename: RibbonWaveguide
+gds_filename: RibbonWaveguide
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.WaveguideBase.RibbonPathWaveguide'  # Module that contains the layout generator class
+layout_class: 'RibbonPathWaveguide'  # Layout generator class name
+
+layout_params:
+    add_ports: True
+    widths: 0.4
+    layer: !!python/tuple ['si_full','drawing'] #!!python/tuple ['SI','drawing']
+    seps: 5.0
+    n_wgs: 3
+    block_layer: None
+    block_margin: 5.0
+    points:
+        !!python/int 0: !!python/tuple [0.0,0.0]
+        !!python/int 1: !!python/tuple [7.0,0.0]
+        !!python/int 2: !!python/tuple [7.0,7.0]
+    angle_in: 0.0
+    angle_out: 90.0
+
+# Cadence related parameters
+impl_lib: 'ribbonwg_lib'
+impl_cell: 'ribbonwg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

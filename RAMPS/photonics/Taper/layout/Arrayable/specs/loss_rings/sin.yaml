@@ -1,0 +1,207 @@
+# General Project Settings
+project_name: NonManhatenLossRings
+############## GratingPlaceHolder = OBand ???????????   #################
+# Output Settings
+lsf_filename: SiN
+gds_filename: SiN
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Layout_45SPCLO.LossRings.LossRings
+  class_name: LossRings
+  horizontal_distance: 5
+  vertical_distance: 20
+  horizontal_offset: 0
+  instances_per_row: 7
+  pack_params: False
+  params_per_cell: 6
+  class_params:
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.SiN_converter
+            class_name: SiN_converter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 14
+            class_params:
+                 -  layer: !!python/tuple [sin, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 40
+                    size_out : 40.0
+                    input_length: 55
+                    total_size: 190
+                    input_wg:
+                      width: 0.850
+                      length: 20
+                    output_wg:
+                      width: 0.850
+                      length: 10
+                    spacing: 66
+                    filters:
+                        -  r_out: 20.000
+                           width: 0.950
+                           in_gap: 1.000
+                           out_gap: 1.000
+
+                        -  r_out: 20.020
+                           width: 0.950
+                           in_gap: 0.911
+                           out_gap: 0.911
+
+                        -  r_out: 20.040
+                           width: 0.950
+                           in_gap: 0.822
+                           out_gap: 0.822
+
+                        -  r_out: 20.060
+                           width: 0.950
+                           in_gap: 0.733
+                           out_gap: 0.733
+
+                        -  r_out: 20.080
+                           width: 0.950
+                           in_gap: 0.644
+                           out_gap: 0.644
+
+                 -  layer: !!python/tuple [sin, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 40
+                    size_out : 40.001
+                    input_length: 55
+                    total_size: 190
+                    input_wg:
+                      width: 0.850
+                      length: 5
+                    output_wg:
+                      width: 0.850
+                      length: 10
+                    spacing: 66
+                    filters:
+                        -  r_out: 20.100
+                           width: 0.950
+                           in_gap: 0.556
+                           out_gap: 0.556
+
+                        -  r_out: 20.120
+                           width: 0.950
+                           in_gap: 0.467
+                           out_gap: 0.467
+
+                        -  r_out: 20.140
+                           width: 0.950
+                           in_gap: 0.378
+                           out_gap: 0.378
+
+                        -  r_out: 20.160
+                           width: 0.950
+                           in_gap: 0.289
+                           out_gap: 0.289
+
+                        -  r_out: 20.180
+                           width: 0.950
+                           in_gap: 0.200
+                           out_gap: 0.200
+
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.SiN_converter
+            class_name: SiN_converter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 30
+            class_params:
+                 -  layer: !!python/tuple [sin, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 40
+                    size_out : 40.0
+                    input_length: 55
+                    total_size: 198
+                    input_wg:
+                      width: 0.850
+                      length: 20
+                    output_wg:
+                      width: 0.850
+                      length: 10
+                    spacing: 66
+                    filters:
+                        -  r_out: 30.000
+                           width: 0.950
+                           in_gap: 1.000
+                           out_gap: 1.000
+
+                        -  r_out: 30.020
+                           width: 0.950
+                           in_gap: 0.911
+                           out_gap: 0.911
+
+                        -  r_out: 30.040
+                           width: 0.950
+                           in_gap: 0.822
+                           out_gap: 0.822
+
+                        -  r_out: 30.060
+                           width: 0.950
+                           in_gap: 0.733
+                           out_gap: 0.733
+
+                        -  r_out: 30.080
+                           width: 0.950
+                           in_gap: 0.644
+                           out_gap: 0.644
+
+                 -  layer: !!python/tuple [sin, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 40
+                    size_out : 40.001
+                    input_length: 55
+                    total_size: 198
+                    input_wg:
+                      width: 0.850
+                      length: 5
+                    output_wg:
+                      width: 0.850
+                      length: 10
+                    spacing: 66
+                    filters:
+                        -  r_out: 30.100
+                           width: 0.950
+                           in_gap: 0.556
+                           out_gap: 0.556
+
+                        -  r_out: 30.120
+                           width: 0.950
+                           in_gap: 0.467
+                           out_gap: 0.467
+
+                        -  r_out: 30.140
+                           width: 0.950
+                           in_gap: 0.378
+                           out_gap: 0.378
+
+                        -  r_out: 30.160
+                           width: 0.950
+                           in_gap: 0.289
+                           out_gap: 0.289
+
+                        -  r_out: 30.180
+                           width: 0.950
+                           in_gap: 0.200
+                           out_gap: 0.200
+
+
+# Cadence related parameters
+impl_lib: 'sin_lib'
+impl_cell: 'sin_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

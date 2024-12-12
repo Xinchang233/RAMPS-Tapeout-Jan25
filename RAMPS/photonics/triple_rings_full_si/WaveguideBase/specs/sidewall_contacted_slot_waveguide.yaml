@@ -1,0 +1,32 @@
+# General Project Settings
+project_name: SidewallContactedSlotWaveguide
+
+# Output Settings
+lsf_filename: SidewallContactedSlotWaveguide
+gds_filename: SidewallContactedSlotWaveguide
+
+# Generator Settings
+layout_package: 'Photonic_Core_Layout.WaveguideBase.SidewallContactedSlotWaveguide'
+layout_class: 'SidewallContactedSlotWaveguide'
+
+layout_params:
+    length: 10.0
+    core_width_in: 0.6
+    core_width_out: 0.6
+    slot_width_in: 0.1
+    slot_width_out: 0.1
+    draw_contact: True
+    contact_length_in: 1.0
+    contact_length_out: 1.0
+    contact_width: 0.1
+    contact_period: 0.2
+    layer: !!python/tuple ['SI', 'phot']
+
+# Cadence related parameters
+impl_lib: 'SidewallContactedSlotWaveguide'
+impl_cell: 'SidewallContactedSlotWaveguide_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

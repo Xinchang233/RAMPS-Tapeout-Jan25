@@ -1,0 +1,137 @@
+# General Project Settings
+project_name: Arrayable
+
+# Output Settings
+lsf_filename: Bend_90
+gds_filename: Bend_90
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Layout_45SPCLO.90_bendclips.Bendclips_90
+  class_name: Bendclips
+  horizontal_distance: 75
+  vertical_distance: 50
+  horizontal_offset: 0
+  instances_per_row: 2
+  pack_params: False
+  params_per_cell: 2
+  class_params:
+      - place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_CBand
+          class_name:  Grating_CBand
+          distance: 50
+        bend_params:
+          width: 0.5
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          Size: 30
+          bend_90: True
+        x_size: 2000
+        length: 10000
+        distance_btw_rows: 10
+
+      - place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_CBand
+          class_name:  Grating_CBand
+          distance: 50
+        bend_params:
+          width: 0.5
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          Size: 25
+          bend_90: True
+        x_size: 1000
+        length: 10000
+        distance_btw_rows: 10
+
+      - place_mode_converter: True
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_CBand
+          class_name:  Grating_CBand
+          distance: 30
+        bend_params:
+          width: 0.5
+          layer: !!python/tuple [PC, drawing]
+          port_layer: !!python/tuple [RX, port]
+          Size: 125
+          bend_90: True
+        x_size: 2000
+        length: 5000
+        distance_btw_rows: 5
+
+      - place_mode_converter: True
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_CBand
+          class_name:  Grating_CBand
+          distance: 30
+        bend_params:
+          width: 0.5
+          layer: !!python/tuple [PC, drawing]
+          port_layer: !!python/tuple [RX, port]
+          Size: 125
+          bend_90: True
+        x_size: 2000
+        length: 5000
+        distance_btw_rows: 5
+
+      - place_mode_converter: True
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_CBand
+          class_name:  Grating_CBand
+          distance: 35
+        bend_params:
+          width: 0.5
+          layer: !!python/tuple [PC, drawing]
+          port_layer: !!python/tuple [RX, port]
+          Size: 10
+          bend_90: True
+        x_size: 2000
+        length: 4000
+        distance_btw_rows: 5
+
+      - place_mode_converter: True
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.GratingCoupler.WorkhorseGratings
+          class_name: GC_WL1300_MFD9200nm_15DEG
+          distance: 35
+        bend_params:
+          width: 0.76
+          layer: !!python/tuple [PC, drawing]
+          port_layer: !!python/tuple [RX, port]
+          Size: 10
+          bend_90: True
+        x_size: 1000
+        length: 4000
+        distance_btw_rows: 5
+
+
+# Cadence related parameters
+impl_lib: 'array_bend90_lib'
+impl_cell: 'array_bend90_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

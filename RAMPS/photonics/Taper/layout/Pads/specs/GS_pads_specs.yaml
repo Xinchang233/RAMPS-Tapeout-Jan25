@@ -1,0 +1,64 @@
+# Directory Locations
+project_name: GS_pads
+
+# Output Settings
+lsf_filename: GS_pads.lsf
+gds_filename: GS_pads
+
+# Specify a generic technology as this is a public sample
+bag_config_path: 'BPG_tech_files/workspace_setup/bag_config.yaml'
+
+# Generator Params
+layout_package: 'ice1_scripts.Pads.GS_pads'  # Module that contains the layout generator class
+layout_class: 'GSPads'  # Layout generator class name
+
+layout_params:
+
+  x_slot: 4.0 # Spacing between pads
+  y_offset: 2.0 # offset between the y position of both pads
+
+  right_pad_params:
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 38
+    top_y_span: 60
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params:
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 38
+    top_y_span: 60
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  right_pad_label: # For putting a label in the specified layer
+    lpp: !!python/tuple ['LB', 'label']
+    label: 'Ground'
+
+  left_pad_label:
+    lpp: !!python/tuple ['LB', 'label']
+    label: 'Signal'
+
+  # Alternatively, we can specify a set of parameters for both pads
+#  pad_params:
+#    top_layer: !!python/tuple ['LB', 'drawing']
+#    bottom_layer: !!python/tuple ['B2', 'drawing']
+#    top_x_span: 38
+#    top_y_span: 60
+#    bottom_x_span: 2
+#    bottom_y_span: 20
+#    side_align_x: True
+#    side_align_y: True
+#    use_top_bbox: False
+
+# Cadence related parameters
+impl_lib: 'gs_pad_lib'
+impl_cell: 'gs_pad_cell'

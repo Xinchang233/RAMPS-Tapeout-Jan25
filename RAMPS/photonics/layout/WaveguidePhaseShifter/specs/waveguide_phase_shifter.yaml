@@ -1,0 +1,71 @@
+# General Project Settings
+project_name: 'WaveguidePhaseShifter'
+
+# Output Settings
+lsf_filename: WaveguidePhaseShifter
+gds_filename: WaveguidePhaseShifter
+# Generator Settings
+layout_package: 'layout.WaveguidePhaseShifter.WaveguidePhaseShifter'
+layout_class: 'WaveguidePhaseShifter'
+
+layout_params:
+    # parameters of th waveguide structure
+    wg_params:
+      layer1_wg_params:
+          length: 100.0
+          core_width_in: 3.5
+          core_width_out: 3.5
+          slot_width_in: 0.1
+          slot_width_out: 0.1
+          draw_contact: False
+          contact_length_in: 1.2
+          contact_length_out: 1.2
+          contact_width: 0.1
+          contact_period: 0.2
+          layer: !!python/tuple ['SI', 'phot']
+
+      layer2_wg_params:
+          length: 100.0
+          core_width_in: 2.5
+          core_width_out: 2.5
+          slot_width_in: 0.5
+          slot_width_out: 0.5
+          draw_contact: False
+          contact_length_in: 1.0
+          contact_length_out: 1.0l
+          contact_width: 0.1
+          contact_period: 0.2
+          layer: !!python/tuple ['POLY', 'phot']
+
+    # parameters of the doping layers
+    doping_info:
+      - {dist0: 0.05, dist1: 1.75, layer: !!python/tuple ['N1', 'drawing']}
+      - {dist0: 1.25, dist1: 1.75, layer: !!python/tuple ['NN', 'drawing']}
+      - {dist0: -0.05, dist1: -1.75, layer: !!python/tuple ['P1', 'drawing']}
+      - {dist0: -1.25, dist1: -1.75, layer: !!python/tuple ['PP', 'drawing']}
+    doping_length_extend: 1.0
+
+    # parameters of electrodes (including Si contact rails and salicide) on either side of the waveguide phase shifter
+    lin_electrode_bottom_layer: !!python/tuple ['SI', 'phot']
+    lin_electrode_length_extend: 1.0
+    lin_electrode_bottom_width: 0.5
+    lin_electrode_top_layer1: !!python/tuple ['M6', 'drawing']
+    lin_electrode_top_width1: 10.0
+    lin_electrode_top_layer2: !!python/tuple ['M6', 'drawing']
+    lin_electrode_top_width2: 10.0
+    lin_electrode_bot_dist: 1.25
+    lin_electrode_top_dist: 2.0
+
+    # parameters of auxiliary layers (such as exclusion layers) centered at core of the waveguide
+    aux_info:
+      - {width: 30, layer: !!python/tuple ['N3', 'drawing']}
+      - {width: 30, layer: !!python/tuple ['P3', 'drawing']}
+
+# Cadence related parameters
+impl_lib: 'WaveguidePhaseShifter'
+impl_cell: 'WaveguidePhaseShifter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

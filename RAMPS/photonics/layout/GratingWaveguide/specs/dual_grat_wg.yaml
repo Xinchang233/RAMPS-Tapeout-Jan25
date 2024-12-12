@@ -1,0 +1,40 @@
+# Directory Locations
+project_name: GratingWaveguide
+
+# Output Settings
+lsf_filename: DualGratWg
+gds_filename: DualGratWg
+
+# Generator Params
+layout_package: 'layout.GratingWaveguide.DualGratingWaveguide'
+layout_class: 'DualGratingWaveguide'
+layout_params:
+  length: 100.0
+  period: 0.5
+
+  box_layers: !!python/tuple ['grating','drawing']
+  box_ex_width: 5.0
+
+  wg_layer: !!python/tuple ['si_full','drawing']
+  wg_width: 4.5
+
+  first_grat: True
+  first_grat_layer: !!python/tuple ['sin','drawing']
+  first_grat_width: 5
+  first_duty_cycle: 0.2
+  first_offset_ratio: 0.0
+
+  second_grat: True
+  second_grat_layer: !!python/tuple ['si_full_free','drawing']
+  second_grat_width: 6
+  second_duty_cycle: 0.3
+  second_offset_ratio: 0.6
+
+# Cadence related parameters
+impl_lib: 'dualgratwg_lib'
+impl_cell: 'dualgratwg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

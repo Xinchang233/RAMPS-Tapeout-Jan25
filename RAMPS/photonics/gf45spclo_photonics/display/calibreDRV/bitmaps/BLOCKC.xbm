@@ -1,0 +1,12 @@
+#define BLOCKC_width 8
+#define BLOCKC_height 8
+static unsigned char BLOCKC_bits[] = {
+0xFF, 
+0x01, 
+0x01, 
+0x01, 
+0x01, 
+0x01, 
+0x01, 
+0x01, 
+}

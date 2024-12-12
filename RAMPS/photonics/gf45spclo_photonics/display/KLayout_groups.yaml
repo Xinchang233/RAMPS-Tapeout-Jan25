@@ -1,0 +1,639 @@
+
+
+
+layer_groups:
+  -
+    groupname: 'Waveguide'
+    visible: true
+    entries:
+      - !!python/tuple ['RX', 'drawing']:
+          name: 'RX'
+      - !!python/tuple ['KG', 'drawing']:
+          name: 'KG: partial RX etch'
+      - !!python/tuple ['PC', 'drawing']:
+          name: 'PC: Polysilicon'
+      - !!python/tuple ['WG', 'drawing']:
+          name: 'WG: SiN'
+      - !!python/tuple ['XG', 'drawing']:
+          name: 'XG: Oxide opening over SiN wg'
+      - !!python/tuple ['XGTAPER', 'drawing']:
+          name: 'XGTAPER: Tapered oxide opening'
+      - !!python/tuple ['YGTAPER', 'drawing']:
+          name: 'YGTAPER: Tapered nitride for BEOL'
+
+  -
+    groupname: 'Waveguide ABS'
+    visible: false
+    entries:
+      - !!python/tuple ['si_full_free', 'drawing']
+      - !!python/tuple ['si_full', 'drawing']
+      - !!python/tuple ['si_partial_free', 'drawing']
+      - !!python/tuple ['si_partial', 'drawing']
+      - !!python/tuple ['si_tm_free', 'drawing']
+      - !!python/tuple ['si_tm', 'drawing']
+      - !!python/tuple ['si_free', 'drawing']
+      - !!python/tuple ['si', 'drawing']
+      - !!python/tuple ['si_poly_free', 'drawing']
+      - !!python/tuple ['si_poly', 'drawing']
+      - !!python/tuple ['sin_free', 'drawing']
+      - !!python/tuple ['sin', 'drawing']
+      - !!python/tuple ['si_etch', 'drawing']
+
+
+  -
+    groupname: 'MetalRouting'
+    visible: true
+    entries:
+      - !!python/tuple ['CA', 'drawing']
+      - !!python/tuple ['M1', 'drawing']
+      - !!python/tuple ['V1', 'drawing']
+      - !!python/tuple ['M2', 'drawing']
+      - !!python/tuple ['V2', 'drawing']
+      - !!python/tuple ['M3', 'drawing']
+      - !!python/tuple ['V3', 'drawing']
+      - !!python/tuple ['M4', 'drawing']
+      - !!python/tuple ['V4', 'drawing']
+      - !!python/tuple ['M5', 'drawing']
+      - !!python/tuple ['WT', 'drawing']:
+          name: 'WT (via M5-BA)'
+      - !!python/tuple ['BA', 'drawing']:
+          name: 'BA (M6)'
+      - !!python/tuple ['TA', 'drawing']:
+          name: 'TA (via BA-UA)'
+      - !!python/tuple ['UA', 'drawing']:
+          name: 'UA (M7)'
+      - !!python/tuple ['GA', 'drawing']:
+          name: 'GA (via UA-UB)'
+      - !!python/tuple ['UB', 'drawing']:
+          name: 'UB (M8)'
+      - !!python/tuple ['VV', 'drawing']:
+          name: 'VV (via UB-LB)'
+      - !!python/tuple ['LB', 'drawing']:
+          name: 'LB (M9)'
+      - !!python/tuple ['DV', 'drawing']:
+          name: 'DV: pad open wirebond'
+      - !!python/tuple ['DVNOCOPY', 'drawing']
+      - !!python/tuple ['LVX', 'drawing']
+      - !!python/tuple ['LVXDUMMY', 'drawing']
+
+  -
+    groupname: 'P doping'
+    visible: true
+    entries:
+      - !!python/tuple ['IH', 'drawing']:
+          name: 'IH: Pwell'
+      - !!python/tuple ['IQ', 'drawing']:
+          name: 'IQ: shallpw P'
+      - !!python/tuple ['PQ', 'drawing']:
+          name: 'PQ: P+ (intermediate)'
+      - !!python/tuple ['IM', 'drawing']:
+          name: 'IM: P++ (heavy)'
+      - !!python/tuple ['PLP', 'drawing']:
+          name: 'PLP: P++ (under via)'
+
+  -
+    groupname: 'N doping'
+    visible: true
+    entries:
+      - !!python/tuple ['IJ', 'drawing']:
+          name: 'IJ: Nwell'
+      - !!python/tuple ['PK', 'drawing']:
+          name: 'PK: N+ (intermediate)'
+      - !!python/tuple ['IK', 'drawing']:
+          name: 'IK: N++ (heavy)'
+      - !!python/tuple ['PLN', 'drawing']:
+          name: 'PLN: N++ (under via)'
+
+  -
+    groupname: 'P doping ABS'
+    visible: true
+    entries:
+      - !!python/tuple ['p_heavy_phot', 'drawing']:
+          name: 'p_heavy_phot'
+      - !!python/tuple ['p_inter_phot', 'drawing']:
+          name: 'p_inter_phot'
+      - !!python/tuple ['p_mod_phot', 'drawing']:
+          name: 'p_mod_phot'
+      - !!python/tuple ['p_det_phot', 'drawing']:
+          name: 'p_det_phot'
+      - !!python/tuple ['p_heavy_sil', 'drawing']:
+          name: 'p_heavy_sil'
+
+  -
+    groupname: 'N doping ABS'
+    visible: true
+    entries:
+      - !!python/tuple ['n_heavy_phot', 'drawing']:
+          name: 'n_heavy_phot'
+      - !!python/tuple ['n_inter_phot', 'drawing']:
+          name: 'n_inter_phot'
+      - !!python/tuple ['n_mod_phot', 'drawing']:
+          name: 'n_mod_phot'
+      - !!python/tuple ['n_det_phot', 'drawing']:
+          name: 'n_det_phot'
+      - !!python/tuple ['n_heavy_sil', 'drawing']:
+          name: 'n_heavy_sil'
+
+  -
+    groupname: 'Photodetector'
+    visible: true
+    entries:
+      - !!python/tuple ['JO', 'drawing']:
+          name: 'JO: Si PD Implant'
+      - !!python/tuple ['JL', 'drawing']:
+          name: 'JL: Ge window'
+      - !!python/tuple ['GK', 'drawing']:
+          name: 'GK: SiN protected Ge'
+      - !!python/tuple ['SBLK', 'drawing']:
+          name: 'SBLK: Salicide Block'
+      - !!python/tuple ['IS', 'drawing']:
+          name: 'IS: P implant for PD'
+      - !!python/tuple ['IX', 'drawing']:
+          name: 'IX: N implant for PD'
+
+  -
+    groupname: 'V-Groove and Undercut'
+    visible: true
+    entries:
+      - !!python/tuple ['AP', 'drawing']:
+          name: 'AP: open V groove'
+      - !!python/tuple ['APDUMMY', 'drawing']:
+          name: 'APDUMMY: open V groove'
+      - !!python/tuple ['BO', 'drawing']:
+          name: 'BO: open BEOL dielectric'
+      - !!python/tuple ['OG', 'drawing']:
+          name: 'OG: optical groove'
+      - !!python/tuple ['UT', 'drawing']:
+          name: 'UT: mid-of-line undercut'
+
+  -
+    groupname: 'Photonic'
+    visible: frue
+    entries:
+      - !!python/tuple ['PHOTON', 'drawing']
+      - !!python/tuple ['WAVEGUIDE', 'drawing']
+      - !!python/tuple ['TMWAVE', 'drawing']
+      - !!python/tuple ['DETECTOR', 'drawing']
+      - !!python/tuple ['MODULATOR', 'drawing']
+      - !!python/tuple ['IOGRAT', 'drawing']
+      - !!python/tuple ['IOSMF', 'drawing']
+      - !!python/tuple ['PHPN1', 'drawing']
+      - !!python/tuple ['THPH', 'drawing']
+      - !!python/tuple ['WDM', 'drawing']
+      - !!python/tuple ['WDMOPC', 'drawing']
+      - !!python/tuple ['ABSORB', 'drawing']
+      - !!python/tuple ['PSR', 'drawing']
+      - !!python/tuple ['DCOUPLER', 'drawing']
+      - !!python/tuple ['WICOUP', 'drawing']
+      - !!python/tuple ['CBAND', 'drawing']
+      - !!python/tuple ['LBAND', 'drawing']
+      - !!python/tuple ['OBAND', 'drawing']
+
+  -
+    groupname: 'Photonic ABS'
+    visible: false
+    entries:
+    - !!python/tuple ['ut_extent', 'drawing']
+    - !!python/tuple ['grating', 'drawing']
+    - !!python/tuple ['mod', 'drawing']
+    - !!python/tuple ['pd', 'drawing']
+    - !!python/tuple ['thermal', 'drawing']
+    - !!python/tuple ['lib_component', 'drawing']
+
+
+  -
+    groupname: 'Chipedge'
+    visible: false
+    entries:
+      - !!python/tuple ['GUARDRNG', 'drawing']
+      - !!python/tuple ['CHIPEDGE', 'drawing']
+      - !!python/tuple ['GUARDEDG', 'drawing']
+      - !!python/tuple ['CRACKSTOP', 'drawing']
+      - !!python/tuple ['CRACKSTOPGA', 'drawing']
+
+  -
+    groupname: 'Exclude'
+    visible: false
+    entries:
+    - !!python/tuple ['RX', 'exclude']
+    - !!python/tuple ['PC', 'exclude']
+    - !!python/tuple ['SM', 'exclude']
+    - !!python/tuple ['TJ', 'exclude']
+    - !!python/tuple ['CA', 'exclude']
+    - !!python/tuple ['M1', 'exclude']
+    - !!python/tuple ['V1', 'exclude']
+    - !!python/tuple ['M2', 'exclude']
+    - !!python/tuple ['V2', 'exclude']
+    - !!python/tuple ['M3', 'exclude']
+    - !!python/tuple ['V3', 'exclude']
+    - !!python/tuple ['M4', 'exclude']
+    - !!python/tuple ['V4', 'exclude']
+    - !!python/tuple ['M5', 'exclude']
+    - !!python/tuple ['BA', 'exclude']
+    - !!python/tuple ['UA', 'exclude']
+    - !!python/tuple ['GA', 'exclude']
+    - !!python/tuple ['UB', 'exclude']
+    - !!python/tuple ['LB', 'exclude']
+
+  -
+    groupname: 'Ports'
+    visible: false
+    entries:
+    - !!python/tuple ['si_full_free', 'port']
+    - !!python/tuple ['sin_free', 'port']
+    - !!python/tuple ['si_full', 'port']
+    - !!python/tuple ['si_tm', 'port']
+    - !!python/tuple ['si_partial', 'port']
+    - !!python/tuple ['si_poly_free', 'port']
+    - !!python/tuple ['si_etch', 'port']
+    - !!python/tuple ['sin', 'port']
+    - !!python/tuple ['si_poly', 'port']
+    - !!python/tuple ['si_tm_free', 'port']
+    - !!python/tuple ['si_free', 'port']
+    - !!python/tuple ['si', 'port']
+    - !!python/tuple ['RX', 'port']
+
+  -
+    groupname: 'Labels'
+    visible: false
+    entries:
+    - !!python/tuple ['RX', 'label']
+    - !!python/tuple ['PC', 'label']
+    - !!python/tuple ['M1', 'label']
+    - !!python/tuple ['M2', 'label']
+    - !!python/tuple ['M3', 'label']
+    - !!python/tuple ['M4', 'label']
+    - !!python/tuple ['M5', 'label']
+    - !!python/tuple ['BA', 'label']
+    - !!python/tuple ['UA', 'label']
+    - !!python/tuple ['UB', 'label']
+    - !!python/tuple ['LB', 'label']
+    - !!python/tuple ['SXCUT', 'label']
+    - !!python/tuple ['ALPHA', 'label']
+
+  -
+    groupname: 'Fill'
+    visible: false
+    entries:
+    - !!python/tuple ['RX', 'fill']
+    - !!python/tuple ['PC', 'fill']
+    - !!python/tuple ['WG', 'fill']
+    - !!python/tuple ['XG', 'fill']
+    - !!python/tuple ['GK', 'fill']
+    - !!python/tuple ['TJ', 'fill']
+    - !!python/tuple ['SM', 'fill']
+    - !!python/tuple ['TP', 'fill']
+    - !!python/tuple ['TQ', 'fill']
+    - !!python/tuple ['M1', 'fill']
+    - !!python/tuple ['V1', 'fill']
+    - !!python/tuple ['M2', 'fill']
+    - !!python/tuple ['V2', 'fill']
+    - !!python/tuple ['M3', 'fill']
+    - !!python/tuple ['V3', 'fill']
+    - !!python/tuple ['M4', 'fill']
+    - !!python/tuple ['V4', 'fill']
+    - !!python/tuple ['M5', 'fill']
+    - !!python/tuple ['BA', 'fill']
+    - !!python/tuple ['UA', 'fill']
+    - !!python/tuple ['GA', 'fill']
+    - !!python/tuple ['UB', 'fill']
+    - !!python/tuple ['LB', 'fill']
+
+  -
+    groupname: 'Res'
+    visible: false
+    entries:
+    - !!python/tuple ['RX', 'res']
+    - !!python/tuple ['PC', 'res']
+    - !!python/tuple ['CA', 'res']
+    - !!python/tuple ['M1', 'res']
+    - !!python/tuple ['M2', 'res']
+    - !!python/tuple ['M3', 'res']
+    - !!python/tuple ['M4', 'res']
+    - !!python/tuple ['M5', 'res']
+    - !!python/tuple ['BA', 'res']
+    - !!python/tuple ['UA', 'res']
+    - !!python/tuple ['UB', 'res']
+    - !!python/tuple ['LB', 'res']
+
+  -
+    groupname: 'Lumerical'
+    visible: false
+    entries:
+    - !!python/tuple ['poly', 'lumerical']
+    - !!python/tuple ['BOX', 'lumerical']
+    - !!python/tuple ['nitride', 'lumerical']
+    - !!python/tuple ['nitride_liner', 'lumerical']
+    - !!python/tuple ['CLADDING', 'lumerical']
+    - !!python/tuple ['nitride_liner_pc', 'lumerical']
+    - !!python/tuple ['rx_partial', 'lumerical']
+    - !!python/tuple ['rx_full', 'lumerical']
+    - !!python/tuple ['oxide_liner_pc', 'lumerical']
+
+  -
+    groupname: 'BAR vias'
+    visible: false
+    entries:
+    - !!python/tuple ['CA', 'bar']
+    - !!python/tuple ['V1', 'bar']
+    - !!python/tuple ['V2', 'bar']
+    - !!python/tuple ['V3', 'bar']
+    - !!python/tuple ['V4', 'bar']
+    - !!python/tuple ['WT', 'bar']
+    - !!python/tuple ['TA', 'bar']
+    - !!python/tuple ['GA', 'bar']
+    - !!python/tuple ['VV', 'bar']
+    - !!python/tuple ['RXbar', 'drawing']
+    - !!python/tuple ['M1bar', 'drawing']
+    - !!python/tuple ['M2bar', 'drawing']
+    - !!python/tuple ['M3bar', 'drawing']
+    - !!python/tuple ['M4bar', 'drawing']
+    - !!python/tuple ['M5bar', 'drawing']
+
+  -
+    groupname: 'Dataprep / Error / Temp'
+    visible: false
+    entries:
+    - !!python/tuple ['PHOTON', 'temp']
+    - !!python/tuple ['WAVEGUIDE', 'temp']
+    - !!python/tuple ['no_dataprep', 'no_dataprep']
+    - !!python/tuple ['RX', 'no_dataprep']
+    - !!python/tuple ['PC', 'no_dataprep']
+    - !!python/tuple ['KG', 'no_dataprep']
+    - !!python/tuple ['WG', 'no_dataprep']
+    - !!python/tuple ['BO', 'no_dataprep']
+    - !!python/tuple ['OG', 'no_dataprep']
+    - !!python/tuple ['XG', 'no_dataprep']
+    - !!python/tuple ['JL', 'no_dataprep']
+    - !!python/tuple ['DETECTOR', 'no_dataprep']
+    - !!python/tuple ['XGTAPER', 'no_dataprep']
+
+  -
+    groupname: 'ING (fiducial)'
+    visible: false
+    entries:
+    - !!python/tuple ['RX', 'ing']
+    - !!python/tuple ['PC', 'ing']
+    - !!python/tuple ['KG', 'ing']
+    - !!python/tuple ['WG', 'ing']
+    - !!python/tuple ['CA', 'ing']
+    - !!python/tuple ['CB', 'ing']
+    - !!python/tuple ['M1', 'ing']
+    - !!python/tuple ['V1', 'ing']
+    - !!python/tuple ['M2', 'ing']
+    - !!python/tuple ['V2', 'ing']
+    - !!python/tuple ['M3', 'ing']
+    - !!python/tuple ['V3', 'ing']
+    - !!python/tuple ['M4', 'ing']
+    - !!python/tuple ['V4', 'ing']
+    - !!python/tuple ['M5', 'ing']
+    - !!python/tuple ['BA', 'ing']
+
+  -
+    groupname: 'Other'
+    visible: false
+    entries:
+    - !!python/tuple ['RX', 'pin']
+    - !!python/tuple ['NW', 'drawing']
+    - !!python/tuple ['BR', 'drawing']
+    - !!python/tuple ['BC', 'drawing']
+    - !!python/tuple ['BI', 'drawing']
+    - !!python/tuple ['BR', 'plug']
+    - !!python/tuple ['BC', 'orient']
+    - !!python/tuple ['BC', 'orient2']
+    - !!python/tuple ['RP', 'drawing']
+    - !!python/tuple ['PC', 'pin']
+    - !!python/tuple ['PC', 'fuse']
+    - !!python/tuple ['PCINGAST', 'drawing']
+    - !!python/tuple ['PC', 'critical_r']
+    - !!python/tuple ['BHNH', 'drawing']
+    - !!python/tuple ['BP', 'drawing']
+    - !!python/tuple ['BPNH', 'drawing']
+    - !!python/tuple ['OX', 'drawing']
+    - !!python/tuple ['DG', 'drawing']
+    - !!python/tuple ['VAR', 'drawing']
+    - !!python/tuple ['IND', 'drawing']
+    - !!python/tuple ['NCAP', 'drawing']
+    - !!python/tuple ['PROBE', 'drawing']
+    - !!python/tuple ['SP', 'drawing']
+    - !!python/tuple ['SN', 'drawing']
+    - !!python/tuple ['ESD_CDM', 'drawing']
+    - !!python/tuple ['ESD_HBM', 'drawing']
+    - !!python/tuple ['EFUSE', 'drawing']
+    - !!python/tuple ['RR', 'drawing']
+    - !!python/tuple ['OVERDRIVE', 'drawing']
+    - !!python/tuple ['TR', 'drawing']
+    - !!python/tuple ['SOURCE', 'drawing']
+    - !!python/tuple ['ESD_CLAMP', 'drawing']
+    - !!python/tuple ['CA', 'rec']
+    - !!python/tuple ['M1', 'trans']
+    - !!python/tuple ['M2', 'trans']
+    - !!python/tuple ['M3', 'trans']
+    - !!python/tuple ['M4', 'trans']
+    - !!python/tuple ['M5', 'trans']
+    - !!python/tuple ['BA', 'trans']
+    - !!python/tuple ['UA', 'trans']
+    - !!python/tuple ['UB', 'trans']
+    - !!python/tuple ['LB', 'trans']
+    - !!python/tuple ['M1', 'esd']
+    - !!python/tuple ['M2', 'esd']
+    - !!python/tuple ['M3', 'esd']
+    - !!python/tuple ['M4', 'esd']
+    - !!python/tuple ['M5', 'esd']
+    - !!python/tuple ['BA', 'esd']
+    - !!python/tuple ['UA', 'esd']
+    - !!python/tuple ['UB', 'esd']
+    - !!python/tuple ['LB', 'esd']
+    - !!python/tuple ['M1', 'pin']
+    - !!python/tuple ['M2', 'pin']
+    - !!python/tuple ['M3', 'pin']
+    - !!python/tuple ['M4', 'pin']
+    - !!python/tuple ['M5', 'pin']
+    - !!python/tuple ['BA', 'pin']
+    - !!python/tuple ['UA', 'pin']
+    - !!python/tuple ['UB', 'pin']
+    - !!python/tuple ['LB', 'pin']
+    - !!python/tuple ['M1', 'vncap']
+    - !!python/tuple ['M2', 'vncap']
+    - !!python/tuple ['M3', 'vncap']
+    - !!python/tuple ['M4', 'vncap']
+    - !!python/tuple ['M5', 'vncap']
+    - !!python/tuple ['BA', 'vncap']
+    - !!python/tuple ['UA', 'vncap']
+    - !!python/tuple ['UB', 'vncap']
+    - !!python/tuple ['VNCAP', 'drawing']
+    - !!python/tuple ['VNCAP', 'parm']
+    - !!python/tuple ['VNCAP', 'count']
+    - !!python/tuple ['DI', 'drawing']
+    - !!python/tuple ['OP', 'drawing']
+    - !!python/tuple ['OP', 'plug']
+    - !!python/tuple ['BONDPAD', 'drawing']
+    - !!python/tuple ['ALPHA', 'drawing']
+    - !!python/tuple ['QQQUSER', 'drawing']
+    - !!python/tuple ['SXCUT', 'drawing']
+    - !!python/tuple ['SXCUT', 'pin']
+    - !!python/tuple ['SXCUT', 'dev']
+    - !!python/tuple ['SXCUT', 'blocked']
+    - !!python/tuple ['WAIVER', 'waiver1']
+    - !!python/tuple ['LOGOBND', 'drawing']
+    - !!python/tuple ['FLTGATE', 'drawing']
+    - !!python/tuple ['OUTLINE', 'drawing']
+    - !!python/tuple ['ALPHA_AUDIT', 'drawing']
+    - !!python/tuple ['text', 'drawing']
+    - !!python/tuple ['ALPHA', 'ip']
+    - !!python/tuple ['CELLSNR', 'drawing']
+    - !!python/tuple ['KERFEXCL', 'drawing']
+    - !!python/tuple ['PROTECT', 'drawing']
+    - !!python/tuple ['TP', 'drawing']
+    - !!python/tuple ['BFCUS', 'drawing']
+    - !!python/tuple ['PHREGA', 'NIX']
+    - !!python/tuple ['OC', 'drawing']
+    - !!python/tuple ['NQ', 'drawing']
+    - !!python/tuple ['QF', 'drawing']
+    - !!python/tuple ['ESDSCR_HBM', 'drawing']
+    - !!python/tuple ['TRANSMIS', 'drawing']
+    - !!python/tuple ['KF', 'drawing']
+    - !!python/tuple ['NF', 'drawing']
+    - !!python/tuple ['IBLK', 'drawing']
+    - !!python/tuple ['OUTLINE', 'devicematch']
+    - !!python/tuple ['UN', 'drawing']
+    - !!python/tuple ['UP', 'drawing']
+    - !!python/tuple ['OUTLINE_PSP', 'drawing']
+    - !!python/tuple ['CU_RCVPAD', 'drawing']
+    - !!python/tuple ['WAVEGUIDE', 'pin']
+    - !!python/tuple ['AR', 'drawing']
+    - !!python/tuple ['ON', 'drawing']
+    - !!python/tuple ['OR', 'drawing']
+    - !!python/tuple ['TQ', 'drawing']
+    - !!python/tuple ['CUST_LYR0', 'drawing']
+    - !!python/tuple ['CUST_LYR1', 'drawing']
+    - !!python/tuple ['CUST_LYR2', 'drawing']
+    - !!python/tuple ['CUST_LYR3', 'drawing']
+    - !!python/tuple ['CUST_LYR4', 'drawing']
+    - !!python/tuple ['CUST_LYR5', 'drawing']
+    - !!python/tuple ['CUST_LYR6', 'drawing']
+    - !!python/tuple ['CUST_LYR7', 'drawing']
+    - !!python/tuple ['CUST_LYR8', 'drawing']
+    - !!python/tuple ['CUST_LYR9', 'drawing']
+    - !!python/tuple ['CUST_LYR10', 'drawing']
+    - !!python/tuple ['CUST_LYR11', 'drawing']
+    - !!python/tuple ['CUST_LYR12', 'drawing']
+    - !!python/tuple ['CUST_LYR13', 'drawing']
+    - !!python/tuple ['CUST_LYR14', 'drawing']
+    - !!python/tuple ['CUST_LYR15', 'drawing']
+    - !!python/tuple ['CUST_LYR16', 'drawing']
+    - !!python/tuple ['CUST_LYR17', 'drawing']
+    - !!python/tuple ['CUST_LYR18', 'drawing']
+    - !!python/tuple ['CUST_LYR19', 'drawing']
+    - !!python/tuple ['CUST_LYR20', 'drawing']
+    - !!python/tuple ['CUST_LYR21', 'drawing']
+    - !!python/tuple ['CUST_LYR22', 'drawing']
+    - !!python/tuple ['CUST_LYR31', 'drawing']
+    - !!python/tuple ['CUST_LYR32', 'drawing']
+    - !!python/tuple ['CUST_LYR33', 'drawing']
+    - !!python/tuple ['CUST_LYR34', 'drawing']
+    - !!python/tuple ['CUST_LYR35', 'drawing']
+    - !!python/tuple ['CUST_LYR36', 'drawing']
+    - !!python/tuple ['CUST_LYR37', 'drawing']
+    - !!python/tuple ['CUST_LYR38', 'drawing']
+    - !!python/tuple ['CUST_LYR39', 'drawing']
+    - !!python/tuple ['CUST_LYR40', 'drawing']
+    - !!python/tuple ['CUST_LYR41', 'drawing']
+    - !!python/tuple ['CUST_LYR42', 'drawing']
+    - !!python/tuple ['CUST_LYR43', 'drawing']
+    - !!python/tuple ['CUST_LYR44', 'drawing']
+    - !!python/tuple ['CUST_LYR45', 'drawing']
+    - !!python/tuple ['CUST_LYR46', 'drawing']
+    - !!python/tuple ['CUST_LYR47', 'drawing']
+    - !!python/tuple ['CUST_LYR48', 'drawing']
+    - !!python/tuple ['CUST_LYR49', 'drawing']
+    - !!python/tuple ['LVS', 'drawing']
+    - !!python/tuple ['LVS', 'drawing1']
+    - !!python/tuple ['LVS', 'drawing2']
+    - !!python/tuple ['LVS', 'drawing3']
+    - !!python/tuple ['LVS', 'drawing4']
+    - !!python/tuple ['LVS', 'drawing5']
+    - !!python/tuple ['LVS', 'drawing6']
+    - !!python/tuple ['LVS', 'drawing7']
+    - !!python/tuple ['LVS', 'drawing8']
+    - !!python/tuple ['LVS', 'drawing9']
+    - !!python/tuple ['LVS1', 'drawing']
+    - !!python/tuple ['LVS1', 'drawing1']
+    - !!python/tuple ['LVS1', 'drawing2']
+    - !!python/tuple ['LVS1', 'drawing3']
+    - !!python/tuple ['LVS1', 'drawing4']
+    - !!python/tuple ['LVS1', 'drawing5']
+    - !!python/tuple ['LVS1', 'drawing6']
+    - !!python/tuple ['LVS1', 'drawing7']
+    - !!python/tuple ['LVS1', 'drawing8']
+    - !!python/tuple ['LVS1', 'drawing9']
+    - !!python/tuple ['LVS2', 'drawing']
+    - !!python/tuple ['LVS2', 'drawing1']
+    - !!python/tuple ['LVS2', 'drawing2']
+    - !!python/tuple ['LVS2', 'drawing3']
+    - !!python/tuple ['LVS2', 'drawing4']
+    - !!python/tuple ['LVSOPT0', 'net']
+    - !!python/tuple ['LVSOPT1', 'net']
+    - !!python/tuple ['LVSOPT2', 'net']
+    - !!python/tuple ['LVSCH1', 'net']
+    - !!python/tuple ['LVSCH2', 'net']
+    - !!python/tuple ['LVSCH3', 'net']
+    - !!python/tuple ['LVSCH4', 'net']
+    - !!python/tuple ['LVSCH5', 'net']
+    - !!python/tuple ['LVSCH6', 'net']
+    - !!python/tuple ['LVSCH7', 'net']
+    - !!python/tuple ['LVSCH8', 'net']
+    - !!python/tuple ['LVSOPT3', 'net']
+    - !!python/tuple ['LVSOPT4', 'net']
+    - !!python/tuple ['FIBERID', 'drawing']
+    - !!python/tuple ['RA', 'drawing']
+    - !!python/tuple ['OD', 'drawing']
+    - !!python/tuple ['OJ', 'drawing']
+    - !!python/tuple ['AV', 'drawing']
+    - !!python/tuple ['LJ', 'drawing']
+    - !!python/tuple ['LASER', 'drawing']
+    - !!python/tuple ['VNP', 'drawing']
+    - !!python/tuple ['Annotation', 'wg_loss']
+    - !!python/tuple ['Annotation', 'wg_length']
+    - !!python/tuple ['Annotation', 'wg_other']
+    - !!python/tuple ['Optical', 'pin']
+    - !!python/tuple ['Ribbed_Cband', 'drawing']
+    - !!python/tuple ['Ribbed_Oband', 'drawing']
+    - !!python/tuple ['SiN_Cband', 'drawing']
+    - !!python/tuple ['SiN_Oband', 'drawing']
+    - !!python/tuple ['Si_Cband', 'drawing']
+    - !!python/tuple ['Si_Oband', 'drawing']
+    - !!python/tuple ['TM_Si_Cband', 'drawing']
+    - !!python/tuple ['TM_Si_Oband', 'drawing']
+    - !!python/tuple ['SSC', 'drawing']
+    - !!python/tuple ['FIBERBLOCK', 'drawing']
+    - !!python/tuple ['FLTGATE2', 'drawing']
+    - !!python/tuple ['WAVEGUIDE', 'registration']
+    - !!python/tuple ['S1', 'drawing']
+    - !!python/tuple ['S1', 'open']
+    - !!python/tuple ['LE', 'drawing']
+    - !!python/tuple ['S2', 'drawing']
+    - !!python/tuple ['S2', 'open']
+    - !!python/tuple ['S3', 'drawing']
+    - !!python/tuple ['S3', 'open']
+    - !!python/tuple ['S4', 'drawing']
+    - !!python/tuple ['S4', 'open']
+    - !!python/tuple ['LF', 'drawing']
+    - !!python/tuple ['XU', 'drawing']
+    - !!python/tuple ['CUPILLAR', 'drawing']
+    - !!python/tuple ['MICROPILLAR', 'drawing']
+    - !!python/tuple ['MICRORCVPAD', 'drawing']
+    - !!python/tuple ['OZ', 'drawing']
+    - !!python/tuple ['SOX', 'drawing']
+    - !!python/tuple ['MMI', 'drawing']
+    - !!python/tuple ['PHASEPN', 'drawing']
+    - !!python/tuple ['RM', 'drawing']
+    - !!python/tuple ['RM_TERM', 'drawing']
+    - !!python/tuple ['RFMODFILL', 'drawing']
+    - !!python/tuple ['PKIND', 'drawing']
+    - !!python/tuple ['CIND', 'drawing']
+    - !!python/tuple ['MPW_EDGE', 'drawing']
+    - !!python/tuple ['SLMPAD', 'drawing']
+    - !!python/tuple ['OPTCON', 'id']
+    - !!python/tuple ['OPTCON', 'pin']
+

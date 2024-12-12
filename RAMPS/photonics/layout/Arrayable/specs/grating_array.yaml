@@ -1,0 +1,173 @@
+# General Project Settings
+project_name: Arrayable
+
+# Output Settings
+lsf_filename: GratingTest
+gds_filename: GratingTest
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Core_Layout.VerticalGratingCoupler.VGCTestSite
+  class_name: VerticalGratingTestSite
+  horizontal_distance: 30
+  vertical_distance: 5
+  horizontal_offset: 10
+  instances_per_row: 1
+  pack_params: False
+  params_per_cell: 2
+  class_params:
+      -  grating_params:
+             rect_list:
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: .75
+                 left_edge: 0
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 1.75
+                 left_edge: 1
+               - layer: !!python/tuple [RX, drawing]
+                 width: 2
+                 length: 0.75
+                 left_edge: 3
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 4
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 5
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 7
+         taper_package: 'Photonic_Core_Layout.Taper.LinearTaper' 
+         taper_class: 'LinearTaper'
+         taper_params:
+             width0: 0.5
+             width1: 5
+             length: 50
+             layer: !!python/tuple [RX, drawing]
+         waveguide_layer: !!python/tuple [RX, drawing]
+         grating_to_grating_distance: 300.0
+
+      -  grating_params:
+             rect_list:
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: .75
+                 left_edge: 0
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 1.75
+                 left_edge: 1
+               - layer: !!python/tuple [RX, drawing]
+                 width: 0.5
+                 length: 3
+                 left_edge: 3
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 4
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 5
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 7
+         taper_package: 'Photonic_Core_Layout.Taper.LinearTaper' 
+         taper_class: 'LinearTaper'
+         taper_params:
+             width0: 0.5
+             width1: 5
+             length: 50
+             layer: !!python/tuple [RX, drawing]
+         waveguide_layer: !!python/tuple [RX, drawing]
+         grating_to_grating_distance: 300.0
+
+      -  grating_params:
+             rect_list:
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: .75
+                 left_edge: 0
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 1.75
+                 left_edge: 1
+               - layer: !!python/tuple [RX, drawing]
+                 width: 2
+                 length: 0.75
+                 left_edge: 3
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 4
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 5
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 7
+         taper_package: 'Photonic_Core_Layout.Taper.LinearTaper' 
+         taper_class: 'LinearTaper'
+         taper_params:
+             width0: 0.5
+             width1: 5
+             length: 50
+             layer: !!python/tuple [RX, drawing]
+         waveguide_layer: !!python/tuple [RX, drawing]
+         grating_to_grating_distance: 300.0
+      -  grating_params:
+             rect_list:
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: .75
+                 left_edge: 0
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 1.75
+                 left_edge: 1
+               - layer: !!python/tuple [RX, drawing]
+                 width: 2
+                 length: 0.75
+                 left_edge: 3
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 4
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 5
+               - layer: !!python/tuple [RX, drawing]
+                 width: 5
+                 length: 0.5
+                 left_edge: 7
+         taper_package: 'Photonic_Core_Layout.Taper.LinearTaper' 
+         taper_class: 'LinearTaper'
+         taper_params:
+             width0: 0.5
+             width1: 5
+             length: 50
+             layer: !!python/tuple [RX, drawing]
+         waveguide_layer: !!python/tuple [RX, drawing]
+         grating_to_grating_distance: 300.0
+ 
+
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

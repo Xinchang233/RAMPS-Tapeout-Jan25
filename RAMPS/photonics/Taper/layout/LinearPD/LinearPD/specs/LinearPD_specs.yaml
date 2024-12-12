@@ -1,0 +1,21 @@
+# General Project Settings
+project_name: "/projectnb/siphot/djordje/TapeoutCode/TO_45RF_2020June/gen_libs/LinearPD"
+
+# Output Settings
+lsf_filename: LinearPD.lsf
+gds_filename: LinearPD_gds
+
+layout_package: 'LinearPD'
+layout_class: 'LinearPD'
+
+lsf_export_map: 'GF45RFSOI/Photonics/lumerical_map_withLiners.yaml'
+
+# Cadence related parameters
+impl_lib: 'LinearPD_lib'        # Module that contains the layout generator class
+impl_cell: 'LinearPD_cell'      # Layout generator class name
+layout_params:
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

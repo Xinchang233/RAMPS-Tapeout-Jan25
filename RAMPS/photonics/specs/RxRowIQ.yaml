@@ -1,0 +1,84 @@
+# General Project Settings
+project_name: 'RxRowIQ'
+
+# Output Settings
+lsf_filename: 'RxRowIQ'
+gds_filename: 'RxRowIQ'
+
+layout_package: 'cena_top.RAMPS.photonics.RxRow'
+layout_class: 'RxRowIQ'
+
+#lsf_export_map: 'GF45SPCLO/Photonics/lumerical_map_45CLO_withLiners.yaml'
+
+# Cadence related parameters
+impl_lib: 'RxRowIQ'        # Module that contains the layout generator class
+impl_cell: 'RxRowIQ'      # Layout generator class name
+
+# Generic source ring test site with PN and heater electrodes on the same side (row of 4 pads)
+layout_params:
+#  source_ring_loc_offset: !!python/tuple [0, -50]
+#  source_ring_module: equip_photonics_cena.AdiabaticRing.AdiabaticRing
+#  source_ring_class: AdiabaticRing
+#  source_ring_spec_file: equip_photonics_cena/AdiabaticRing/specs/AdiabaticRing_specs_CBand_45CLO.yaml
+#  source_ring_orient: 'R90'
+  grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+  grating_coupler_class: 'iograt_1311'
+  grating_coupler_spec_file: None
+  grating_coupler_loc_offset: !!python/tuple [148, 185]
+  grating_coupler_pitch: 127.0 # pitch for fiber array
+  grating_coupler_num: 16
+  rac_module: 'cryo_photonics.RA2x2devices'
+  rac_class: 'RA2x2devices'
+  rac_spec_file: 'cryo_photonics/specs/rac_si_gap_200.yaml'
+  pd_module: 'gf45spclo_photonics.ph45spclo.detector'
+  pd_class: 'detector_0p7u'
+  pd_spec_file: None
+  phase_shifter_module: 'equip_photonics_cena.Importers.PhaseShifter.ThermalPhaseShifterOBand'
+  phase_shifter_class: 'ThermalPhaseShifterOBand'
+  phase_shifter_params:
+
+  wg_port_layer: !!python/tuple ['si_full_free', 'port']
+  wg_routing_layer: !!python/tuple ['si_full_free', 'drawing']
+
+  track_pitch: 5
+
+  w_ps: 150
+  x_iso: -60
+
+  x_span: 2200.0
+  y_span: 190.0
+  x_inst_coupler_base: 170.0
+  x_inst_hybrid_base: 480
+  y_inst_hybrid_base: 56.489
+  x_inst_filter_base: 430
+  y_inst_filter_base: 140
+
+  x_inst_filter_space: 50
+
+  x_coupler_pitch: 80.0
+  y_coupler_pitch: 127.0
+
+  r_extra: 3
+  dx_pd_dummy: 0
+  dy_pd_dummy: 14
+
+
+  yaml_filter: 'cena_top/RAMPS/photonics/specs/AdiabaticRingDrop_Rout_10um_specs_OBand_45CLO_gap_0p174.yaml'
+
+
+
+
+
+#  bus_wg_params:
+#    gap: 0.100
+#    width: 0.350
+#    length: 200.000
+#    layer: !!python/tuple [si_full, drawing]
+#    port_layer: !!python/tuple [si_full, port]
+
+# transition_spec_file: equip_photonics_cena/LinearTransition/specs/LinearTransition_specs_45CLO.yaml
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

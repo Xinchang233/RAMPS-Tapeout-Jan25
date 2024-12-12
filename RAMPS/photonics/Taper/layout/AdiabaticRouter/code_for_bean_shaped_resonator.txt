@@ -1,0 +1,38 @@
+        init_port = self.add_photonic_port(name='init_port',
+                               center=(0, 0),
+                               orient='R270',
+                               width=0.6,
+                               layer=('RX', 'port'))
+
+
+
+        Wg = AdiabaticRouter(gen_cls=self,
+                              init_port= init_port ,
+                              layer=('rx3phot', 'drawing'),
+                             name = 'init_port')
+
+
+        Wg.add_arb_bend(angle = [0, pi / 2], curvature = [0, -1 / 10], width=1)
+        # Wg.add_bend_180(rmin=5, turn_left=False, width=[0.6, 1.2, 0.6])
+        # Wg.add_straight_wg(length=5)
+        #
+        sr = dict(r_out = 52.0/6, ring_width = 1, theta_in = 0, theta_out = 180)
+        sr_temp = self.new_template(params=sr, temp_cls=SimpleRing)
+
+        a = self.add_instance_port_to_port(inst_master =sr_temp, self_port=Wg.port, instance_port_name='PORT_IN')
+        b= self.add_instance_port_to_port(inst_master=sr_temp, self_port=a['PORT_OUT'], instance_port_name='PORT_IN', reflect=True)
+        c = self.add_instance_port_to_port(inst_master=sr_temp, self_port=b['PORT_OUT'], instance_port_name='PORT_IN')
+       # d = self.add_instance_port_to_port(inst_master=sr_temp, self_port=c['PORT_OUT'], instance_port_name='PORT_IN', reflect=True)
+
+        init_port1 = self.add_photonic_port(name='init_port1',
+                                           center=(0, 0),
+                                           orient='R90',
+                                           width=0.6,
+                                           layer=('RX', 'port'))
+
+        Wg1 = AdiabaticRouter(gen_cls=self,
+                             init_port=init_port1,
+                             layer=('rx3phot', 'drawing'),
+                             name='init_port1')
+
+        Wg1.add_arb_bend(angle=[0, -pi / 2], curvature=[0, 1 / 10], width=1)

@@ -1,0 +1,57 @@
+# Directory Locations
+project_name: WaveguideBase
+
+# Output Settings
+lsf_filename: WaveguideBaseClass
+gds_filename: WaveguideBaseClass
+
+# Specify a generic technology as this is a public sample
+bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.WaveguideBase.tests.test_waveguide_base'
+layout_class: 'WaveguideBaseTester'
+
+layout_params:
+  gen_waveguide_params:
+    width: 0.5
+    layer: 'SI'
+    points:
+      - !!python/tuple [0, 0]
+      - !!python/tuple [1, 0]
+      - !!python/tuple [2, 0.4]
+      - !!python/tuple [3, 0.6]
+      - !!python/tuple [4, 0.2]
+      - !!python/tuple [5, -1]
+      - !!python/tuple [6, 0.4]
+      - !!python/tuple [7, 0.5]
+      - !!python/tuple [8, 0.6]
+      - !!python/tuple [9, 0.7]
+      - !!python/tuple [10, 0.2]
+      - !!python/tuple [11, -0.3]
+      - !!python/tuple [12, -0.6]
+      - !!python/tuple [13, -0.4]
+      - !!python/tuple [14, -0.4]
+  gen_waveguide2_params:
+    width: 0.5
+    layer: 'SI'
+    points:
+      - !!python/tuple [0, 0]
+      - !!python/tuple [1, 0]
+      - !!python/tuple [2, 0.1]
+      - !!python/tuple [3, 0.2]
+      - !!python/tuple [4, 0.3]
+      - !!python/tuple [5, -1]
+      - !!python/tuple [6, 0.4]
+      - !!python/tuple [7, 0.5]
+      - !!python/tuple [8, 0.6]
+      - !!python/tuple [9, 0.7]
+      - !!python/tuple [10, 0.2]
+      - !!python/tuple [11, -0.3]
+      - !!python/tuple [12, -0.6]
+      - !!python/tuple [13, -0.4]
+      - !!python/tuple [14, -0.3]
+
+# Cadence related parameters
+impl_lib: 'genwg_test_lib'
+impl_cell: 'genwg_test_cell'

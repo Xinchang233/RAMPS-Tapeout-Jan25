@@ -1,0 +1,110 @@
+# General Project Settings
+project_name: Arrayable
+
+# Output Settings
+lsf_filename: AnyTwoPortTestSite
+gds_filename: AnyTwoPortTestSite
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Core_Layout.AnyTwoPortTestSite.AnyTwoPortTestSite
+  class_name: AnyTwoPortTestSite
+  horizontal_distance: 30
+  vertical_distance: 5
+  horizontal_offset: 10
+  instances_per_row: 1
+  pack_params: False
+  params_per_cell: 2
+  class_params:
+      -  grating_params:
+            layer: ['RX', 'drawing']
+            width: 5
+            length: .6
+            space: .4
+            num_teeth: 10
+            first_rect_length: 5
+
+         taper_params:
+            taper_length: 10
+
+         wg_params:
+            wg_length: 100.0
+            wg_width: .5
+
+         two_port_package: Photonic_Core_Layout.Ring.ring_moscap
+         two_port_class: RingMoscap
+         input_port: 'INPUT'
+         output_port: 'THRU'
+         two_port_params:
+          # Parameters of c_RX (body) ring and input/drop waveguides
+           body_layer: !!python/tuple ['RX', 'drawing']
+           body_ring_rout: 3.0
+           body_ring_width: 2.8
+
+           input_wg_coRXne: False
+           input_wg_width: 0.45
+           input_wg_length: 5.0
+           input_gap: 0.2
+
+           drop_wg: False
+           drop_wg_width: 0.45
+           drop_wg_length: 5.0
+           drop_gap: 0.2
+           drop_wg_taper_length: 5.0
+
+          # Parameters of c_RX partial thickness (if available in the technology)
+           body_thin: True
+           body_thin_layer: !!python/tuple ['RX', 'drawing'] # doping layer used just for testing the code
+           body_thin_rout: 2.6
+           body_thin_width: 1.8
+
+          # Parameters of p_RX (gate) ring
+           gate_layer: !!python/tuple ['BN', 'drawing']
+           gate_ring_rout: 3.0
+           gate_ring_width: 1.7
+
+          # Parameters of doping layers
+           body_doping_info:
+             - {rout: 3.1, rin: 0.1, layer: !!python/tuple ['BN', 'drawing']}
+             - {rout: 1.4, rin: 1.0, layer: !!python/tuple ['BN', 'drawing']}
+           gate_doping_info:
+             - {rout: 3.1, rin: 0.1, layer: !!python/tuple ['PC', 'drawing']}
+             - {rout: 2.0, rin: 1.7, layer: !!python/tuple ['PC', 'drawing']}
+
+          # Parameters of metal ring electrodes
+           body_via_radius: 0.7
+           body_via_number: 15
+           gate_via_radius: 1.4
+           gate_via_number: 25
+           salicide_ring_layer: ['BN', 'drawing']
+           salicide_ring_width: 0.2
+           body_electrode_ring_layer: !!python/tuple ['M3', 'drawing']
+           body_electrode_ring_width: 0.2
+           gate_electrode_ring_layer: !!python/tuple ['M2', 'drawing']
+           gate_electrode_ring_width: 0.2
+           label_body_electrode: 'Body'
+           label_gate_electrode: 'Gate'
+
+          # Parameters of GS electrodes
+           gs_electrodes: True
+           g_bottom_width: 0.5
+           g_bottom_length: 0.5
+           s_bottom_width: 0.5
+           s_bottom_length: 0.5
+           pad_layer: !!python/tuple ['LV', 'drawing']
+           pad_width: 38.0
+           pad_length: 50.0
+           pad_pitch: 42.0
+
+
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

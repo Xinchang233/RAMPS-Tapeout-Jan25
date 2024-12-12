@@ -1,0 +1,13 @@
+*drcRulesFile: dummy
+*drcRunDir: dummy
+*drcLayoutPaths: dummy
+*drcLayoutPrimary: *
+*drcResultsFile: dummy
+*drcResultsFormat: GDSII
+*drcCellName: 0
+*drcDRCMaxResultsAll: 1
+*cmnShowOptions: 1
+*cmnPrecision: 1000 1
+*cmnRunMT: 1
+*cmnRunHyper: 1
+*cmnNumTurbo: 8

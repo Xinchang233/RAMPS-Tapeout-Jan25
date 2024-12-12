@@ -1,0 +1,66 @@
+# Directory Locations
+project_name: SimpleRound
+
+# Output Settings
+lsf_filename: GeneralSimpleRound.lsf
+gds_filename: GeneralSimpleRound
+
+
+# Generator Params
+layout_package: 'layout.SimpleRound.GeneralSimpleRound'  # Module that contains the layout generator class
+layout_class: 'GeneralSimpleRound'  # Layout generator class name
+
+layout_params:
+  ring_params:
+    layer: !!python/tuple ['si_full_free', 'drawing']
+    r_out: 10
+    r_width: 0.5
+    r_step: 0.01
+
+  UT_params:
+    -  layer: !!python/tuple ['UT', 'drawing']
+       r_out: 14
+       ring_width: 1
+       theta_in: -30
+       theta_out: 30
+       num_segments: 10
+       duty_cycle: 1
+
+    -  layer: !!python/tuple ['UT', 'drawing']
+       r_out: 14
+       ring_width: 1
+       theta_in: 150
+       theta_out: 210
+       num_segments: 10
+       duty_cycle: 1
+
+  heater_params:
+    module: layout.RingHeater.RingHeater
+    class: RingHeater
+    params:
+      orient: 'R0'
+      rout: 8.5
+      width: 1
+      contact_dist: 2
+      contact_width: 1.4
+      device_layer: !!python/tuple ['si_full_free', 'drawing']
+      disk_layers:
+        - !!python/tuple ['PLN', 'drawing']
+      electrode_layer_top: !!python/tuple ['UA', 'drawing']
+      electrode_layer_bottom: !!python/tuple ['RX', 'drawing']
+      electrode_top_x_span: 2.0
+      electrode_top_y_span: 2.0
+      electrode_bottom_x_span: 2.0
+      electrode_bottom_y_span: 2.0
+      disk_layer_extension: 0.1
+      electrode_bottom_layer: !!python/tuple ['RX', 'drawing']
+      electrode_label: {P: 'Heat_P', N: 'Heat_N'}
+
+# Cadence related parameters
+impl_lib: 'simpleround_lib'
+impl_cell: 'simpleround_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

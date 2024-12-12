@@ -1,0 +1,40 @@
+
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/RingHeater'
+
+# Output Settings
+lsf_filename: ringheater.lsf
+gds_filename: RingHeater_gds
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'layout.Ring.ringheater'  # Module that contains the layout generator class
+# Layout generator class name
+layout_class: 'RingHeater'
+
+layout_params:
+  rout: 15.3
+  width: 0.84
+  contact_dist: 1.5
+  contact_width: 1.0
+  device_layer: !!python/tuple ['RX', 'drawing']
+  disk_layers:
+    - !!python/tuple ['nnphot', 'drawing']
+    - !!python/tuple ['sldphot', 'drawing']
+  electrode_top_layer: !!python/tuple ['C2', 'drawing']
+  electrode_top_x_span: 1.
+  electrode_top_y_span: 1.
+  electrode_bottom_x_span: 1.
+  electrode_bottom_y_span: 1.
+  disk_layer_extension: 0.1
+  electrode_bottom_layer: !!python/tuple ['RX', 'drawing']
+#  electrode_label: 'Heater'
+  electrode_label: {P: 'Heater_P_LABEL', N: 'N_heater_custom'}
+
+
+# Cadence related parameters
+impl_lib: 'ringheater_lib'
+impl_cell: 'ringheater_cell'

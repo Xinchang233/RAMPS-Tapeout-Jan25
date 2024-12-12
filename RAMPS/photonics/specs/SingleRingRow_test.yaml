@@ -1,0 +1,109 @@
+
+
+
+# Directory Locations
+project_name: 'SingleRingRow'
+
+# Output Settings
+lsf_filename: 'SingleRingRow'
+gds_filename: 'SingleRingRow'
+
+# Cadence related parameters
+impl_lib: 'SingleRingRow'
+impl_cell: 'SingleRingRow'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'cena_top.RAMPS.photonics.SingleRingRow'
+# Layout generator class name
+layout_class: 'SingleRingRow'
+
+layout_params:
+
+  grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+  grating_coupler_class: 'iograt_1311'
+#  grating_coupler_module: 4353
+#  grating_coupler_class: 1311
+  param_x: 0
+
+  site_pitch: 300.0
+  track_pitch: 5.0
+
+  x_coupler_clear: 40.0
+  y_coupler_clear: 20.0
+  x_coupler_pitch: 80.0
+  y_coupler_pitch: 30.0
+
+  x_port_coupler_in_base: 60.0
+  x_port_coupler_out_base: 1600.0
+  y_port_coupler_base: 25.0
+
+  dx_inst: 42.508
+  dy_inst: 20.0
+  dy_port_inst_bot: 5.0
+  dy_port_inst_top: 15.0
+  x_instance:
+    - 565.0
+    - 765.0
+    - 965.0
+    - 1165.0
+    - 1365.0
+
+
+  package_class_param_list:
+
+    - package: 'gf45spclo_photonics.ph45spclo.iograt'
+      class: 'iograt_1311'
+      params:
+
+
+  yaml_list:
+
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+    - 'VOID'
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+    - 'VOID'
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+    - 'VOID'
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+    - 'VOID'
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+    - 'VOID'
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+
+  # parameters only for the array
+  n_rowpairs: 3
+  y_pitch_rowpairs: 120
+  y_split_in_pair: 10
+

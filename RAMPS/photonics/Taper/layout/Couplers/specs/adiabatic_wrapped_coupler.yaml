@@ -1,0 +1,28 @@
+# General Project Settings
+project_name: 'Couplers'
+
+# Output Settings
+lsf_filename: AdiabaticWrappedCoupler
+gds_filename: AdiabaticWrappedCoupler
+
+layout_package: 'layout.Couplers.AdiabaticWrappedCoupler'
+layout_class: AdiabaticWrappedCoupler
+layout_params:
+  layer:  !!python/tuple ['si_full_free', 'drawing']
+  width: 0.5
+  length: 20
+  r_coupling: 6
+  rmin_in: 4
+  alpha_zero_in: 1.0471975511965976
+  angle_coupling: 0.5067084925144828
+
+
+# Cadence related parameters
+impl_lib: 'AdiabaticWrappedCoupler_lib'
+impl_cell: 'AdiabaticWrappedCoupler_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+

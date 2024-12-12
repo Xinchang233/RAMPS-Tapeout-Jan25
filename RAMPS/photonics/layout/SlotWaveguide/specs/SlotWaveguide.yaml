@@ -1,0 +1,31 @@
+# Directory Locations
+project_name: SlotWaveguide #it is the name of the folder that will create in the "gen_libs" folder
+
+# Output Settings
+lsf_filename: SlotWaveguide # it is the lumerical script file ; although it is not created
+gds_filename: SlotWaveguide # this .gds file will be created in the "/gen_libs/WaveguideBase/data/"
+
+# Generator Params
+# "layout_package:" states the directory where the GENERAL (mother) python code is found onto which the values of spec file is used
+# "layout_class:" states the name of class in the mother code in which we specifies the following values.
+layout_package: 'layout.SlotWaveguide.SlotWaveguide'
+layout_class: 'SlotWaveguide'
+layout_params:
+
+  slot_width: 0.9
+  rail_width: 0.5
+  strip_width: 0.6
+  base_width: 1.1
+  length: 10
+  width: 0.5
+  layer: !!python/tuple [si_full_free, drawing]
+  port_layer: !!python/tuple [si_full_free, port]
+
+# Cadence related parameters
+impl_lib: 'genwg_lib'
+impl_cell: 'genwg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

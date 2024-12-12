@@ -1,0 +1,65 @@
+
+# Directory Locations
+project_name: 'TestArray'
+
+# Output Settings
+lsf_filename: 'TestArray'
+gds_filename: 'TestArray'
+
+# Cadence related parameters
+impl_lib: 'TestArray'
+impl_cell: 'TestArray'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'cena_top.RAMPS.photonics.TestSiteArray'
+# Layout generator class name
+layout_class: 'TestSiteArray'
+
+layout_params:
+  site_pitch: 300
+  track_pitch: 5
+  package_class_param_list:
+    - package: 'cena_top.RAMPS.photonics.TestSiteArray'
+      class: 'DummySite'
+      params:
+        length: 15
+    - package: 'cena_top.RAMPS.photonics.TestSiteArray'
+      class: 'DummySite'
+      params:
+        length: 5
+    - package: 'cena_top.RAMPS.photonics.TestSiteArray'
+      class: 'DummySite'
+      params:
+        length: 25
+
+  yaml_list:
+
+#    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_horizontal_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/fullsi_spoked_rings.yaml
+
+#    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullrib_single_ring.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+
+#    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/ring_rib_wg_specs.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+
+#    - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+#
+#    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+#    - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+#    - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml

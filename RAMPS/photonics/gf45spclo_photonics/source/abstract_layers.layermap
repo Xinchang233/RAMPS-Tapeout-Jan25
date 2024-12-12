@@ -1,0 +1,132 @@
+# Notes:
+# Layers on GDS layer 41 will be maintained and sent to foundry
+# Any layers we want to keep in final submitted GDS should be on 41 (with some restricted purpose numbers)
+# All other GDS layers should use nonsense layer numbers that are not used by GF (ex: 1000, 1001, 10000)
+
+
+# Guidelines (not required, but perhaps useful for quickly identifying layers):
+#   1002 = waveguide layers
+#       Purpose: 1xx = silicon
+#                2xx = nitride
+#   1001 = port layers
+#   1005 = nodataprep
+#   1010 = lumerical
+#   1015 = dataprep temp layers
+#   1020 = DRC error helper layers
+
+
+# ============================================================
+# Waveguide design layers
+# ============================================================
+# si_full has priority over si_partial- will remove any overlapping KG
+si_full_free            drawing                     1002    100
+si_full                 drawing                     1002    101
+
+# si_tm = full thickness TM/TE waveguide.  Produces larger PHOTON keepout to prevent fill from
+# interacting with TM mode.
+# has priority over si_partial
+si_tm_free              drawing                     1002    106
+si_tm                   drawing                     1002    102
+
+# si_partial has priority over rx_free - will partially etch rx_free. will return to full RX if covered by si_full
+si_partial_free         drawing                     1002    103
+si_partial              drawing                     1002    104
+
+# Lowest 'priority'- will get partially etched if covered by si_partial
+si_free                 drawing                     1002    105
+si                      drawing                     1002    107
+
+# Polysilicon
+si_poly_free            drawing                     1002    130
+si_poly                 drawing                     1002    131
+
+# Highest priority- will remove RX
+# Fully etch any overlapping silicon
+si_etch                 drawing                     1002    110
+
+# Silicon nitride
+sin_free                drawing                     1002    200
+sin                     drawing                     1002    201
+
+# ============================================================
+# Photonic implants
+# ============================================================
+p_heavy_phot            drawing                     41      223
+n_heavy_phot            drawing                     41      224
+p_inter_phot            drawing                     41      225
+n_inter_phot            drawing                     41      226
+p_mod_phot              drawing                     41      227
+n_mod_phot              drawing                     41      228
+p_det_phot              drawing                     41      229
+n_det_phot              drawing                     41      230
+n_heavy_sil             drawing                     9001    1
+p_heavy_sil             drawing                     9002    1
+
+# ============================================================
+# port layers
+# ============================================================
+si_full_free            port                        1001    1
+sin_free                port                        1001    2
+si_full                 port                        1001    3
+si_tm                   port                        1001    4
+si_partial              port                        1001    5
+si_poly_free            port                        1001    6
+si_etch                 port                        1001    7
+sin                     port                        1001    8
+si_poly                 port                        1001    9
+si_tm_free              port                        1001    10
+si_free                 port                        1001    11
+si                      port                        1001    12
+RX                      port                        1001    13
+
+
+# ============================================================
+# Floorplanning layers
+# ============================================================
+ut_extent               drawing                     1014    1
+
+mod                     drawing                     1014    2
+pd                      drawing                     1014    3
+grating                 drawing                     1014    4
+thermal                 drawing                     1014    5
+lib_component           drawing                     1014    6
+
+# ============================================================
+# Dataprep layers
+# ============================================================
+
+no_dataprep             no_dataprep                 1015    0
+RX                      no_dataprep                 1015    1
+PC                      no_dataprep                 1015    2
+KG                      no_dataprep                 1015    3
+WG                      no_dataprep                 1015    4
+BO                      no_dataprep                 1015    5
+OG                      no_dataprep                 1015    6
+XG                      no_dataprep                 1015    7
+XGTAPER                 no_dataprep                 1015    13
+DETECTOR                no_dataprep                 1015    8
+JL                      no_dataprep                 1015    9
+PHOTON                  temp                        1015    10
+WAVEGUIDE               temp                        1015    12
+
+# Layers which force bar vias
+RXbar               drawing                         1016    235
+M1bar               drawing                         1016    236
+M2bar               drawing                         1016    237
+M3bar               drawing                         1016    238
+M4bar               drawing                         1016    239
+M5bar               drawing                         1016    240
+
+
+# ============================================================
+# Lumerical layers
+# ============================================================
+rx_full                 lumerical                   1010    0
+rx_partial              lumerical                   1010    1
+poly                    lumerical                   1010    2
+nitride                 lumerical                   1010    3
+nitride_liner           lumerical                   1010    4
+oxide_liner_pc          lumerical                   1010    5
+nitride_liner_pc        lumerical                   1010    6
+BOX                     lumerical                   1010    7
+CLADDING                lumerical                   1010    8

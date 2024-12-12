@@ -1,0 +1,104 @@
+# Directory Locations
+project_name: 'DualRingVars'
+
+# Output Settings
+lsf_filename: DualRingMod10v1.lsf
+gds_filename: DualRingMod10v2_rr_330gap_rb_368gap
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+#layout/DualRing/DualRingTest.py
+layout_package: 'layout.DualRing.DualRing'  # Module that contains the layout generator class
+layout_class: 'DualRing'  # Layout generator class name
+layout_params:
+  spoked_peanut_gap: 0.33
+  ring_bus_gap: 0.368
+  ring_bus_gap_drop: 0.519
+  spoked_list_params:
+  ########################################## 10 ### old 8, group5 (transistor) interleaved, dopings: NW UP BP UN BF BN gap 355 ######################################
+    - add_grating_left: False
+      add_grating_right: False
+      grating_distance: 127 #NA
+      grating_band_radius: 10 #NA
+      rout: 5
+      draw_pads: False
+      draw_gsbox: True
+      reflect: True
+      ring_width: 1.2
+      layer: !!python/tuple ['rx3phot', 'drawing']
+      doping_spoke_info:
+        - {rin: 4.45, rout: 4.69, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],  spoke_width_percentage: 1}
+        - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3, rout: 3.8, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],spoke_width_percentage: 0.88}
+
+        - {rin: 4.45, rout: 4.69, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw8phot', 'drawing'],  spoke_width_percentage: 1}
+        - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw8phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3, rout: 3.8, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw8phot', 'drawing'],spoke_width_percentage: 0.88}
+
+
+        - {rin: 3.2, rout: 5.18, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 4.45, rout: 5.18, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],  spoke_width_percentage: 1}
+        - {rin: 3.12, rout: 3.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],spoke_width_percentage: 1}
+
+        - {rin: 4.7, rout: 5.2, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw4phot', 'drawing'],  spoke_width_percentage: 2}
+        - {rin: 4.45, rout: 4.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw4phot', 'drawing'],  spoke_width_percentage: 1}
+        - {rin: 3.8, rout: 4.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw4phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3.12, rout: 3.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw4phot', 'drawing'],spoke_width_percentage: 1}
+
+      extra_ring_info:
+      spoke_num: 30
+      coupling_slot: 0.355
+      drop_slot: 0
+      wg_width: 0.4
+    #  label: 'Contact'       # Label can be specified as a single name that will be appended by _P and _N
+      label: {P: 'P_labelname', N: 'N_labelhere'}   # Label can be specified as a dict of N and P labels
+      outer_electrode_ring_layers:
+        - !!python/tuple ['C1', 'drawing']
+        - !!python/tuple ['C2', 'drawing']
+        - !!python/tuple ['B1', 'drawing']
+
+      inner_electrode_ring_layers:
+        - !!python/tuple ['B1', 'drawing']
+        - !!python/tuple ['B2', 'drawing']
+
+
+      # Advanced parameters: can change between designs per technology, but not recommended for standard users
+      access_length: 30
+      p_via_radius_offset: 0.4
+      n_via_radius_offset: 0.7
+      high_doping_rout_offset: 0.0
+      high_doping_rin_offset: 0.1
+      electrode_offset: 0.4
+      electrode_width_inner: 0.7
+      electrode_width_outer: 0.4
+      drop_taper_length: 15
+      salicide_radius_extension: 0.9
+      high_doping_n_rin_offset: -0.1
+
+      # Advanced tech params: should not need to change between designs in a given technology
+      high_p_doping_layer: !!python/tuple ['nw1phot', 'drawing']
+      high_n_doping_layer: !!python/tuple ['pw1phot', 'drawing']
+      salicide_lpp:
+      bottom_metal_electrode_layer: !!python/tuple ['RX', 'drawing']
+      bottom_electrode_label_layer: !!python/tuple ['M1', 'label']
+      gs_electrod_params:
+        gs_electrodes: True
+        gs_pad_layer: !!python/tuple ['LB', 'drawing']
+        gs_pad_width: 38.0
+        gs_pad_length: 50.0
+        gs_pad_open_layer: !!python/tuple ['LV', 'drawing']
+        gs_pad_open_inclusion: 2.0
+
+
+#######
+
+# Cadence related parameters
+impl_lib: 'DualRingMod10v1'
+impl_cell: 'DualRingMod10v1'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

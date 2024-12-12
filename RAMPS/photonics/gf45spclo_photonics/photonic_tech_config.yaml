@@ -1,0 +1,42 @@
+# GDS layermap
+layermap: "${BAG_WORK_DIR}/gf45spclo_photonics/gds_map_generated.yaml"
+
+# The Photonic Technology class
+photonic_tech_class: 'gf45spclo_photonics.photonic_tech.PhotonicTechInfo45SPCLO'
+
+# File containing dataprep procedure information
+dataprep_routine_filepath: "${BAG_WORK_DIR}/gf45spclo_photonics/dataprep_routine.yaml"
+
+# File containing dataprep / DRC parameter information
+dataprep_parameters_filepath: "${BAG_WORK_DIR}/gf45spclo_photonics/dataprep_parameters.yaml"
+
+# Folder where custom dataprep functions are defined
+custom_dataprep_op_dir: "${BAG_WORK_DIR}/gf45spclo_photonics/custom_calibre_dataprep"
+
+# Calibre based dataprep runset
+dataprep_calibre_runset_template: "${BAG_WORK_DIR}/gf45spclo_photonics/dataprep_runset.runset"
+
+## File containing the skill procedures to implement dataprep.
+## The DataPrepWrapper( "{lib_name}" "{cell_name}" {debug} ) method must be implemented to call dataprep via BPGs
+## build in method
+#dataprep_skill_path: "${BAG_WORK_DIR}/BPG/BPG/dataprep_skill.il"
+
+# lsf_dataprep_filepath:
+lsf_dataprep_filepath: "${BAG_WORK_DIR}/gf45spclo_photonics/lumerical_map.yaml"
+
+# Default routing grid to use for this process.
+default_routing_grid:
+  layers: [1, 2, 3, 4, 5, 6]
+  spaces: [0.1, 0.1, 0.1, 0.1, 0.1, 1.2]
+  widths: [0.1, 0.1, 0.1, 0.1, 0.1, 1.2]
+  bot_dir: 'y'
+
+
+# Depth of hierarchy to which labels will be preserved in post-dataprep layout (which is flat).
+# -1 indicates labels in all layers of hierarchy will be present post dataprep
+# 0 only top-level labels will be present post dataprep
+# 1 indicates top-level and 1 sublevel of labels will be present
+# etc.
+dataprep_label_depth: -1
+
+

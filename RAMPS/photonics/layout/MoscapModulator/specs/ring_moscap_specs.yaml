@@ -1,0 +1,86 @@
+
+# Directory Locations
+#project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/RingMoscap'
+project_name: MoscapModulator
+
+# Output Settings
+lsf_filename: RingMoscap
+gds_filename: RingMoscap
+
+# Generator Params
+layout_package: 'layout.MoscapModulator.ring_moscap'
+layout_class: 'RingMoscap'
+layout_params:
+#        # Parameters of c_Si (body) ring and input/drop waveguides
+#        #body_layer: !!python/tuple ['RX', 'drawing']
+#        body_ring_rout: 1.5
+#        body_ring_width: 1.5
+#
+#        input_wg_cosine: False
+#        input_wg_width: 0.45
+#        input_wg_length: 5.0
+#        input_gap: 0.2
+#
+#        drop_wg: False
+#        drop_wg_width: 0.45
+#        drop_wg_length: 5.0
+#        drop_gap: 0.2
+#        drop_wg_taper_length: 5.0
+#
+#        # Parameters of c_Si partial thickness (if available in the technology)
+#        body_thin: True
+#        body_thin_layer: !!python/tuple ['KG', 'drawing'] # doping layer used just for testing the code
+#        body_thin_rout: 1.1
+#        body_thin_width: 0.5
+#
+#        # Parameters of p_Si (gate) ring
+#        gate_layer: !!python/tuple ['PC', 'drawing']
+#        gate_ring_rout: 1.502
+#        gate_ring_width: 1.0
+#
+#        # Parameters of doping layers
+#        body_doping_info:
+#          - {rout: 1.5, rin: 0.0, layer: !!python/tuple ['IH', 'drawing']}
+#          - {rout: 0.7, rin: 0.0, layer: !!python/tuple ['IM', 'drawing']}
+#          - {rout: 0.67, rin: 0.0, layer: !!python/tuple ['PLP', 'drawing']}
+#        gate_doping_info:
+#          - {rout: 1.499, rin: 0.52, layer: !!python/tuple ['RP', 'drawing']}
+#          - {rout: 0.7, rin: 0.52, layer: !!python/tuple ['RR', 'drawing']}
+#
+#        # Parameters of metal ring electrodes
+#        body_via_radius: 0.2
+#        body_via_number: 2
+#        gate_via_radius: 0.601
+#        gate_via_number: 8
+#        #body_electrode_ring_layer: !!python/tuple ['BA', 'drawing']
+#        body_electrode_ring_width: 0.2
+#        #gate_electrode_ring_layer: !!python/tuple ['M3', 'drawing']
+#        gate_electrode_ring_width: 0.15
+#        label_body_electrode: 'Body'
+#        label_gate_electrode: 'Gate'
+#
+#        # Parameters of GS electrodes
+#        gs_electrodes: True
+#        g_bottom_width: 3.0
+#        g_bottom_length: 0.7
+#        s_bottom_width: 3.0
+#        s_bottom_length: 0.7
+#        pad_layer: !!python/tuple ['LB', 'drawing']
+#        pad_width: 38.0
+#        pad_length: 50.0
+#        pad_pitch: 42.0
+#        #gs_pad_open_layer: !!python/tuple ['DV', 'drawing']
+#        gs_pad_open_inclusion: 2.0
+#
+#        aux_layer_info:
+#          - {width: 25.0, length: 30.0, layer: !!python/tuple ['mod', 'drawing']}
+#          - {width: 5.0, length: 5.0, layer: !!python/tuple ['IOGRAT', 'drawing']}
+
+# Cadence related parameters
+impl_lib: 'RingMoscap'
+impl_cell: 'RingMoscap_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

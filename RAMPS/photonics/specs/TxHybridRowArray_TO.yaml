@@ -1,0 +1,147 @@
+
+
+
+# Directory Locations
+project_name: 'TxHybridRowArray'
+
+# Output Settings
+lsf_filename: 'TxHybridRowArray'
+gds_filename: 'TxHybridRowArray'
+
+# Cadence related parameters
+impl_lib: 'TxHybridRowArray'
+impl_cell: 'TxHybridRowArray'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'cena_top.RAMPS.photonics.TxRow'
+# Layout generator class name
+layout_class: 'TxHybridRowArray'
+
+layout_params:
+
+  wg_port_layer: !!python/tuple ['si_full_free', 'port']
+  wg_routing_layer: !!python/tuple ['si_full_free', 'drawing']
+
+  n_rowpairs_single: 1
+  n_rowpairs_triple: 2
+
+  list_seq_pitch_row_pair:
+    - 'triple'
+    - 'single'
+    - 'triple'
+
+
+  list_pitch_row_pair:
+    - 100.5
+    - 160
+    - 180
+
+  params_single_ring_row_array:
+
+
+    grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+    grating_coupler_class: 'iograt_1311'
+
+    param_x: 0
+
+    site_pitch: 300.0
+    track_pitch: 5.0
+
+    x_coupler_clear: 40.0
+    y_coupler_clear: 20.0
+    x_coupler_pitch: 80.0
+    y_coupler_pitch: 30.0
+
+    x_port_coupler_in_base: 170.0
+    x_port_coupler_out_base: 1710.0
+    y_port_coupler_base: 25.0
+
+    dx_inst: 42.508
+    dy_inst: 20.0
+    dy_port_inst_bot: 5.0
+    dy_port_inst_top: 15.0
+    x_instance:
+      - 675.0
+      - 875.0
+      - 1075.0
+      - 1275.0
+      - 1475.0
+
+    # parameters only for the array
+    n_rowpairs: 1
+    y_pitch_rowpairs: 120
+    y_split_in_pair: -5
+
+    yaml_list:
+
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullrib_point_coupler/specs/full_rib_vertical_specs_critical_coupled.yaml, 'MX']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullrib_wrapped_coupler/specs/full_rib_horizontal_specs_over_coupled.yaml, 'MXR90']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked_critical_coupled.yaml, 'R0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullrib_point_coupler/specs/full_rib_horizontal_specs_critical_coupled.yaml, 'MX']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullrib_point_coupler/specs/full_rib_horizontal_specs_over_coupled.yaml, 'MX']
+
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked_over_coupled.yaml, 'MX']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked_over_coupled.yaml, 'MXR90']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullrib_wrapped_coupler/specs/full_rib_vertical_specs_over_coupled.yaml, 'MX']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical_over_coupled.yaml, 'OR0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical_critical_coupled.yaml, 'OR0']
+
+
+  params_triple_ring_row_array:
+    grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+    grating_coupler_class: 'iograt_1311'
+
+    grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+    grating_coupler_class: 'iograt_1311'
+
+    site_pitch: 300
+    track_pitch: 5
+
+    param_x: 0
+
+    x_coupler_clear: 40
+    y_coupler_clear: 20
+    x_coupler_pitch: 60
+    y_coupler_pitch: 40
+
+    x_port_coupler_in_base: 170
+    x_port_coupler_out_base: 1910
+    y_port_coupler_base: 25
+
+    dx_inst: 42.508
+    dy_inst: 40
+    dy_port_inst_bot: 5
+    dy_port_inst_top: 35
+    x_instance:
+      - 575
+      - 1075
+      - 1575
+
+
+    n_rowpairs: 2
+    y_pitch_rowpairs: 218
+    y_split_in_pair: -5
+
+    yaml_list:
+
+      - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_point_coupler/specs/full_rib_vertical_specs_critical_coupled.yaml, 'MXR90']
+      - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_wrapped_coupler/specs/full_rib_horizontal_specs_critical_coupled.yaml, 'MXR90']
+      - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_wrapped_coupler/specs/full_rib_vertical_specs_critical_coupled.yaml, 'MX']
+      - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked_critical_coupled.yaml, 'MXR90']
+      - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical_critical_coupled.yaml, 'MX']
+      - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_halfrib_point_coupler/specs/halfrib_dual_ring_spoked_critical_coupled.yaml, 'MX']
+
+      - !!python/tuple [cena_top/RAMPS/photonics/Triple_ring_fullrib_point_coupler/specs/full_rib_horizontal_specs_critical_coupled.yaml, 'MXR90']
+      - !!python/tuple [cena_top/RAMPS/photonics/Triple_ring_fullrib_wrapped_coupler/specs/full_rib_horizontal_specs_over_coupled.yaml, 'MXR90']
+      - !!python/tuple [cena_top/RAMPS/photonics/Triple_ring_fullrib_wrapped_coupler/specs/full_rib_vertical_specs_over_coupled.yaml, 'MX']
+      - !!python/tuple [cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_spoked_critical_coupled.yaml, 'MX']
+      - !!python/tuple [cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical_critical_coupled.yaml, 'MX']
+      - !!python/tuple [cena_top/RAMPS/photonics/Triple_ring_halfrib_point_coupler/specs/half_rib_triple_ring_spoked_critical_coupled.yaml, 'MX']
+
+
+
+
+
+

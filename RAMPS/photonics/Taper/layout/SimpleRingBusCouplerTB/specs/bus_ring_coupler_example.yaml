@@ -1,0 +1,52 @@
+# General Project Settings
+project_name: SimpleBusRingCoupler
+
+# Output Settings
+lsf_filename: example.lsf
+gds_filename: example
+
+#------------------
+#   TB config
+#------------------
+tb_package: 'layout.SimpleRingBusCouplerTB.SimpleRingBusCouplerTB'
+tb_class: 'SimpleRingBusCouplerFDTD'
+
+# These additional parameters are passed to the testbench class
+# Units are in meters, not um like in BPG generators
+tb_params:
+  simulate: True   # set to False when you want to analyze simulated results
+  filename_base: 'example'
+  wavelength: 1.550e-6
+  wavelength_span: 50.0e-9
+  mode_selection: 'user select'
+  z_span: 4.0e-6
+  bc_type: PML
+  mesh_accuracy: 2
+  monitor_offset_m: 40.0e-9   # sources/monitors need to be slightly offset from PMLs and each other
+
+#------------------
+#   layout config
+#------------------
+layout_package: 'layout.SimpleRingBusCouplerTB.SimpleRingBusCoupler'
+layout_class: 'SimpleRingBusCoupler'
+layout_params:
+  ring_module: layout.SimpleRound.SimpleRound
+  ring_class: SimpleRound
+  ring_params:
+    layer: !!python/tuple ['si_full_free', 'drawing']
+    r_out: 12.55
+    r_width: 0.5
+
+  wg_width: 0.45
+  gap: 0.1
+  ring_orient: R0
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+
+
+# Cadence related parameters
+impl_lib: 'SimpleRingBusCoupler_lib'        # Module that contains the layout generator class
+impl_cell: 'SimpleRingBusCoupler_cell'      # Layout generator class name

@@ -1,0 +1,69 @@
+
+# Directory Locations
+project_name: ring
+
+# Output Settings
+lsf_filename: ring.lsf
+gds_filename: Ring_gds
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'layout.Ring.ring'  # Module that contains the layout generator class
+layout_class: 'RingBase'  # Layout generator class name
+layout_params:
+  rout: 6
+  ring_width: 1
+  layer: !!python/tuple ['si_full', 'drawing']
+  doping_spoke_info:
+    - {rout: 6, rin: 5.2, num: 16,
+      spoke_offset: 0, layer: !!python/tuple ['N1', 'drawing'],
+      spoke_width_percentage: 1}
+    - {rout: 6, rin: 5.3, num: 16,
+      spoke_offset: 0.5, layer: !!python/tuple ['P1', 'drawing'],
+      spoke_width_percentage: 1}
+  extra_ring_info:
+  spoke_num: 16
+  coupling_slot: 0.3
+  drop_slot: 0.3
+  wg_width: 0.5
+#  label: 'Contact'       # Label can be specified as a single name that will be appended by _P and _N
+  label: {P: 'P_labelname', N: 'N_labelhere'}   # Label can be specified as a dict of N and P labels
+  outer_electrode_ring_layers:
+    - !!python/tuple ['M4', 'drawing']
+  inner_electrode_ring_layers:
+    - !!python/tuple ['M4', 'drawing']
+    - !!python/tuple ['M5', 'drawing']
+
+
+  # Advanced parameters: can change between designs per technology, but not recommended for standard users
+  access_length: 30
+  p_via_radius_offset: 0.5
+  n_via_radius_offset: 0.8
+  high_doping_rout_offset: 0.1
+  high_doping_rin_offset: 0.1
+  electrode_offset: 0.5
+  electrode_width_inner: 0.3
+  electrode_width_outer: 0.4
+  drop_taper_length: 15
+  salicide_radius_extension: 0.2
+  high_doping_n_rin_offset: 0
+
+  # Advanced tech params: should not need to change between designs in a given technology
+  high_p_doping_layer: !!python/tuple ['PP', 'drawing']
+  high_n_doping_layer: !!python/tuple ['NN', 'drawing']
+  salicide_lpp: !!python/tuple ['NN', 'drawing']
+  bottom_metal_electrode_layer: !!python/tuple ['si_full', 'drawing']
+  bottom_electrode_label_layer: !!python/tuple ['M1', 'drawing']
+
+
+
+# Cadence related parameters
+impl_lib: 'ring_lib'
+impl_cell: 'ring_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

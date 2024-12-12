@@ -1,0 +1,31 @@
+# The ViaStack class in Photonic_Core_layout seems to have everything,
+# so here we will just instantiate it
+
+# Directory Locations
+project_name: single_pad
+
+# Output Settings
+lsf_filename: single_pad.lsf
+gds_filename: single_pad
+
+# Specify a generic technology as this is a public sample
+bag_config_path: 'BPG_tech_files/workspace_setup/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.ViaStack.ViaStack'  # Module that contains the layout generator class
+layout_class: 'ViaStack'  # Layout generator class name
+
+layout_params:
+  top_layer: !!python/tuple ['LB', 'drawing']
+  bottom_layer: !!python/tuple ['B2', 'drawing']
+  top_x_span: 38
+  top_y_span: 60
+  bottom_x_span: 2
+  bottom_y_span: 20
+  side_align_x: False
+  side_align_y: False
+  use_top_bbox: False
+
+# Cadence related parameters
+impl_lib: 'via_stack_lib'
+impl_cell: 'via_stack_cell'

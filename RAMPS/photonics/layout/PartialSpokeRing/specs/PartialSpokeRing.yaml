@@ -1,0 +1,36 @@
+# General Project Settings
+project_name: '/projectnb/siphot/zhangxc/code/TO_45CLO_2023March/gen_libs'
+
+# Output Settings
+lsf_filename: PartialSpokeRing
+gds_filename: PartialSpokeRing
+
+
+# Generator Params
+layout_package: 'layout.PartialSpokeRing.PartialSpokeRing'
+layout_class: 'PartialSpokeRing'
+layout_params:
+
+
+
+    ring_layer: !!python/tuple ['RX', 'drawing']
+    port_layer: !!python/tuple ['RX', 'label']
+    r_out: 6.0
+    ring_width: 0.5
+    r_eff: 5.75
+            
+    outer_layer : ['IJ','drawing']
+    spoke_width : 0.45
+    l_outer : 0.6
+    l_inner : 0.6
+    a_s : 45
+    a_e : 135
+    N : 32
+    n : 100
+
+
+    
+
+# Cadence related parameters
+impl_lib: 'partialspokering_lib'
+impl_cell: 'partialspokering_cell'

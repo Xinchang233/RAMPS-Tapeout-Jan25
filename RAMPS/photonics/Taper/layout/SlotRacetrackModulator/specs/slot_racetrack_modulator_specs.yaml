@@ -1,0 +1,140 @@
+
+# Directory Locations
+project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/SlotRacetrackModulator'
+
+# Output Settings
+lsf_filename: SlotRacetrackModulator
+gds_filename: SlotRacetrackModulator
+
+## Specify a generic technology as this is a public sample
+#bag_config_path: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'layout.SlotRacetrackModulator.SlotRacetrackModulator'
+layout_class: 'SlotRacetrackModulator'
+layout_params:
+#    # Parameters of the optical structure of the waveguide phase shifter
+#    # ------------------------------------------------------------------
+#    ps_layer: !!python/tuple ['si_full_free', 'drawing']
+#    ps_length: 25
+#    ps_core_width: 0.65
+#    ps_slot_width: 0.1
+#    ps_contact_length: 1.4
+#    ps_contact_width: 0.08
+#    ps_contact_period: 0.28
+#
+#    # Parameters of the taper
+#    # -----------------------
+#    taper_length: 10
+#    taper_core_width_in: 0.792
+#    taper_core_width_out: 0.65
+#    taper_slot_width_in: 0.092
+#    taper_slot_width_out: 0.1
+#    taper_contact_length_in: 0.005
+#    taper_contact_length_out: 1.4
+#    taper_linear: False
+#    logorlin: 0.3
+#
+#    # Parameters of bus waveguide
+#    # ---------------------------
+#    bus_length: 20
+#    bus_width: 0.5
+#    bus_ring_gap: 0.3
+#    bus_layer: !!python/tuple ['si_full_free', 'drawing']
+#    bus_taper_length: 5
+#    bus_port_width: 0.6
+#
+#    # Parameters of racetrack bends
+#    # -----------------------------
+#    bend_width: 0.942
+#    bend_port_width: 0.792
+#    bend_layer: !!python/tuple ['si_full_free', 'drawing']
+#    bend_slot_width: 0.092
+#    bend_slot_offset: 0
+#    bend_slot_layer: !!python/tuple ['rx2phot', 'drawing']
+#    bend_rmin: 10
+#    bend_curve_rate: 1
+#
+#    # parameters of the doping layers
+#    doping_length_extend: 1.0
+#    doping_info:
+#      - {dist0: 0.05, dist1: 1.75, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+#      - {dist0: 1.25, dist1: 1.75, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+#      - {dist0: 1.25, dist1: 1.75, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+#      - {dist0: -0.05, dist1: -1.75, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+#      - {dist0: -1.25, dist1: -1.75, layer: !!python/tuple ['p_heavy_sil', 'drawing']}
+#      - {dist0: -1.25, dist1: -1.75, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+#
+#    # parameters of electrodes (including Si contact rails and salicide) on either side of the waveguide phase shifter
+#    lin_electrode_bottom_layer: !!python/tuple ['RX', 'drawing']
+#    lin_electrode_length_extend: 1
+#    lin_electrode_bottom_width: 0.3
+#    lin_electrode_top_layer1: !!python/tuple ['C1', 'drawing']
+#    lin_electrode_top_width1: 0.5
+#    lin_electrode_top_layer2: !!python/tuple ['C2', 'drawing']
+#    lin_electrode_top_width2: 0.5
+#
+#    # parameters of auxiliary layers (such as exclusion layers) centered at core of the waveguide
+#    aux_info:
+#    #          - {width: 30, layer: !!python/tuple ['N3', 'drawing']}
+#    #          - {width: 30, layer: !!python/tuple ['P3', 'drawing']}
+#
+#    # Parameters of metal electrodes
+#    # ------------------------------
+#    electrode_bridge_width: 2.0
+#    electrode_bridge_dist: 3.0
+#    electrode_contact_width: 1.0
+#    electrode_contact_length: 2.0
+#    electrode_contact_dist: 4.0
+#
+#    # Parameters of GS electrodes
+#    gs_electrodes: True
+#    gs_pad_layer: !!python/tuple ['LB', 'drawing']
+#    gs_pad_width: 38.0
+#    gs_pad_length: 50.0
+#    gs_pad_open_layer: !!python/tuple ['DV', 'drawing']
+#    gs_pad_open_inclusion: 2.0
+#
+#    # Parameters of heaters
+#    heaters: True
+#    heater_params:
+#      # basic heater parameters
+#      heat_layer: !!python/tuple ['si_full_free', 'drawing']
+#      heat_length: 45
+#      heat_width: 1
+#      heat_dist: 6
+#
+#      # parameters of the doping layers
+#      doping_info:
+#        - {width: 1.5, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+#        - {width: 1.5, layer: !!python/tuple ['nw2phot', 'drawing']}
+#
+#      # parameters of heater electrodes
+#      contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+#      contact_bottom_width: 1.5
+#      contact_bottom_length: 1.5
+#      contact_top_layer: !!python/tuple ['C2', 'drawing']
+#      contact_top_width: 1.5
+#      contact_top_length: 1.5
+#      contact_doping_extend: 0.2
+#      contact_doping_info:
+#        - !!python/tuple ['n_inter_phot', 'drawing']
+#        - !!python/tuple ['n_inter_phot', 'drawing']
+#
+#    # Parameters of heater pads
+#    # ------------------
+#    heater_pads: True
+#    heater_wiring_width: 4
+#    heater_pad_width: 50
+#    heater_pad_length: 60
+#    heater_pad_pitch: 75
+#    heater_gs_pad_dist: 40
+
+# Cadence related parameters
+impl_lib: 'SlotRacetrackModulator'
+impl_cell: 'SlotRacetrackModulator_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

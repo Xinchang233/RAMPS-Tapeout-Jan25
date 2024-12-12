@@ -1,0 +1,29 @@
+project_name: 'gen_libs/GeneralTaper'
+
+# Output Settings
+lsf_filename: GeneralTaper
+gds_filename: GeneralTaper
+
+
+
+# Generator Params
+layout_package: 'layout.General_taper.General_taper'
+layout_class: 'General_taper'
+
+layout_params:
+  path: ['s','S','U','u','u', 'u', 'u', 's','S','s','d','d', 's']
+  widths: [0.5, 0.6, 0.7, 0.9, 1.26, 1.4, 1.31, 1.2, 1.2]
+  straight_sec_len: [1, 0.166666666,0.166666666, 0.166666666, 0.166666666, 0.166666666, 0.166666666, 0.166666666,0.166666666]
+  taper_len: [0.166666666, 0.166666666, 0.166666666, 0.166666666,0.166666666,0.166666666,0.166666666,0.166666666,0.166666666,0.166666666,0.166666666,0.166666666]
+  layer: !!python/tuple ['rx3phot', 'drawing']
+
+
+
+# Cadence related parameters
+impl_lib: 'General_taper_lib'
+impl_cell: 'General_taper_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

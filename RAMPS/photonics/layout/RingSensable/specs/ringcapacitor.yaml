@@ -1,0 +1,37 @@
+
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/RingCapacitor'
+
+# Output Settings
+lsf_filename: RingCapacitor.lsf
+gds_filename: RingCapacitor_gds
+
+# Generator Params
+layout_package: 'layout.RingSensable.RingCapacitor'  # Module that contains the layout generator class
+layout_class: 'RingCapacitor'  # Layout generator class name
+
+layout_params:
+  capacitor_params:
+    layer: !!python/tuple ['B2', 'drawing']
+    rCenter: 15.3
+    width: 2.0
+    start_angle: 135
+    stop_angle: 225
+
+  via_stack_params:
+    top_layer: !!python/tuple ['B2', 'drawing']
+    bottom_layer: !!python/tuple ['B1', 'drawing']
+    top_x_span: 1.
+    top_y_span: 1.
+    bottom_x_span: 1.
+    bottom_y_span: 1.
+    align: 'center_align'
+
+# Cadence related parameters
+impl_lib: 'RingCapacitor_lib'
+impl_cell: 'RingCapacitor_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

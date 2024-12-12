@@ -1,0 +1,431 @@
+#added salicide layer correction circle in eingheaterclass (modified in 2 different parts in dat class)
+# Directory Locations
+project_name: '/projectnb/siphot/manuj/tapeouts/2020_45RF/gds/polymer_test_site/test_polymer_mod_cell/'
+# Output Settings
+lsf_filename: ring_with_heater.lsf
+#gds_filename: ring_with_heater_new_645 #change tihs
+gds_filename: single_ring_with_heater_310 #change tihs
+#gds_filename: ring_with_heater_new_575 #change tihs
+#gds_filename: ring_with_heater_new_585 #change tihs
+#gds_filename: ring_with_heater_new_540 #change tihs
+#gds_filename: ring_with_heater_new_555 #change tihs
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'layout.Ring_new.singlering_with_heater'
+# Layout generator class name
+layout_class: 'RingWithHeaterBase'
+
+# Sample values here not based on any design
+layout_params:
+# y=y-placer/2
+        # 540 18.887195919019526 17.792178707351493 2.6630360102854143   120.60607478029388 -19.922245157529815
+        # 555 18.90918698526601 17.81272164955083 2.6665182149334257   120.65005691278685 -19.9452807482
+        #575 18.938508406927998  17.840112239149956 2.6711611544641087 120.70869975611083 -19.9759948692
+        #585 18.95316911775899 17.853807533949514 2.6734826242294503 120.7380211777728 -19.99
+        # 645 19.041134217852083 17.935979302746883 2.6877354391806962 120.913951377959 -20.08
+        # 655 19.05579546451451 17.94967459754644 2.6900574632597394 120.94327387128385 -20.102846299739255
+
+#
+#  # 540 18.887195919019526 17.792178707351493 2.6630360102854143   120.60607478029388 -19.922245157529815
+#  ring_loc: (0,0)  #555nm 68-71 ghz
+#  ring_loc_2: (0,0)
+#  heater_middle: 21 #contact to the ring
+#  placer: -19.922245157529815
+#  w: 0.4
+#  x: 17.792178707351493
+#  y: 2.6630360102854143
+#  gap: 0.54
+#  wg180_radius: 5
+
+#  # 555 18.90918698526601 17.81272164955083 2.6665182149334257   120.65005691278685 -19.9452807482
+#  ring_loc: (0,0)  #555nm 68-71 ghz
+#  ring_loc_2: (0,0)
+#  heater_middle: 21 #contact to the ring
+#  placer: -19.9452807482
+#  w: 0.4
+#  x: 17.81272164955083
+#  y: 2.6665182149334257
+#  gap: 0.555
+#  wg180_radius: 5
+
+#  #575 18.938508406927998  17.840112239149956 2.6711611544641087 120.70869975611083 -19.9759948692
+#  ring_loc: (0,0)  #555nm 68-71 ghz
+#  ring_loc_2: (0,0)
+#  heater_middle: 21 #contact to the ring
+#  placer: -19.9759948692
+#  w: 0.4
+#  x: 17.840112239149956
+#  y: 2.6711611544641087
+#  gap: 0.575
+#  wg180_radius: 5
+
+#  #585 18.95316911775899 17.853807533949514 2.6734826242294503 120.7380211777728 -19.99
+#  ring_loc: (0,0)  #555nm 68-71 ghz
+#  ring_loc_2: (0,0)
+#  heater_middle: 21 #contact to the ring
+#  placer: -19.99
+#  w: 0.4
+#  x: 17.853807533949514
+#  y: 2.6734826242294503
+#  gap: 0.585
+#  wg180_radius: 5
+
+#  # 645 19.041134217852083 17.935979302746883 2.6877354391806962 120.913951377959 -20.08
+#  ring_loc: (0,0)  #555nm 68-71 ghz
+#  ring_loc_2: (0,0)
+#  heater_middle: 21 #contact to the ring
+#  placer: -20.08
+#  w: 0.4
+#  x: 17.935979302746883
+#  y: 2.6877354391806962
+#  gap: 0.645
+#  wg180_radius: 5
+
+  # 655 19.05579546451451 17.94967459754644 2.6900574632597394 120.94327387128385 -20.102846299739255
+  ring_loc: (0,0)  #555nm 68-71 ghz
+  ring_loc_2: (0,0)
+  gap: 0.3
+  heater_middle: 21 #contact to the ring
+
+  w: 0.4
+  x: 17.94967459754644
+  y: 2.6900574632597394
+
+  wg180_radius: 5
+
+
+  x_slot: 4.0 # Spacing between pads
+  y_offset: 0 # offset between the y position of both pads
+  te_1300grating_params:
+    package: 'layout.Importers.Gratings.GcBidirWl1300nmMfd5000nmPortw700nm'
+    class: 'GcBidirWl1300nmMfd5000nmPortw700nm'  # Layout generator class name
+    gds_path: '/projectnb/siphot/chips/45CLO_2019Oct/gds/grating_couplers_bz/workhorse/gc_TE_lambda1300_deg15_mfd10um_workhorse.gds'
+  right_pad_params:
+    x_off: 11 #25
+    y_off:  90
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64 #38
+    top_y_span: 70 #60
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params:
+    x_off: 11
+    y_off:  90
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  right_pad_params1:
+    x_off: 111
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params1:
+    x_off: 111
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  right_pad_params2:
+    x_off: 211
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params2:
+    x_off: 211
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  right_pad_params3:
+    x_off: 11 #11
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B1', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params3:
+    x_off: 11
+    y_off:  30 #-120
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  right_pad_params4:
+    x_off: 62
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['C2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params4:
+    x_off: 62
+    y_off:  30
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['C2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  right_pad_params5:
+    x_off: 211
+    y_off:  -120
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B1', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+  left_pad_params5:
+    x_off: 211
+    y_off:  -120
+    top_layer: !!python/tuple ['LB', 'drawing']
+    bottom_layer: !!python/tuple ['B2', 'drawing']
+    top_x_span: 64
+    top_y_span: 70
+    bottom_x_span: 2
+    bottom_y_span: 20
+    side_align_x: True
+    side_align_y: True
+    use_top_bbox: False
+
+
+
+
+
+  right_pad_label: # For putting a label in the specified layer
+    lpp: !!python/tuple ['LB', 'label']
+    label: 'Ground'
+
+  left_pad_label:
+    lpp: !!python/tuple ['LB', 'label']
+    label: 'Ground'
+
+  # Alternatively, we can specify a set of parameters for both pads
+
+  rout: 5
+  ring_width: 1.2
+  layer: !!python/tuple ['rxphot_noopc', 'drawing']
+  doping_spoke_info:
+        - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3, rout: 3.8, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],spoke_width_percentage: 0.88}
+
+        - {rin: 4.45, rout: 4.69, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw13phot', 'drawing'],  spoke_width_percentage: 1}
+        - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw13phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3, rout: 3.8, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw13phot', 'drawing'],spoke_width_percentage: 0.88}
+
+        - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3.12, rout: 3.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],spoke_width_percentage: 1}
+
+        - {rin: 4.7, rout: 5.2, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw6phot', 'drawing'],  spoke_width_percentage: 2}
+        - {rin: 4.45, rout: 4.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw6phot', 'drawing'],  spoke_width_percentage: 1}
+        - {rin: 3.8, rout: 4.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw6phot', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3.12, rout: 3.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw6phot', 'drawing'],spoke_width_percentage: 1}
+  extra_ring_info:
+  spoke_num: 30
+  coupling_slot: 0.3 # dont touch this
+  coupling_slot_drop: 0.31 # this is exact
+  placer: -17.5 # go over -16(distnce between two parallel section of middle ring) like(-16.2 coreesponds to 0.1 um)
+  drop_slot: -1
+  wg_width: 0.4
+  #  label: 'Contact'       # Label can be specified as a single name that will be appended by _P and _N
+  label_layer: !!python/tuple ['C1', 'label']
+  label: {P: 'Anode', N: 'Cathode'}   # Label can be specified as a dict of N and P labels
+  outer_electrode_ring_layers:
+    - !!python/tuple ['B1', 'drawing']
+  inner_electrode_ring_layers:
+    - !!python/tuple ['C1', 'drawing']
+    - !!python/tuple ['C2', 'drawing']
+    - !!python/tuple ['B1', 'drawing']
+    - !!python/tuple ['B2', 'drawing']
+  draw_pads: True
+  reflect: True
+  # Advanced parameters: can change between designs per technology, but not recommended for standard users
+  access_length: 30
+  p_via_radius_offset: 0.4
+  n_via_radius_offset: 0.7
+  high_doping_rout_offset: 0
+  high_doping_rin_offset: 0.15 #0.1
+  electrode_offset: 0.4
+  electrode_width_inner: 0.7
+  electrode_width_outer: 0.4
+  drop_taper_length: 15
+  salicide_radius_extension: 0.9
+  high_doping_n_rin_offset: -0.1
+  # Advanced tech params: should not need to change between designs in a given technology
+  high_p_doping_layer: !!python/tuple ['nw1phot', 'drawing']
+  high_n_doping_layer: !!python/tuple ['pw1phot', 'drawing']
+  salicide_lpp:
+  bottom_metal_electrode_layer: !!python/tuple ['RX', 'drawing']
+  bottom_electrode_label_layer: !!python/tuple ['B1', 'label']
+  gs_electrod_params:
+    gs_electrodes: True
+    gs_pad_layer: !!python/tuple ['LB', 'drawing']
+    gs_pad_width: 68.0
+    gs_pad_length: 50.0
+    gs_pad_open_layer: !!python/tuple ['LV', 'drawing']
+    gs_pad_open_inclusion: 2.0
+
+
+
+  # Heater params
+  # Standard params
+  heater_disable: False
+  heater_disable1: False
+  heater_radius_offset: 0.3
+  resistance: 200
+  contact_dist: 1
+  contact_width: 1
+  heater_device_layer: !!python/tuple ['rxphot_noopc', 'drawing']
+  heater_device_layer_RX: !!python/tuple ['RX', 'drawing']
+  heater_disk_layers:
+    - !!python/tuple ['nnphot', 'drawing']
+  heater_electrode_top_layer: !!python/tuple ['B3', 'drawing']
+  heater_electrode_top_x_span: 0.4 #0.6
+  heater_electrode_top_y_span: 2.8 #1.2
+  # Either heater label format is acceptable 1.2 ,1.2,1,1
+  heater_label: {P: 'HEATER', N: 'HEATER_N'}
+#  heater_label: 'HEATER'
+  heater_electrode_bottom_x_span: 0.6
+  heater_electrode_bottom_y_span: 1
+  # Advanced parameters
+  heater_disk_layer_extension: 0.1
+  # Technology parameter
+  heater_electrode_bottom_layer: !!python/tuple ['RX', 'drawing']
+
+  te_1300grating_params:
+    package: 'layout.Importers.Gratings.bidirectional.GcBidirWl1300nmMfd9200nm'
+    class: 'GcBidirWl1300nmMfd9200nmCurved'  # Layout generator class name
+
+
+
+  #SO LIKE TO GET [20,50 ,70] GHz couplings(using milos solver and
+        #for ng= 3.5065   1.0e-03 *[ 0.0539    0.3371    0.6607] milos solver
+        #gaps=[645 nm 575nm 540nm ] kappa2=[0.0000523818 0.000303185 0.000678911 ]
+        #real rf resoance=[19.7 47.4 70.9 ghz]
+        #ng=3.23   1.0e-03 *[ 0.0458    0.2860    0.5606] lumerical
+        #[650 580 550]  [0.0000472792 0.000271172 0.00053771]
+        #[20.3 48.6 68.556
+        # ng=3.0178  1.0e-03 *[ 0.0399    0.2497    0.4894 ]
+        #[655 585 555] kappa2=[0.0000421202 0.0002359 0.000488613]
+        #[20.5 48.6 69.9]
+        #(x+10)/2,-(5+0.2+gap-y)
+        # 520 18.857874497357543 17.76478811775237 2.6583930707547307
+        # 530  18.87253520818853 17.778483412551928 2.6607145405200714
+        # 540 18.887195919019526 17.792178707351493 2.6630360102854143   120.60607478029388 -20.13393292179768
+        # 550 18.901856629850517 17.80587400215105 2.665357480050755
+        # 560 18.91651734068151 17.81956929695061 2.667678949816096
+        # 570 18.931178051512504 17.833264591750176 2.6700004195814384
+        # 580 18.945838762343495 17.846959886549737 2.6723218893467795
+        # 590 18.960499473174487 17.860655181349294 2.674643359112121
+        # 600 NM 18.975161012683216 17.874350476148855 2.6772863308249972
+        #610 18.989821724942967 17.888045770948416 2.6796083549040404
+        # 620 19.00448243720271 17.901741065747977 2.6819303789830857
+        # 630 19.019143149462458 17.915436360547538 2.6842524030621293
+        # 640 19.03380386172221 17.9291316553471 2.6865744271411742
+        # 650 19.048465107928276 17.942826950146664 2.6888964512202174
+        # 660 19.063125821100748 17.95652224494622 2.691218475299262
+        # 680 19.092447247445698 17.983912834545343 2.6958625234573503
+        # 670 19.077786534273223 17.970217539745782 2.693540499378306
+        # 545 18.894526274435023 17.799026354751273 2.664196745168084
+        # 555 18.90918698526601 17.81272164955083 2.6665182149334257   120.65005691278685 -20.163932921797677
+        # 565 18.923847696097003 17.82641694435039 2.668839684698767
+        # 575 18.938508406927998 17.840112239149956 2.6711611544641087  120.70869975611083 -20.20393292179768
+        # 595 18.967830656553346 17.867502828749075 2.676125318785475
+        # 585 18.95316911775899 17.853807533949514 2.6734826242294503   120.7380211777728 -20.223932921797676
+        # 635 19.02647350559233 17.92228400794732 2.685413415101651
+        # 645 19.041134217852083 17.935979302746883 2.6877354391806962 120 um, placer= -20.343932921797677(20gh, 5um straight,length)
+        # 655 19.05579546451451 17.94967459754644 2.6900574632597394  120.94327387128385 -20.363932921797677
+        # 665 19.070456177686985 17.963369892346 2.6923794873387843
+        # 675 19.085116890859464 17.977065187145563 2.6947015114178283
+        # 685 19.09977760403194 17.990760481945124 2.6970235354968723
+        #(x+10)/2,-(5+0.2+gap-y)+0.004 100NM 18.242119392272954 17.189585736170816 2.557192128151484
+        #(x+10)/2,-(5+0.2+gap-y)+0.002 200NM  18.38872802250795 17.326538684166426 2.5817258011272206
+        #(x+10)/2,-(5+0.2+gap-y)+0.001 300NM   18.535335999321507 17.463491632162032 2.6059852722695087
+        # (x+10)/2,-(5+0.2+gap-y)+0.001) 400NM 18.681944562881018 17.600444580157642 2.6299880313443076
+        #   500 NM 18.828553075695556 17.73739752815325 2.6537501312240472
+        # (x+10)/2,-(5+0.2+gap-y) 600 NM 18.975161012683216 17.874350476148855 2.6772863308249972
+        # (x+10)/2,-(5+0.2+gap-y) 700 NM 19.12176867379065 18.011303424144465 2.7005065716154384
+        # (x+10)/2,-(5+0.2+gap-y)  800 NM 19.268376615585566 18.14825637214007 2.7238322190506272
+        #(x+10)/2,-(5+0.2+gap-y) 900 NM 19.41498505211373 18.285209320135678 2.7469547051752468
+        #1000 NM 19.561593448387917 18.422162268131288 2.7698859660654778
+        # (x+10)/2,-(5+0.2+gap-y) 1100 19.708201356757574 18.559115216126894 2.7926370332067423
+
+
+        # 595 18.967830656553346 17.867502828749075 2.676125318785475
+        # 560 18.91651734068151 17.81956929695061 2.667678949816096
+
+# Cadence related parameters
+impl_lib: 'ringheater_lib'
+impl_cell: 'ringheater_cell'

@@ -1,0 +1,21 @@
+# General Project Settings
+project_name: LinearPDTestSite
+
+# Output Settings
+lsf_filename: LinearPDTestSite.lsf
+gds_filename: LinearPDTestSite_gds
+
+layout_package: 'LinearPDTestSite'
+layout_class: 'LinearPDTestSite'
+
+lsf_export_map: 'GF45RFSOI/Photonics/lumerical_map_withLiners.yaml'
+
+# Cadence related parameters
+impl_lib: 'LinearPDTestSite_lib'        # Module that contains the layout generator class
+impl_cell: 'LinearPDTestSite_cell'      # Layout generator class name
+layout_params:
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

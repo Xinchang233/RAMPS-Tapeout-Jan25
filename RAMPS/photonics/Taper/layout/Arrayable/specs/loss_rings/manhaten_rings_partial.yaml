@@ -1,0 +1,127 @@
+# General Project Settings
+project_name: ManhatenLossRings
+############## GratingPlaceHolder = OBand #################
+# Output Settings
+lsf_filename: LossRingsFullEtch
+gds_filename: LossRingsPartialEtch
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Layout_45SPCLO.LossRings.LossRings
+  class_name: LossRings
+  horizontal_distance: 5
+  vertical_distance: 20
+  horizontal_offset: 0
+  instances_per_row: 7
+  pack_params: False
+  params_per_cell: 6
+  class_params:
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+            class_name: PartialEtchModeConverter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 30
+            additional_wg_layers:
+                 - layer:  !!python/tuple [si_r_partial, drawing]
+                   width: 2.4
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_r_partial, drawing]
+                        width: 2.4
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 14
+                    spacing: 38
+                    filters:
+                        -  r_out: 10.000
+                           width: 0.410
+                           in_gap: 0.800
+                           out_gap: 0.800
+
+                        -  r_out: 10.015
+                           width: 0.410
+                           in_gap: 0.733
+                           out_gap: 0.733
+
+                        -  r_out: 10.030
+                           width: 0.410
+                           in_gap: 0.667
+                           out_gap: 0.667
+
+                        -  r_out: 10.045
+                           width: 0.410
+                           in_gap: 0.600
+                           out_gap: 0.600
+
+                        -  r_out: 10.060
+                           width: 0.410
+                           in_gap: 0.533
+                           out_gap: 0.533
+
+
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_r_partial, drawing]
+                        width: 2.4
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 14
+                    spacing: 38
+                    filters:
+                        -  r_out: 10.075
+                           width: 0.410
+                           in_gap: 0.467
+                           out_gap: 0.467
+
+                        -  r_out: 10.090
+                           width: 0.410
+                           in_gap: 0.400
+                           out_gap: 0.400
+
+                        -  r_out: 10.105
+                           width: 0.410
+                           in_gap: 0.333
+                           out_gap: 0.333
+
+                        -  r_out: 10.120
+                           width: 0.410
+                           in_gap: 0.267
+                           out_gap: 0.267
+
+                        -  r_out: 10.135
+                           width: 0.410
+                           in_gap: 0.200
+                           out_gap: 0.200
+
+# Cadence related parameters
+impl_lib: 'manhaten_rings_partial_lib'
+impl_cell: 'manhaten_rings_partial_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

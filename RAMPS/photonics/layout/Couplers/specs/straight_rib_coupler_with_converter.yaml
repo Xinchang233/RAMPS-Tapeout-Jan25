@@ -1,0 +1,25 @@
+# General Project Settings
+project_name: 'Couplers'
+
+# Output Settings
+lsf_filename: StraightRibCouplerWithConverter
+gds_filename: StraightRibCouplerWithConverter
+
+layout_package: 'layout.Couplers.StraightRibCouplerWithConverter'
+layout_class: StraightRibCouplerWithConverter
+layout_params:
+  full_thickness_si_layer:  !!python/tuple ['si_full_free', 'drawing']
+  partial_thickness_si_layer: !!python/tuple ['si_partial_free', 'drawing']
+  full_thickness_si_width: 0.5
+  partial_thickness_si_width: 4
+  length: 20
+  
+# Cadence related parameters
+impl_lib: 'StraightRibCouplerWithConverter_lib'
+impl_cell: 'StraightRibCouplerWithConverter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+

@@ -1,0 +1,60 @@
+# Directory Locations
+project_name: CosineWaveguide
+
+# Output Settings
+lsf_filename: CosineWaveguideClass
+gds_filename: CosineWaveguideClass
+
+# Specify a generic technology as this is a public sample
+bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.WaveguideBase.tests.test_cosine_waveguide'
+layout_class: 'CosineWaveguideTester'
+layout_params:
+  cos_waveguide_params_list:
+    - # cos1:
+        width: 0.4
+        amplitude: 5
+        wavelength: 25
+        layer: 'SI'
+        start_quarter_angle: 0
+        end_quarter_angle: 4
+    - # cos2:
+        width: 0.5
+        amplitude: 30
+        wavelength: 60
+        layer: 'SI'
+        start_quarter_angle: 2
+        end_quarter_angle: 4
+    - # cos3:
+        width: 0.6
+        amplitude: 10
+        wavelength: 15
+        layer: 'SI'
+        start_quarter_angle: 0
+        end_quarter_angle: 4
+    - # cos4:
+        width: 0.5
+        amplitude: 7
+        wavelength: 15
+        layer: 'SI'
+        start_quarter_angle: 0
+        end_quarter_angle: 6
+    - # cos5:
+        width: 0.3
+        amplitude: 1
+        wavelength: 60
+        layer: 'SI'
+        start_quarter_angle: 0
+        end_quarter_angle: 4
+
+
+# Cadence related parameters
+impl_lib: 'cos_wg_test_lib'
+impl_cell: 'cos_wg_test_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

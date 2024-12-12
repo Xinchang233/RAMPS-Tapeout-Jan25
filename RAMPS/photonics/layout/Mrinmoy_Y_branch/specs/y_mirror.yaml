@@ -1,0 +1,47 @@
+
+
+#project_name: 'gen_libs/YMirror'
+project_name: 'Mrinmoy_design/YMirror'
+
+# Output Settings
+lsf_filename: YMirror
+gds_filename: YMirror
+
+# # OPTIONAL: Specify a custom dataprep routine to run
+# dataprep: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/GF45RFSOI/Photonics/dataprep_routine_custom.yaml'
+
+# Generator Params
+layout_package: 'layout.Mrinmoy_Y_branch.Y_mirror'
+layout_class: 'Y_mirror'
+
+layout_params:
+  rmin: 5
+  y_branch_params:
+    input_width: 0.55
+    init_taper_len: 1.5
+    w_temp_width: 2.0222
+    w_temp_len: 1.05
+    final_taper_len: 2
+    final_width: 1.4
+    final_wg_len: 4.175
+    spoke_size: 0.1
+    num_spokes: 3
+    branch_width: 0.55
+    branch_length: 2
+    layer: !!python/tuple [si_full_free, drawing] # Modify layers to work with 45RF layer map
+    add_offset: True
+    rmin: 15
+    offset: 1
+    offset_bend_width: 0.45
+
+
+
+# Cadence related parameters
+impl_lib: 'Y_mirror_lib'
+impl_cell: 'Y_mirror_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+

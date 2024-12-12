@@ -1,0 +1,48 @@
+# General Project Settings
+project_name: DualLayerContactedSlotWaveguide
+
+# Output Settings
+lsf_filename: DualLayerContactedSlotWaveguide
+gds_filename: DualLayerContactedSlotWaveguideClass
+
+# Generator Settings
+layout_package: 'Photonic_Core_Layout.WaveguideBase.tests.test_dual_layer_contacted_slot_waveguide'
+layout_class: 'TestDualLayerContactedSlotWaveguideClass'
+
+layout_params:
+  slot_params_list:
+    -
+        layer1_wg_params:
+            length: 10.0
+            core_width_in: 0.7
+            core_width_out: 0.7
+            slot_width_in: 0.1
+            slot_width_out: 0.1
+            draw_contact: True
+            contact_length_in: 1.2
+            contact_length_out: 1.2
+            contact_width: 0.1
+            contact_period: 0.2
+            layer: !!python/tuple ['SI', 'phot']
+
+        layer2_wg_params:
+            length: 10.0
+            core_width_in: 0.7
+            core_width_out: 0.4
+            slot_width_in: 0.1
+            slot_width_out: 0.1
+            draw_contact: True
+            contact_length_in: 1.0
+            contact_length_out: 1.0
+            contact_width: 0.1
+            contact_period: 0.2
+            layer: !!python/tuple ['POLY', 'phot']
+
+# Cadence related parameters
+impl_lib: 'DualLayerContactedSlotWaveguide'
+impl_cell: 'DualLayerContactedSlotWaveguide_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

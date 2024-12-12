@@ -1,0 +1,207 @@
+# General Project Settings
+project_name: ImbertLossRings
+############## GratingPlaceHolder = OBand ???????????   #################
+# Output Settings
+lsf_filename: SiN
+gds_filename: ImbertLossRings
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Layout_45SPCLO.LossRings.LossRings
+  class_name: LossRings
+  horizontal_distance: 5
+  vertical_distance: 20
+  horizontal_offset: 0
+  instances_per_row: 7
+  pack_params: False
+  params_per_cell: 6
+  class_params:
+    -   place_mode_converter: False
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.SiN_converter
+            class_name: SiN_converter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 14
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 95
+                    total_size: 190
+                    input_wg:
+                      width: 0.41
+                      length: 5
+                    output_wg:
+                      width: 0.41
+                      length: 10
+                    spacing: 30
+                    filters:
+                        -  r_out: 5.000
+                           width: 0.60
+                           in_gap: 0.5
+                           out_gap: 0.5
+
+                        -  r_out: 5.008
+                           width: 0.60
+                           in_gap: 0.4
+                           out_gap: 0.4
+
+                        -  r_out: 5.016
+                           width: 0.60
+                           in_gap: 0.3
+                           out_gap: 0.3
+
+                        -  r_out: 5.024
+                           width: 0.60
+                           in_gap: 0.2
+                           out_gap: 0.2
+
+                        -  r_out: 5.032
+                           width: 0.60
+                           in_gap: 0.12
+                           out_gap: 0.12
+
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 20.001
+                    size_out : 20.001
+                    input_length: 95.001
+                    total_size: 190
+                    input_wg:
+                      width: 0.41
+                      length: 5
+                    output_wg:
+                      width: 0.41
+                      length: 10
+                    spacing: 30
+                    filters:
+                        -  r_out: 5.000
+                           width: 1
+                           in_gap: 0.5
+                           out_gap: 0.5
+
+                        -  r_out: 5.008
+                           width: 1
+                           in_gap: 0.4
+                           out_gap: 0.4
+
+                        -  r_out: 5.016
+                           width: 1
+                           in_gap: 0.3
+                           out_gap: 0.3
+
+                        -  r_out: 5.024
+                           width: 1
+                           in_gap: 0.2
+                           out_gap: 0.2
+
+                        -  r_out: 5.032
+                           width: 1
+                           in_gap: 0.12
+                           out_gap: 0.12
+
+
+    -   place_mode_converter: False
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.SiN_converter
+            class_name: SiN_converter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 14
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 40
+                    size_out : 40.0
+                    input_length: 55
+                    total_size: 190
+                    input_wg:
+                      width: 0.5
+                      length: 5
+                    output_wg:
+                      width: 0.5
+                      length: 25
+                    spacing: 60
+                    filters:
+                        -  r_out: 25.000
+                           width: 0.60
+                           in_gap: 0.5
+                           out_gap: 0.5
+
+                        -  r_out: 25.008
+                           width: 0.60
+                           in_gap: 0.4
+                           out_gap: 0.4
+
+                        -  r_out: 25.016
+                           width: 0.60
+                           in_gap: 0.3
+                           out_gap: 0.3
+
+                        -  r_out: 25.024
+                           width: 0.60
+                           in_gap: 0.2
+                           out_gap: 0.2
+
+                        -  r_out: 25.032
+                           width: 0.60
+                           in_gap: 0.12
+                           out_gap: 0.12
+
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    input_bend_size : 40
+                    size_out : 40.0001
+                    input_length: 55
+                    total_size: 190
+                    input_wg:
+                      width: 0.5
+                      length: 5
+                    output_wg:
+                      width: 0.5
+                      length: 25
+                    spacing: 60
+                    filters:
+                        -  r_out: 25.000
+                           width: 1
+                           in_gap: 0.5
+                           out_gap: 0.5
+
+                        -  r_out: 25.008
+                           width: 1
+                           in_gap: 0.4
+                           out_gap: 0.4
+
+                        -  r_out: 25.016
+                           width: 1
+                           in_gap: 0.3
+                           out_gap: 0.3
+
+                        -  r_out: 25.024
+                           width: 1
+                           in_gap: 0.2
+                           out_gap: 0.2
+
+                        -  r_out: 25.032
+                           width: 1
+                           in_gap: 0.12
+                           out_gap: 0.12
+
+# Cadence related parameters
+impl_lib: 'sin_lib'
+impl_cell: 'Imbert_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

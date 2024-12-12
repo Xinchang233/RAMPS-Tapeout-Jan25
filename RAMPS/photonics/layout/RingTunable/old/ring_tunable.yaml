@@ -1,0 +1,82 @@
+
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/RingTunable'
+
+# Output Settings
+lsf_filename: RingTunable.lsf
+gds_filename: RingTunable_gds
+
+# Generator Params
+layout_package: 'layout.RingTunable.RingTunable'  # Module that contains the layout generator class
+layout_class: 'RingTunable'  # Layout generator class name
+
+layout_params:
+  ring_on: True
+  ring_rout: 3.0
+  ring_width: 0.4
+  ring_layer: !!python/tuple [si_full_free, drawing]
+
+  heater_rout: 2.0
+  heater_width: 0.4
+  heater_layer: !!python/tuple [si_full_free, drawing]
+
+  doping_layer: !!python/tuple [n_heavy_sil, drawing]
+
+  slab_on: False
+  slab_layer: !!python/tuple [n_heavy_sil, drawing]
+
+  top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+  wg_in_gap: 0.3
+  wg_in_length: 4.0
+  wg_in_width: 0.41
+
+  wg_out_gap: 0.5
+  wg_out_length: 6.0
+  wg_out_width: 0.41
+
+  dr: 0.02
+
+  extra_ring_info:       # list of dictionaries with rout, width, layer
+                         # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+  via_stack_spacing_from_heater: 0.2
+  via_stack_enclosure_vert: 0.1
+  via_stack_enclosure_horiz: 0.05
+  via_stack_gds_name: 'thermal_via_stack_quarter'
+
+  pads_on: True
+  pads_type: 'going_up'
+
+  intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+  intermediate_metal_length: 10.0
+  intermediate_to_routing_length: 10.0
+
+  routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+  routing_wire_spacing: 8.0
+  routing_wire_width: 4.0
+
+  pad_edge_distance: 100.0
+  pad_pitch: 42.0
+  pad_width: 38.0
+  pad_height: 50.0
+  pad_horizontal_shift_left: 10.0
+  pad_horizontal_shift_left_position: 10.0
+  pad_horizontal_shift_right: 10.0
+  pad_horizontal_shift_right_position: 20.0
+  pad_metal_layer: !!python/tuple ['LB', 'drawing']
+  pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+  pad_open_inclusion: 3.0
+
+  pad_left_on: True
+  pad_right_on: True
+
+
+# Cadence related parameters
+impl_lib: 'RingTunable_lib'
+impl_cell: 'RingTunable_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

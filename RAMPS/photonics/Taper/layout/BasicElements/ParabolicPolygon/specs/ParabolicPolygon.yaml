@@ -1,0 +1,24 @@
+project_name: 'ParabolicPolygon'
+
+# Output Settings
+lsf_filename: ParabolicPolygon
+gds_filename: ParabolicPolygon
+
+# Generator Params
+layout_package: 'layout.BasicElements.ParabolicPolygon.ParabolicPolygon'
+layout_class: 'ParabolicPolygon'
+
+layout_params:
+  win: 1
+  wout: 2
+  length: 2
+  layer: !!python/tuple ['si_full', 'drawing']
+
+# Cadence related parameters
+impl_lib: 'GenDum'
+impl_cell: 'GenDum'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

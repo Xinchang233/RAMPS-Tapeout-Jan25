@@ -1,0 +1,12 @@
+#define BLOCKA_width 8
+#define BLOCKA_height 8
+static unsigned char BLOCKA_bits[] = {
+0xFF, 
+0x81, 
+0x41, 
+0x21, 
+0x11, 
+0x09, 
+0x05, 
+0x03, 
+}

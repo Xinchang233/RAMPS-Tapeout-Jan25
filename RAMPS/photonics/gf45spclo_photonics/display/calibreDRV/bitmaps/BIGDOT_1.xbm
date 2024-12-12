@@ -1,0 +1,12 @@
+#define BIGDOT_1_width 8
+#define BIGDOT_1_height 8
+static unsigned char BIGDOT_1_bits[] = {
+0x1C, 
+0x1C, 
+0x1C, 
+0x00, 
+0xC1, 
+0xC1, 
+0xC1, 
+0x00, 
+}

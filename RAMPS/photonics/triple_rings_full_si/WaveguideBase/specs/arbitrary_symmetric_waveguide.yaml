@@ -1,0 +1,103 @@
+# General Project Settings
+project_name: ArbitrarySymmetricWaveguide
+
+# Output Settings
+lsf_filename: ArbitrarySymmetricWaveguide
+gds_filename: ArbitrarySymmetricWaveguide
+
+# Generator Settings
+layout_package: 'Photonic_Core_Layout.WaveguideBase.ArbitrarySymmetricWaveguide'
+layout_class: 'ArbitrarySymmetricWaveguide'
+
+layout_params:
+    flip_last: True
+    comp_package:
+      - Photonic_Core_Layout.Taper.LinearTaper
+      - Photonic_Core_Layout.Taper.LinearTaper
+      - Photonic_Core_Layout.WaveguideBase.DualLayerContactedSlotWaveguide
+      - Photonic_Core_Layout.WaveguideBase.DualLayerContactedSlotWaveguide
+    comp_class:
+      - LinearTaper
+      - LinearTaper
+      - DualLayerContactedSlotWaveguide
+      - DualLayerContactedSlotWaveguide
+    comp_ports:
+      - ['PORT0', 'PORT1']
+      - ['PORT0', 'PORT1']
+      - ['PORT0', 'PORT1']
+      - ['PORT0', 'PORT1']
+    comp_params:
+      - # params of mode converter 1
+        width0: 0.45
+        width1: 0.45
+        length: 5.0
+        layer: !!python/tuple ['SI', 'phot']
+
+      - # params of mode converter 2
+        width0: 0.45
+        width1: 0.5
+        length: 5.0
+        layer: !!python/tuple ['SI', 'phot']
+
+      - # params of mode converter 3
+        layer1_wg_params:
+            length: 10.0
+            core_width_in: 0.5
+            core_width_out: 0.5
+            slot_width_in: 0.0
+            slot_width_out: 0.0
+            draw_contact: False
+            contact_length_in: 1.2
+            contact_length_out: 1.2
+            contact_width: 0.1
+            contact_period: 0.2
+            layer: !!python/tuple ['SI', 'phot']
+
+        layer2_wg_params:
+            length: 10.0
+            core_width_in: 0.5
+            core_width_out: 2.5
+            slot_width_in: 0.0
+            slot_width_out: 0.0
+            draw_contact: False
+            contact_length_in: 1.0
+            contact_length_out: 1.0
+            contact_width: 0.1
+            contact_period: 0.2
+            layer: !!python/tuple ['POLY', 'phot']
+
+      - # params of mode converter 4
+        layer1_wg_params:
+            length: 50.0
+            core_width_in: 0.5
+            core_width_out: 0.5
+            slot_width_in: 0.0
+            slot_width_out: 0.0
+            draw_contact: False
+            contact_length_in: 1.2
+            contact_length_out: 1.2
+            contact_width: 0.1
+            contact_period: 0.2
+            layer: !!python/tuple ['SI', 'phot']
+
+        layer2_wg_params:
+            length: 50.0
+            core_width_in: 2.5
+            core_width_out: 2.5
+            slot_width_in: 0.0
+            slot_width_out: 0.0
+            draw_contact: False
+            contact_length_in: 1.0
+            contact_length_out: 1.0
+            contact_width: 0.1
+            contact_period: 0.2
+            layer: !!python/tuple ['POLY', 'phot']
+
+# Cadence related parameters
+impl_lib: 'ArbitrarySymmetricWaveguide'
+impl_cell: 'ArbitrarySymmetricWaveguide_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

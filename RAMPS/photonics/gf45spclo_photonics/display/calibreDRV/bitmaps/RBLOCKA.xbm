@@ -1,0 +1,12 @@
+#define RBLOCKA_width 8
+#define RBLOCKA_height 8
+static unsigned char RBLOCKA_bits[] = {
+0xFF, 
+0x81, 
+0x82, 
+0x84, 
+0x88, 
+0x90, 
+0xA0, 
+0xC0, 
+}

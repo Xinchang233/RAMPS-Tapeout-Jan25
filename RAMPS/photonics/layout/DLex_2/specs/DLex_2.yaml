@@ -1,0 +1,53 @@
+# Directory Locations
+project_name: DLexercise2
+
+# Output Settings
+lsf_filename: DLexercise2.lsf
+gds_filename: DLexercise2_gds
+
+
+# Generator Params
+layout_package: 'layout.DLex_2.DLex_2'  # Module that contains the layout generator class
+layout_class: 'DLex_2'  # Layout generator class name
+
+layout_params:
+  module1: layout.DLex_1.DLex_1
+  class1: DLex_1
+  params1:
+    layer: !!python/tuple [si_full, drawing]
+    port_layer: !!python/tuple [si_full, port]
+    length: 250
+    tlength: 20
+    width: 10
+    turn_radius: 50
+  
+  x_coord: 0
+  y_coord: 300
+
+  module2: layout.SimpleRingBusCouplerTB.SimpleRingBusCoupler
+  class2: SimpleRingBusCoupler
+  params2:
+    layer: !!python/tuple ['si_full_free', 'drawing']
+    ring_module: layout.SimpleRound.SimpleRound
+    ring_class: SimpleRound
+    ring_params:
+      layer: !!python/tuple ['si_full_free', 'drawing']
+      r_out: 120
+      r_width: 10
+
+    wg_width: 8
+    gap: 5
+    ring_orient: R0
+  
+  x_coord: 150
+  y_coord: 200
+
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

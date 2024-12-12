@@ -1,0 +1,22 @@
+# General Project Settings
+project_name: GratingPlaceHolder
+
+# Output Settings
+lsf_filename: GratingPlaceHolder
+gds_filename: GratingPlaceHolder
+
+layout_package: 'Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder'
+layout_class: 'GratingPlaceHolder'
+
+layout_params:
+  box_width: 20
+  box_height: 30
+
+# Cadence related parameters
+impl_lib: 'GratingPlaceHolder_lib'
+impl_cell: 'GratingPlaceHolder_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

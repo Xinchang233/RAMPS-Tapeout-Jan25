@@ -1,0 +1,32 @@
+# gratwg.yaml
+# A sample specification file to generate a general Grating Waveguide
+
+# Directory Locations
+project_name: GratingWaveguide
+
+# Output Settings
+lsf_filename: GratWg
+gds_filename: GratWg
+
+# Generator Params
+layout_package: 'layout.GratingWaveguide.GratingWaveguide'  # Module that contains the layout generator class
+layout_class: 'GratingWaveguide'  # Layout generator class name
+layout_params:
+    layer: !!python/tuple ['si_full','drawing']
+    width: 5.0
+    length: 100.0
+    period: .5
+    duty_cycle: .5
+    teeth_width: 6.0
+    grating_layer: !!python/tuple ['sin','drawing']
+    box_layers: !!python/tuple ['grating','drawing']
+    box_ex_width: 5.0
+
+# Cadence related parameters
+impl_lib: 'gratwg_lib'
+impl_cell: 'gratwg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

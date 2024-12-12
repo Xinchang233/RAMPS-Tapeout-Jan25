@@ -1,0 +1,30 @@
+# ArbitraryPolygon_base.yaml
+# A sample specification file to generate a general Vertical Grating Coupler
+
+# Directory Locations
+project_name: RacCoupler
+
+# Output Settings
+lsf_filename: RacCoupler_CBand
+gds_filename: RacCoupler_CBand
+
+# Generator Params
+layout_package: 'layout.ArbitraryPolygon.ArbitraryPolygon'  # Module that contains the layout generator class
+layout_class: 'ArbitraryPolygon'  # Layout generator class name
+layout_params:
+    layer: !!python/tuple [si_full, drawing]
+    port_layer: !!python/tuple [RX, port]
+    width: 0.5
+    file: 'layout/RAC/rac_coupler_c_band.mat'
+    downsample: 1
+    downsample_size: 1
+# Cadence related parameters
+impl_lib: 'bg_lib'
+impl_cell: 'bg_cellg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+
+

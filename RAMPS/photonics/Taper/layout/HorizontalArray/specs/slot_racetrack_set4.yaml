@@ -1,0 +1,782 @@
+# General Project Settings
+project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/HorizontalArray'
+
+# Output Settings
+lsf_filename: slot_racetrack_set4
+gds_filename: slot_racetrack_set4
+
+# Generator Settings
+layout_package: 'layout.HorizontalArray.HorizontalArray'
+layout_class: 'HorizontalArray'
+
+layout_params:
+  N_rows: 7
+  N_cols: 2
+  hc: 33.0
+  wc: 90.0
+  dh1: 1.0
+  dc_step: 3.0
+  hm_port: 210 # 8x2 140
+  spacing_cc: 19.0
+  spacing_cm: 75.0
+  pitch_mm: 100.0
+  spacing_wg: 3.0
+  dr: 2.0
+  dl: 2.0
+  rmin: 8.0
+  width: 0.7
+
+  layer: !!python/tuple ['rx3phot', 'drawing']
+  radius_threshold: 1.5
+  curvature_rate_threshold: 0.7
+
+  coupler_top_package: 'layout.Importers.Gratings.GcBidirWl1300nmMfd5000nmPortw700nm'
+  coupler_top_class: 'GcBidirWl1300nmMfd5000nmPortw700nm'
+  coupler_port_name: 'PORT_OUT'
+  coupler_params:
+    gds_path: 'layout/Importers/GDS_grating_couplers/gc_dirbi_unif_wl1300_mfd5000_deg15_portw700_dataprep_calibre.gds'
+
+  dut_top_package: 'layout.SlotRacetrackModulator.SlotRacetrackModulator'
+  dut_top_class: 'SlotRacetrackModulator'
+  dut_port_name_in: 'PORT0'
+  dut_port_name_out: 'PORT1'
+
+  dut_rectangle_layer: !!python/tuple ['PHOTON_A', 'drawing']
+
+  dut_params_list:
+    ####################################################################################################################
+    # variant 43
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.225
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 44
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.170
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 45
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.115
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.185, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 46
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.225
+      # doping
+      doping_info:
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 47
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.170
+      # doping
+      doping_info:
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 48
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.115
+      # doping
+      doping_info:
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 49
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.225
+      # doping
+      doping_info:
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 50
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.170
+      # doping
+      doping_info:
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 51
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.115
+      # doping
+      doping_info:
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.75, dist1: 2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.565, dist1: 2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.75, dist1: -2.185, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.565, dist1: -2.185, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 52
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.215
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 53
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.165
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 54
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.110
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 55
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.215
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+    ####################################################################################################################
+    # variant 56
+    -
+      # ps
+      ps_length: 100
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.165
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+      # heater
+      heater_params:
+        heat_layer: !!python/tuple ['si_full_free', 'drawing']
+        heat_length: 120
+        heat_width: 2.3
+        heat_dist: 6.0
+        doping_info:
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+          - {width: 2.7, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+        contact_bottom_width: 1
+        contact_bottom_length: 2.5
+        contact_top_layer: !!python/tuple ['B2', 'drawing']
+        contact_top_width: 1
+        contact_top_length: 2.5
+        contact_doping_extend: 0.2
+        contact_doping_info:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+          - !!python/tuple ['BFCUS', 'drawing']
+      heater_gs_pad_dist: 70
+
+# Cadence related parameters
+impl_lib: 'slot_racetrack_set4'
+impl_cell: 'slot_racetrack_set4_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

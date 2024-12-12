@@ -1,0 +1,32 @@
+project_name: WaveguideBase
+lsf_filename: WaveguideBase
+gds_filename: WaveguideBase
+
+#------------------
+#   Layout Config
+#------------------
+layout_package: 'Photonic_Core_Layout.Taper.LinearTaper'
+layout_class: 'LinearTaper'
+layout_params:
+  width0: .5
+  width1: .5
+  layer: 'SI'
+  length: 10
+
+#------------------
+#   TB Config
+#------------------
+tb_package: 'Photonic_Core_Layout.WaveguideBase.sim.StraightWgTB'
+tb_class: 'StraightWgTB'
+
+# These additional parameters are passed to the testbench class
+tb_params:
+  wavelength: 1.550e-6
+  meshsize: 10.0e-9
+  sim_margin: 4
+
+#------------------
+#   Cadence Config
+#------------------
+impl_lib: 'waveguide_lib'
+impl_cell: 'waveguide_cell'

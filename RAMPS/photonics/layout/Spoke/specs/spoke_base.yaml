@@ -1,0 +1,24 @@
+# General Project Settings
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/Spoke'
+
+# Output Settings
+lsf_filename: SpokeBase
+gds_filename: SpokeBase
+
+# Specify a generic layermap
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.Spoke.SpokeBase'
+layout_class: 'SpokeBase'
+layout_params:
+    rout: 5.0
+    rin: 4.0
+    num: 4
+    spoke_width_percentage: 1
+    spoke_offset: 0
+    layer: !!python/tuple ['si_full_free', 'drawing'] # Modify layers to work with 45RF layer map
+
+# Cadence related parameters
+impl_lib: 'spoke_lib'
+impl_cell: 'spoke_cell'

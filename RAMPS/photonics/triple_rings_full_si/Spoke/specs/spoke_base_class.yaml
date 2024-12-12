@@ -1,0 +1,60 @@
+# General Project Settings
+project_name: Spoke
+
+# Output Settings
+lsf_filename: SpokeBaseClass
+gds_filename: SpokeBaseClass
+
+# Specify a generic technology as this is a public sample
+bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.Spoke.tests.test_spoke_base'
+layout_class: 'SpokeTestBase'
+layout_params:
+  spokes:
+    - rout: 5.0
+      rin: 4.0
+      num: 32
+      spoke_width_percentage: 1
+      spoke_offset: 0
+      layer: 'SI'
+    - rout: 6.0
+      rin: 4.0
+      num: 32
+      spoke_width_percentage: 1
+      spoke_offset: 0.5
+      layer: 'SI'
+    - rout: 7.0
+      rin: 4.0
+      num: 64
+      spoke_width_percentage: 1
+      spoke_offset: 1
+      layer: 'POLY'
+    - rout: 7.0
+      rin: 5.0
+      num: 16
+      spoke_width_percentage: 1
+      spoke_offset: 0.5
+      layer: 'M1'
+    - rout: 10
+      rin: 5
+      num: 4
+      spoke_width_percentage: 1
+      spoke_offset: 0
+      layer: 'M2'
+    - rout: 11
+      rin: 5
+      num: 4
+      spoke_width_percentage: 1
+      spoke_offset: 0.5
+      layer: 'M2'
+
+# Cadence related parameters
+impl_lib: 'spoke_lib'
+impl_cell: 'spoke_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

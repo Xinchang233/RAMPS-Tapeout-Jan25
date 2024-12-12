@@ -1,0 +1,26 @@
+# General Project Settings
+project_name: /projectnb/siphot/djordje/TapeoutCode/TO_45CLO_2020a/gen_libs/PartialEtch_inner_side_with_sweepout
+
+# Output Settings
+lsf_filename: a
+gds_filename: SPSGratings_09172020
+
+layout_package: 'layout.GratingPlacer.GratingPlacer'
+layout_class: 'GratingPlacer'
+
+layout_params:
+  grating_module: layout.Importers.Gratings.Grating_OBand
+  grating_class: Grating_OBand
+  cords_file: 'gen_libs/PartialEtch_inner_side_with_sweepout/data/sps_big_grating_pos_09172020.txt'
+  gds_path: False
+  #gds_path: 'gen_libs/CLO_Oct19/ArrayedDUMs/Oband/data/Version2_dataprep_calibre.gds'
+
+
+# Cadence related parameters
+impl_lib: 'GratingPlace_lib'
+impl_cell: 'GratingPlace_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

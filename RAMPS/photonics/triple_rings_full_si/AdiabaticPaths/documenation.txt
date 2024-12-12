@@ -1,0 +1,6 @@
+Given list of arcs this class will build layout out of them.
+
+Read all params from yaml file. In draw_layout() check arc type and call proper function to generate that arc.
+Check merge_arcs param to see if how polygons will be generated
+generate_polygons from arcs
+place polygons

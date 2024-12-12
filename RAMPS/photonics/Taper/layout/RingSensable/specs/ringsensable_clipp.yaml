@@ -1,0 +1,70 @@
+
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/RingSensableCLIPP'
+
+# Output Settings
+lsf_filename: RingSensableCLIPP.lsf
+gds_filename: RingSensableCLIPP_gds
+
+# Generator Params
+layout_package: 'layout.RingSensable.RingSensable'  # Module that contains the layout generator class
+layout_class: 'RingSensableCLIPP'  # Layout generator class name
+
+layout_params:
+  ring_params:
+    layer: !!python/tuple [si_full_free, drawing]
+    port_layer: !!python/tuple [si_full_free, port]
+    ring_width: 1.08
+    r_out: 17.8
+
+  heater_params:
+    ring_params:
+      layer: !!python/tuple [si_full_free, drawing]
+      port_layer: !!python/tuple [si_full_free, port]
+      #ring_width: 0.84
+      resistance: 1000
+
+    contact_params:
+      contact_distance: 0.5
+      contact_width: 1.
+
+    via_stack_params:
+      top_layer: !!python/tuple ['C2', 'drawing']
+      bottom_layer: !!python/tuple ['RX', 'drawing']
+      top_x_span: 1.
+      top_y_span: 1.
+      bottom_x_span: 1.
+      bottom_y_span: 1.
+      align: 'center_align'
+
+    doping_disk_params:
+      -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+      -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+    heater_label_1: 'HeaterContactLeft'
+    heater_label_2: 'HeaterContactRight'
+  ring_heater_gap: 3
+
+  capacitor_params:
+    capacitor_params:
+      layer: !!python/tuple ['B1', 'drawing']
+      width: 2.0
+      capacitor_distance: 5.0
+    via_stack_params:
+      top_layer: !!python/tuple ['B2', 'drawing']
+      top_x_span: 1.
+      top_y_span: 1.
+      bottom_x_span: 1.
+      bottom_y_span: 1.
+      align: 'center_align'
+    orientation: 'R0'
+
+
+
+# Cadence related parameters
+impl_lib: 'RingSensableCLIPP_lib'
+impl_cell: 'RingSensableCLIPP_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

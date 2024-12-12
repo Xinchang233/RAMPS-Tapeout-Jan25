@@ -1,0 +1,21 @@
+# General Project Settings
+project_name: ProbePads
+
+# Output Settings
+lsf_filename: ProbePads.lsf
+gds_filename: ProbePads_gds
+
+layout_package: 'ProbePads'
+layout_class: 'ProbePads'
+
+lsf_export_map: 'GF45RFSOI/Photonics/lumerical_map_withLiners.yaml'
+
+# Cadence related parameters
+impl_lib: 'ProbePads_lib'        # Module that contains the layout generator class
+impl_cell: 'ProbePads_cell'      # Layout generator class name
+layout_params:
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

@@ -1,0 +1,12 @@
+#define VDASH_1_width 8
+#define VDASH_1_height 8
+static unsigned char VDASH_1_bits[] = {
+0x04, 
+0x04, 
+0x04, 
+0x04, 
+0x04, 
+0x04, 
+0x00, 
+0x00, 
+}

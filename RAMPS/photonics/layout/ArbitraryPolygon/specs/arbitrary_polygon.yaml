@@ -1,0 +1,29 @@
+# ArbitraryPolygon_base.yaml
+# A sample specification file to generate a general Vertical Grating Coupler
+
+# Directory Locations
+project_name: ArbitraryPolygon
+
+# Output Settings
+lsf_filename: ArbitraryPolygon
+gds_filename: ArbitraryPolygon
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.ArbitraryPolygon.ArbitraryPolygon'  # Module that contains the layout generator class
+layout_class: 'ArbitraryPolygon'  # Layout generator class name
+layout_params:
+    layer: 'SI'
+    port_layer: 'SI'
+    width: 0.5
+    file: 'Photonic_Core_Layout/ArbitraryPolygon/Test.mat'
+    downsample: 1
+    downsample_size: 10
+# Cadence related parameters
+impl_lib: 'bg_lib'
+impl_cell: 'bg_cellg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+

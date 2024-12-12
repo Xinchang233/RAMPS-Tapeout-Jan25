@@ -1,0 +1,25 @@
+# 45rf version of taper
+
+# Directory Locations
+project_name: TaperCLO
+
+# Output Settings
+lsf_filename: LinearTaperCLOParEtch
+gds_filename: LinearTaperCLOParEtch
+
+# Generator Params
+layout_package: 'Photonic_Layout_45SPCLO.Taper.LinTaperParEtch'
+layout_class: 'LinTaperParEtch'
+layout_params:
+  width0: 5
+  width1: 10
+  length: 20
+
+# Cadence related parameters
+impl_lib: 'photaper_test_lib'
+impl_cell: 'photaper_test_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

@@ -1,0 +1,68 @@
+# General Project Settings
+project_name: Taperclip
+
+# Output Settings
+lsf_filename: Taperclip_test
+gds_filename: Taperclip_test
+
+# Generator Settings
+layout_package: 'Photonic_Core_Layout.WaveguidePaperclip.WaveguidePaperclipWGratings'
+layout_class: 'WaveguidePaperclipWGratings'
+
+layout_params:
+
+  # Grating params
+  grating_cell_package: Photonic_Layout_45SPCLO.GratingCoupler.WorkhorseGratings
+  grating_cell_class: GC_WL1550_MFD5000nm_15DEG
+  grating_cell_params:
+    # empty parameters
+
+  # Taperclip params
+  paperclip_params:
+    num_rows: 11
+    cells_per_row: 2
+    cell_dist: 2.0
+    row_dist: 10.0
+    row_offset: 0.0
+    bend_radius: 5.0
+    bend_width: 0.5
+    cell2bend_taper_length: 5.0
+    routing_layer: !!python/tuple ['si_full', 'drawing']
+
+    # Component package
+    # comp_package: 'Photonic_Core_Layout.Taper.ArbSymmetricTaper'
+    # comp_class: ArbSymmetricTaper
+    # comp_ports: ['PORT0', 'PORT1']  # [inpurt port, output port]
+
+    comp_package: Photonic_Core_Layout.WaveguideBase.ArbitrarySymmetricWaveguide
+    comp_class: ArbitrarySymmetricWaveguide
+    comp_ports: ['PORT0', 'PORT1']  # [inpurt port, output port]
+    comp_params:
+      flip_last: True
+      comp_package:
+        - Photonic_Core_Layout.Taper.ArbSymmetricTaper
+        # - Photonic_Core_Layout.Taper.ArbSymmetricTaper
+      comp_class:
+        - ArbSymmetricTaper
+        # - ArbSymmetricTaper
+      comp_ports:
+        - ['PORT1', 'PORT0']
+        # - ['PORT1', 'PORT0']
+      comp_params:
+
+        - # taper params
+          layer: !!python/tuple ['si_poly', 'drawing']
+          matfile: 'Photonic_Layout_45SPCLO/Taper/mat_files/taper_clo_lam1d3_W1_7_W2_0d41_L65d22_Hamming_BPG.mat'
+
+        # - # taper params
+        #   layer: !!python/tuple ['si_poly', 'drawing']
+        #   matfile: 'Photonic_Layout_45SPCLO/Taper/mat_files/taper_clo_lam1d3_W1_7_W2_0d41_L65d22_Hamming_BPG.mat'
+
+# Cadence related parameters
+impl_lib: 'WaveguidePaperclip'
+impl_cell: 'WaveguidePaperclip_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

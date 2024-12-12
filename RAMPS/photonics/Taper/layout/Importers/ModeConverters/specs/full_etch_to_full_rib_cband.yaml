@@ -1,0 +1,22 @@
+# Directory Locations
+project_name: 'FullEtchToFullRib_Cband'
+
+# Output Settings
+lsf_filename: FullEtchToFullRib_Cband
+gds_filename: FullEtchToFullRib_Cband
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'layout.Importers.ModeConverters.FullEtchToFullRib_Cband'
+layout_class: 'FullEtchToFullRib_Cband'  # Layout generator class name
+
+layout_params:
+
+# Cadence related parameters
+impl_lib: 'FullEtchToFullRib_Cband'
+impl_cell: 'FullEtchToFullRib_Cband_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

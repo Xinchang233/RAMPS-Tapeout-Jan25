@@ -1,0 +1,108 @@
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/RingSensableTest'
+
+# Output Settings
+lsf_filename: sensable_ring_test.lsf
+gds_filename: sensable_ring_test_gds
+
+# Specify a generic technology as this is a public sample
+# bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+# Specify a generic technology as this is a public sample
+# bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'layout.RingSensable.RingSensable'  # Module that contains the layout generator class
+layout_class: 'RingSensableWithCosinegc'  # Layout generator class name
+layout_params:
+  spoked_ring_params:
+    layer: !!python/tuple ['si_full_free', 'drawing']
+    port_layer: !!python/tuple ['si_full_free','port']
+    ring_width: 2.0
+    rout: 18.8
+    doping_spoke_info:        #n doping is offset 0, p doping is offset 0.5
+      - {rout: 17.05, rin: 16.0, num: 76,
+        spoke_offset: 0, layer: !!python/tuple ['n_inter_phot', 'drawing'],
+        spoke_width_percentage: 0.453}
+      - {rout: 17.05, rin: 16.3, num: 76,
+        spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],
+        spoke_width_percentage: 0.453}
+    extra_ring_info:
+    coupling_slot: 0.512
+    wg_width: 0.75
+    spoke_num: 76  #number of spokes for p or n--not the total combined.
+    #  label: 'Contact'       # Label can be specified as a single name that will be appended by _P and _N
+    label: {P: 'P_ring', N: 'N_ring'}   # Label can be specified as a dict of N and P labels
+    outer_electrode_ring_layers:
+      - !!python/tuple ['C1', 'drawing']
+    inner_electrode_ring_layers:
+      - !!python/tuple ['C1', 'drawing']
+
+
+    # Advanced parameters: can change between designs per technology, but not recommended for standard users
+    p_via_radius_offset: 0.5
+    n_via_radius_offset: 0.8
+    high_doping_rout_offset: 0.1
+    high_doping_rin_offset: 0.1
+    electrode_offset: 0.5
+    electrode_width_inner: 0.8
+    electrode_width_outer: 1.0
+    salicide_radius_extension: 0.25
+    high_doping_n_rin_offset: 0
+
+    # Advanced tech params: should not need to change between designs in a given technology
+    high_p_doping_layer: !!python/tuple ['p_heavy_sil', 'drawing']
+    high_n_doping_layer: !!python/tuple ['n_heavy_sil', 'drawing']
+    salicide_lpp: !!python/tuple ['n_heavy_sil', 'drawing']
+    bottom_metal_electrode_layer: !!python/tuple ['RX', 'drawing']
+
+  heater_params:
+    ring_params:
+      layer: !!python/tuple [si_full_free, drawing]
+      port_layer: #!!python/tuple [si_full_free, port]
+      #ring_width: 0.84
+      resistance: 300
+
+    contact_params:
+      contact_distance: 0.5
+      contact_width: 1.
+
+    via_stack_params:
+      top_layer: !!python/tuple ['C2', 'drawing']
+      bottom_layer: !!python/tuple ['RX', 'drawing']
+      top_x_span: 0.420
+      top_y_span: 1.
+      bottom_x_span: 0.420
+      bottom_y_span: 1.
+      align: 'center_align'
+
+    doping_disk_params:
+      -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+      -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+    heater_label_1: 'HVDD'
+    heater_label_2: 'Source_test_HeatN[0]'
+  ring_heater_gap: 1.42
+  via_stack_params:
+    top_layer: !!python/tuple ['C2', 'drawing']
+    bottom_layer: !!python/tuple ['C1', 'drawing']
+    top_x_span: 0.420
+    top_y_span: 1.
+    bottom_x_span: 0.420
+    bottom_y_span: 1.
+    align: 'center_align'
+  grating10_params:
+    package: layout.gc.gc
+    class: gc1550_10mfd
+  grating5_params:
+    package: layout.gc.gc
+    class: gc1550_5mfd
+    width: 0.6
+  label_p: 'SourceContact_test_Anode[0]'
+  label_n: 'VPD'
+# Cadence related parameters
+impl_lib: 'sourcering_variant1_lib'
+impl_cell: 'sourcering_variant1_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

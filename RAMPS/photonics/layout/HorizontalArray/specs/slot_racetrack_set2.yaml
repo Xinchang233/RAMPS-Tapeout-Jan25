@@ -1,0 +1,488 @@
+# General Project Settings
+project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/HorizontalArray'
+
+# Output Settings
+lsf_filename: slot_racetrack_set2
+gds_filename: slot_racetrack_set2
+
+# Generator Settings
+layout_package: 'layout.HorizontalArray.HorizontalArray'
+layout_class: 'HorizontalArray'
+
+layout_params:
+  N_rows: 7
+  N_cols: 2
+  hc: 23.0
+  wc: 90.0
+  dh1: 1.0
+  dc_step: 3.0
+  hm_port: 140 # 8x2 140
+  spacing_cc: 19.0
+  spacing_cm: 75.0
+  pitch_mm: 100.0
+  spacing_wg: 3.0
+  dr: 2.0
+  dl: 2.0
+  rmin: 8.0
+  width: 0.7
+
+  layer: !!python/tuple ['rx3phot', 'drawing']
+  radius_threshold: 1.5
+  curvature_rate_threshold: 0.7
+
+  coupler_top_package: 'layout.Importers.Gratings.GcBidirWl1300nmMfd5000nmPortw700nm'
+  coupler_top_class: 'GcBidirWl1300nmMfd5000nmPortw700nm'
+  coupler_port_name: 'PORT_OUT'
+  coupler_params:
+    gds_path: 'layout/Importers/GDS_grating_couplers/gc_dirbi_unif_wl1300_mfd5000_deg15_portw700_dataprep_calibre.gds'
+
+  dut_top_package: 'layout.SlotRacetrackModulator.SlotRacetrackModulator'
+  dut_top_class: 'SlotRacetrackModulator'
+  dut_port_name_in: 'PORT0'
+  dut_port_name_out: 'PORT1'
+
+  dut_rectangle_layer: !!python/tuple ['PHOTON_A', 'drawing']
+
+  dut_params_list:
+    ####################################################################################################################
+    # variant 15
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.170
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 16
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.270
+      # doping
+      doping_info:
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 17
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.220
+      # doping
+      doping_info:
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 18
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.170
+      # doping
+      doping_info:
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 19
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.270
+      # doping
+      doping_info:
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 20
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.220
+      # doping
+      doping_info:
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 21
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.85
+      ps_slot_width: 0.2
+      ps_contact_length: 1.4
+      ps_contact_width: 0.08
+      ps_contact_period: 0.28
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.85
+      taper_slot_width_out: 0.2
+      taper_contact_length_out: 1.4
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.170
+      # doping
+      doping_info:
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.825, dist1: 2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.640, dist1: 2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.825, dist1: -2.260, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.640, dist1: -2.260, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 22
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.260
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 23
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.215
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 24
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.165
+      # doping
+      doping_info:
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.0, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.0, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 25
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.260
+      # doping
+      doping_info:
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 26
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.215
+      # doping
+      doping_info:
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 27
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.165
+      # doping
+      doping_info:
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+    ####################################################################################################################
+    # variant 28
+    -
+      # ps
+      ps_length: 30
+      ps_core_width: 0.7
+      ps_slot_width: 0.1
+      ps_contact_length: 1.5
+      ps_contact_width: 0.1
+      ps_contact_period: 0.24
+      # taper
+      taper_length: 10
+      taper_core_width_out: 0.7
+      taper_slot_width_out: 0.1
+      taper_contact_length_out: 1.5
+      logorlin: 0.6
+      # bus
+      bus_ring_gap: 0.260
+      # doping
+      doping_info:
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: 0.750, dist1: 2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: 1.665, dist1: 2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {dist0: -0.750, dist1: -2.285, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {dist0: -1.665, dist1: -2.285, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+
+# Cadence related parameters
+impl_lib: 'slot_racetrack_set2'
+impl_cell: 'slot_racetrack_set2_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

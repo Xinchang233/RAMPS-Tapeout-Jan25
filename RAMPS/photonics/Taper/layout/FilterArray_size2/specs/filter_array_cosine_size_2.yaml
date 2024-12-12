@@ -1,0 +1,95 @@
+# General Project Settings
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/FilterArraySizeCosine'
+
+# Output Settings
+lsf_filename: FilterArray_size2
+gds_filename: FilterArray_size2
+
+layout_package: 'layout.FilterArray_size2.FilterArray_size2'
+layout_class: 'FilterArrayCosine_size2'
+
+layout_params:
+  layer: !!python/tuple [si_full_free, drawing]
+  port_layer: !!python/tuple [si_full_free, port]
+  vertical_displacement: 4
+  horizontal_displacement: 20
+  class_params:
+       -  input_bend_size : 25
+          layer: !!python/tuple [si_full_free, drawing]
+          port_layer: !!python/tuple [si_full_free, port]
+          size_out : 10
+          input_length: 30
+          total_size: 118
+          input_wg:
+            width: 0.350
+            length: 10
+          output_wg:
+            width: 0.350
+            length: 7
+          spacing: 30
+          filters:
+              -  r_out: 8
+                 width: 0.410
+                 in_gap: 0.1
+                 out_gap: 0.1
+              -  r_out: 8.022
+                 width: 0.410
+                 in_gap: 0.2
+                 out_gap: 0.2
+              -  r_out: 8.044
+                 width: 0.410
+                 in_gap: 0.3
+                 out_gap: 0.3
+              -  r_out: 8.066
+                 width: 0.410
+                 in_gap: 0.4
+                 out_gap: 0.4
+              -  r_out: 8.088
+                 width: 0.410
+                 in_gap: 0.5
+                 out_gap: 0.5
+
+       -  input_bend_size : 22
+          layer: !!python/tuple [si_full_free, drawing]
+          port_layer: !!python/tuple [si_full_free, port]
+          size_out : 10
+          input_length: 35
+          total_size: 140
+          input_wg:
+            width: 0.350
+            length: 10
+          output_wg:
+            width: 0.350
+            length: 7
+          spacing: 30
+          filters:
+              -  r_out: 4
+                 width: 0.410
+                 in_gap: 0.1
+                 out_gap: 0.1
+              -  r_out: 4.022
+                 width: 0.410
+                 in_gap: 0.2
+                 out_gap: 0.2
+              -  r_out: 4.044
+                 width: 0.410
+                 in_gap: 0.3
+                 out_gap: 0.3
+              -  r_out: 4.066
+                 width: 0.410
+                 in_gap: 0.4
+                 out_gap: 0.4
+              -  r_out: 4.088
+                 width: 0.410
+                 in_gap: 0.5
+                 out_gap: 0.5
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+

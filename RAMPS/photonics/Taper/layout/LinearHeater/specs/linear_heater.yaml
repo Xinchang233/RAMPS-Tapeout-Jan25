@@ -1,0 +1,47 @@
+# General Project Settings
+project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/LinearHeater'
+
+# Output Settings
+lsf_filename: LinearHeater
+gds_filename: LinearHeater
+
+## Specify a generic technology as this is a public sample
+#bag_config_path: '/projectnb/siphot/chips/45RF_2019May/TO_45RF_2019May_infrastructure/BPG/examples/tech/bag_config.yaml'
+
+# Generator Settings
+layout_package: 'layout.LinearHeater.LinearHeater'
+layout_class: 'LinearHeater'
+
+layout_params:
+    # basic heater parameters
+    heat_layer: !!python/tuple ['si_full_free', 'drawing']
+    heat_length: 20
+    heat_width: 1
+    heat_dist: 4
+
+    # parameters of the doping layers
+    doping_info:
+      - {width: 2, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      - {width: 2, layer: !!python/tuple ['nw2phot', 'drawing']}
+
+    # parameters of heater electrodes
+    contact_bottom_layer: !!python/tuple ['RX', 'drawing']
+    contact_bottom_width: 2.0
+    contact_bottom_length: 0.5
+    contact_top_layer: !!python/tuple ['C2', 'drawing']
+    contact_top_width: 2.0
+    contact_top_length: 1.0
+    contact_doping_extend: 0.2
+    contact_doping_info:
+      - !!python/tuple ['n_inter_phot', 'drawing']
+      - !!python/tuple ['n_inter_phot', 'drawing']
+
+
+# Cadence related parameters
+impl_lib: 'LinearHeater'
+impl_cell: 'LinearHeater_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

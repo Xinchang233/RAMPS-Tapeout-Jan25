@@ -1,0 +1,25 @@
+
+
+# Directory Locations
+project_name: '/projectnb/siphot/bz/tapeouts/2020_06_45RFSOI_AL11B/gds/tapers_from_josep/gen_by_bpg'
+
+# Output Settings
+lsf_filename: taper1300_jf
+gds_filename: taper1300_jf
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'layout.Importers.Tapers.joseps_taper_1300'
+layout_class: 'TaperJosep1300'  # Layout generator class name
+
+layout_params:
+  gds_path: 'layout/Importers/Tapers/gds/taper1300.gds'
+
+# Cadence related parameters
+impl_lib: 'taper1300_jf'
+impl_cell: 'taper1300_jf'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

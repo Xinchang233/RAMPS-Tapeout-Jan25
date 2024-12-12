@@ -1,0 +1,1815 @@
+# General Project Settings
+project_name: Arrayable
+
+# Output Settings
+lsf_filename: Arrayable_rings
+gds_filename: Arrayable_rings
+
+layout_package: 'Photonic_Layout_45SPCLO.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Layout_45SPCLO.LossRings.LossRings
+  class_name: LossRings
+  horizontal_distance: 5
+  vertical_distance: 20
+  horizontal_offset: 0
+  instances_per_row: 7
+  pack_params: False
+  params_per_cell: 6
+  class_params:
+  ######################Si full etch loss rings start here ##################
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 2.000
+#                           width: 0.410
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 2.015
+#                           width: 0.410
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 2.030
+#                           width: 0.410
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 2.045
+#                           width: 0.410
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 2.060
+#                           width: 0.410
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 2.500
+#                           width: 0.410
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 2.515
+#                           width: 0.410
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 2.530
+#                           width: 0.410
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 2.545
+#                           width: 0.410
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 2.560
+#                           width: 0.410
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.360
+#                           width: 0.410
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 3.375
+#                           width: 0.410
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 3.390
+#                           width: 0.410
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 3.405
+#                           width: 0.410
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 3.420
+#                           width: 0.410
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+
+##################Dopped loss rings start here ###########################
+###### doping: IH, IJ, IQ, PK, PQ, IK, IM, PLP, PLN, IS, IX, (IH,IQ)######
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IH, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IJ, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IQ, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [PK, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [PQ, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IK, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IM, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [PLP, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [PLN, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IS, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IX, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    additional_layers:
+#                      - layer: !!python/tuple [IH, drawing]
+#                        width: 0.51
+#                      - layer: !!python/tuple [IJ, drawing]
+#                        width: 0.51
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.410
+#                           in_gap: 0.400
+#                           out_gap: 0.400
+#
+#                        -  r_out: 8.015
+#                           width: 0.410
+#                           in_gap: 0.323
+#                           out_gap: 0.323
+#
+#                        -  r_out: 8.030
+#                           width: 0.410
+#                           in_gap: 0.245
+#                           out_gap: 0.245
+#
+#                        -  r_out: 8.045
+#                           width: 0.410
+#                           in_gap: 0.167
+#                           out_gap: 0.167
+#
+#                        -  r_out: 8.060
+#                           width: 0.410
+#                           in_gap: 0.090
+#                           out_gap: 0.090
+#########################Dopped loss rings end here##################3
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 5
+#                    output_wg:
+#                      width: 0.350
+#                      length: 3
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.000
+#                           width: 0.350
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 3.015
+#                           width: 0.350
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 3.030
+#                           width: 0.350
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 3.045
+#                           width: 0.350
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 3.060
+#                           width: 0.350
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 3
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.000
+#                           width: 0.500
+#                           in_gap: 0.450
+#                           out_gap: 0.450
+#
+#                        -  r_out: 3.015
+#                           width: 0.500
+#                           in_gap: 0.375
+#                           out_gap: 0.375
+#
+#                        -  r_out: 3.030
+#                           width: 0.500
+#                           in_gap: 0.300
+#                           out_gap: 0.300
+#
+#                        -  r_out: 3.045
+#                           width: 0.500
+#                           in_gap: 0.225
+#                           out_gap: 0.225
+#
+#                        -  r_out: 3.060
+#                           width: 0.500
+#                           in_gap: 0.150
+#                           out_gap: 0.150
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 4.000
+#                           width: 0.350
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 4.015
+#                           width: 0.350
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 4.030
+#                           width: 0.350
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 4.045
+#                           width: 0.350
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 4.060
+#                           width: 0.350
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 4.000
+#                           width: 0.500
+#                           in_gap: 0.450
+#                           out_gap: 0.450
+#
+#                        -  r_out: 4.015
+#                           width: 0.500
+#                           in_gap: 0.375
+#                           out_gap: 0.375
+#
+#                        -  r_out: 4.030
+#                           width: 0.500
+#                           in_gap: 0.300
+#                           out_gap: 0.300
+#
+#                        -  r_out: 4.045
+#                           width: 0.500
+#                           in_gap: 0.225
+#                           out_gap: 0.225
+#
+#                        -  r_out: 4.060
+#                           width: 0.500
+#                           in_gap: 0.150
+#                           out_gap: 0.150
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.350
+#                           in_gap: 0.500
+#                           out_gap: 0.500
+#
+#                        -  r_out: 8.015
+#                           width: 0.350
+#                           in_gap: 0.425
+#                           out_gap: 0.425
+#
+#                        -  r_out: 8.030
+#                           width: 0.350
+#                           in_gap: 0.350
+#                           out_gap: 0.350
+#
+#                        -  r_out: 8.045
+#                           width: 0.350
+#                           in_gap: 0.275
+#                           out_gap: 0.275
+#
+#                        -  r_out: 8.060
+#                           width: 0.350
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 8.000
+#                           width: 0.500
+#                           in_gap: 0.450
+#                           out_gap: 0.450
+#
+#                        -  r_out: 8.015
+#                           width: 0.500
+#                           in_gap: 0.375
+#                           out_gap: 0.375
+#
+#                        -  r_out: 8.030
+#                           width: 0.500
+#                           in_gap: 0.300
+#                           out_gap: 0.300
+#
+#                        -  r_out: 8.045
+#                           width: 0.500
+#                           in_gap: 0.225
+#                           out_gap: 0.225
+#
+#                        -  r_out: 8.060
+#                           width: 0.500
+#                           in_gap: 0.150
+#                           out_gap: 0.150
+
+##########Si fully etched loss rings end here ###################
+########## partially etched loss rings begin here################
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+            class_name: PartialEtchModeConverter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 10
+            additional_wg_layers:
+                 - layer:  !!python/tuple [si_partial, drawing]
+                   width: 2.4
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.41
+                    input_bend_size : 20
+                    size_out : 20
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 8
+                    output_wg:
+                      width: 0.350
+                      length: 8
+                    spacing: 30
+                    filters:
+                        -  r_out: 8.000
+                           width: 0.410
+                           in_gap: 0.800
+                           out_gap: 0.800
+
+                        -  r_out: 8.015
+                           width: 0.410
+                           in_gap: 0.725
+                           out_gap: 0.725
+
+                        -  r_out: 8.030
+                           width: 0.410
+                           in_gap: 0.650
+                           out_gap: 0.650
+
+                        -  r_out: 8.045
+                           width: 0.410
+                           in_gap: 0.575
+                           out_gap: 0.575
+
+                        -  r_out: 8.060
+                           width: 0.410
+                           in_gap: 0.500
+                           out_gap: 0.500
+
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.41
+                    input_bend_size : 20
+                    size_out : 20.001
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 8
+                    output_wg:
+                      width: 0.350
+                      length: 8
+                    spacing: 30
+                    filters:
+                        -  r_out: 8.000
+                           width: 0.410
+                           in_gap: 0.500
+                           out_gap: 0.500
+
+                        -  r_out: 8.015
+                           width: 0.410
+                           in_gap: 0.425
+                           out_gap: 0.425
+
+                        -  r_out: 8.030
+                           width: 0.410
+                           in_gap: 0.350
+                           out_gap: 0.350
+
+                        -  r_out: 8.045
+                           width: 0.410
+                           in_gap: 0.275
+                           out_gap: 0.275
+
+                        -  r_out: 8.060
+                           width: 0.410
+                           in_gap: 0.200
+                           out_gap: 0.200
+
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+            class_name: PartialEtchModeConverter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 10
+            additional_wg_layers:
+                 - layer:  !!python/tuple [si_partial, drawing]
+                   width: 2.4
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.41
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 9
+                    spacing: 30
+                    filters:
+                        -  r_out: 10.000
+                           width: 0.410
+                           in_gap: 0.800
+                           out_gap: 0.800
+
+                        -  r_out: 10.015
+                           width: 0.410
+                           in_gap: 0.725
+                           out_gap: 0.725
+
+                        -  r_out: 10.030
+                           width: 0.410
+                           in_gap: 0.650
+                           out_gap: 0.650
+
+                        -  r_out: 10.045
+                           width: 0.410
+                           in_gap: 0.575
+                           out_gap: 0.575
+
+                        -  r_out: 10.060
+                           width: 0.410
+                           in_gap: 0.500
+                           out_gap: 0.500
+
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.41
+                    input_bend_size : 20
+                    size_out : 20.001
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 9
+                    spacing: 30
+                    filters:
+                        -  r_out: 10.000
+                           width: 0.410
+                           in_gap: 0.500
+                           out_gap: 0.500
+
+                        -  r_out: 10.015
+                           width: 0.410
+                           in_gap: 0.425
+                           out_gap: 0.425
+
+                        -  r_out: 10.030
+                           width: 0.410
+                           in_gap: 0.350
+                           out_gap: 0.350
+
+                        -  r_out: 10.045
+                           width: 0.410
+                           in_gap: 0.275
+                           out_gap: 0.275
+
+                        -  r_out: 10.060
+                           width: 0.410
+                           in_gap: 0.200
+                           out_gap: 0.200
+
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+            class_name: PartialEtchModeConverter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 14
+            additional_wg_layers:
+                 - layer:  !!python/tuple [si_partial, drawing]
+                   width: 2.4
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.4
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 14
+                    spacing: 38
+                    filters:
+                        -  r_out: 16.000
+                           width: 0.410
+                           in_gap: 0.800
+                           out_gap: 0.800
+
+                        -  r_out: 16.015
+                           width: 0.410
+                           in_gap: 0.725
+                           out_gap: 0.725
+
+                        -  r_out: 16.030
+                           width: 0.410
+                           in_gap: 0.650
+                           out_gap: 0.650
+
+                        -  r_out: 16.045
+                           width: 0.410
+                           in_gap: 0.575
+                           out_gap: 0.575
+
+                        -  r_out: 16.060
+                           width: 0.410
+                           in_gap: 0.500
+                           out_gap: 0.500
+
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.4
+                    input_bend_size : 20
+                    size_out : 20.001
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 14
+                    spacing: 38
+                    filters:
+                        -  r_out: 16.000
+                           width: 0.410
+                           in_gap: 0.500
+                           out_gap: 0.500
+
+                        -  r_out: 16.015
+                           width: 0.410
+                           in_gap: 0.425
+                           out_gap: 0.425
+
+                        -  r_out: 16.030
+                           width: 0.410
+                           in_gap: 0.350
+                           out_gap: 0.350
+
+                        -  r_out: 16.045
+                           width: 0.410
+                           in_gap: 0.275
+                           out_gap: 0.275
+
+                        -  r_out: 16.060
+                           width: 0.410
+                           in_gap: 0.200
+                           out_gap: 0.200
+###################### Partially etched loss rings end here ################
+###################### SiN loss rings begin here ##########################
+#    -   place_mode_converter: True
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.SiN_converter
+#            class_name: SiN_converter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 14
+#            class_params:
+#                 -  layer: !!python/tuple [sin, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 40
+#                    size_out : 40.0
+#                    input_length: 55
+#                    total_size: 190
+#                    input_wg:
+#                      width: 0.850
+#                      length: 20
+#                    output_wg:
+#                      width: 0.850
+#                      length: 10
+#                    spacing: 66
+#                    filters:
+#                        -  r_out: 20.000
+#                           width: 0.950
+#                           in_gap: 1.000
+#                           out_gap: 1.000
+#
+#                        -  r_out: 20.020
+#                           width: 0.950
+#                           in_gap: 0.911
+#                           out_gap: 0.911
+#
+#                        -  r_out: 20.040
+#                           width: 0.950
+#                           in_gap: 0.822
+#                           out_gap: 0.822
+#
+#                        -  r_out: 20.060
+#                           width: 0.950
+#                           in_gap: 0.733
+#                           out_gap: 0.733
+#
+#                        -  r_out: 20.080
+#                           width: 0.950
+#                           in_gap: 0.644
+#                           out_gap: 0.644
+#
+#                 -  layer: !!python/tuple [sin, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 40
+#                    size_out : 40.001
+#                    input_length: 55
+#                    total_size: 190
+#                    input_wg:
+#                      width: 0.850
+#                      length: 5
+#                    output_wg:
+#                      width: 0.850
+#                      length: 10
+#                    spacing: 66
+#                    filters:
+#                        -  r_out: 20.100
+#                           width: 0.950
+#                           in_gap: 0.556
+#                           out_gap: 0.556
+#
+#                        -  r_out: 20.120
+#                           width: 0.950
+#                           in_gap: 0.467
+#                           out_gap: 0.467
+#
+#                        -  r_out: 20.140
+#                           width: 0.950
+#                           in_gap: 0.378
+#                           out_gap: 0.378
+#
+#                        -  r_out: 20.160
+#                           width: 0.950
+#                           in_gap: 0.289
+#                           out_gap: 0.289
+#
+#                        -  r_out: 20.180
+#                           width: 0.950
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+#
+#    -   place_mode_converter: True
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.SiN_converter
+#            class_name: SiN_converter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [sin, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 40
+#                    size_out : 40.0
+#                    input_length: 55
+#                    total_size: 198
+#                    input_wg:
+#                      width: 0.850
+#                      length: 20
+#                    output_wg:
+#                      width: 0.850
+#                      length: 10
+#                    spacing: 66
+#                    filters:
+#                        -  r_out: 30.000
+#                           width: 0.950
+#                           in_gap: 1.000
+#                           out_gap: 1.000
+#
+#                        -  r_out: 30.020
+#                           width: 0.950
+#                           in_gap: 0.911
+#                           out_gap: 0.911
+#
+#                        -  r_out: 30.040
+#                           width: 0.950
+#                           in_gap: 0.822
+#                           out_gap: 0.822
+#
+#                        -  r_out: 30.060
+#                           width: 0.950
+#                           in_gap: 0.733
+#                           out_gap: 0.733
+#
+#                        -  r_out: 30.080
+#                           width: 0.950
+#                           in_gap: 0.644
+#                           out_gap: 0.644
+#
+#                 -  layer: !!python/tuple [sin, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 40
+#                    size_out : 40.001
+#                    input_length: 55
+#                    total_size: 198
+#                    input_wg:
+#                      width: 0.850
+#                      length: 5
+#                    output_wg:
+#                      width: 0.850
+#                      length: 10
+#                    spacing: 66
+#                    filters:
+#                        -  r_out: 30.100
+#                           width: 0.950
+#                           in_gap: 0.556
+#                           out_gap: 0.556
+#
+#                        -  r_out: 30.120
+#                           width: 0.950
+#                           in_gap: 0.467
+#                           out_gap: 0.467
+#
+#                        -  r_out: 30.140
+#                           width: 0.950
+#                           in_gap: 0.378
+#                           out_gap: 0.378
+#
+#                        -  r_out: 30.160
+#                           width: 0.950
+#                           in_gap: 0.289
+#                           out_gap: 0.289
+#
+#                        -  r_out: 30.180
+#                           width: 0.950
+#                           in_gap: 0.200
+#                           out_gap: 0.200
+################### SiN loss rings end here ####################
+#################### Filters Si full etch start here ###########
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.360
+#                           width: 0.410
+#                           in_gap: 0.232
+#                           out_gap: 0.232
+#
+#                        -  r_out: 3.375
+#                           width: 0.410
+#                           in_gap: 0.192
+#                           out_gap: 0.192
+#
+#                        -  r_out: 3.390
+#                           width: 0.410
+#                           in_gap: 0.169
+#                           out_gap: 0.169
+#
+#                        -  r_out: 3.405
+#                           width: 0.410
+#                           in_gap: 0.152
+#                           out_gap: 0.152
+#
+#                        -  r_out: 3.420
+#                           width: 0.410
+#                           in_gap: 0.139
+#                           out_gap: 0.139
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.360
+#                           width: 0.410
+#                           in_gap: 0.128
+#                           out_gap: 0.128
+#
+#                        -  r_out: 3.375
+#                           width: 0.410
+#                           in_gap: 0.119
+#                           out_gap: 0.119
+#
+#                        -  r_out: 3.390
+#                           width: 0.410
+#                           in_gap: 0.112
+#                           out_gap: 0.112
+#
+#                        -  r_out: 3.405
+#                           width: 0.410
+#                           in_gap: 0.105
+#                           out_gap: 0.105
+#
+#                        -  r_out: 3.420
+#                           width: 0.410
+#                           in_gap: 0.098
+#                           out_gap: 0.098
+#
+#    -   place_mode_converter: False
+#        mode_converter_params:
+#            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#            class_name: PartialEtchModeConverter
+#        grating_params:
+#            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+#            class_name: GratingPlaceHolder
+#        filter_params:
+#            vertical_displacement: 5
+#            horizontal_displacement: 30
+#            class_params:
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 8
+#                    output_wg:
+#                      width: 0.350
+#                      length: 8
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.360
+#                           width: 0.410
+#                           in_gap: 0.192
+#                           out_gap: 0.192
+#
+#                        -  r_out: 3.375
+#                           width: 0.410
+#                           in_gap: 0.192
+#                           out_gap: 0.192
+#
+#                        -  r_out: 3.390
+#                           width: 0.410
+#                           in_gap: 0.192
+#                           out_gap: 0.192
+#
+#                        -  r_out: 3.405
+#                           width: 0.410
+#                           in_gap: 0.192
+#                           out_gap: 0.192
+#
+#                        -  r_out: 3.420
+#                           width: 0.410
+#                           in_gap: 0.192
+#                           out_gap: 0.192
+#
+#
+#                 -  layer: !!python/tuple [si_full, drawing]
+#                    port_layer: !!python/tuple [RX, port]
+#                    input_bend_size : 10
+#                    size_out : 10.01
+#                    input_length: 85
+#                    input_length: 85
+#                    total_size: 200
+#                    input_wg:
+#                      width: 0.350
+#                      length: 7
+#                    output_wg:
+#                      width: 0.350
+#                      length: 4
+#                    spacing: 30
+#                    filters:
+#                        -  r_out: 3.360
+#                           width: 0.410
+#                           in_gap: 0.139
+#                           out_gap: 0.139
+#
+#                        -  r_out: 3.375
+#                           width: 0.410
+#                           in_gap: 0.139
+#                           out_gap: 0.139
+#
+#                        -  r_out: 3.390
+#                           width: 0.410
+#                           in_gap: 0.139
+#                           out_gap: 0.139
+#
+#                        -  r_out: 3.405
+#                           width: 0.410
+#                           in_gap: 0.139
+#                           out_gap: 0.139
+#
+#                        -  r_out: 3.420
+#                           width: 0.410
+#                           in_gap: 0.139
+#                           out_gap: 0.139
+################### Filters Si full etch end here ################
+################### Filters Si partial etch start here ################
+    -   place_mode_converter: True
+        mode_converter_params:
+            package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+            class_name: PartialEtchModeConverter
+        grating_params:
+            package: Photonic_Layout_45SPCLO.GratingPlacer.GratingPlaceHolder
+            class_name: GratingPlaceHolder
+        filter_params:
+            vertical_displacement: 5
+            horizontal_displacement: 30
+            additional_wg_layers:
+                 - layer:  !!python/tuple [si_partial, drawing]
+                   width: 2.4
+            class_params:
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.4
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 14
+                    spacing: 38
+                    filters:
+                        -  r_out: 8.000
+                           width: 0.410
+                           in_gap: 0.400
+                           out_gap: 0.400
+
+                        -  r_out: 8.015
+                           width: 0.410
+                           in_gap: 0.350
+                           out_gap: 0.350
+
+                        -  r_out: 8.030
+                           width: 0.410
+                           in_gap: 0.300
+                           out_gap: 0.300
+
+                        -  r_out: 8.045
+                           width: 0.410
+                           in_gap: 0.250
+                           out_gap: 0.250
+
+                        -  r_out: 8.060
+                           width: 0.410
+                           in_gap: 0.20
+                           out_gap: 0.200
+
+########################## This is spare #########################
+                 -  layer: !!python/tuple [si_full, drawing]
+                    port_layer: !!python/tuple [RX, port]
+                    additional_layers:
+                      - layer: !!python/tuple [si_partial, drawing]
+                        width: 2.4
+                    input_bend_size : 20
+                    size_out : 20.0
+                    input_length: 75
+                    total_size: 160
+                    input_wg:
+                      width: 0.350
+                      length: 10
+                    output_wg:
+                      width: 0.350
+                      length: 14
+                    spacing: 38
+                    filters:
+                        -  r_out: 8.000
+                           width: 0.410
+                           in_gap: 0.400
+                           out_gap: 0.400
+
+                        -  r_out: 8.015
+                           width: 0.410
+                           in_gap: 0.350
+                           out_gap: 0.350
+
+                        -  r_out: 8.030
+                           width: 0.410
+                           in_gap: 0.300
+                           out_gap: 0.300
+
+                        -  r_out: 8.045
+                           width: 0.410
+                           in_gap: 0.250
+                           out_gap: 0.250
+
+                        -  r_out: 8.060
+                           width: 0.410
+                           in_gap: 0.20
+                           out_gap: 0.200
+############################ PREVIOUS PARAMS #########################
+
+# Cadence related parameters
+impl_lib: 'lossrings_lib'
+impl_cell: 'lossrings_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

@@ -1,0 +1,712 @@
+GlobalDataprepSizeAmount: 2.0
+GlobalGridSize: 0.001
+GlobalRoughGridSize: 0.1
+
+dataprep_groups:
+
+  - # Add THPH over all metals connected by bar vias
+    lpp_in:
+      - {lpp: ['M1bar', 'drawing']}
+      - {lpp: ['M2bar', 'drawing']}
+      - {lpp: ['M3bar', 'drawing']}
+      - {lpp: ['M4bar', 'drawing']}
+      - {lpp: ['M5bar', 'drawing']}
+      - {lpp: ['BAbar', 'drawing']}
+      - {lpp: ['UAbar', 'drawing']}
+      - {lpp: ['UBbar', 'drawing']}
+      
+    lpp_ops:
+      - {lpp: ['THPH', 'drawing'], operation: 'rad', amount: 2.4}
+      
+  - # Add CAVITYPROTECT over V1-V4 bar vias
+    lpp_in:
+      - {lpp: ['V1', 'bar']}
+      - {lpp: ['V2', 'bar']}
+      - {lpp: ['V3', 'bar']}
+      - {lpp: ['V4', 'bar']}
+      
+    lpp_ops:
+      - {lpp: ['CAVITYPROTECT', 'drawing'], operation: 'rad', amount: 0.3}
+      
+  # convert custom metals used for creating of bar vias to foundery layers
+  - lpp_in: [{ lpp: [ 'M1bar', 'drawing' ] }]  # M1
+    lpp_ops: 
+      - {lpp: ['M1', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M1bar', 'drawing'], operation: 'sub', amount: 0.0}
+  - lpp_in: [{ lpp: [ 'M2bar', 'drawing' ] }]  # M2
+    lpp_ops: 
+      - {lpp: ['M2', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M2bar', 'drawing'], operation: 'sub', amount: 0.0}
+  - lpp_in: [{ lpp: [ 'M3bar', 'drawing' ] }]  # M3
+    lpp_ops: 
+      - {lpp: ['M3', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M3bar', 'drawing'], operation: 'sub', amount: 0.0}
+  - lpp_in: [{ lpp: [ 'M4bar', 'drawing' ] }]  # M4
+    lpp_ops: 
+      - {lpp: ['M4', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M4bar', 'drawing'], operation: 'sub', amount: 0.0}
+
+  - lpp_in: [{ lpp: [ 'M5bar', 'drawing' ] }]  # M5
+    lpp_ops: 
+      - {lpp: ['M5', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M5bar', 'drawing'], operation: 'sub', amount: 0.0}
+
+  - lpp_in: [{ lpp: [ 'BAbar', 'drawing' ] }]  # BA
+    lpp_ops: 
+      - {lpp: ['BA', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['BAbar', 'drawing'], operation: 'sub', amount: 0.0}
+  - lpp_in: [{ lpp: [ 'UAbar', 'drawing' ] }]  # UA
+    lpp_ops: 
+      - {lpp: ['UA', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['UAbar', 'drawing'], operation: 'sub', amount: 0.0}
+  - lpp_in: [{ lpp: [ 'UBbar', 'drawing' ] }]  # UB
+    lpp_ops: 
+      - {lpp: ['UB', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['UBbar', 'drawing'], operation: 'sub', amount: 0.0}
+  - lpp_in: [{ lpp: [ 'LBbar', 'drawing' ] }] # LB
+    lpp_ops: 
+      - {lpp: ['LB', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['LBbar', 'drawing'], operation: 'sub', amount: 0.0}
+
+  - # Expand nodataprep to protect IP/PCELLS that shouldn't go through dataprep
+    lpp_in:
+      - {lpp: ['no_dataprep', 'no_dataprep']}
+    lpp_ops:
+      - {lpp: ['RX', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['PC', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['KG', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['WG', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['BO', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['OG', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['XG', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['DETECTOR', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['XGTAPER', 'no_dataprep'], operation: 'add', amount: 0.0}
+      - {lpp: ['JL', 'no_dataprep'], operation: 'add', amount: 0.0}
+
+
+  # And drawn shape with no_dataprep to isolate not-to-be-datapreped shapes
+  # Then subtract from original shape set
+  - lpp_in:  [{lpp: ['CUST_LYR50', 'drawing']}]
+    lpp_ops: [{lpp: ['XG', 'drawing'], operation: 'sub', amount: 0.0}] # ADDED BY MANUJ
+  - lpp_in:  [{lpp: ['RX', 'drawing']}]
+    lpp_ops: [{lpp: ['RX', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['RX', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['RX', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['PC', 'drawing']}]
+    lpp_ops: [{lpp: ['PC', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['PC', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['PC', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['KG', 'drawing']}]
+    lpp_ops: [{lpp: ['KG', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['KG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['KG', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['WG', 'drawing']}]
+    lpp_ops: [{lpp: ['WG', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['WG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['WG', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['BO', 'drawing']}]
+    lpp_ops: [{lpp: ['BO', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['BO', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['BO', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['OG', 'drawing']}]
+    lpp_ops: [{lpp: ['OG', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['OG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['OG', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['XG', 'drawing']}]
+    lpp_ops: [{lpp: ['XG', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['XG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['XG', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['DETECTOR', 'drawing']}]
+    lpp_ops: [{lpp: ['DETECTOR', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['DETECTOR', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['DETECTOR', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['XGTAPER', 'drawing']}]
+    lpp_ops: [{lpp: ['XGTAPER', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['XGTAPER', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['XGTAPER', 'drawing'], operation: 'sub', amount: 0.0}]
+  - lpp_in:  [{lpp: ['JL', 'drawing']}]
+    lpp_ops: [{lpp: ['JL', 'no_dataprep'], operation: 'and', amount: 0.0}]
+  - lpp_in:  [{lpp: ['JL', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['JL', 'drawing'], operation: 'sub', amount: 0.0}]
+  
+
+
+  - # Extend UT by the guessed amount to show expected UT undercut region
+    lpp_in:
+      - {lpp: ['UT', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 2.4}   # 2.4um is rather arbitrary safe bet for now (041322)
+      - {lpp: ['ut_extent', 'drawing'], operation: 'add', amount: 7.0}
+
+  - # Manhattanize list
+    # This is a list of layers that will NOT be manhattanized
+    # Implants can be freeform
+    # '*free' layers are freeform
+    # UT is freeform
+    # LB should not be manhattanized
+    lpp_in:
+      - {lpp: ['(?!.*free$|IH|IJ|IQ|PQ|PK|IM|IK|IS|IX|PLP|PLN|p_heavy_phot|n_heavy_phot|p_inter_phot|n_inter_phot|p_mod_phot|n_mod_phot|p_det_phot|n_det_phot|n_heavy_sil|p_heavy_sil|AP|GK|OG|ut_extent|JL|LVX|LB|XG).*', 'drawing']}  #XG layer added by manuj to this list to make XG freeform
+    lpp_ops:
+      - {operation: manh}
+
+  - # Perform OUUO expliclty on freeform dopant layers
+    lpp_in:
+      - {lpp: ['IJ', 'drawing']}
+      - {lpp: ['IH', 'drawing']}
+      - {lpp: ['PK', 'drawing']}
+      - {lpp: ['PQ', 'drawing']}
+      - {lpp: ['IK', 'drawing']}
+      - {lpp: ['IM', 'drawing']}
+      - {lpp: ['PLP', 'drawing']}
+      - {lpp: ['PLN', 'drawing']}
+      
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.005}
+
+  - # Perform OUO on custom manhattanized doping layers
+    # If no amount is passed, then MinSpace from dataprep_parameters.yaml will be used (but these custom layers are not in that file)
+    lpp_in:
+      - {lpp: ['p_manh_heavy_phot', 'drawing']} # IM
+      - {lpp: ['n_manh_heavy_phot', 'drawing']} # IK
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.52}
+
+  - #
+    lpp_in:
+      - {lpp: ['p_manh_det_phot', 'drawing']} # IS
+      - {lpp: ['n_manh_det_phot', 'drawing']} # IX
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.8}
+
+  - #
+    lpp_in:
+      - {lpp: ['p_manh_inter_phot', 'drawing']} # PQ
+      - {lpp: ['n_manh_inter_phot', 'drawing']} # PK
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.4}
+
+  - #
+    lpp_in:
+      - {lpp: ['p_manh_mod_phot', 'drawing']} # IH
+      - {lpp: ['n_manh_mod_phot', 'drawing']} # IJ
+      - {lpp: ['n_manh_heavy_sil', 'drawing']} # PLN
+      - {lpp: ['p_manh_heavy_sil', 'drawing']} # PLP
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.2}
+
+
+  # Translate manhattanized doping layers
+  - lpp_in:  [{lpp: ['p_manh_heavy_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IM', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_manh_heavy_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IK', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_manh_inter_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['PQ', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_manh_inter_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['PK', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_manh_mod_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IH', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_manh_mod_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IJ', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_manh_det_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IS', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_manh_det_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IX', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_manh_heavy_sil', 'drawing']}]
+    lpp_ops: [{lpp: ['PLP', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_manh_heavy_sil', 'drawing']}]
+    lpp_ops: [{lpp: ['PLN', 'drawing'], operation: 'add', amount: 0.0}]
+
+# Perform OUO on freeform dopant layers
+  # Need to manually hardcode double the MinSpace amount in dataprep_parameters.yaml
+  # This is a bug, but works for producing DRC-clean results for now
+  # -kramnik 2021/01/18
+  - lpp_in:
+      - {lpp: ['n_heavy_phot_rough', 'drawing']} # n_heavy_phot
+      - {lpp: ['p_heavy_phot_rough', 'drawing']} # p_heavy_phot
+    lpp_ops:
+      - {operation: 'ouo', amount: 1.040}
+  - lpp_in:
+      - {lpp: ['n_mod_phot_rough', 'drawing']} # n_mod_phot
+      - {lpp: ['p_mod_phot_rough', 'drawing']} # p_mod_phot
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.400}
+  - lpp_in:
+      - {lpp: ['n_inter_phot_rough', 'drawing']} # n_inter_phot
+      - {lpp: ['p_inter_phot_rough', 'drawing']} # p_inter_phot
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.800}
+  - lpp_in:
+      - {lpp: ['n_det_phot_rough', 'drawing']} # n_det_phot
+      - {lpp: ['n_det_phot_rough', 'drawing']} # p_det_phot
+    lpp_ops:
+      - {operation: 'ouo', amount: 1.600}
+  - lpp_in:
+      - {lpp: ['n_heavy_sil_rough', 'drawing']} # n_heavy_sil
+      - {lpp: ['p_heavy_sil_rough', 'drawing']} # p_heavy_sil
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.400}
+      
+      
+  - lpp_in:
+      - {lpp: ['n_heavy_phot', 'drawing']} # n_heavy_phot
+      - {lpp: ['p_heavy_phot', 'drawing']} # p_heavy_phot
+      - {lpp: ['n_mod_phot', 'drawing']} # n_mod_phot
+      - {lpp: ['p_mod_phot', 'drawing']} # p_mod_phot
+      - {lpp: ['n_inter_phot', 'drawing']} # n_inter_phot
+      - {lpp: ['p_inter_phot', 'drawing']} # p_inter_phot
+      - {lpp: ['n_det_phot', 'drawing']} # n_det_phot
+      - {lpp: ['n_det_phot', 'drawing']} # p_det_phot
+      - {lpp: ['n_heavy_sil', 'drawing']} # n_heavy_sil
+      - {lpp: ['p_heavy_sil', 'drawing']} # p_heavy_sil
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.005}
+      
+  # Translate doping layers
+  - lpp_in:  [{lpp: ['p_heavy_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IM', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_heavy_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IK', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_inter_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['PQ', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_inter_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['PK', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_mod_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IH', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_mod_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IJ', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_det_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IS', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_det_phot', 'drawing']}]
+    lpp_ops: [{lpp: ['IX', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_heavy_sil', 'drawing']}]
+    lpp_ops: [{lpp: ['PLN', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_heavy_sil', 'drawing']}]
+    lpp_ops: [{lpp: ['PLP', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_heavy_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['IM', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_heavy_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['IK', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_inter_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['PQ', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_inter_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['PK', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_mod_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['IH', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_mod_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['IJ', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_det_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['IS', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_det_phot_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['IX', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['n_heavy_sil_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['PLN', 'drawing'], operation: 'add', amount: 0.0}]
+
+  - lpp_in:  [{lpp: ['p_heavy_sil_rough', 'drawing']}]
+    lpp_ops: [{lpp: ['PLP', 'drawing'], operation: 'add', amount: 0.0}]
+  # Translate waveguide layers
+
+  # OUO partial etch layers - resolves problem in rib rings. Added by Djordje (05/03/2022) 
+  - lpp_in:
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.12}
+      
+  # Add silicon layers to RX
+  - lpp_in:
+      - {lpp: ['si_full_free', 'drawing']}
+      - {lpp: ['si_full', 'drawing']}
+      - {lpp: ['si_tm', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_free', 'drawing']}
+      - {lpp: ['si', 'drawing']}
+      - {lpp: ['RXbar', 'drawing']}
+    lpp_ops:
+      - {lpp: ['RX', 'drawing'], operation: 'add', amount: 0.0}
+
+  # Add partial etch layers
+  - lpp_in:
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+    lpp_ops:
+      - {lpp: ['KG', 'drawing'], operation: 'add', amount: 0.16} # changed from 0 to 0.08 by Djordje to fix GRRX.EX.KG.1_FF error (05/03/2022)
+      
+
+  # Over-ride partial etch back to full silicon if 'si_full'. No need to add to RX, already done above
+  - lpp_in:
+      - {lpp: ['si_full_free', 'drawing']}
+      - {lpp: ['si_full', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+      - {lpp: ['si_tm', 'drawing']}
+    lpp_ops:
+      - {lpp: ['KG', 'drawing'], operation: 'sub', amount: 0.0}
+
+  # Etch away the silicon.  No need to remove KG-- It is OK to have KG without any RX underneath- will result in no silicon
+  # TODO: Check whether this should remove KG as well as RX? Which gives cleaner DRC?
+  - lpp_in:
+      - {lpp: ['si_etch', 'drawing']}
+    lpp_ops:
+      - {lpp: ['RX', 'drawing'], operation: 'sub', amount: 0.0}
+
+# Etch away partial silicon and add full thickness silicon
+  - lpp_in:
+      - {lpp: ['si_partial_etch', 'drawing']}
+    lpp_ops:
+      - {lpp: ['KG', 'drawing'], operation: 'sub', amount: 0.0}
+      - {lpp: ['RX', 'drawing'], operation: 'add', amount: 0.0}
+
+  # Add polysilicon
+  - lpp_in:
+      - {lpp: ['si_poly_free', 'drawing']}
+      - {lpp: ['si_poly', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PC', 'drawing'], operation: 'add', amount: 0.0}
+
+  # Add nitride
+  - lpp_in:
+      - {lpp: ['sin_free', 'drawing']}
+      - {lpp: ['sin', 'drawing']}
+    lpp_ops:
+      - {lpp: ['WG', 'drawing'], operation: 'add', amount: 0.0}
+
+
+  # Perform OUUO on device layers
+  - lpp_in:
+      - {lpp: ['RX', 'drawing']}
+      - {lpp: ['KG', 'drawing']}
+      - {lpp: ['PC', 'drawing']}
+      - {lpp: ['WG', 'drawing']}
+    lpp_ops:
+      - {operation: 'ouo'}
+
+  # Add waveguide shapes to create PHOTON
+  - lpp_in:
+      - {lpp: ['si_full_free', 'drawing']}
+      - {lpp: ['si_full', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+      - {lpp: ['si_tm', 'drawing']}
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+      - {lpp: ['si_free', 'drawing']}
+      - {lpp: ['si', 'drawing']}
+      - {lpp: ['sin_free', 'drawing']}
+      - {lpp: ['sin', 'drawing']}
+      - {lpp: ['si_etch', 'drawing']}
+      - {lpp: ['PLP', 'drawing']}
+      - {lpp: ['PLN', 'drawing']}
+      #- {lpp: ['KG', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 2.4}
+
+  # Add waveguide shapes to create PHOTON
+  - lpp_in:
+      - {lpp: ['PHOTON', 'temp']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['WAVEGUIDE', 'temp'], operation: 'add', amount: 0.0}
+      - {lpp: ['PHOTON', 'temp'], operation: 'sub', amount: 0.0}  # Clear photon/temp
+
+  # SIN gets larger coverage
+  - lpp_in:
+      - {lpp: ['sin_free', 'drawing']}
+      - {lpp: ['sin', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 3.4}
+
+  # Add waveguide shapes to create PHOTON
+  - lpp_in:
+      - {lpp: ['PHOTON', 'temp']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['TMWAVE', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['WAVEGUIDE', 'temp'], operation: 'add', amount: 0.0}
+      - {lpp: ['PHOTON', 'temp'], operation: 'sub', amount: 0.0}  # Clear photon/temp
+
+
+  # TM waveguide gets larger coverage
+  - lpp_in:
+      - {lpp: ['si_tm', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 3.7}
+
+  # Add waveguide shapes to create PHOTON
+  - lpp_in:
+      - {lpp: ['PHOTON', 'temp']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['TMWAVE', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['WAVEGUIDE', 'temp'], operation: 'add', amount: 0.0}
+      - {lpp: ['PHOTON', 'temp'], operation: 'sub', amount: 0.0}  # Clear photon/temp
+
+
+    # TODO: XGTAPER by 3.1 around WG, except where there is already explicit XGTAPER?
+
+  # Cover polysilicon by IOGRAT because it allows for finer PC widths
+  - lpp_in:
+      - {lpp: ['si_poly_free', 'drawing']}
+      - {lpp: ['si_poly', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 2.2}
+
+  - lpp_in:  [{lpp: ['PHOTON', 'temp']}]
+    lpp_ops:
+      - {lpp: ['IOGRAT', 'drawing'], operation: 'add', amount: 2.2}
+      - {lpp: ['PHOTON', 'temp'], operation: 'sub', amount: 0.0}  # Clear photon/temp
+
+  # FOR ACTIVE LAYERS rough add "photonic" region layers and exclude layers
+  - lpp_in:  [{lpp: ['mod', 'drawing']}]
+    lpp_ops: [{lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 0.0}]
+  - lpp_in:  [{lpp: ['PHOTON', 'temp']}]
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['MODULATOR', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M1', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M2', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M3', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M4', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M5', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['BA', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['UA', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['UB', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['LB', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['PHOTON', 'temp'], operation: 'sub', amount: 0.0}  # Clear photon/temp
+
+  # process themal regions
+  - lpp_in:  [{lpp: ['thermal', 'drawing']}]
+    lpp_ops: [{lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 0.0}]
+  - lpp_in:  [{lpp: ['PHOTON', 'temp']}]
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['THPH', 'drawing'], operation: 'add', amount: 0.0}
+      - {lpp: ['M1', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M2', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M3', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M4', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['M5', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['BA', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['UA', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['UB', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['LB', 'exclude'], operation: 'add', amount: 0.0}
+      - {lpp: ['PHOTON', 'temp'], operation: 'sub', amount: 0.0}  # Clear photon/temp
+
+  - # process themal regions
+    lpp_in:
+      - {lpp: ['pd', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'rad', amount: 0.0}
+      - {lpp: ['DETECTOR', 'drawing'], operation: 'rad', amount: 0.0}
+
+  - # GK = germanium regions get protected from fill
+    lpp_in:
+      - {lpp: ['GK', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'rad', amount: 0.0}
+
+  - # Remove WAVEGUIDE from MODULATOR, thermal, and detector region
+    lpp_in:
+      - {lpp: ['MODULATOR', 'drawing']}
+      - {lpp: ['THPH', 'drawing']}
+      - {lpp: ['DETECTOR', 'drawing']}
+    lpp_ops:
+      - {lpp: ['WAVEGUIDE', 'temp'], operation: 'sub', amount: 0.0}
+
+  - # Remove WAVEGUIDE from lib component
+    lpp_in:
+      - {lpp: ['lib_component', 'drawing']}
+    lpp_ops:
+      - {lpp: ['WAVEGUIDE', 'temp'], operation: 'sub', amount: 0.0}
+
+  - # convert WAVEGUIDE temp to actual WAVEGUIDE
+    lpp_in:
+    - {lpp: ['WAVEGUIDE', 'temp']}
+    lpp_ops:
+    - {lpp: ['WAVEGUIDE', 'drawing'], operation: 'add', amount: 0.0}
+    - {lpp: ['WAVEGUIDE', 'temp'], operation: 'sub', amount: 0.0}
+
+  - # convert RXWGUIDE temp to actual RXWGUIDE
+    lpp_in:
+    - {lpp: ['RXWGUIDE', 'temp']}
+    lpp_ops:
+    - {lpp: ['RXWGUIDE', 'temp'], operation: 'sub', amount: 0.0}
+
+  - # convert grating to IOGRAT
+    lpp_in:
+      - {lpp: ['grating', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'rad', amount: 0.0}
+      - {lpp: ['IOGRAT', 'drawing'], operation: 'rad', amount: 0.0}
+
+  - # Remove WAVEGUIDE from IOGRAT
+    lpp_in:
+      - {lpp: ['IOGRAT', 'drawing']}
+    lpp_ops:
+      - {lpp: ['WAVEGUIDE', 'drawing'], operation: 'sub', amount: 0.0}
+
+  - # Cover BO with PHOTON
+    lpp_in:
+      - {lpp: ['BO', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'rad', amount: 10.0}
+
+
+  - # Cover all of the following layers with PHOTON
+    lpp_in:
+      - {lpp: ['ABSORB', 'drawing']}
+      - {lpp: ['DCOUPLER', 'drawing']}
+      - {lpp: ['DETECTOR', 'drawing']}
+      - {lpp: ['IOGRAT', 'drawing']}
+      - {lpp: ['IOSMF', 'drawing']}
+      - {lpp: ['MODULATOR', 'drawing']}
+      - {lpp: ['PSR', 'drawing']}
+      - {lpp: ['THPH', 'drawing']}
+      - {lpp: ['WDM', 'drawing']}
+      - {lpp: ['IOGRAT', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'drawing'], operation: 'add', amount: 0.0}
+
+
+  - # Perform OUUO on layers
+    lpp_in:
+      - {lpp: ['M1', 'drawing']}
+      - {lpp: ['M2', 'drawing']}
+      - {lpp: ['M3', 'drawing']}
+      - {lpp: ['M4', 'drawing']}
+      - {lpp: ['M5', 'drawing']}
+
+    lpp_ops:
+      - {operation: 'ouo'} # TODO: determine what the correct amount is
+
+  - lpp_in:
+      - {lpp: ['BA', 'drawing']}
+      - {lpp: ['UA', 'drawing']}
+      - {lpp: ['UB', 'drawing']}
+      - {lpp: ['LB', 'drawing']}
+    lpp_ops:
+      - {operation: 'ouo'} # TODO: determine what the correct amount is
+
+  - lpp_in:
+      - {lpp: ['JL', 'drawing']}
+      - {lpp: ['GK', 'drawing']}
+      - {lpp: ['UP', 'drawing']}
+    lpp_ops:
+      - {operation: 'ouo'} # TODO: determine what the correct amount is
+      
+  - lpp_in:
+      - {lpp: ['PHOTON', 'drawing']}
+      - {lpp: ['WAVEGUIDE', 'drawing']}
+      - {lpp: ['IOGRAT', 'drawing']}
+      - {lpp: ['TMWAVE', 'drawing']}
+    lpp_ops:
+      - {operation: 'ouo', amount: 0.8} # TODO: determine what the correct amount is. 0.8 works fine so far (05/03/2022)
+      
+  #- # Perform OUUO expliclty on freeform dopant layers -Manuj addition
+    #lpp_in:
+      #- {lpp: ['M1', 'drawing']}
+      #- {lpp: ['M2', 'drawing']}
+      #- {lpp: ['M3', 'drawing']}
+      #- {lpp: ['M4', 'drawing']}
+      #- {lpp: ['M5', 'drawing']}
+    #lpp_ops:
+      #- {operation: 'ouo', amount: 0.13}
+
+#- # Perform OUUO expliclty on freeform dopant layers -Manuj addition
+#  lpp_in:
+#    - {lpp: ['M1', 'drawing']}
+#    - {lpp: ['M2', 'drawing']}
+#    - {lpp: ['M3', 'drawing']}
+#    - {lpp: ['M4', 'drawing']}
+#    - {lpp: ['M5', 'drawing']}
+#  lpp_ops:
+#    - {operation: 'ouo', amount: 0.13}
+
+  
+
+
+# Should be the final operation
+  - lpp_in:  [{lpp: ['M1', 'drawing']}]
+    lpp_ops: [{lpp: ['M1FFOPC', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['M2', 'drawing']}]
+    lpp_ops: [{lpp: ['M2FFOPC', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['M3', 'drawing']}]
+    lpp_ops: [{lpp: ['M3FFOPC', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['M4', 'drawing']}]
+    lpp_ops: [{lpp: ['M4FFOPC', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['M5', 'drawing']}]
+    lpp_ops: [{lpp: ['M5FFOPC', 'drawing'], operation: 'add', amount: 0.0}]
+
+
+
+  # Add nodataprep shapes back into final layout
+  # Should be the final operation
+  - lpp_in:  [{lpp: ['RX', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['RX', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['PC', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['PC', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['KG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['KG', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['WG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['WG', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['BO', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['BO', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['OG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['OG', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['XG', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['XG', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['DETECTOR', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['DETECTOR', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['XGTAPER', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['XGTAPER', 'drawing'], operation: 'add', amount: 0.0}]
+  - lpp_in:  [{lpp: ['JL', 'no_dataprep']}]
+    lpp_ops: [{lpp: ['JL', 'drawing'], operation: 'add', amount: 0.0}]
+
+dataprep_bypass_list:
+  # List of layers to not push through dataprep
+  - lpp: ['text', 'drawing']
+  - lpp: ['.*', 'label']
+  - lpp: ['grating_place_holder', 'drawing']  # TODO: What is this?
+  - lpp: ['si_full', 'port']
+
+manh_size_per_layer:
+
+  # TODO: Will metals undergo OUO after the 'photonic metal freeform' DRC change?
+  M1: 0.010  #earlier was 0.005 changed by Manuj on 11/19/2021
+  M2: 0.010  #earlier was 0.005 changed by Manuj on 11/19/2021
+  M3: 0.010  #earlier was 0.005 changed by Manuj on 11/19/2021
+  M4: 0.010  #earlier was 0.005 changed by Manuj on 11/19/2021
+  M5: 0.010  #earlier was 0.005 changed by Djordje on 05/03/2022
+  BA: 0.010
+  UA: 0.020
+  UB: 0.020
+  LB: 0.040
+

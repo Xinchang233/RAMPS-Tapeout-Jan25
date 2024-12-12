@@ -1,0 +1,26 @@
+# Directory Locations
+project_name: SimpleRound
+
+# Output Settings
+lsf_filename: SimpleRound.lsf
+gds_filename: SimpleRound_gds
+
+
+# Generator Params
+layout_package: 'Photonic_Layout_45SPCLO.SimpleRound.SimpleRound'  # Module that contains the layout generator class
+layout_class: 'SimpleRound'  # Layout generator class name
+
+layout_params:
+  layer: !!python/tuple ['RX', drawing]
+  r_out: 15
+  r_width: 5
+  r_step: 0.1
+
+# Cadence related parameters
+impl_lib: 'simpleround_lib'
+impl_cell: 'simpleround_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

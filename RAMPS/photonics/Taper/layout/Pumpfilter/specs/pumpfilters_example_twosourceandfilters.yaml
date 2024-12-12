@@ -1,0 +1,340 @@
+# General Project Settings
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/Pumpfilter'
+
+# Output Settings
+lsf_filename: pumpfilter.lsf
+gds_filename: pumpfilter_gds
+
+layout_package: 'layout.Pumpfilter.Pumpfilter'
+layout_class: 'Pumpfilter'
+
+
+layout_params:
+  sign_l: 220.0
+  idler_l: 1.0
+  offset_s_i: 20.0
+  offset_idler: 60
+  size180_out: 40.0
+  output_space: 125.0
+  min_wg_dist: 10.0
+  input_length: 20.0
+  R90: 15.0
+  R90_detector: 30.0
+  R180: 30.0
+  R90t: 5.0
+  taper_in_width: 0.2
+  taper_length: 5.0
+  extra_length: 5.0
+  signal_filter_params:
+    arb_ring_params:
+      hor_disp: 0.5
+      wg_in_params:
+        layer: !!python/tuple [si_full_free, drawing]
+        port_layer: !!python/tuple [si_full_free, port]
+        length: 30
+        width: 0.6
+        gap: 0.20476
+      wg_out_params:
+        layer: !!python/tuple [si_full_free, drawing]
+        port_layer: !!python/tuple [si_full_free, port]
+        length: 30
+        width: 0.6
+
+      ring_module: layout.RingTunable.RingTunable
+      ring_class: RingTunable
+      ring_params:
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 9.97
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: !!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+            #heater_label_1: 'Signal_HeaterLabelLeft_1'
+            #heater_label_2: 'Signal_HeaterLabelRight_1'
+          ring_heater_gap: 1.42
+          gap: 0.519
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 9.97
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: !!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+            #heater_label_1: 'Signal_HeaterLabelLeft_2'
+            #heater_label_2: 'Signal_HeaterLabelRight_2'
+          ring_heater_gap: 1.42
+          gap: 0.568
+
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 12.35
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: #!!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+
+            #heater_label_1: 'Signal_HeaterLabelLeft_4'
+            #heater_label_2: 'Signal_HeaterLabelRight_4'
+          ring_heater_gap: 1.42
+          gap: 0.57076
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 12.35
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: #!!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+            #heater_label_1: 'Signal_HeaterLabelLeft_6'
+            #heater_label_2: 'Signal_HeaterLabelRight_6'
+          ring_heater_gap: 1.42
+          gap: 0.19916
+
+  idler_filter_params:
+    arb_ring_params:
+      hor_disp: 0.5
+      wg_in_params:
+        layer: !!python/tuple [si_full_free, drawing]
+        port_layer: !!python/tuple [si_full_free, port]
+        length: 1
+        width: 0.6
+        gap: 0.20476
+      wg_out_params:
+        layer: !!python/tuple [si_full_free, drawing]
+        port_layer: !!python/tuple [si_full_free, port]
+        length: 30
+        width: 0.6
+
+      ring_module: layout.RingTunable.RingTunable
+      ring_class: RingTunable
+      ring_params:
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 9.97
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: #!!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+            #heater_label_1: 'Signal_HeaterLabelLeft_1'
+            #heater_label_2: 'Signal_HeaterLabelRight_1'
+          ring_heater_gap: 1.42
+          gap: 0.519
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 9.97
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: #!!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+            #heater_label_1: 'Signal_HeaterLabelLeft_3'
+            #heater_label_2: 'Signal_HeaterLabelRight_3'
+          ring_heater_gap: 1.42
+          gap: 0.568
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 12.35
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: #!!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+
+            #heater_label_1: 'Signal_HeaterLabelLeft_4'
+            #heater_label_2: 'Signal_HeaterLabelRight_4'
+          ring_heater_gap: 1.42
+          gap: 0.57076
+        - ring_params:
+            layer: !!python/tuple [si_full_free, drawing]
+            port_layer: !!python/tuple [si_full_free, port]
+            ring_width: 0.7
+            r_out: 12.35
+
+          heater_params:
+            ring_params:
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: #!!python/tuple [si_full_free, port]
+              #ring_width: 0.84
+              resistance: 1000
+
+            contact_params:
+              contact_distance: 0.5
+              contact_width: 1.
+
+            via_stack_params:
+              top_layer: !!python/tuple ['C2', 'drawing']
+              bottom_layer: !!python/tuple ['RX', 'drawing']
+              top_x_span: 1.
+              top_y_span: 1.
+              bottom_x_span: 1.
+              bottom_y_span: 1.
+              align: 'center_align'
+
+            doping_disk_params:
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+              -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+            #heater_label_1: 'Signal_HeaterLabelLeft_6'
+            #heater_label_2: 'Signal_HeaterLabelRight_6'
+          ring_heater_gap: 1.42
+          gap: 0.19916
+
+# Cadence related parameters
+impl_lib: 'Pumpfilter_lib'
+impl_cell: 'Pumpfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

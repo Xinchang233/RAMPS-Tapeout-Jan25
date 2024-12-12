@@ -1,0 +1,12 @@
+#define FDASH_1_width 8
+#define FDASH_1_height 8
+static unsigned char FDASH_1_bits[] = {
+0x80, 
+0x40, 
+0x20, 
+0x10, 
+0x08, 
+0x04, 
+0x00, 
+0x00, 
+}

@@ -1,0 +1,119 @@
+# Directory Locations
+project_name: '/projectnb/siphot/djordje/TO_45RF_2019May/gen_libs/Arrayed_Moscap'
+
+# Output Settings
+lsf_filename: ring.lsf
+gds_filename: Arrayed_Moscap_gds
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'layout.Arrayed_Moscap.Arrayed_Moscap'  # Module that contains the layout generator class
+layout_class: 'Arrayed_Moscap'  # Layout generator class name
+layout_params:
+  arrayable_params:
+    package: layout.MoscapModulator.ring_moscap
+    class_name: RingMoscap
+    left_top_port: 'left_up'
+    horizontal_distance: 100.2
+    instances_per_row: 7
+    vertical_distance: 90
+    horizontal_offset: 0
+    pack_params: False
+    params_per_cell: 1
+  spoked_ring_params:
+
+      # variant 14
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['RP', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 17
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['pw13phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 23
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw7phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+
+# Cadence related parameters
+impl_lib: 'ring_lib'
+impl_cell: 'ring_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

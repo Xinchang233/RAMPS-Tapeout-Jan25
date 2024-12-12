@@ -1,0 +1,61 @@
+via_info:
+  VPC_M1:
+    bot_layer: !!python/tuple [PC, drawing]
+    top_layer: !!python/tuple [M1, drawing]
+    via_layer: !!python/tuple [CA, drawing]
+    cut_width: 0.090
+    cut_height: 0.090
+  VRX_M1:
+    bot_layer: !!python/tuple [RX, drawing]
+    top_layer: !!python/tuple [M1, drawing]
+    via_layer: !!python/tuple [CA, drawing]
+    cut_width: 0.090
+    cut_height: 0.090
+  VM1_M2:
+    bot_layer: !!python/tuple [M1, drawing]
+    top_layer: !!python/tuple [M2, drawing]
+    via_layer: !!python/tuple [V1, drawing]
+    cut_width:  0.1
+    cut_height: 0.1
+  VM2_M3:
+    bot_layer: !!python/tuple [M2, drawing]
+    top_layer: !!python/tuple [M3, drawing]
+    via_layer: !!python/tuple [V2, drawing]
+    cut_width:  0.1
+    cut_height: 0.1
+  VM3_M4:
+    bot_layer: !!python/tuple [M3, drawing]
+    top_layer: !!python/tuple [M4, drawing]
+    via_layer: !!python/tuple [V3, drawing]
+    cut_width:  0.1
+    cut_height: 0.1
+  VM4_M5:
+    bot_layer: !!python/tuple [M4, drawing]
+    top_layer: !!python/tuple [M5, drawing]
+    via_layer: !!python/tuple [V4, drawing]
+    cut_width:  0.1
+    cut_height: 0.1
+  VM5_BA:
+    bot_layer: !!python/tuple [M5, drawing]
+    top_layer: !!python/tuple [BA, drawing]
+    via_layer: !!python/tuple [WT, drawing]
+    cut_width:  0.2
+    cut_height: 0.2
+  VBA_UA:
+    bot_layer: !!python/tuple [BA, drawing]
+    top_layer: !!python/tuple [UA, drawing]
+    via_layer: !!python/tuple [TA, drawing]
+    cut_width:  0.8
+    cut_height: 0.8
+  VUA_UB:
+    bot_layer: !!python/tuple [UA, drawing]
+    top_layer: !!python/tuple [UB, drawing]
+    via_layer: !!python/tuple [GA, drawing]
+    cut_width:  0.8
+    cut_height: 0.8
+  VUB_LB:
+    bot_layer: !!python/tuple [UB, drawing]
+    top_layer: !!python/tuple [LB, drawing]
+    via_layer: !!python/tuple [VV, drawing]
+    cut_width:  3.0
+    cut_height: 3.0

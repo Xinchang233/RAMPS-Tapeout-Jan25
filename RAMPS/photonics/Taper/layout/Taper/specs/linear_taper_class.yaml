@@ -1,0 +1,31 @@
+# Directory Locations
+project_name: Taper
+
+# Output Settings
+lsf_filename: LinearTaperClass
+gds_filename: LinearTaperClass
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.Taper.tests.test_linear_taper'
+layout_class: 'LinearTaperTester'
+layout_params:
+  taper_params:
+    width0: 2
+    width1: 5
+    length: 50
+    layer: 'rx1phot'
+  taper2_params:
+    width0: 10
+    width1: 20
+    length: 200
+    layer: 'rx1phot'
+
+
+# Cadence related parameters
+impl_lib: 'photaper_class__lib'
+impl_cell: 'photaper_class_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

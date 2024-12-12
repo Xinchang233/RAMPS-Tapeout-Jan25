@@ -1,0 +1,116 @@
+
+
+
+# Directory Locations
+project_name: 'TripleRingRowWithLNA'
+
+# Output Settings
+lsf_filename: 'TripleRingRowWithLNA'
+gds_filename: 'TripleRingRowWithLNA'
+
+# Cadence related parameters
+impl_lib: 'TripleRingRowWithLNA'
+impl_cell: 'TripleRingRowWithLNA'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'cena_top.RAMPS.photonics.TxRow'
+# Layout generator class name
+layout_class: 'TripleRingRowWithLNANoDropForceRouting'
+
+layout_params:
+
+  grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+  grating_coupler_class: 'iograt_1311'
+  wg_port_layer: !!python/tuple ['si_full_free', 'port']
+  wg_routing_layer: !!python/tuple ['si_full_free', 'drawing']
+
+  with_drop_ports: False
+  
+
+  site_pitch: 300
+  track_pitch: 5
+
+  x_coupler_clear: 40
+  y_coupler_clear: 30
+  x_coupler_pitch: 70
+  y_coupler_pitch: 40
+
+  x_port_coupler_in_base: 100
+#  x_port_coupler_out_base: 1800
+  y_port_coupler_base:
+    - 204
+#    - 320
+    - 344.5
+  dx_design: 2200
+  dx_LNA: 100
+
+  dx_inst: 42.508
+  dy_inst: 40
+  dy_port_inst_bot: 5
+  dy_port_inst_top: 35
+  x_instance:
+    - 530
+    - 770
+    - 980
+    - 1220
+    - 1430
+    - 1670
+    - 650
+    - 1100
+    - 1550
+  y_instance:
+    - 200
+    - 452
+
+  in_path:
+    - [[117, 200], [455, 125]]
+    - [[112, 160], [400, 120], [460, 110], [695, 70]]
+    - [[183, 170], [245, 130], [270, 200], [460, 250], [480, 261], [570, 275], [581, 264.5], [592, 254], [715, 263], [880, 280]]
+    - [[188, 170], [245, 135], [265, 200], [460, 255], [475, 266], [487, 280], [586, 269], [690, 259], [710, 270], [1019, 285], [1030, 270], [1145, 255], [1160, 200]]
+    - [[255, 220], [270, 260], [470, 271], [500, 285], [591, 274], [650, 264], [705, 275], [750, 290], [1040, 280], [1100, 260], [1160, 271], [1350, 280], [1370, 220]]
+    - [[251, 254.5], [262, 265], [466, 276], [500, 290], [596, 279], [650, 269], [700, 280], [750, 295], [1045, 281], [1100, 265], [1155, 277], [1475, 285], [1495, 274], [1600, 260], [1620, 220]]
+    - [[115, 355], [459, 376], [470, 387], [480, 398], [590, 450]]
+    - [[185, 355], [464, 371], [475, 382], [486, 393], [590, 382], [699, 365], [710, 376], [721, 395], [1040, 420]]
+    - [[255, 355], [469, 366], [480, 377], [574, 388], [585, 377], [704, 360], [715, 371], [726, 390], [1040, 376], [1145, 365], [1156, 376], [1180, 390], [1485, 410]]
+  out_path:
+    - [[2010, 200], [1800, 125], [1745, 95], [1529, 60], [1518, 49], [1500, 38], [1482, 49], [1400, 60], [1068, 49], [1050, 38], [1032, 49], [1000, 60],  [875, 150], [814, 275], [720, 265], [607, 249]]
+    - [[2017, 180], [1780, 120], [1750, 90], [1534, 55], [1523, 44], [1500, 33], [1477, 44], [1400, 55], [1073, 44], [1050, 33], [1027, 44], [850, 55]]
+    - [[1945, 170], [1900, 130], [1740, 81], [1055, 65]]
+    - [[1940, 200], [1800, 135], [1735, 94], [1300, 70]]
+    - [[2080, 240], [1945, 263], [1935, 165], [1745, 140], [1730, 90], [1505, 75]]
+    - [[2085, 255], [1748, 270]]
+    - [[2015, 360], [1950, 375], [1750, 420], [730, 580], [705, 450]]
+    - [[1945, 355], [1950, 370], [1745, 420], [1175, 575], [1160, 560]]
+    - [[2087, 332], [2000, 320], [1940, 350], [1740, 365], [1725, 370], [1710, 390], [1605, 420]]
+
+
+  inst_list: []
+
+  package_class_param_list:
+    - package: 'cena_top.RAMPS.photonics.TestSiteArray'
+      class: 'DummySite'
+      params:
+        length: 15
+    - package: 'cena_top.RAMPS.photonics.TestSiteArray'
+      class: 'DummySite'
+      params:
+        length: 5
+    - package: 'cena_top.RAMPS.photonics.TestSiteArray'
+      class: 'DummySite'
+      params:
+        length: 25
+
+  yaml_list:
+
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_point_coupler/specs/full_rib_horizontal_specs_critical_coupled.yaml, 'R0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_point_coupler/specs/full_rib_horizontal_specs_over_coupled.yaml, 'R0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_wrapped_coupler/specs/full_rib_horizontal_specs_critical_coupled.yaml, 'R0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_wrapped_coupler/specs/full_rib_horizontal_specs_over_coupled.yaml, 'R0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_wrapped_coupler/specs/full_rib_vertical_specs_critical_coupled.yaml, 'R0']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_wrapped_coupler/specs/full_rib_vertical_specs_over_coupled.yaml, 'R0']
+
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical_critical_coupled.yaml, 'R90']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical_over_coupled.yaml, 'R90']
+    - !!python/tuple [cena_top/RAMPS/photonics/Dual_ring_fullrib_point_coupler/specs/full_rib_vertical_specs_critical_coupled.yaml, 'R0']

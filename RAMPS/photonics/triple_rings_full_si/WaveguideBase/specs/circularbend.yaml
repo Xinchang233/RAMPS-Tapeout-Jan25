@@ -1,0 +1,19 @@
+# Directory Locations
+project_name: WaveguideBase
+
+# Output Settings
+lsf_filename: CircularBend
+gds_filename: CircularBend
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.WaveguideBase.CircularBend'
+layout_class: 'Circular90Bend'
+layout_params:
+  width: 1
+  layer: 'SI'
+  radius: 10
+  final_angle: 90
+
+# Cadence related parameters
+impl_lib: 'CircularBend'
+impl_cell: 'CircularBend'

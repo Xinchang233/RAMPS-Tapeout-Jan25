@@ -1,0 +1,12 @@
+#define HDASH_width 8
+#define HDASH_height 8
+static unsigned char HDASH_bits[] = {
+0x3F, 
+0x00, 
+0x00, 
+0x00, 
+0x00, 
+0x00, 
+0x00, 
+0x00, 
+}

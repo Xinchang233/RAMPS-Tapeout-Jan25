@@ -1,0 +1,154 @@
+
+# Directory Locations
+project_name: Single_ring_fullrib_point_coupler
+
+# Output Settings
+lsf_filename: Single_ring_full_rib_horizontal_crtical_coupled
+gds_filename: Single_ring_full_rib_horizontal_crtical_coupled
+
+# Generator Params
+layout_package: 'cena_top.RAMPS.photonics.Single_ring_fullrib_point_coupler.ring_rib_wg_horizontal'
+layout_class: 'RingRibWg'
+layout_params:
+        # Parameters of rib-waveguide ring
+        basic_metal_routing: True
+        r_core_cent: 8.0 #
+
+        core_layer: !!python/tuple ['si_full_free', 'drawing']
+        core_width: 0.41
+        core_slot_width: 0 # No slot layer for 45-clo modualtor
+
+        slab_layer: !!python/tuple ['si_partial_free', 'drawing']
+        slab_width: 2.4
+        slab_slot_width: 0
+
+        coup_slab_width: 2.6
+        rmin_in: 10
+        alpha_zero_in: 32
+        angle_coupling:  60
+        # Parameters of coupler waveguide
+        bent_coupler: True
+        coup_core_width: 0.3
+        coup_slab_length: 3
+        coup_length: 15.0
+        coup_gap: 0.232
+        coup_radius: 12 #dp['r_center']*1.5 earlier it was 12
+        coup_angle: 60.0
+        curve_rate: 1.0
+        coup_angle_in: 35.0
+
+        # Parameters of doping and salicide layers
+        doping_info:
+           # p doing info
+          - {dist0: 0.025, dist1: -2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['p_mod_phot', 'drawing']} #IH
+          #- {dist0: 0.175, dist1: -2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['IQ', 'drawing']} #IQ
+          - {dist0: -0.255, dist1: -2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['p_inter_phot', 'drawing']} #PQ
+          - {dist0: -0.605, dist1: -2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['p_heavy_phot', 'drawing']} #IM
+          - {dist0: -0.605, dist1: -2.3, angle0: -52, angle1: 232, layer: !!python/tuple ['p_heavy_sil', 'drawing']} # PLP
+
+          # n doping info
+          - {dist0: 2.3, dist1: 0.025, angle0: -55, angle1: 235, layer: !!python/tuple ['n_mod_phot', 'drawing']} # IJ
+          - {dist0: 0.305, dist1: 2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['n_inter_phot', 'drawing']} # PK
+          - {dist0: 0.705, dist1: 2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['n_heavy_phot', 'drawing']} # IK
+          - {dist0: 0.705, dist1: 2.3, angle0: -55, angle1: 235, layer: !!python/tuple ['n_heavy_sil', 'drawing']} # PLN
+
+
+        via_info:
+          - {dist: 1.87, angle0: -48, angle1: 233, azim_dist: 0.6,
+             layer_top: !!python/tuple ['M5', 'drawing'], layer_bottom: !!python/tuple ['si_full_free', 'drawing']}
+          - {dist: 1.38, angle0: -48, angle1: 233, azim_dist: 0.6,
+             layer_top: !!python/tuple ['M5', 'drawing'], layer_bottom: !!python/tuple ['si_full_free', 'drawing']}
+
+          - {dist: -1.87, angle0: -48, angle1: 233, azim_dist: 0.6,
+             layer_top: !!python/tuple ['BA', 'phot'], layer_bottom: !!python/tuple ['si_full_free', 'drawing']}
+          - {dist: -1.38, angle0: -48, angle1: 233, azim_dist: 0.6,
+             layer_top: !!python/tuple ['BA', 'phot'], layer_bottom: !!python/tuple ['si_full_free', 'drawing']}
+
+
+        # Parameters of inner and outer ring electrodes (including SI contact rails)
+        inner_electrode_info:
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['si_full_free', 'drawing']}
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['M1', 'drawing']}
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['M2', 'drawing']}
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['M3', 'drawing']}
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['M4', 'drawing']}
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['M5', 'drawing']}
+          - {dist0: -1.186, dist1: -2.116, angle0: 0, angle1: 360, layer: !!python/tuple ['BA', 'drawing']}
+
+        outer_electrode_info:
+          - {dist0: 1.2, dist1: 2.1, angle0: -51, angle1: 230, layer: !!python/tuple ['si_full_free', 'drawing']}
+          #- {dist0: 1.2, dist1: 1.42, angle0: 230.1, angle1: 245, layer: !!python/tuple ['KG', 'drawing']}
+
+          #- {dist0: 1.2, dist1: 1.42, angle0: 295, angle1: 309.9, layer: !!python/tuple ['KG', 'drawing']}
+          - {dist0: 1.2, dist1: 2.1, angle0: -50, angle1: 230, layer: !!python/tuple ['M1', 'drawing']}
+          - {dist0: 1.2, dist1: 2.1, angle0: -50, angle1: 230, layer: !!python/tuple ['M2', 'drawing']}
+          - {dist0: 1.2, dist1: 2.1, angle0: -50, angle1: 230, layer: !!python/tuple ['M3', 'drawing']}
+          - {dist0: 1.2, dist1: 2.1, angle0: -50, angle1: 230, layer: !!python/tuple ['M4', 'drawing']}
+          - {dist0: 1.2, dist1: 2.1, angle0: 0, angle1: 360, layer: !!python/tuple ['M5', 'drawing']}
+        # Parameters of GS electrodes
+        gs_electrodes: True
+        gs_core_dist: 2.0
+        gs_bottom_width: 2
+        gs_bottom_length: 5.5
+        gs_pad_layer: !!python/tuple ['LB', 'drawing']
+        gs_pad_open_layer: !!python/tuple ['DV', 'drawing']
+        gs_pad_open_inclusion: 2.0
+        gs_pad_width: 50.0
+        gs_pad_length: 50.0
+        gs_pad_pitch: 100  # pad center to center spacings
+        gs_pad_to_ring_dist: 50 # distance from center of ring for the horizontal array of pads in -ve direction(0,-)
+
+
+
+        in_out_taper: True
+        in_out_port_width: 0.35
+        taper_length: 20
+        taper_layer1: !!python/tuple ['si_full_free', 'drawing']
+        # taper_layer1=('si_fullfree', 'drawing'),
+        taper_layer2: !!python/tuple ['si_partial_free', 'drawing']
+        # Heater params
+        # Standard params
+        heater_disable: False
+        heater_radius_offset: 0.3
+        resistance: 1000
+        contact_dist: 1.6
+        contact_width: 1.6
+        heater_device_layer: !!python/tuple ['si_full_free', 'drawing']
+        heater_disk_layers:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+        heater_electrode_top_layer: !!python/tuple ['UA', 'drawing']
+        heater_electrode_top_x_span: 1.6 #1.6 FOR 1.2
+        heater_electrode_top_y_span: 4 #1.6 FOR 1.2
+        # Either heater label format is acceptable
+        heater_label: {P: 'HEATER', N: 'HEATER_N'}
+      #  heater_label: 'HEATER'
+        heater_electrode_bottom_x_span: 1.6
+        heater_electrode_bottom_y_span: 4
+        # Advanced parameters
+        heater_disk_layer_extension: 0.1
+        # Technology parameter
+        heater_electrode_bottom_layer: !!python/tuple ['RXbar', 'drawing']
+        heater_pad_to_ring_dist: 50 # distance from center of ring for the horizontal array of pads in upper direction(0,+)
+
+
+        # Advanced parameters: can change between designs per technology, but not recommended for standard users
+        access_length: 30
+        p_via_radius_offset: 0.5
+        n_via_radius_offset: 0.8
+        high_doping_rout_offset: 0.1
+        high_doping_rin_offset: 0.1
+        electrode_offset: 0.5
+        electrode_width_inner: 0.4
+        electrode_width_outer: 0.4
+        drop_taper_length: 40
+        salicide_radius_extension: 0.2
+        high_doping_n_rin_offset: 0.1
+
+# Cadence related parameters
+impl_lib: 'RingRibWg'
+impl_cell: 'RingRibWg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

@@ -1,0 +1,34 @@
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/viastack'
+
+# Output Settings
+lsf_filename: via_stack.lsf
+gds_filename: via_stack_gds
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.ViaStack_test.ViaStack'  # Module that contains the layout generator class
+layout_class: 'ViaStack'  # Layout generator class name
+
+layout_params:
+  top_layer: !!python/tuple ['C2', 'drawing']
+  bottom_layer: !!python/tuple ['RX', 'drawing']
+  top_x_span: 5
+  top_y_span: 7
+  bottom_x_span: 2.0
+  bottom_y_span: 3.0
+  align: 'corner_align'
+  top_bot_offset: 0.0
+  pad_open_layer: !!python/tuple ['LB', 'drawing'] # should be passivation opening layer
+  pad_open_inclusion: 3.0
+
+# Cadence related parameters
+impl_lib: 'viastack_lib'
+impl_cell: 'viastack_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

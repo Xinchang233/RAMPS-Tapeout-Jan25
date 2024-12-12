@@ -1,0 +1,45 @@
+# General Project Settings
+project_name: SimpleBusRingCoupler
+
+# Output Settings
+lsf_filename: slot_ring.lsf
+gds_filename: slot_ring
+
+#lsf_export_map: '/projectnb/siphot/djordje/photonic_sensing/config/lumerical_map_sensing.yaml'
+
+
+#------------------
+#   layout config
+#------------------
+layout_package: 'layout.SimpleRingBusCouplerTB.SimpleRingBusCoupler'
+layout_class: 'SimpleRingBusCoupler'
+layout_params:
+  ring_module: layout.SimpleRingBusCouplerTB.SlotRing
+  ring_class: SlotRing
+  ring_params:
+    ring_params:
+      layer: !!python/tuple [ si_full_free, drawing ]
+      rout: 50
+      outer_rout: 50
+      outer_ring_width: 0.5
+      gap: 0.13
+      inner_ring_width: 0.5
+
+    coupler_in_through_params:
+      coupler_type: straight
+      gap: 0.25
+      length: 100
+      width: 0.5
+
+  gap: 0.25
+  wg_width: 0.5
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+
+
+# Cadence related parameters
+impl_lib: 'SimpleRingBusCoupler_lib'        # Module that contains the layout generator class
+impl_cell: 'SimpleRingBusCoupler_cell'      # Layout generator class name

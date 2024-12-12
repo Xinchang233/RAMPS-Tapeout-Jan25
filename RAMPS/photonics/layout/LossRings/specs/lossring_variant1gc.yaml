@@ -1,0 +1,90 @@
+# General Project Settings
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/LossRingsVariants'
+
+# Output Settings
+lsf_filename: LossRingsVariantGC1
+gds_filename: LossRingsVariantGC1
+
+layout_package: 'layout.LossRings.LossRings'
+layout_class: 'LossRings'
+
+layout_params:
+  place_mode_converter:
+#  mode_converter_params:
+#      package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+#      class_name: PartialEtchModeConverter
+  grating_params:
+      package: layout.gc.gc
+      class_name: gc1550_5mfd
+  taper_params: #first is the lower filters, second is the upper filters!
+    - length: 1
+      width: 0.6
+    - length: 1
+      width: 0.6
+  filter_params:
+      vertical_displacement: 4
+      horizontal_displacement: 20
+      class_params:
+           -  input_bend_size : 25
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: !!python/tuple [si_full_free, port]
+              size_out : 20
+              input_length: 42
+              total_size: 120
+              input_wg:
+                width: 0.6
+                length: 10
+              output_wg:
+                width: 0.6
+                length: 7
+              spacing: 35
+              filters:
+                  -  r_out: 12.35
+                     width: 0.940
+                     in_gap: 0.940
+                     out_gap: 0.1
+                  -  r_out: 12.378
+                     width: 0.6
+                     in_gap: 0.760
+                     out_gap: 0.760
+                  -  r_out: 12.406
+                     width: 0.6
+                     in_gap: 0.587
+                     out_gap: 0.587
+
+           -  input_bend_size : 25
+              size_out : 20
+              layer: !!python/tuple [si_full_free, drawing]
+              port_layer: !!python/tuple [si_full_free, port]
+              input_length: 30
+              total_size: 120
+              input_wg:
+                width: 0.6
+                length: 10
+              output_wg:
+                width: 0.6
+                length: 7
+              spacing: 35
+              filters:
+                  -  r_out: 12.35
+                     width: 0.8
+                     in_gap: 0.9
+                     out_gap: 0.9
+                  -  r_out: 12.378
+                     width: 0.8
+                     in_gap: 0.73
+                     out_gap: 0.73
+                  -  r_out: 12.406
+                     width: 0.8
+                     in_gap: 0.57
+                     out_gap: 0.57
+
+# Cadence related parameters
+impl_lib: 'lossringsvariantgc1_lib'
+impl_cell: 'lossringsvariantgc1_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
+

@@ -1,0 +1,24 @@
+# A sample specification file to generate a Waveguide project
+
+# Directory Locations
+project_name: '/projectnb/siphot/bz/tapeouts/2020_06_45RFSOI_AL11B/gds/grating_testing/'
+
+# Output Settings
+lsf_filename: gc_test_unidir_apod_1300_forjosep
+gds_filename: gc_test_unidir_apod_1300_forjosep
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'layout.Importers.Gratings.unidirectional.GcUnidirWl1300nmMfd9200nmApodDownJtaper'
+layout_class: 'GcUnidirWl1300nmMfd9200nmApodDownJtaper'  # Layout generator class name
+
+layout_params:
+
+# Cadence related parameters
+impl_lib: 'gc_test_unidir_apod_1300_forjosep'
+impl_cell: 'gc_test_unidir_apod_1300_forjosep'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

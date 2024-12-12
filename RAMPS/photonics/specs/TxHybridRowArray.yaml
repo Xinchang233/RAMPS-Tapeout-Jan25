@@ -1,0 +1,350 @@
+
+
+
+# Directory Locations
+project_name: 'RxHybridRowArray'
+
+# Output Settings
+lsf_filename: 'TxHybridRowArray'
+gds_filename: 'TxHybridRowArray'
+
+# Cadence related parameters
+impl_lib: 'TxHybridRowArray'
+impl_cell: 'TxHybridRowArray'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'cena_top.RAMPS.photonics.TxRow'
+# Layout generator class name
+layout_class: 'TxHybridRowArray'
+
+layout_params:
+
+  wg_port_layer: !!python/tuple ['si_full_free', 'port']
+  wg_routing_layer: !!python/tuple ['si_full_free', 'drawing']
+
+  n_rowpairs_single: 3
+  n_rowpairs_triple: 8
+
+  list_seq_pitch_row_pair:
+    - 'triple'
+    - 'triple'
+    - 'triple'
+    - 'triple'
+    - 'triple'
+
+    - 'single'
+
+    - 'triple'
+
+    - 'single'
+
+    - 'triple'
+
+    - 'single'
+
+    - 'triple'
+
+  list_pitch_row_pair:
+    - 0
+    - 420
+    - 420
+    - 220
+    - 220
+    - 160
+    - 180
+    - 160
+    - 180
+    - 160
+    - 180
+
+  params_single_ring_row_array:
+
+
+    grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+    grating_coupler_class: 'iograt_1311'
+
+    param_x: 0
+
+    site_pitch: 300.0
+    track_pitch: 5.0
+
+    x_coupler_clear: 40.0
+    y_coupler_clear: 20.0
+    x_coupler_pitch: 80.0
+    y_coupler_pitch: 30.0
+
+    x_port_coupler_in_base: 190
+    x_port_coupler_out_base: 1740.0
+    y_port_coupler_base: 25.0
+
+    dx_inst: 42.508
+    dy_inst: 20.0
+    dy_port_inst_bot: 5.0
+    dy_port_inst_top: 15.0
+    x_instance:
+      - 700.0
+      - 900.0
+      - 1100.0
+      - 1300.0
+      - 1500.0
+
+    yaml_list:
+
+
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+#      - 'cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml'
+
+
+
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+      - 'VOID'
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - 'VOID'
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+      - 'VOID'
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+      - 'VOID'
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_fullsi/specs/fullsi_single_ring_vertical.yaml
+      - 'VOID'
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Single_ring_halfrib/specs/half_rib_single_ring_vertical.yaml
+
+
+    # parameters only for the array
+    n_rowpairs: 3
+    y_pitch_rowpairs: 120
+    y_split_in_pair: -5
+
+  params_triple_ring_row_array:
+    grating_coupler_module: 'gf45spclo_photonics.ph45spclo.iograt'
+    grating_coupler_class: 'iograt_1311'
+
+    site_pitch: 300
+    track_pitch: 5
+
+    param_x: 0
+
+    x_coupler_clear: 40
+    y_coupler_clear: 20
+    x_coupler_pitch: 60
+    y_coupler_pitch: 40
+
+    x_port_coupler_in_base: 190
+    x_port_coupler_out_base: 1940
+    y_port_coupler_base: 25
+
+    dx_inst: 42.508
+    dy_inst: 40
+    dy_port_inst_bot: 5
+    dy_port_inst_top: 35
+    x_instance:
+      - 600
+      - 1100
+      - 1600
+
+    yaml_list:
+
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+
+
+
+
+      - 'VOID'
+      - 'VOID'
+      - 'VOID'
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_vertical_specs.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_spoked.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+
+
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_vertical_specs.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_spoked.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_vertical_specs.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_spoked.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_vertical_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Dual_ring_halfrib/specs/halfrib_dual_ring_vertical.yaml
+
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_spoked_specs.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_fullrib/specs/full_rib_vertical_specs.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_spoked.yaml
+  #    - cena_top/RAMPS/photonics/Triple_ring_fullsi/specs/fullsi_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_spoked.yaml
+      - cena_top/RAMPS/photonics/Triple_ring_halfrib/specs/half_rib_triple_ring_vertical.yaml
+
+    # parameters only for the array
+    n_rowpairs: 8
+    y_pitch_rowpairs: 218
+    y_split_in_pair: -5

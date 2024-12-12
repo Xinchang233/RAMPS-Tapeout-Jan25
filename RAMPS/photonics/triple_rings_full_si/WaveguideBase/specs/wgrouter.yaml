@@ -1,0 +1,15 @@
+# Directory Locations
+project_name: WaveguideBase
+
+# Output Settings
+lsf_filename: WgRouter
+gds_filename: WgRouter
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.WaveguideBase.tests.test_WgRouter'
+layout_class: 'WgRouterTester'
+layout_params:
+
+# Cadence related parameters
+impl_lib: 'WgRouter'
+impl_cell: 'WgRouter'

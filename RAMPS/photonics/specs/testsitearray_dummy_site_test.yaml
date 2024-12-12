@@ -1,0 +1,20 @@
+
+# Directory Locations
+project_name: 'DummySite'
+
+# Output Settings
+lsf_filename: 'DummySite'
+gds_filename: 'DummySite'
+
+# Cadence related parameters
+impl_lib: 'DummySite'
+impl_cell: 'DummySite'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'cena_top.RAMPS.photonics.TestSiteArray'
+# Layout generator class name
+layout_class: 'DummySite'
+
+layout_params:

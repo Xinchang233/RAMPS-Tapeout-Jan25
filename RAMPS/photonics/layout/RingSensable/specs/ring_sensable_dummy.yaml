@@ -1,0 +1,94 @@
+
+# Directory Locations
+project_name: '/projectnb/siphot/imbert/bpg/TO_45RF_2019May/gen_libs/RingSensable'
+
+# Output Settings
+lsf_filename: ringsensable.lsf
+gds_filename: RingSensable_gds
+
+# Specify a generic technology as this is a public sample
+# bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'layout.RingSensable.RingSensable'  # Module that contains the layout generator class
+layout_class: 'RingSensable'  # Layout generator class name
+layout_params:
+  spoked_ring_params:
+    layer: !!python/tuple ['si_full_free', 'drawing']
+    ring_width: 1.08
+    rout: 17.8
+    doping_spoke_info:        #n doping is offset 0, p doping is offset 0.5
+      - {rout: 17., rin: 15.2, num: 16,
+        spoke_offset: 0, layer: !!python/tuple ['n_inter_phot', 'drawing'],
+        spoke_width_percentage: 0.5}
+      - {rout: 17., rin: 15.3, num: 16,
+        spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],
+        spoke_width_percentage: 0.5}
+    extra_ring_info:
+    spoke_num: 16
+    #  label: 'Contact'       # Label can be specified as a single name that will be appended by _P and _N
+    label: {P: 'P_ring', N: 'N_ring'}   # Label can be specified as a dict of N and P labels
+    outer_electrode_ring_layers:
+      - !!python/tuple ['B1', 'drawing']
+    inner_electrode_ring_layers:
+      - !!python/tuple ['B1', 'drawing']
+
+
+    # Advanced parameters: can change between designs per technology, but not recommended for standard users
+    p_via_radius_offset: 0.5
+    n_via_radius_offset: 0.8
+    high_doping_rout_offset: 0.1
+    high_doping_rin_offset: 0.1
+    electrode_offset: 0.5
+    electrode_width_inner: 0.8
+    electrode_width_outer: 1.0
+    salicide_radius_extension: 0.25
+    high_doping_n_rin_offset: 0
+
+    # Advanced tech params: should not need to change between designs in a given technology
+    high_p_doping_layer: !!python/tuple ['p_heavy_sil', 'drawing']
+    high_n_doping_layer: !!python/tuple ['n_heavy_sil', 'drawing']
+    salicide_lpp: !!python/tuple ['n_heavy_sil', 'drawing']
+    bottom_metal_electrode_layer: !!python/tuple ['RX', 'drawing']
+
+  heater_params:
+    ring_params:
+      layer: !!python/tuple [si_full_free, drawing]
+      port_layer: !!python/tuple [si_full_free, port]
+      #ring_width: 0.84
+      resistance: 1000
+
+    contact_params:
+      contact_distance: 0.5
+      contact_width: 1.
+
+    via_stack_params:
+      top_layer: !!python/tuple ['B2', 'drawing']
+      bottom_layer: !!python/tuple ['RX', 'drawing']
+      top_x_span: 1.
+      top_y_span: 1.
+      bottom_x_span: 1.
+      bottom_y_span: 1.
+      align: 'center_align'
+
+    doping_disk_params:
+      -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+      -   doping_layer: !!python/tuple [n_heavy_sil, drawing]
+  ring_heater_gap: 2.5
+  via_stack_params:
+    top_layer: !!python/tuple ['B2', 'drawing']
+    bottom_layer: !!python/tuple ['B1', 'drawing']
+    top_x_span: 1.
+    top_y_span: 1.
+    bottom_x_span: 1.
+    bottom_y_span: 1.
+    align: 'center_align'
+
+# Cadence related parameters
+impl_lib: 'RingSensable_lib'
+impl_cell: 'RingSensable_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

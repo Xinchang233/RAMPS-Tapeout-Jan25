@@ -1,0 +1,24 @@
+# General Project Settings
+project_name: Round
+# Output Settings
+lsf_filename: R.lsf
+gds_filename: Round
+
+# Generator Params
+layout_package: 'layout.Round.Round'  # Module that contains the layout generator class
+layout_class: 'Round'  # Layout generator class name
+layout_params:
+  layer: !!python/tuple ['si_full', 'drawing']
+  r_out: 2.1
+  ring_width: 0.6
+  resolution: 0.01
+
+
+# Cadence related parameters
+impl_lib: 'Round_lib'
+impl_cell: 'Round_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

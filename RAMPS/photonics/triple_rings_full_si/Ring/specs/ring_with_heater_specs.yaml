@@ -1,0 +1,106 @@
+
+# Directory Locations
+project_name: 'ring_with_heater'
+
+# Output Settings
+lsf_filename: ring_with_heater.lsf
+gds_filename: ring_with_heater
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+#tech_config_path: '/projectnb/siphot/chips/45RF_2020June/TO_45RF_2020June_infrastructure/GF45RFSOI_Deniz/Photonics/tech_config.yaml'
+
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'Photonic_Core_Layout_Djordje.Ring.ring_with_heater'
+# Layout generator class name
+layout_class: 'RingWithHeaterBase'
+
+# Sample values here not based on any design
+layout_params:
+  rout: 6
+  ring_width: 2
+  layer: !!python/tuple ['rx3phot', 'drawing']
+  doping_spoke_info:
+      - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],  spoke_width_percentage: 0.7}
+      - {rin: 3, rout: 3.8, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw6phot', 'drawing'],spoke_width_percentage: 0.88}
+
+      - {rin: 4.45, rout: 4.69, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw13phot', 'drawing'],  spoke_width_percentage: 1}
+      - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw13phot', 'drawing'],  spoke_width_percentage: 0.7}
+      - {rin: 3, rout: 3.8, num: 30, spoke_offset: 0, layer: !!python/tuple ['pw13phot', 'drawing'],spoke_width_percentage: 0.88}
+
+      - {rin: 3.2, rout: 4.45, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],  spoke_width_percentage: 0.7}
+      - {rin: 3.12, rout: 3.8, num: 30, spoke_offset: 0.5, layer: !!python/tuple ['nw3phot', 'drawing'],spoke_width_percentage: 1}
+  extra_ring_info:
+  spoke_num: 28
+  coupling_slot: 0.2
+  drop_slot: 0.2
+  wg_width: 0.5
+  # Either ring label format is acceptable
+#  ring_label: 'RING'
+  label: {P: 'P_labelname', N: 'N_labelhere'}   # Label can be specified as a dict of N and P labels
+  outer_electrode_ring_layers:
+    - !!python/tuple ['C1', 'drawing']
+    - !!python/tuple ['C2', 'drawing']
+    - !!python/tuple ['B1', 'drawing']
+
+  inner_electrode_ring_layers:
+    - !!python/tuple ['B1', 'drawing']
+    - !!python/tuple ['B2', 'drawing']
+#  ring_label: {P: 'P_RING', N: 'RING_N'}
+#  outer_electrode_ring_layers:
+#    - !!python/tuple ['B1', 'drawing']
+#  inner_electrode_ring_layers:
+#    - !!python/tuple ['B1', 'drawing']
+#    - !!python/tuple ['B2', 'drawing']
+
+  # Advanced parameters: can change between designs per technology, but not recommended for standard users
+  access_length: 30
+  p_via_radius_offset: 0.5
+  n_via_radius_offset: 0.8
+  high_doping_rout_offset: 0.1
+  high_doping_rin_offset: 0.1
+  electrode_offset: 0.5
+  electrode_width_inner: 0.4
+  electrode_width_outer: 0.4
+  drop_taper_length: 40
+  salicide_radius_extension: 0.2
+  high_doping_n_rin_offset: 0.1
+
+  # Advanced tech params: should not need to change between designs in a given technology
+  high_p_doping_layer: !!python/tuple ['nw1phot', 'drawing']
+  high_n_doping_layer: !!python/tuple ['pw1phot', 'drawing']
+  salicide_lpp:
+  bottom_metal_electrode_layer: !!python/tuple ['RX', 'drawing']
+  bottom_electrode_label_layer: !!python/tuple ['M1', 'label']
+
+  # Heater params
+  # Standard params
+  heater_disable: False
+  heater_disable1: False
+  heater_radius_offset: 0.3
+  resistance: 200
+  contact_dist: 1
+  contact_width: 1
+  heater_device_layer: !!python/tuple ['RX', 'drawing']
+  heater_device_layer_RX: !!python/tuple ['RX', 'drawing']
+  heater_disk_layers:
+    - !!python/tuple ['nw1phot', 'drawing']
+  heater_electrode_top_layer: !!python/tuple ['B3', 'drawing']
+  heater_electrode_top_x_span: 0.4 #0.6
+  heater_electrode_top_y_span: 2.8 #1.2
+  # Either heater label format is acceptable 1.2 ,1.2,1,1
+  heater_label: {P: 'HEATER', N: 'HEATER_N'}
+#  heater_label: 'HEATER'
+  heater_electrode_bottom_x_span: 0.6
+  heater_electrode_bottom_y_span: 1
+  # Advanced parameters
+  heater_disk_layer_extension: 0.1
+  # Technology parameter
+  heater_electrode_bottom_layer: !!python/tuple ['C1', 'drawing']
+
+
+# Cadence related parameters
+impl_lib: 'ringheater_lib'
+impl_cell: 'ringheater_cell'

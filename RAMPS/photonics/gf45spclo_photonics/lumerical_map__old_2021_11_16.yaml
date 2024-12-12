@@ -1,0 +1,236 @@
+
+
+
+# Mapping from design layers to photonic layers
+# This mapping uses nominal dimensions provided by the 45RFSOI PDK
+
+# Perform mapping from design layers to required foundry layers for accurate simulation
+dataprep_groups:
+  # Place buried oxide and cladding around all areas covered by Si
+  - lpp_in:
+      - {lpp: ['si_full_free', 'drawing']}
+      - {lpp: ['si_full', 'drawing']}
+      - {lpp: ['si_tm', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_free', 'drawing']}
+      - {lpp: ['si', 'drawing']}
+      - {lpp: ['si_poly_free', 'drawing']}
+      - {lpp: ['si_poly', 'drawing']}
+      - {lpp: ['sin_free', 'drawing']}
+      - {lpp: ['sin', 'drawing']}
+      - {lpp: ['RX', 'drawing']}
+    lpp_ops:
+      - {lpp: ['PHOTON', 'temp'], operation: 'rad', amount: 10}
+
+  - lpp_in: [{lpp: ['PHOTON', 'temp']}]
+    lpp_ops:
+      - {lpp: ['CLADDING', 'lumerical'], operation: 'add', amount: 0}
+      - {lpp: ['BOX', 'lumerical'], operation: 'add', amount: 0}
+
+  - lpp_in: [{lpp: ['photonic_content', 'dataprep']}]
+    lpp_ops:
+      - {lpp: ['nitride_liner', 'lumerical'], operation: 'add', amount: 0}
+
+  # Silicon mapping
+  - lpp_in:
+      - {lpp: ['si_full_free', 'drawing']}
+      - {lpp: ['si_full', 'drawing']}
+      - {lpp: ['si_tm', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_free', 'drawing']}
+      - {lpp: ['si', 'drawing']}
+      - {lpp: ['RX', 'drawing']}
+    lpp_ops:
+      - {lpp: ['RX', 'drawing'], operation: 'add', amount: 0.0}
+
+  # Add partial etch layers
+  - lpp_in:
+      - {lpp: ['si_partial_free', 'drawing']}
+      - {lpp: ['si_partial', 'drawing']}
+    lpp_ops:
+      - {lpp: ['KG', 'drawing'], operation: 'add', amount: 0.0}
+
+  # Over-ride partial etch back to full silicon if 'si_full'. No need to add to RX, already done above
+  - lpp_in:
+      - {lpp: ['si_full_free', 'drawing']}
+      - {lpp: ['si_full', 'drawing']}
+      - {lpp: ['si_tm_free', 'drawing']}
+      - {lpp: ['si_tm', 'drawing']}
+    lpp_ops:
+      - {lpp: ['KG', 'drawing'], operation: 'sub', amount: 0.0}
+
+  - lpp_in:
+      - {lpp: ['si_etch', 'drawing']}
+    lpp_ops:
+      - {lpp: ['RX', 'drawing'], operation: 'sub', amount: 0.0}
+
+  # Map to final rx_full and rx_partial
+  - lpp_in:  [{lpp: ['RX', 'drawing']}]
+    lpp_ops:
+      - {lpp: ['rx_partial', 'lumerical'], operation: 'add', amount: 0.0}
+      - {lpp: ['rx_full', 'lumerical'], operation: 'add', amount: 0.0}
+
+  - lpp_in:  [{lpp: ['KG', 'drawing']}]
+    lpp_ops:
+      - {lpp: ['rx_full', 'lumerical'], operation: 'sub', amount: 0.0}
+
+  # Add polysilicon and liners
+  - lpp_in:
+      - {lpp: ['si_poly_free', 'drawing']}
+      - {lpp: ['si_poly', 'drawing']}
+    lpp_ops:
+      - {lpp: ['poly', 'lumerical'], operation: 'add', amount: 0.0}
+      - {lpp: ['nitride_liner_pc', 'lumerical'], operation: 'add', amount: 0.024}
+      - {lpp: ['oxide_liner_pc', 'lumerical'], operation: 'add', amount: 0.012}
+
+  # Add nitride
+  - lpp_in:
+      - {lpp: ['sin_free', 'drawing']}
+      - {lpp: ['sin', 'drawing']}
+    lpp_ops:
+      - {lpp: ['nitride', 'lumerical'], operation: 'add', amount: 0.0}
+      - {lpp: ['nitride_liner', 'lumerical'], operation: 'sub', amount: 2.4}
+
+
+
+
+# Don't use final OUUO operation for Lumerical export
+over_under_under_over:
+
+# Map between valid GDS layers and their properties in Lumerical. Material name can be the built-ins within the
+# Lumerical material database or those added in the materials key below
+lumerical_prop_map:
+  !!python/tuple [rx_full, lumerical]:
+    material: 'Si - RX'
+    z_min: 0
+    z_max: 0.161
+    sigma3: 0.005
+    alpha: 1
+    mesh_order: 1
+
+  !!python/tuple [rx_partial, lumerical]:
+    material: 'Si - RX'
+    z_min: 0
+    z_max: 0.055
+    sigma3: 0.007
+    alpha: 1
+    mesh_order: 1
+
+  !!python/tuple [poly, lumerical]:
+    material: 'Poly - GF'
+    z_min: 0.166
+    z_max: 0.246
+    sigma3: 0.008
+    alpha: 1
+    mesh_order: 1
+
+  !!python/tuple [nitride, lumerical]:
+    material: 'SiN - GF'
+    z_min: 0.186
+    z_max: 0.486
+    sigma3: 0.030
+    alpha: 1
+    mesh_order: 1
+
+  !!python/tuple [nitride_liner, lumerical]:
+    material: 'SiN - GF'
+    z_min: 0.166
+    z_max: 0.178
+    sigma3: 0.003
+    alpha: 0.3
+    mesh_order: 3
+
+  !!python/tuple [oxide_liner_pc, lumerical]:
+    material: 'SiO2 - BOX'
+    z_min: 0.166
+    z_max: 0.258
+    sigma3: 0.0008
+    alpha: 0.3
+    mesh_order: 2
+
+  !!python/tuple [nitride_liner_pc, lumerical]:
+    material: 'SiN - GF'
+    z_min: 0.166
+    z_max: 0.270
+    sigma3: 0.030
+    alpha: 0.3
+    mesh_order: 3
+
+  !!python/tuple [BOX, lumerical]:
+    material: 'SiO2 - BOX'
+    z_min: !!python/float -2.0
+    z_max: 0
+    mesh_order: 4
+    sigma3: 0.200
+    alpha: 0.2
+
+  !!python/tuple [CLADDING, lumerical]:
+    material: 'SiO2 - Cladding'
+    z_min: 0
+    z_max: !!python/float 5
+    alpha: .25
+    mesh_order: 4
+
+
+# Material properties referenced from Silicon Photonics Design by Lukas, pg. 97
+materials:
+
+  'Si - RX':
+    type: 'Dielectric'
+    parameters:
+      'Refractive Index': 3.507
+
+  'SiO2 - body':
+    type: 'Dielectric'
+    parameters:
+      'Refractive Index': 1.454
+
+  'SiO2 - BOX':
+    type: 'Dielectric'
+    parameters:
+      'Refractive Index': 1.45
+
+  'SiO2 - Cladding':
+    type: 'Dielectric'
+    parameters:
+      'Refractive Index': 1.4444
+
+  'SiN - GF':
+    type: 'Dielectric'
+    parameters:
+      'Refractive Index': 1.967
+
+  'Poly - GF':
+    type: 'Dielectric'
+    parameters:
+      'Refractive Index': 3.507
+
+  Si:
+    type: 'Lorentz'
+    parameters:
+      Permittivity: !!python/float 7.98737492
+      Lorentz Linewidth: !!python/float 1e8
+      Lorentz Resonance: !!python/float 3.93282466e+15
+      Lorentz Permittivity: !!python/float 3.68799143
+      color: !!python/list [0.85, 0, 0, 1]
+#  SiO2:
+#    Permittivity: 2.119881
+#    Lorentz Linewidth: !!python/float 1e10
+#    Lorentz Resonance: !!python/float 3.309238e+13
+#    Lorentz Permittivity: !!python/float 49.43721
+#    color: !!python/list [0.5, 0.5, 0.5, 1]
+#  polySi:
+#    Permittivity: !!python/float 8.55
+#    Lorentz Linewidth: !!python/float 1e8
+#    Lorentz Resonance: !!python/float 3.932824466e+15
+#    Lorentz Permittivity: !!python/float 3.68799143
+#    color: !!python/list [0.5, 0, 0.4, 1]
+#  SiN:
+#    # Need to add support for generating non-Lorentz materials
+#    #Type: "Dielectric"
+#    Permittivity: !!python/float 4.0
+#    color: !!python/list [0.2, 0.5, 0.5, 1]

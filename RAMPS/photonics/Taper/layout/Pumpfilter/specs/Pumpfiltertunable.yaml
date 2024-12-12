@@ -1,0 +1,455 @@
+# General Project Settings
+project_name: Pumpfilter
+
+# Output Settings
+lsf_filename: Pumpfilter
+gds_filename: Pumpfilter
+layout_package: 'Photonic_Layout_45SPCLO.Pumpfilter.Pumpfilter'
+layout_class: 'Pumpfilter'
+
+layout_params:
+  output_space: 30.0
+  R90: 15.0
+  R180: 30.0
+  R90t: 5.0
+  taper_in_width: 0.2
+  taper_length: 5.0
+  extra_length: 5.0
+  signal_filter_params:
+    arb_ring_params:
+      hor_disp: 0.5
+      wg_in_params:
+        layer: !!python/tuple [si_full, drawing]
+        port_layer: !!python/tuple [RX, port]
+        length: 30
+        width: 0.6
+        gap: 0.152
+      wg_out_params:
+        layer: !!python/tuple [si_full, drawing]
+        port_layer: !!python/tuple [RX, port]
+        length: 20
+        width: 0.6
+
+      ring_module: Photonic_Layout_45SPCLO.RingTunable.RingTunable
+      ring_class: RingTunable
+      ring_params:
+        - ring_on: True
+          ring_rout: 3.0
+          ring_width: 0.4
+          ring_layer: !!python/tuple ['RX', 'drawing']
+
+          heater_rout: 2.0
+          heater_width: 0.4
+          heater_layer: !!python/tuple ['RX', 'drawing']
+
+          doping_layer: !!python/tuple ['PLN', 'drawing']
+
+          slab_on: True
+          slab_layer: !!python/tuple ['KG', 'drawing']
+
+          top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+          wg_in_gap: 0.0
+          wg_in_length: 0.0
+          wg_in_width: 0.0
+
+          wg_out_gap: 0.0
+          wg_out_length: 0.0
+          wg_out_width: 0.0
+
+          dr: 0.02
+
+          extra_ring_info:       # list of dictionaries with rout, width, layer
+                                 # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+          via_stack_spacing_from_heater: 0.2
+          via_stack_enclosure_vert: 0.1
+          via_stack_enclosure_horiz: 0.05
+          via_stack_gds_name: 'thermal_via_stack_quarter'
+
+          pads_on: True
+          pads_type: 'going_up'
+
+          intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+          itermediate_metal_length: 10.0
+          intermediate_to_routing_length: 10.0
+
+          routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+          routing_wire_spacing: 8.0
+          routing_wire_width: 4.0
+
+          pad_edge_distance: 80.0
+          pad_pitch: 42.0
+          pad_width: 38.0
+          pad_height: 50.0
+          pad_horizontal_shift_left: -100.0
+          pad_horizontal_shift_left_position: 10.0
+          pad_horizontal_shift_right: -42.0
+          pad_horizontal_shift_right_position: 20.0
+          pad_metal_layer: !!python/tuple ['LB', 'drawing']
+          pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+          pad_open_inclusion: 3.0
+
+          pad_left_on: True
+          pad_right_on: True
+          gap: 0.338
+        - ring_on: True
+          ring_rout: 3.0
+          ring_width: 0.4
+          ring_layer: !!python/tuple ['RX', 'drawing']
+
+          heater_rout: 2.0
+          heater_width: 0.4
+          heater_layer: !!python/tuple ['RX', 'drawing']
+
+          doping_layer: !!python/tuple ['PLN', 'drawing']
+
+          slab_on: True
+          slab_layer: !!python/tuple ['KG', 'drawing']
+
+          top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+          wg_in_gap: 0.0
+          wg_in_length: 0.0
+          wg_in_width: 0.0
+
+          wg_out_gap: 0.0
+          wg_out_length: 0.0
+          wg_out_width: 0.0
+
+          dr: 0.02
+
+          extra_ring_info:       # list of dictionaries with rout, width, layer
+                                 # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+          via_stack_spacing_from_heater: 0.2
+          via_stack_enclosure_vert: 0.1
+          via_stack_enclosure_horiz: 0.05
+          via_stack_gds_name: 'thermal_via_stack_quarter'
+
+          pads_on: False
+          pads_type: 'going_up'
+
+          intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+          itermediate_metal_length: 10.0
+          intermediate_to_routing_length: 10.0
+
+          routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+          routing_wire_spacing: 8.0
+          routing_wire_width: 4.0
+
+          pad_edge_distance: 100.0
+          pad_pitch: 42.0
+          pad_width: 38.0
+          pad_height: 50.0
+          pad_horizontal_shift_left: 10.0
+          pad_horizontal_shift_left_position: 10.0
+          pad_horizontal_shift_right: 10.0
+          pad_horizontal_shift_right_position: 20.0
+          pad_metal_layer: !!python/tuple ['LB', 'drawing']
+          pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+          pad_open_inclusion: 3.0
+
+          pad_left_on: True
+          pad_right_on: True
+          gap: 0.338
+        - ring_on: True
+          ring_rout: 3.0
+          ring_width: 0.4
+          ring_layer: !!python/tuple ['RX', 'drawing']
+
+          heater_rout: 2.0
+          heater_width: 0.4
+          heater_layer: !!python/tuple ['RX', 'drawing']
+
+          doping_layer: !!python/tuple ['PLN', 'drawing']
+
+          slab_on: True
+          slab_layer: !!python/tuple ['KG', 'drawing']
+
+          top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+          wg_in_gap: 0.0
+          wg_in_length: 0.0
+          wg_in_width: 0.0
+
+          wg_out_gap: 0.0
+          wg_out_length: 0.0
+          wg_out_width: 0.0
+
+          dr: 0.02
+
+          extra_ring_info:       # list of dictionaries with rout, width, layer
+                                 # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+          via_stack_spacing_from_heater: 0.2
+          via_stack_enclosure_vert: 0.1
+          via_stack_enclosure_horiz: 0.05
+          via_stack_gds_name: 'thermal_via_stack_quarter'
+
+          pads_on: False
+          pads_type: 'going_up'
+
+          intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+          itermediate_metal_length: 10.0
+          intermediate_to_routing_length: 10.0
+
+          routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+          routing_wire_spacing: 8.0
+          routing_wire_width: 4.0
+
+          pad_edge_distance: 100.0
+          pad_pitch: 42.0
+          pad_width: 38.0
+          pad_height: 50.0
+          pad_horizontal_shift_left: 10.0
+          pad_horizontal_shift_left_position: 10.0
+          pad_horizontal_shift_right: 10.0
+          pad_horizontal_shift_right_position: 20.0
+          pad_metal_layer: !!python/tuple ['LB', 'drawing']
+          pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+          pad_open_inclusion: 3.0
+
+          pad_left_on: True
+          pad_right_on: True
+          gap: 0.338
+        - ring_on: True
+          ring_rout: 3.0
+          ring_width: 0.4
+          ring_layer: !!python/tuple ['RX', 'drawing']
+
+          heater_rout: 2.0
+          heater_width: 0.4
+          heater_layer: !!python/tuple ['RX', 'drawing']
+
+          doping_layer: !!python/tuple ['PLN', 'drawing']
+
+          slab_on: True
+          slab_layer: !!python/tuple ['KG', 'drawing']
+
+          top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+          wg_in_gap: 0.0
+          wg_in_length: 0.0
+          wg_in_width: 0.0
+
+          wg_out_gap: 0.0
+          wg_out_length: 0.0
+          wg_out_width: 0.0
+
+          dr: 0.02
+
+          extra_ring_info:       # list of dictionaries with rout, width, layer
+                                 # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+          via_stack_spacing_from_heater: 0.2
+          via_stack_enclosure_vert: 0.1
+          via_stack_enclosure_horiz: 0.05
+          via_stack_gds_name: 'thermal_via_stack_quarter'
+
+          pads_on: False
+          pads_type: 'going_up'
+
+          intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+          itermediate_metal_length: 10.0
+          intermediate_to_routing_length: 10.0
+
+          routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+          routing_wire_spacing: 8.0
+          routing_wire_width: 4.0
+
+          pad_edge_distance: 100.0
+          pad_pitch: 42.0
+          pad_width: 38.0
+          pad_height: 50.0
+          pad_horizontal_shift_left: 10.0
+          pad_horizontal_shift_left_position: 10.0
+          pad_horizontal_shift_right: 10.0
+          pad_horizontal_shift_right_position: 20.0
+          pad_metal_layer: !!python/tuple ['LB', 'drawing']
+          pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+          pad_open_inclusion: 3.0
+
+          pad_left_on: True
+          pad_right_on: True
+          gap: 0.338
+        - ring_on: True
+          ring_rout: 3.0
+          ring_width: 0.4
+          ring_layer: !!python/tuple ['RX', 'drawing']
+
+          heater_rout: 2.0
+          heater_width: 0.4
+          heater_layer: !!python/tuple ['RX', 'drawing']
+
+          doping_layer: !!python/tuple ['PLN', 'drawing']
+
+          slab_on: True
+          slab_layer: !!python/tuple ['KG', 'drawing']
+
+          top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+          wg_in_gap: 0.0
+          wg_in_length: 0.0
+          wg_in_width: 0.0
+
+          wg_out_gap: 0.0
+          wg_out_length: 0.0
+          wg_out_width: 0.0
+
+          dr: 0.02
+
+          extra_ring_info:       # list of dictionaries with rout, width, layer
+                                 # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+          via_stack_spacing_from_heater: 0.2
+          via_stack_enclosure_vert: 0.1
+          via_stack_enclosure_horiz: 0.05
+          via_stack_gds_name: 'thermal_via_stack_quarter'
+
+          pads_on: False
+          pads_type: 'going_up'
+
+          intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+          itermediate_metal_length: 10.0
+          intermediate_to_routing_length: 10.0
+
+          routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+          routing_wire_spacing: 8.0
+          routing_wire_width: 4.0
+
+          pad_edge_distance: 100.0
+          pad_pitch: 42.0
+          pad_width: 38.0
+          pad_height: 50.0
+          pad_horizontal_shift_left: 10.0
+          pad_horizontal_shift_left_position: 10.0
+          pad_horizontal_shift_right: 10.0
+          pad_horizontal_shift_right_position: 20.0
+          pad_metal_layer: !!python/tuple ['LB', 'drawing']
+          pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+          pad_open_inclusion: 3.0
+
+          pad_left_on: True
+          pad_right_on: True
+          gap: 0.338
+        - ring_on: True
+          ring_rout: 3.0
+          ring_width: 0.4
+          ring_layer: !!python/tuple ['RX', 'drawing']
+
+          heater_rout: 2.0
+          heater_width: 0.4
+          heater_layer: !!python/tuple ['RX', 'drawing']
+
+          doping_layer: !!python/tuple ['PLN', 'drawing']
+
+          slab_on: True
+          slab_layer: !!python/tuple ['KG', 'drawing']
+
+          top_cover_box_layer: !!python/tuple ['thermal', 'drawing']
+
+          wg_in_gap: 0.0
+          wg_in_length: 0.0
+          wg_in_width: 0.0
+
+          wg_out_gap: 0.0
+          wg_out_length: 0.0
+          wg_out_width: 0.0
+
+          dr: 0.02
+
+          extra_ring_info:       # list of dictionaries with rout, width, layer
+                                 # self.extra_ring_info: [{'rout': 10, 'width': 2, 'layer': ('KG', 'drawing')}]
+
+          via_stack_spacing_from_heater: 0.2
+          via_stack_enclosure_vert: 0.1
+          via_stack_enclosure_horiz: 0.05
+          via_stack_gds_name: 'thermal_via_stack_quarter'
+
+          pads_on: False
+          pads_type: 'going_up'
+
+          intermediate_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as routing_metal_layer
+          itermediate_metal_length: 10.0
+          intermediate_to_routing_length: 10.0
+
+          routing_metal_layer: !!python/tuple ['BB', 'drawing']  # can be the same as intermediate_metal_layer
+          routing_wire_spacing: 8.0
+          routing_wire_width: 4.0
+
+          pad_edge_distance: 100.0
+          pad_pitch: 42.0
+          pad_width: 38.0
+          pad_height: 50.0
+          pad_horizontal_shift_left: 10.0
+          pad_horizontal_shift_left_position: 10.0
+          pad_horizontal_shift_right: 10.0
+          pad_horizontal_shift_right_position: 20.0
+          pad_metal_layer: !!python/tuple ['LB', 'drawing']
+          pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+          pad_open_inclusion: 3.0
+
+          pad_left_on: True
+          pad_right_on: True
+          gap: 0.338
+
+
+  idler_filter_params:
+    arb_ring_params:
+      hor_disp: 0.5
+      wg_in_params:
+        layer: !!python/tuple [si_full, drawing]
+        port_layer: !!python/tuple [RX, port]
+        length: 30
+        width: 0.6
+        gap: 0.152
+      wg_out_params:
+        layer: !!python/tuple [si_full, drawing]
+        port_layer: !!python/tuple [RX, port]
+        length: 20
+        width: 0.6
+
+      ring_module: Photonic_Layout_45SPCLO.SimpleRing.SimpleRing
+      ring_class: SimpleRing
+      ring_params:
+        - layer: !!python/tuple [si_full, drawing]
+          port_layer: !!python/tuple [RX, port]
+          r_out: 9
+          ring_width: 0.7
+          gap: 0.338
+        - layer: !!python/tuple [si_full, drawing]
+          port_layer: !!python/tuple [RX, port]
+          r_out: 9
+          ring_width: 0.7
+          gap: 0.338
+        - layer: !!python/tuple [si_full, drawing]
+          port_layer: !!python/tuple [RX, port]
+          r_out: 9
+          ring_width: 0.7
+          gap: 0.338
+        - layer: !!python/tuple [si_full, drawing]
+          port_layer: !!python/tuple [RX, port]
+          r_out: 9
+          ring_width: 0.7
+          gap: 0.338
+        - layer: !!python/tuple [si_full, drawing]
+          port_layer: !!python/tuple [RX, port]
+          r_out: 9
+          ring_width: 0.7
+          gap: 0.338
+        - layer: !!python/tuple [si_full, drawing]
+          port_layer: !!python/tuple [RX, port]
+          r_out: 9
+          ring_width: 0.7
+          gap: 0.152
+
+
+# Cadence related parameters
+impl_lib: 'pump_filter_lib'
+impl_cell: 'pump_filter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

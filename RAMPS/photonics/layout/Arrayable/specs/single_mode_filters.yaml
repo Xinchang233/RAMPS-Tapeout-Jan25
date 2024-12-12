@@ -1,0 +1,178 @@
+# General Project Settings
+project_name: Arrayable
+
+# Output Settings
+lsf_filename: Single_mode_filter_rings
+gds_filename: Single_mode_filter_rings
+layout_package: 'Photonic_Core_Layout.Arrayable.Arrayable'
+layout_class: 'Arrayable'
+
+layout_params:
+  package: Photonic_Layout_45SPCLO.RingFilterSingleMode.RingFilterSingleMode
+  class_name: RingFilterSingleMode
+  horizontal_distance: 10
+  vertical_distance: 19
+  horizontal_offset: 0
+  instances_per_row: 2
+  pack_params: False
+  params_per_cell: 6
+  class_params:
+    -   ver_distance_btw_gratings: 2
+        hor_total_size: 90
+        place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_1331
+          class_name: X_iograt_1331
+        filter_params:
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          radius: 10
+          ring_width: 0.7
+          input_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          place_output_wg: True
+          output_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          additional_layers:
+            - layer: !!python/tuple [PC, drawing]
+              width: 0.7
+            - layer: !!python/tuple [si_partial, drawing]
+              width: 0.4
+
+    -   ver_distance_btw_gratings: 2
+        hor_total_size: 90
+        place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_1331
+          class_name: X_iograt_1331
+        filter_params:
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          radius: 10.022
+          ring_width: 0.7
+          input_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          place_output_wg: True
+          output_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          additional_layers:
+            - layer: !!python/tuple [PC, drawing]
+              width: 0.7
+            - layer: !!python/tuple [si_partial, drawing]
+              width: 0.4
+
+
+    -   ver_distance_btw_gratings: 2
+        hor_total_size: 90
+        place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_1331
+          class_name: X_iograt_1331
+        filter_params:
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          radius: 10.044
+          ring_width: 0.7
+          input_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          place_output_wg: True
+          output_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          additional_layers:
+            - layer: !!python/tuple [PC, drawing]
+              width: 0.7
+            - layer: !!python/tuple [si_partial, drawing]
+              width: 0.4
+
+    -   ver_distance_btw_gratings: 2
+        hor_total_size: 90
+        place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_1331
+          class_name: X_iograt_1331
+        filter_params:
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          radius: 10.066
+          ring_width: 0.7
+          input_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          place_output_wg: True
+          output_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          additional_layers:
+            - layer: !!python/tuple [PC, drawing]
+              width: 0.7
+            - layer: !!python/tuple [si_partial, drawing]
+              width: 0.4
+
+    -   ver_distance_btw_gratings: 2
+        hor_total_size: 90
+        place_mode_converter: False
+        mode_converter_params:
+          package: Photonic_Layout_45SPCLO.Importers.ModeConverters.PartialEtchModeConverter
+          class_name: PartialEtchModeConverter
+        grating_params:
+          package: Photonic_Layout_45SPCLO.Importers.Gratings.Grating_1331
+          class_name: X_iograt_1331
+        filter_params:
+          layer: !!python/tuple [RX, drawing]
+          port_layer: !!python/tuple [RX, port]
+          radius: 10.088
+          ring_width: 0.7
+          input_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          place_output_wg: True
+          output_wg:
+            length: 30
+            width: 0.6
+            gap: 1
+          additional_layers:
+            - layer: !!python/tuple [PC, drawing]
+              width: 0.7
+            - layer: !!python/tuple [si_partial, drawing]
+              width: 0.4
+
+
+
+
+
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

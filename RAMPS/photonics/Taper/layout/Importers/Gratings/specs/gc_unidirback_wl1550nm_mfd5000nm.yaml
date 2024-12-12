@@ -1,0 +1,23 @@
+# Directory Locations
+project_name: 'GcUnidirBackWl1550nmMfd5000nm'
+
+# Output Settings
+lsf_filename: GcUnidirBackWl1550nmMfd5000nm
+gds_filename: GcUnidirBackWl1550nmMfd5000nm
+
+# Generator Params
+# Module that contains the layout generator class
+layout_package: 'layout.Importers.Gratings.gc_TE_1550_degneg15_mfd5um_unidir_apod_up_dataprep_calibre'
+layout_class: 'GcUnidirBackWl1550nmMfd5000nm'  # Layout generator class name
+
+layout_params:
+#  gds_path: 'layout/Importers/GDS_grating_couplers/gc_unidir_wl1310_mfd5000_deg11.gds'
+
+# Cadence related parameters
+impl_lib: 'GcUnidirBackWl1550nmMfd5000nm'
+impl_cell: 'GcUnidirBackWl1550nmMfd5000nm_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

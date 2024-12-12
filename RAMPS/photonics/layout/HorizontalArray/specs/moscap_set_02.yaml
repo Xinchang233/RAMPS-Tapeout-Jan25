@@ -1,0 +1,390 @@
+# General Project Settings
+project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/HorizontalArray'
+
+# Output Settings
+lsf_filename: moscap_set_02
+gds_filename: moscap_set_02
+
+# Generator Settings
+layout_package: 'layout.HorizontalArray.HorizontalArray'
+layout_class: 'HorizontalArray'
+
+layout_params:
+  N_rows: 4
+  N_cols: 3
+  hc: 23.0
+  wc: 90.0
+  dh1: 1.0
+  dc_step: 3.0
+  hm_port: 80
+  spacing_cc: 15.0
+  spacing_cm: 70.0
+  pitch_mm: 100.0
+  spacing_wg: 2.5
+  dr: 2.0
+  dl: 2.0
+  rmin: 7.0
+  width: 0.5
+
+  layer: !!python/tuple ['rx3phot', 'drawing']
+  radius_threshold: 1.5
+  curvature_rate_threshold: 0.7
+
+  coupler_top_package: 'layout.Importers.Gratings.GcBidirWl1300nmMfd5000nm'
+  coupler_top_class: 'GcBidirWl1300nmMfd5000nm'
+  coupler_port_name: 'PORT_OUT'
+  coupler_params:
+    gds_path: 'layout/Importers/GDS_grating_couplers/gc_dirbi_unif_wl1300_mfd5000_deg15_dataprep_calibre.gds'
+
+  dut_top_package: 'layout.MoscapModulator.ring_moscap'
+  dut_top_class: 'RingMoscap'
+  dut_port_name_in: 'INPUT'
+  dut_port_name_out: 'THRU'
+
+  dut_rectangle_layer: !!python/tuple ['PHOTON_A', 'drawing']
+
+  dut_params_list:
+    # variant 13
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.250
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['RP', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 14
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['RP', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 15
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.145
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['RP', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 16
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.250
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['pw13phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 17
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['pw13phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 18
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.145
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw4phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['nw3phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['nw2phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['pw13phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 19
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.250
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 20
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 21
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.145
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw6phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 22
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.250
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw7phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 23
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.200
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw7phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+    # variant 24
+    -
+      # body ring
+      body_ring_rout: 2.01
+      body_ring_width: 2.01
+      # bus
+      input_wg_width: 0.4
+      input_gap: 0.145
+      # gate
+      gate_ring_rout: 1.9
+      gate_ring_width: 1.35
+      # doping
+      body_doping_info:
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw8phot', 'drawing']}
+        - {rout: 2.01, rin: 0.0, layer: !!python/tuple ['pw6phot', 'drawing']}
+        - {rout: 0.95, rin: 0.0, layer: !!python/tuple ['pw5phot', 'drawing']}
+        - {rout: 0.5, rin: 0.0, layer: !!python/tuple ['p_inter_phot', 'drawing']}
+        - {rout: 0.9, rin: 0.0, layer: !!python/tuple ['n_heavy_sil', 'drawing']}
+        - {rout: 0.25, rin: 0.0, layer: !!python/tuple ['B1', 'drawing']}
+      gate_doping_info:
+        - {rout: 1.9, rin: 0.65, layer: !!python/tuple ['nw7phot', 'drawing']}
+        - {rout: 0.9, rin: 0.63, layer: !!python/tuple ['n_inter_phot', 'drawing']}
+      # electrodes
+      body_via_radius: 0.35
+      body_via_number: 6
+      gate_via_radius: 0.75
+      gate_via_number: 20
+
+# Cadence related parameters
+impl_lib: 'moscap_set_02'
+impl_cell: 'moscap_set_02_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

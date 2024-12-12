@@ -1,0 +1,28 @@
+# Directory Locations
+project_name: DLexercise1
+
+# Output Settings
+lsf_filename: DLexercise1.lsf
+gds_filename: DLexercise1_gds
+
+
+# Generator Params
+layout_package: 'layout.DLex_1.DLex_1'  # Module that contains the layout generator class
+layout_class: 'DLex_1'  # Layout generator class name
+
+layout_params:
+  layer: !!python/tuple [si_full, drawing]
+  port_layer: !!python/tuple [si_full, port]
+  length: 250
+  tlength: 20
+  width: 10
+  turn_radius: 50
+
+# Cadence related parameters
+impl_lib: 'ringfilter_lib'
+impl_cell: 'ringfilter_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

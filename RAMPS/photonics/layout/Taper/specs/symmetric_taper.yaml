@@ -1,0 +1,28 @@
+# Directory Locations
+project_name: Taper
+
+# Output Settings
+lsf_filename: SymTaper
+gds_filename: SymTaper
+
+# Generator Params
+layout_package: 'Photonic_Core_Layout.Taper.ArbSymmetricTaper'
+layout_class: 'ArbSymmetricTaper'
+layout_params:
+  layer: 'SI'
+  points:
+    - [0.5, 4]
+    - [1, 8]
+    - [2, 10]
+    - [3, 8]
+    - [4, 6]
+    - [5, 8]
+    - [6, 10]
+    - [7, 8]
+    - [8, 6]
+    - [9, 4]
+    - [10, 2]
+
+# Cadence related parameters
+impl_lib: 'Taper'
+impl_cell: 'ArbSymmetricTaper'

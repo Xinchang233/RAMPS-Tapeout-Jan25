@@ -1,0 +1,173 @@
+# serpgrating.yaml
+# A sample specification file to generate a general Serpentine Grating
+
+# Directory Locations
+project_name: SerpentineGrating
+
+# Output Settings
+lsf_filename: SerpGrat
+gds_filename: SerpGrat
+
+# Generator Params
+layout_package: 'layout.SerpentineGrating.SerpentineGrating'  # Module that contains the layout generator class
+layout_class: 'SerpentineGrating'  # Layout generator class name
+
+# Key serpentine parameters (determine settings for components)
+grat_length : &grat_length 100.0
+pitch : &pitch 8.0 #Grating to grating pitch
+radius : &radius 2.0 #Want to define based on pitch but can't figure out how to do math
+bend_pitch: &bend_pitch 4.0 #Defined from grating to grating pitch
+grat_width : &grat_width 4.5
+flyback_width : &flyback_width 1.5
+rout_width : &rout_width 0.4
+taper_length : &taper_length 30.0
+rout_layer : &rout_layer !!python/tuple ['si_full','drawing']
+grat_layer : &grat_layer !!python/tuple ['si_full','drawing']
+
+
+layout_params:
+    nrows: 12
+    input_mod: True
+    input_offset: 200.0
+    output_offset: 10.0
+    mod_length: 2000.0
+    add_coupler: True
+    pad_loc: !!python/tuple [-100.0,300.0]
+    #Component parameters
+    grating_params:
+        module: layout.GratingWaveguide.GratingWaveguide
+        class: GratingWaveguide
+        layer: *rout_layer
+        width: *grat_width
+        length: *grat_length
+        period: .52
+        duty_cycle: .5
+        teeth_width: 4.7
+        grating_layer: *grat_layer
+        box_layers: !!python/tuple ['grating','drawing']
+        box_ex_width: 5.0
+    flyback_params:
+        module: Photonic_Core_Layout.WaveguideBase.WaveguideBase
+        class: WaveguideBase
+        width: *flyback_width
+        layer: *rout_layer
+        points:
+          - !!python/tuple [0, 0]
+          - !!python/tuple [*grat_length, 0]
+    bend_params:
+        #Euler bend parameters
+        module: Photonic_Core_Layout.AdiabaticPaths.AdiabaticPaths
+        class: AdiabaticPaths
+        layer: *rout_layer
+        port_layer: *rout_layer
+        x_start:   0.0
+        y_start:   0.0
+        angle_start: 0.0
+        radius_threshold: 1.0
+        curvature_rate_threshold: 1.0
+        merge_arcs: False
+        show_plot: False
+        show_plot_labels: True
+        arc_params:
+          - arc_type: '180_bend'
+            size: *bend_pitch
+            turn_left: True
+            width: *rout_width
+        #Circular 180 bend parameters
+        #width: *rout_width
+        #layer: *rout_layer
+        #radius: *radius
+    grat_taper_params:
+#        module: Photonic_Core_Layout.Taper.ParabolicTaper
+        module: layout.Taper.ParabolicTaper
+        class: ParabolicTaper
+        #module: Photonic_Core_Layout.Taper.ArbSymmetricTaper
+        #class: ArbSymmetricTaper
+        width0: *rout_width
+        width1: *grat_width
+        length: *taper_length
+        layer: *rout_layer
+    fly_taper_params:
+#        module: Photonic_Core_Layout.Taper.ParabolicTaper
+        module: layout.Taper.ParabolicTaper
+        class: ParabolicTaper
+        width0: *rout_width
+        width1: *flyback_width
+        length: *taper_length
+        layer: *rout_layer
+    mod_taper_params:
+        module: layout.Taper.LinearTaper
+        class: LinearTaper
+        width0: *rout_width
+        width1: 0.35 #Modulator input width
+        length: 5.0
+        layer: *rout_layer
+    mod_params:
+        module: layout.Importers.Modulators.ModulatorSection
+        class: ModulatorSection
+        taper_module: layout.Importers.Modulators.ModulatorTaper
+        taper_class: ModulatorTaper
+        #General modulator parameters
+        mod_length: 300
+        input_width: 0.35
+        gds_path: 'layout/Importers/GDS_Library_Components/x_mod_wgkg.gds'
+    wiring_params:
+        module: layout.WaveguideBase.RibbonPathWaveguide
+        class: RibbonPathWaveguide
+        #Parameters for RibbonPathWaveguide
+        layer: !!python/tuple ['LB', 'drawing']
+        seps: 48.5
+        widths: !!python/tuple [40.0,7.0,40.0]
+        add_ports: True
+        n_wgs: 3
+        block_layer: !!python/tuple ['LB', 'exclude']
+        block_margin: 0.0
+        angle_in: 180
+        angle_out: 90
+        #Relation to modulator wiring
+        signal_offset: 14.21
+        #Fan out to pad params
+        fan_out_length: 20.0
+    pad_params:
+        module: Photonic_Core_Layout.ViaStack.ViaStack
+        class: ViaStack
+        pitch: 50.0
+        width: 40.0
+        height: 50.0
+        top_layer: !!python/tuple ['LB', 'drawing']
+        bottom_layer: !!python/tuple ['OA', 'drawing']
+        pad_open_layer: !!python/tuple ['DV', 'drawing']  # passivation opening layer
+        pad_open_inclusion: 3.0
+        align: side_align
+    input_coupler_taper_params:
+        module: Photonic_Core_Layout.Taper.LinearTaper
+        class: LinearTaper
+        width0: *rout_width
+        width1: 0.35 #Coupler input width
+        length: 5.0
+        layer: *rout_layer
+    output_coupler_taper_params:
+        module: Photonic_Core_Layout.Taper.LinearTaper
+        class: LinearTaper
+        width0: *rout_width
+        width1: 0.5 #Coupler input width
+        length: 5.0
+        layer: *rout_layer
+    input_coupler_params:
+        module: layout.SCALABLE.Importers.EdgeCouplers.EdgeCoupler
+        class: EdgeCoupler
+        gds_path: ''
+    output_coupler_params:
+        module: layout.SCALABLE.Importers.Gratings.Grating_CBand
+        class: Grating_CBand
+        gds_path: ""
+
+
+# Cadence related parameters
+impl_lib: 'serpgrat_lib'
+impl_cell: 'serpgrat_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'

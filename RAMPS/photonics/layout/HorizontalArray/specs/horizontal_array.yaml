@@ -1,0 +1,102 @@
+# General Project Settings
+project_name: '/projectnb/siphot/hayk/BPG_hayk/TO_45RF_2019May/gen_libs/HorizontalArray'
+
+# Output Settings
+lsf_filename: HorizontalArray
+gds_filename: HorizontalArray
+
+# Generator Settings
+layout_package: 'layout.HorizontalArray.HorizontalArray'
+layout_class: 'HorizontalArray'
+
+layout_params:
+  N_rows: 7
+  N_cols: 2
+  hc: 23.0
+  wc: 90.0
+  dh1: 1.0
+  dc_step: 3.0
+  hm_port: 140 # 8x2 140
+  spacing_cc: 19.0
+  spacing_cm: 75.0
+  pitch_mm: 100.0
+  spacing_wg: 3.0
+  dr: 2.0
+  dl: 2.0
+  rmin: 8.0
+  width: 0.7
+
+  layer: !!python/tuple ['si_full_free', 'drawing']
+  radius_threshold: 1.5
+  curvature_rate_threshold: 0.7
+
+  coupler_top_package: 'layout.Importers.Gratings.GcBidirWl1300nmMfd5000nmPortw700nm'
+  coupler_top_class: 'GcBidirWl1300nmMfd5000nmPortw700nm'
+  coupler_port_name: 'PORT_OUT'
+  coupler_params:
+    gds_path: 'layout/Importers/GDS_grating_couplers/gc_dirbi_unif_wl1300_mfd5000_deg15_portw700_dataprep_calibre.gds'
+
+  dut_top_package: 'layout.SlotRacetrackModulator.SlotRacetrackModulator'
+  dut_top_class: 'SlotRacetrackModulator'
+  dut_port_name_in: 'PORT0'
+  dut_port_name_out: 'PORT1'
+
+  dut_rectangle_layer: !!python/tuple ['PHOTON_A', 'drawing']
+
+  dut_params_list:
+    # gap_1
+    -
+      bus_ring_gap: 0.2
+    # gap_2
+    -
+      bus_ring_gap: 0.4
+    # gap_3
+    -
+      bus_ring_gap: 0.6
+    # gap_4
+    -
+      bus_ring_gap: 0.2
+    # gap_5
+    -
+      bus_ring_gap: 0.4
+    # gap_6
+    -
+      bus_ring_gap: 0.6
+    # gap_7
+    -
+      bus_ring_gap: 0.2
+    # gap_8
+    -
+      bus_ring_gap: 0.4
+    # gap_9
+    -
+      bus_ring_gap: 0.6
+    # gap_10
+    -
+      bus_ring_gap: 0.2
+    # gap_11
+    -
+      bus_ring_gap: 0.4
+    # gap_12
+    -
+      bus_ring_gap: 0.6
+    # gap_13
+    -
+      bus_ring_gap: 0.2
+    # gap_14
+    -
+      bus_ring_gap: 0.4
+#    # gap_13
+#    -
+#    # gap_14
+#    -
+
+
+# Cadence related parameters
+impl_lib: 'HorizontalArray'
+impl_cell: 'HorizontalArray_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
