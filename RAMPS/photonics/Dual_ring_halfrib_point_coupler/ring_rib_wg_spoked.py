@@ -728,46 +728,29 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         drop_gap = 0.4
         
         # PD L
-        self.add_photonic_port(name='terminator_L_end', center=(self.ring_1_centre[0]-self.r_core_cent-0.5*self.core_width-drop_gap-0.5*self.drop_core_width+terminator_effective_size, self.ring_1_centre[1]+0.5*coupling_region_length+terminator_effective_size),
-                               orient='R0', width=terminator_end_width, layer=self.core_layer)
+        self.add_photonic_port(name='terminator_L_end', center=(self.ring_1_centre[0]-self.r_core_cent-0.5*self.core_width-drop_gap-0.5*self.drop_core_width+terminator_effective_size-2*terminator_effective_size, self.ring_1_centre[1]+0.5*coupling_region_length+terminator_effective_size),
+                               orient='R180', width=terminator_end_width, layer=self.core_layer)
         Wg = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port('terminator_L_end'),
                             layer=self.core_layer, name='test_port1')
         # Wg.add_straight_wg(length=5)
-        Wg.add_bend_90(rmin=3, size=terminator_effective_size, turn_left=True,width=self.drop_core_width)
+        Wg.add_bend_90(rmin=3, size=terminator_effective_size, turn_left=False,width=self.drop_core_width)
         Wg.add_straight_wg(length=coupling_region_length,width=self.drop_core_width)
         Wg.add_bend_90(rmin=2, size=bend90_size, turn_left=False, width=self.drop_core_width)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
         Wg.add_offset_bend(offset=bend90_size+0.5*coupling_region_length, rmin=2)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
-
-        self.extract_photonic_ports(
-            inst=Wg.inst[list(Wg.inst)[-1]],
-            port_names=['PORT_IN', 'PORT_OUT'],
-            port_renaming={'PORT_IN': 'PORT_IN',
-                           'PORT_OUT': 'PORT_DROP_L',
-                           },
-            show=True)
-
         # PD R
-        self.add_photonic_port(name='terminator_R_end', center=(self.ring_1_centre[0]+2*self.r_core_cent+self.core_width+self.r_r_gap+self.r_core_cent+0.5*self.core_width+drop_gap+0.5*self.drop_core_width-terminator_effective_size, self.ring_1_centre[1]+0.5*coupling_region_length+terminator_effective_size),
-                               orient='R180', width=terminator_end_width, layer=self.core_layer)
+        self.add_photonic_port(name='terminator_R_end', center=(self.ring_1_centre[0]+2*self.r_core_cent+self.core_width+self.r_r_gap+self.r_core_cent+0.5*self.core_width+drop_gap+0.5*self.drop_core_width+terminator_effective_size, self.ring_1_centre[1]+0.5*coupling_region_length+terminator_effective_size),
+                               orient='R0', width=terminator_end_width, layer=self.core_layer)
         Wg = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port('terminator_R_end'),
                             layer=self.core_layer, name='test_port1')
         # Wg.add_straight_wg(length=5)
-        Wg.add_bend_90(rmin=3, size=terminator_effective_size, turn_left=False,width=self.drop_core_width)
+        Wg.add_bend_90(rmin=3, size=terminator_effective_size, turn_left=True,width=self.drop_core_width)
         Wg.add_straight_wg(length=coupling_region_length,width=self.drop_core_width)
         Wg.add_bend_90(rmin=2, size=bend90_size, turn_left=True, width=self.drop_core_width)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
         Wg.add_offset_bend(offset=-(bend90_size+0.5*coupling_region_length), rmin=2)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
-
-        self.extract_photonic_ports(
-            inst=Wg.inst[list(Wg.inst)[-1]],
-            port_names=['PORT_IN', 'PORT_OUT'],
-            port_renaming={'PORT_IN': 'PORT_IN',
-                           'PORT_OUT': 'PORT_DROP_R',
-                           },
-            show=True)
     
     def draw_input_wg_drop(self):
         """
@@ -1204,82 +1187,83 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         offset_distance = outer_pn_radius
 
         metal_width = 2
+        """Heater UA Routing"""
         # heater wiring to the left upper pad
-        wire1_top = 3 * offset_distance
-        wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
-        wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width
-        wire1_right = wire1_left + metal_width
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 3 * offset_distance
+        # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
+        # wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width
+        # wire1_right = wire1_left + metal_width
+        # self.add_rect(layer=self.heater_electrode_top_layer,
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
 
 
-        # # heater wiring to the right upper pad
-        wire1_top = 3 * offset_distance
-        wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
-        wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent
-        wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + metal_width
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # # # heater wiring to the right upper pad
+        # wire1_top = 3 * offset_distance
+        # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
+        # wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent
+        # wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + metal_width
+        # self.add_rect(layer=self.heater_electrode_top_layer,
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
 
-        # draw central upper pad wire(bring from left ring)
-        wire1_top = 3 * offset_distance
-        wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
-        wire1_left = self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent
-        wire1_right = wire1_left + metal_width
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        wire2_top = wire1_top
-        wire2_bottom = wire1_top - metal_width
-        wire2_left = wire1_left
-        wire2_right = 0
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire2_right,
-                                bottom=wire2_bottom,
-                                left=wire2_left,
-                                top=wire2_top,
-                                resolution=self.grid.resolution)
-                      )
+        # # draw central upper pad wire(bring from left ring)
+        # wire1_top = 3 * offset_distance
+        # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
+        # wire1_left = self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent
+        # wire1_right = wire1_left + metal_width
+        # self.add_rect(layer=self.heater_electrode_top_layer,
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # wire2_top = wire1_top
+        # wire2_bottom = wire1_top - metal_width
+        # wire2_left = wire1_left
+        # wire2_right = 0
+        # self.add_rect(layer=self.heater_electrode_top_layer,
+        #               bbox=BBox(right=wire2_right,
+        #                         bottom=wire2_bottom,
+        #                         left=wire2_left,
+        #                         top=wire2_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        # draw central upper pad wire(bring from right ring)
-        wire1_top = 3 * offset_distance
-        wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
-        wire1_right = -self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent
-        wire1_left = wire1_right - metal_width
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        wire2_top = wire1_top
-        wire2_bottom = wire1_top - metal_width
-        wire2_left = 0
-        wire2_right = wire1_right
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire2_right,
-                                bottom=wire2_bottom,
-                                left=wire2_left,
-                                top=wire2_top,
-                                resolution=self.grid.resolution)
-                      )
+        # # draw central upper pad wire(bring from right ring)
+        # wire1_top = 3 * offset_distance
+        # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
+        # wire1_right = -self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent
+        # wire1_left = wire1_right - metal_width
+        # self.add_rect(layer=self.heater_electrode_top_layer,
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # wire2_top = wire1_top
+        # wire2_bottom = wire1_top - metal_width
+        # wire2_left = 0
+        # wire2_right = wire1_right
+        # self.add_rect(layer=self.heater_electrode_top_layer,
+        #               bbox=BBox(right=wire2_right,
+        #                         bottom=wire2_bottom,
+        #                         left=wire2_left,
+        #                         top=wire2_top,
+        #                         resolution=self.grid.resolution)
+        #               )
         # vertical wire upto upto middle pad
     def place_contact_electrodes_basic(self):
         # calculate the corner coordinate of the left (ground) pad
