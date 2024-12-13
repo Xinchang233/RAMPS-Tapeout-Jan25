@@ -526,6 +526,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             disk_layer_extension=self.params['heater_disk_layer_extension'],
             electrode_bottom_layer=self.params['heater_electrode_bottom_layer'],
         )
+
         # Assign dynamic defaults to heater electrode bottom span
         if self.params['heater_electrode_bottom_x_span'] is None:
             heater_params['electrode_bottom_x_span'] = heater_params['contact_width']
@@ -738,6 +739,15 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
         Wg.add_offset_bend(offset=bend90_size+0.5*coupling_region_length, rmin=2)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
+
+        self.extract_photonic_ports(
+            inst=Wg.inst[list(Wg.inst)[-1]],
+            port_names=['PORT_IN', 'PORT_OUT'],
+            port_renaming={'PORT_IN': 'PORT_IN',
+                           'PORT_OUT': 'PORT_DROP_L',
+                           },
+            show=True)
+
         # PD R
         self.add_photonic_port(name='terminator_R_end', center=(self.ring_1_centre[0]+2*self.r_core_cent+self.core_width+self.r_r_gap+self.r_core_cent+0.5*self.core_width+drop_gap+0.5*self.drop_core_width-terminator_effective_size, self.ring_1_centre[1]+0.5*coupling_region_length+terminator_effective_size),
                                orient='R180', width=terminator_end_width, layer=self.core_layer)
@@ -751,7 +761,13 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg.add_offset_bend(offset=-(bend90_size+0.5*coupling_region_length), rmin=2)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
 
-
+        self.extract_photonic_ports(
+            inst=Wg.inst[list(Wg.inst)[-1]],
+            port_names=['PORT_IN', 'PORT_OUT'],
+            port_renaming={'PORT_IN': 'PORT_IN',
+                           'PORT_OUT': 'PORT_DROP_R',
+                           },
+            show=True)
     
     def draw_input_wg_drop(self):
         """

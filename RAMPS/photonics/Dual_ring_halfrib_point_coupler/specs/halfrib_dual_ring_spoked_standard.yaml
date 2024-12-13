@@ -10,7 +10,7 @@ gds_filename: Dual_ring_halfrib_spoked_standard
 #bag_config_path: 'BPG/examples/tech/bag_config.yaml'
 
 # Generator Params
-layout_package: 'cena_top.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked'
+layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked'
 layout_class: 'RingRibWg'
 layout_params:
         # Parameters of rib-waveguide ring
@@ -45,7 +45,7 @@ layout_params:
         drop_coup_angle: 30
 
 
-        label: {P: 'P_labelname', N: 'N_labelhere'}
+        label: {P: 'STP', N: 'GND'}
         outer_electrode_ring_layers:
         - !!python/tuple ['M1', 'drawing']
         - !!python/tuple ['M2', 'drawing']
