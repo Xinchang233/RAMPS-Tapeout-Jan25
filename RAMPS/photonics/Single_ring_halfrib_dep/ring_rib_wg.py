@@ -442,16 +442,18 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
             offset=self.p_contact_offset,
             bot_layer=self.bottom_metal_electrode_layer,
             top_layer=self.grid.tech_info.get_layer_name(max(p_electrode_layer_ind_list)),
+            # top_layer=[self.grid.tech_info.get_layer_name(max(p_electrode_layer_ind_list))],
             label=label_p,
         )
 
-        # Draw p silicon spokes and via stacks.  Via stack goes to the bottom-most electrode layer
+        # Draw n silicon spokes and via stacks.  Via stack goes to the bottom-most electrode layer
         self.draw_contact_spokes_and_via_stack(
             r_via=n_via_radius,
             spoke_num=self.spoke_num,
             offset=self.n_contact_offset,
             bot_layer=self.bottom_metal_electrode_layer,
-            top_layer=self.grid.tech_info.get_layer_name(max(p_electrode_layer_ind_list)),
+            # top_layer=self.grid.tech_info.get_layer_name(max(p_electrode_layer_ind_list)),
+            top_layer=('BA','drawing'),
             label=label_n,
         )
 
@@ -481,8 +483,8 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
 
         # p contact rings. Spokes to the contact via stacks are only on the bottom most layer
         self.draw_electrode_ring_and_spokes(
-            ring_layer_indices=[5],
-            spoke_layer_indices=[5],
+            ring_layer_indices=[4],
+            spoke_layer_indices=[4],
             electrode_rout=electrode_rout_p+0.4,
             electrode_rin=electrode_rin_p,
             via_radius=p_via_radius,
@@ -492,8 +494,8 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
 
         # n contact rings. Spokes to the contact via stacks are only on the bottom most layer
         self.draw_electrode_ring_and_spokes(
-            ring_layer_indices=[5,6],
-            spoke_layer_indices=[5],
+            ring_layer_indices=[6],
+            spoke_layer_indices=[6],
             electrode_rout=electrode_rout_n,
             electrode_rin=electrode_rin_n-0.4,
             via_radius=n_via_radius,
