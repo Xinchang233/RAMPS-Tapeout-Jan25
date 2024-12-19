@@ -14,7 +14,7 @@ from BPG.objects import PhotonicPolygon, PhotonicRound, PhotonicRect
 from ..Single_ring_halfrib_dep.ring_rib_wg import RingRibWg_sr
 from ..triple_rings_full_si.Ring_new.wrapped_coupler_tapeout import adiabatic_coupler_cena
 from ..triple_rings_full_si.Ring_new.AdiabaticRouter import AdiabaticRouter
-
+    
 class RingRibWg(BPG.PhotonicTemplateBase):
     """
     This class generates rib-waveguide ring modulator
@@ -392,9 +392,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         self.add_rect(layer=('IH', 'drawing'),
-                      bbox=BBox(right=0.15,
+                      bbox=BBox(right=0.15+0.25*self.r_r_gap,
                                 bottom=-1.5+0.13,
-                                left=-0.15,
+                                left=-0.15-0.25*self.r_r_gap,
                                 top=1.5-0.13,
                                 resolution=self.grid.resolution)
                       )
@@ -474,11 +474,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             layer = self.params['layer'],
             si_spoke_offset_percentage=self.params['si_spoke_offset_percentage'],
         )
-        heater_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
-        self.add_instance(master=heater_master, loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
-        heater_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
-        self.add_instance(master=heater_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
-
+        spoked_ring_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
+        self.add_instance(master=spoked_ring_master, loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
+        spoked_ring_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
+        self.add_instance(master=spoked_ring_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
 
     def draw_heater(self):
         rout = self.r_core_cent + self.core_width / 2
@@ -526,7 +525,6 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             disk_layer_extension=self.params['heater_disk_layer_extension'],
             electrode_bottom_layer=self.params['heater_electrode_bottom_layer'],
         )
-
         # Assign dynamic defaults to heater electrode bottom span
         if self.params['heater_electrode_bottom_x_span'] is None:
             heater_params['electrode_bottom_x_span'] = heater_params['contact_width']
@@ -751,6 +749,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
         Wg.add_offset_bend(offset=-(bend90_size+0.5*coupling_region_length), rmin=2)
         Wg.add_straight_wg(length=2,width=self.drop_core_width)
+
+
     
     def draw_input_wg_drop(self):
         """
@@ -910,146 +910,159 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         wire1_bottom = wire1_top - width
         wire1_left = self.left_pad_loc[0]
         wire1_right = self.ring_loc[0] - (self.r_r_gap/2+self.core_width/2 ) -  self.r_core_cent-offset_distance
-        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
 
         wire2_top = wire1_top
         wire2_bottom = self.left_pad_loc[1]-dim1/2
         wire2_left = self.left_pad_loc[0]
         wire2_right = wire2_left + width
-        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire2_right,
-                                bottom=wire2_bottom,
-                                left=wire2_left,
-                                top=wire2_top,
-                                resolution=self.grid.resolution)
-                      )
-        # draw right pad wire
+        # self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire2_right,
+        #                         bottom=wire2_bottom,
+        #                         left=wire2_left,
+        #                         top=wire2_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # # draw right pad wire
         wire1_top = self.ring_loc[1]
         wire1_bottom = wire1_top - width
         wire1_left = self.ring_loc[0] + (self.r_r_gap/2+self.core_width/2 ) + self.r_core_cent+offset_distance
         wire1_right = self.right_pad_loc[0]
-        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
         wire2_top = wire1_top
         wire2_bottom = self.right_pad_loc[1]-dim1/2
         wire2_left = self.right_pad_loc[0]-width
         wire2_right = self.right_pad_loc[0]
-        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire2_right,
-                                bottom=wire2_bottom,
-                                left=wire2_left,
-                                top=wire2_top,
-                                resolution=self.grid.resolution)
-                      )
+        # self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire2_right,
+        #                         bottom=wire2_bottom,
+        #                         left=wire2_left,
+        #                         top=wire2_top,
+        #                         resolution=self.grid.resolution)
+        #               )
         width=4
         # draw central pad wire(bring from left ring)
-        wire1_top = -3.5
-        wire1_bottom = -4
-        wire1_left = self.ring_loc[0] -(self.r_r_gap / 2 ) - self.r_core_cent-0.3
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2 ) + self.r_core_cent+0.3
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -3.5
+        # wire1_bottom = -4
+        # wire1_left = self.ring_loc[0] -(self.r_r_gap / 2 ) - self.r_core_cent-0.3
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2 ) + self.r_core_cent+0.3
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = -3
-        wire1_bottom = -3.5
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent +1
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent -1
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -3
+        # wire1_bottom = -3.5
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent +1
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent -1
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = -2
-        wire1_bottom = -3
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent+2.4
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent -2.4
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -2
+        # wire1_bottom = -3
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent+2.4
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent -2.4
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = -1
-        wire1_bottom = -2
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -1
+        # wire1_bottom = -2
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = 0
-        wire1_bottom = -1
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 3.1
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 3.1
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        # vertical wire upto middle pad
-        wire3_top = -4
-        wire3_bottom = self.central_pad_loc[1]-dim1/2
-        wire3_right = width/2
-        wire3_left = - width/2
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire3_right,
-                                bottom=wire3_bottom,
-                                left=wire3_left,
-                                top=wire3_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 0
+        # wire1_bottom = -1
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 3.1
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 3.1
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        
+        # wire1_top = 1
+        # wire1_bottom = 0
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 3.1
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 3.1
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # # vertical wire upto middle pad
+        # # wire3_top = -4
+        # # wire3_bottom = self.central_pad_loc[1]-dim1/2
+        # # wire3_right = width/2
+        # # wire3_left = - width/2
+        # # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        # #               bbox=BBox(right=wire3_right,
+        # #                         bottom=wire3_bottom,
+        # #                         left=wire3_left,
+        # #                         top=wire3_top,
+        # #                         resolution=self.grid.resolution)
+        # #               )
 
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = 6.1/2
-        wire1_right = 6.4/2
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = 6.1/2
+        # wire1_right = 6.4/2
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = -6.4 / 2
-        wire1_right = -6.1 / 2
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = -6.4 / 2
+        # wire1_right = -6.1 / 2
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+
 
     def place_gs_electrodes(self):
         """
@@ -1187,7 +1200,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         offset_distance = outer_pn_radius
 
         metal_width = 2
-        """Heater UA Routing"""
+        """ Left Heater routing"""
+
         # heater wiring to the left upper pad
         # wire1_top = 3 * offset_distance
         # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
@@ -1203,7 +1217,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
 
 
-        # # # heater wiring to the right upper pad
+        # # heater wiring to the right upper pad
+        """ Right Heater routing"""
+
         # wire1_top = 3 * offset_distance
         # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
         # wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent
@@ -1217,7 +1233,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #               )
 
 
-        # # draw central upper pad wire(bring from left ring)
+        # draw central upper pad wire(bring from left ring)
+        """ Middle Heater routing"""
+
         # wire1_top = 3 * offset_distance
         # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
         # wire1_left = self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent
@@ -1229,6 +1247,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #                         top=wire1_top,
         #                         resolution=self.grid.resolution)
         #               )
+        
+        # Heater shared ground
+        
         # wire2_top = wire1_top
         # wire2_bottom = wire1_top - metal_width
         # wire2_left = wire1_left
@@ -1241,7 +1262,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #                         resolution=self.grid.resolution)
         #               )
 
-        # # draw central upper pad wire(bring from right ring)
+        # draw central upper pad wire(bring from right ring)
+        
+        """Heater routing"""
         # wire1_top = 3 * offset_distance
         # wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5
         # wire1_right = -self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent
@@ -1253,6 +1276,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #                         top=wire1_top,
         #                         resolution=self.grid.resolution)
         #               )
+        
+        # Heater shared ground
+
         # wire2_top = wire1_top
         # wire2_bottom = wire1_top - metal_width
         # wire2_left = 0
@@ -1264,6 +1290,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #                         top=wire2_top,
         #                         resolution=self.grid.resolution)
         #               )
+        
+        
         # vertical wire upto upto middle pad
     def place_contact_electrodes_basic(self):
         # calculate the corner coordinate of the left (ground) pad
@@ -1316,13 +1344,13 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         wire1_bottom = wire1_top - width
         wire1_left = -15
         wire1_right = self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - offset_distance+0.35
-        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
 
         # draw right pad wire
@@ -1330,133 +1358,133 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         wire1_bottom = wire1_top - width
         wire1_left = self.ring_loc[0] + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + offset_distance-0.35
         wire1_right = 15
-        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
         width = 4
-        # draw central pad wire(bring from left ring)
-        wire1_top = -3.5
-        wire1_bottom = -4
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent - 0.3
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent + 0.3
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # # draw central pad wire(bring from left ring)
+        # wire1_top = -3.5
+        # wire1_bottom = -4
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent - 0.3
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent + 0.3
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = -3
-        wire1_bottom = -3.5
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 1
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 1
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -3
+        # wire1_bottom = -3.5
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 1
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 1
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = -2
-        wire1_bottom = -3
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.4
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.4
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -2
+        # wire1_bottom = -3
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.4
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.4
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = -1
-        wire1_bottom = -2
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = -1
+        # wire1_bottom = -2
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = 0
-        wire1_bottom = -1
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
-        wire1_right = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8
-        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        # vertical wire upto middle pad
-        wire3_top = -4
-        wire3_bottom = -25 #self.central_pad_loc[1] - dim1 / 2
-        wire3_right = width / 2
-        wire3_left = - width / 2
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire3_right,
-                                bottom=wire3_bottom,
-                                left=wire3_left,
-                                top=wire3_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 0
+        # wire1_bottom = -1
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
+        # wire1_right = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8
+        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # # vertical wire upto middle pad
+        # wire3_top = -4
+        # wire3_bottom = -25 #self.central_pad_loc[1] - dim1 / 2
+        # wire3_right = width / 2
+        # wire3_left = - width / 2
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire3_right,
+        #                         bottom=wire3_bottom,
+        #                         left=wire3_left,
+        #                         top=wire3_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = 6.1 / 2
-        wire1_right = 6.4 / 2
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = 6.1 / 2
+        # wire1_right = 6.4 / 2
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = -6.4 / 2
-        wire1_right = -6.1 / 2
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = -6.4 / 2
+        # wire1_right = -6.1 / 2
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
     def place_heater_contact_electrodes(self):
         # calculate the corner coordinate of the left (ground) pad
