@@ -45,13 +45,16 @@ layout_params:
         drop_coup_angle: 30
 
 
-        label: {P: 'STP', N: 'GND'}
+        label: {P: 'P_labelname', N: 'N_labelhere'}
         outer_electrode_ring_layers:
         - !!python/tuple ['M1', 'drawing']
         - !!python/tuple ['M2', 'drawing']
         - !!python/tuple ['M3', 'drawing']
         - !!python/tuple ['M4', 'drawing']
         - !!python/tuple ['M5', 'drawing']
+        - !!python/tuple ['BA', 'drawing']
+
+
 
         inner_electrode_ring_layers:
 
@@ -93,7 +96,7 @@ layout_params:
         heater_device_layer: !!python/tuple ['si_full_free', 'drawing']
         heater_disk_layers:
           - !!python/tuple ['n_heavy_sil', 'drawing']
-        heater_electrode_top_layer: !!python/tuple ['UA', 'drawing']
+        heater_electrode_top_layer: !!python/tuple ['UB', 'drawing']
         heater_electrode_top_x_span: 0.8 #1.6 FOR 1.2
         heater_electrode_top_y_span: 2.5 #1.6 FOR 1.2
         # Either heater label format is acceptable
