@@ -45,7 +45,7 @@ layout_params:
         drop_coup_angle: 30
 
 
-        label: {P: 'P_labelname', N: 'N_labelhere'}
+        label: {P: 'RING_STP', N: 'RING_STN'}
         outer_electrode_ring_layers:
         - !!python/tuple ['M1', 'drawing']
         - !!python/tuple ['M2', 'drawing']
