@@ -483,8 +483,8 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
 
         # p contact rings. Spokes to the contact via stacks are only on the bottom most layer
         self.draw_electrode_ring_and_spokes(
-            ring_layer_indices=[6],
-            spoke_layer_indices=[6],
+            ring_layer_indices=[5],
+            spoke_layer_indices=[5],
             electrode_rout=electrode_rout_p+0.4,
             electrode_rin=electrode_rin_p,
             via_radius=p_via_radius,
@@ -494,7 +494,7 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
 
         # n contact rings. Spokes to the contact via stacks are only on the bottom most layer
         self.draw_electrode_ring_and_spokes(
-            ring_layer_indices=[6,6],
+            ring_layer_indices=[5,6],
             spoke_layer_indices=[5],
             electrode_rout=electrode_rout_n,
             electrode_rin=electrode_rin_n-0.4,
