@@ -52,7 +52,7 @@ layout_params:
         - !!python/tuple ['M3', 'drawing']
         - !!python/tuple ['M4', 'drawing']
         - !!python/tuple ['M5', 'drawing']
-        - !!python/tuple ['BA', 'drawing']
+        # - !!python/tuple ['BA', 'drawing']
 
 
 
@@ -96,7 +96,7 @@ layout_params:
         heater_device_layer: !!python/tuple ['si_full_free', 'drawing']
         heater_disk_layers:
           - !!python/tuple ['n_heavy_sil', 'drawing']
-        heater_electrode_top_layer: !!python/tuple ['UB', 'drawing']
+        heater_electrode_top_layer: !!python/tuple ['UA', 'drawing']
         heater_electrode_top_x_span: 0.8 #1.6 FOR 1.2
         heater_electrode_top_y_span: 2.5 #1.6 FOR 1.2
         # Either heater label format is acceptable

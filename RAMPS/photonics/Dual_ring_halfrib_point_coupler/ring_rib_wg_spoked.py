@@ -391,13 +391,13 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=15,
                                 resolution=self.grid.resolution)
                       )
-        self.add_rect(layer=('IH', 'drawing'),
-                      bbox=BBox(right=0.15+0.25*self.r_r_gap,
-                                bottom=-1.5+0.13,
-                                left=-0.15-0.25*self.r_r_gap,
-                                top=1.5-0.13,
-                                resolution=self.grid.resolution)
-                      )
+        # self.add_rect(layer=('IH', 'drawing'),
+        #               bbox=BBox(right=0.15+0.25*self.r_r_gap,
+        #                         bottom=-1.5+0.13,
+        #                         left=-0.15-0.25*self.r_r_gap,
+        #                         top=1.5-0.13,
+        #                         resolution=self.grid.resolution)
+        #               )
 
     def draw_spoked_rings(self):
         spoke_params = dict(
@@ -1383,124 +1383,215 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #               )
 
         width = 4
+        self.modu_centre = self.ring_loc
         # # draw central pad wire(bring from left ring)
-        # wire1_top = -3.5
-        # wire1_bottom = -4
-        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent - 0.3
-        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent + 0.3
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        wire1_bottom = 3.5 + self.modu_centre[1]
+        wire1_top = 4+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent - 0.3
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent + 0.3
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_bottom = -4 + self.modu_centre[1]
+        wire1_top = -3.5+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent - 0.3
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent + 0.3
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
 
-        # wire1_top = -3
-        # wire1_bottom = -3.5
-        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 1
-        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 1
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        wire1_bottom = 3+ self.modu_centre[1]
+        wire1_top = 3.5+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 0.2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 0.2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_bottom = -3.5+ self.modu_centre[1]
+        wire1_top = -3+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 0.2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 0.2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        
+        wire1_bottom = 2.5+ self.modu_centre[1]
+        wire1_top = 3+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1.6
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1.6
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_bottom = -3+ self.modu_centre[1]
+        wire1_top = -2.5+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1.6
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1.6
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
 
-        # wire1_top = -2
-        # wire1_bottom = -3
-        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.4
-        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.4
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        wire1_bottom = 2+ self.modu_centre[1]
+        wire1_top = 2.5+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_bottom = -2.5+ self.modu_centre[1]
+        wire1_top = -2+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
 
-        # wire1_top = -1
-        # wire1_bottom = -2
-        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
-        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        wire1_bottom = 1+ self.modu_centre[1]
+        wire1_top = 2+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.65
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_bottom = -2+ self.modu_centre[1]
+        wire1_top = -1+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.65
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
 
-        # wire1_top = 0
-        # wire1_bottom = -1
-        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
-        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-        # wire1_top = 1
-        # wire1_bottom = -1
-        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
-        # wire1_right = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-        # wire1_top = 1
-        # wire1_bottom = -1
-        # wire1_left = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8
-        # wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-        # # vertical wire upto middle pad
-        # wire3_top = -4
-        # wire3_bottom = -25 #self.central_pad_loc[1] - dim1 / 2
-        # wire3_right = width / 2
-        # wire3_left = - width / 2
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire3_right,
-        #                         bottom=wire3_bottom,
-        #                         left=wire3_left,
-        #                         top=wire3_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        wire1_bottom = 0+ self.modu_centre[1]
+        wire1_top = 1+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_bottom = -1+ self.modu_centre[1]
+        wire1_top = 0+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_top = 1+ self.modu_centre[1]
+        wire1_bottom = -1+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
+        wire1_right = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_top = 1+ self.modu_centre[1]
+        wire1_bottom = -1+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_top = 1
+        wire1_bottom = -1
+        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
+        wire1_right = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_top = 1
+        wire1_bottom = -1
+        wire1_left = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8
+        wire1_right = self.ring_loc[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
 
-        # wire1_top = 1
-        # wire1_bottom = -1
-        # wire1_left = 6.1 / 2
-        # wire1_right = 6.4 / 2
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
 
-        # wire1_top = 1
-        # wire1_bottom = -1
-        # wire1_left = -6.4 / 2
-        # wire1_right = -6.1 / 2
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        wire1_top = 1
+        wire1_bottom = -1
+        wire1_left = 6.1 / 2
+        wire1_right = 6.4 / 2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+
+        wire1_top = 1
+        wire1_bottom = -1
+        wire1_left = -6.4 / 2
+        wire1_right = -6.1 / 2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+
 
     def place_heater_contact_electrodes(self):
         # calculate the corner coordinate of the left (ground) pad
