@@ -1167,7 +1167,7 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
             # Calculate the width of the spokes based on the min with of the current layer and the number of spokes
             # Calculation here is = 2*min_width / (arc_length of 100% spoke at the desired radius radius)
             if max(ring_layer_indices) == 5:
-                ratio = 3
+                ratio = 8
             
             if max(ring_layer_indices) == 6:
                 ratio = 1
@@ -1258,6 +1258,20 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                                 inst_name='test_metal_ring_vias',
                                 loc=via_loc,
                                 orient='R90')
+                if i == 2 or i==6 or i==10 or i==14:
+                    patch_width = 0.1
+                    offset_theta_patch = 0 * delta_theta
+                    theta_patch = i * delta_theta + offset_theta_patch
+                    centre_offset = 0.44
+                    patch_centre = (np.cos(theta_patch) * r_via + self.ring_loc[0]+centre_offset, centre_offset+np.sin(theta_patch) * r_via + self.ring_loc[1])
+                    self.add_rect(layer=('M5','drawing'),
+                        bbox=BBox(right=patch_centre[0]+0.5*patch_width,
+                                bottom=patch_centre[1]-0.5*patch_width,
+                                left=patch_centre[0]-0.5*patch_width,
+                                top=patch_centre[1]+0.5*patch_width,
+                                resolution=self.grid.resolution)
+                      )
+                
                 if offset == 0.5:
                     metal_ring_vias = self.new_template(params=dict(top_layer=('M5','drawing'),
                                                                     bottom_layer=('M1','drawing'),
