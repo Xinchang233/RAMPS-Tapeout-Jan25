@@ -1167,7 +1167,7 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
             # Calculate the width of the spokes based on the min with of the current layer and the number of spokes
             # Calculation here is = 2*min_width / (arc_length of 100% spoke at the desired radius radius)
             if max(ring_layer_indices) == 5:
-                ratio = 4
+                ratio = 8
             
             if max(ring_layer_indices) == 6:
                 ratio = 1
