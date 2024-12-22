@@ -1276,7 +1276,7 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                             
                         )
                     delta_theta_pacth_out = 0.035
-                    num_of_patch_out = 17
+                    num_of_patch_out = 27
                     for j in range(num_of_patch_out):
                         k = j-num_of_patch_out//2
                         theta_patch = i * delta_theta
