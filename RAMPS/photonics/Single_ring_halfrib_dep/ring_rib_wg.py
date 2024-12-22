@@ -1241,11 +1241,11 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                 top_layer=top_layer,
                 loc=via_loc
             )
-            if True:
+            if offset == 0:
                 metal_ring_vias = self.new_template(params=dict(top_layer=('BA','drawing'),
                                                                 bottom_layer=('M1','drawing'),
-                                                                top_x_span=0.5,  # self.gs_pad_width,
-                                                                top_y_span=0.5,
+                                                                top_x_span=0.25,  # self.gs_pad_width,
+                                                                top_y_span=0.25,
                                                                 bottom_x_span=0.25,
                                                                 bottom_y_span=0.25,
                                                                 align='center_align',
@@ -1258,6 +1258,25 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                                 inst_name='test_metal_ring_vias',
                                 loc=via_loc,
                                 orient='R90')
+                if offset == 0.5:
+                    metal_ring_vias = self.new_template(params=dict(top_layer=('M5','drawing'),
+                                                                    bottom_layer=('M1','drawing'),
+                                                                    top_x_span=0.25,  # self.gs_pad_width,
+                                                                    top_y_span=0.25,
+                                                                    bottom_x_span=0.25,
+                                                                    bottom_y_span=0.25,
+                                                                    align='center_align',
+                                                                    top_bot_offset=0.0
+                                                                    # pad_open_layer=self.gs_pad_open_layer,
+                                                                    # pad_open_inclusion=self.gs_pad_open_inclusion
+                                                                    ),
+                                                        temp_cls=ViaStack)
+                    self.add_instance(master=metal_ring_vias,
+                                    inst_name='test_metal_ring_vias',
+                                    loc=via_loc,
+                                    orient='R90')
+                
+        
             
 
             # Add p and n contact labels if label layer and label string are passed
