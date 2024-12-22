@@ -1178,7 +1178,7 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
             # Initialize and place the spokes
             spoke_info = dict(
                 rout=via_radius + 0.1 if via_radius > electrode_rout + 0.1 else electrode_rin,
-                rin=via_radius if via_radius < electrode_rin else electrode_rout,
+                rin=via_radius-0.1 if via_radius < electrode_rin else electrode_rout,
                 num=spoke_num,
                 spoke_width_percentage=spoke_width_percentage,
                 spoke_offset=offset,
