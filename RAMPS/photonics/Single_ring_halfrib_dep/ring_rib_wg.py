@@ -1261,11 +1261,12 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                 if i == 2:#or i==6 or i==10 or i==14:
                     patch_width = 0.2
                     delta_theta_pacth = 0.05
-                    for j in range(15):
-                        k = j-2
+                    num_of_patch = 9
+                    for j in range(num_of_patch):
+                        k = j-num_of_patch//2
                         theta_patch = i * delta_theta
                         centre_offset = 0.44
-                        patch_centre = (np.cos(theta_patch+j*delta_theta_pacth) * r_via + self.ring_loc[0]+centre_offset, centre_offset+np.sin(theta_patch+j*delta_theta_pacth) * r_via + self.ring_loc[1])
+                        patch_centre = (np.cos(theta_patch+k*delta_theta_pacth) * r_via + self.ring_loc[0]+centre_offset, centre_offset+np.sin(theta_patch+k*delta_theta_pacth) * r_via + self.ring_loc[1])
                         self.add_rect(layer=('M5','drawing'),
                             bbox=BBox(right=patch_centre[0]+0.5*patch_width,
                                     bottom=patch_centre[1]-0.5*patch_width,
