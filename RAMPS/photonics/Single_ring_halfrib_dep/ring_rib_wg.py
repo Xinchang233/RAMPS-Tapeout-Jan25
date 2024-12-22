@@ -494,8 +494,8 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
 
         # n contact rings. Spokes to the contact via stacks are only on the bottom most layer
         self.draw_electrode_ring_and_spokes(
-            ring_layer_indices=[5,6],
-            spoke_layer_indices=[5],
+            ring_layer_indices=[6],
+            spoke_layer_indices=[6],
             electrode_rout=electrode_rout_n,
             electrode_rin=electrode_rin_n-0.4,
             via_radius=n_via_radius,
@@ -1166,7 +1166,12 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
 
             # Calculate the width of the spokes based on the min with of the current layer and the number of spokes
             # Calculation here is = 2*min_width / (arc_length of 100% spoke at the desired radius radius)
-            spoke_width_percentage = 2 * self.photonic_tech_info.min_width(
+            if max(ring_layer_indices) == 5:
+                ratio = 2
+            
+            if max(ring_layer_indices) == 6:
+                ratio = 1
+            spoke_width_percentage = ratio*2 * self.photonic_tech_info.min_width(
                 self.grid.tech_info.get_layer_name(layer_ind)
             ) / (np.pi * via_radius / spoke_num)
 
@@ -1236,7 +1241,23 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                 top_layer=top_layer,
                 loc=via_loc
             )
-
+            if True:
+                metal_ring_vias = self.new_template(params=dict(top_layer=('BA','drawing'),
+                                                                bottom_layer=('M1','drawing'),
+                                                                top_x_span=0.5,  # self.gs_pad_width,
+                                                                top_y_span=0.5,
+                                                                bottom_x_span=0.25,
+                                                                bottom_y_span=0.25,
+                                                                align='center_align',
+                                                                top_bot_offset=0.0
+                                                                # pad_open_layer=self.gs_pad_open_layer,
+                                                                # pad_open_inclusion=self.gs_pad_open_inclusion
+                                                                ),
+                                                    temp_cls=ViaStack)
+                self.add_instance(master=metal_ring_vias,
+                                inst_name='test_metal_ring_vias',
+                                loc=via_loc,
+                                orient='R90')
             
 
             # Add p and n contact labels if label layer and label string are passed
