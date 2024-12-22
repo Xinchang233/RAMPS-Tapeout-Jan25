@@ -1259,7 +1259,7 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                                 loc=via_loc,
                                 orient='R90')
                 if i == 2 or i==6 or i==10 or i==14:
-                    patch_width = 0.1
+                    patch_width = 0.15
                     offset_theta_patch = 0 * delta_theta
                     theta_patch = i * delta_theta + offset_theta_patch
                     centre_offset = 0.44
