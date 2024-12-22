@@ -1264,17 +1264,18 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                     num_of_patch = 25
                     theta_patch = i * delta_theta
                     for j in range(num_of_patch):
-                        k = j-num_of_patch//2
-                        centre_offset = 0.44
-                        patch_centre = (np.cos(theta_patch+k*delta_theta_pacth) * r_via + self.ring_loc[0]+centre_offset, centre_offset+np.sin(theta_patch+k*delta_theta_pacth) * r_via + self.ring_loc[1])
-                        self.add_rect(layer=('M5','drawing'),
-                            bbox=BBox(right=patch_centre[0]+0.5*patch_width,
-                                    bottom=patch_centre[1]-0.5*patch_width,
-                                    left=patch_centre[0]-0.5*patch_width,
-                                    top=patch_centre[1]+0.5*patch_width,
-                                    resolution=self.grid.resolution)
-                            
-                        )
+                        if j >=3:
+                            k = j-num_of_patch//2
+                            centre_offset = 0.44
+                            patch_centre = (np.cos(theta_patch+k*delta_theta_pacth) * r_via + self.ring_loc[0]+centre_offset, centre_offset+np.sin(theta_patch+k*delta_theta_pacth) * r_via + self.ring_loc[1])
+                            self.add_rect(layer=('M5','drawing'),
+                                bbox=BBox(right=patch_centre[0]+0.5*patch_width,
+                                        bottom=patch_centre[1]-0.5*patch_width,
+                                        left=patch_centre[0]-0.5*patch_width,
+                                        top=patch_centre[1]+0.5*patch_width,
+                                        resolution=self.grid.resolution)
+                                
+                            )
                     delta_theta_pacth_out = 0.035
                     num_of_patch_out = 27
                     for j in range(num_of_patch_out):
