@@ -138,10 +138,10 @@ layout_params:
         #- {rin: 3.2, rout: 4.45, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],  spoke_width_percentage: 0.7}
         #- {rin: 3.12, rout: 3.8, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],spoke_width_percentage: 1}
       #IM=p_heavy_phot
-        - {rin: 3.59, rout: 4.89, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_phot', 'drawing'],  spoke_width_percentage: 0.96}
+        - {rin: 3.59, rout: 5, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_phot', 'drawing'],  spoke_width_percentage: 0.96}
 
       #PLP=p_heavy_sil
-        - {rin: 3.6, rout: 5.09, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_sil', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3.6, rout: 5.19, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_sil', 'drawing'],  spoke_width_percentage: 0.7}
 
         extra_ring_info:
         spoke_num: 16
