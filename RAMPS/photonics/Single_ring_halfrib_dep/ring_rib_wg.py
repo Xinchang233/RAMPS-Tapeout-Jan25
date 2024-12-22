@@ -1260,8 +1260,8 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                                 orient='R90')
                 if i == 2:#or i==6 or i==10 or i==14:
                     patch_width = 0.2
-                    delta_theta_pacth = 0.04
-                    num_of_patch = 31
+                    num_of_patch = 150
+                    delta_theta_pacth = 2*3.1415/150
                     theta_patch = i * delta_theta
                     for j in range(num_of_patch):
                         if j >=0:
