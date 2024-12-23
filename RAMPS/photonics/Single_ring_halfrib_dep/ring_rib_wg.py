@@ -1300,6 +1300,28 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                                     resolution=self.grid.resolution)
                             
                         )
+                        
+                if i == 6 or i==10 or i==14:
+                    patch_width = 0.2
+                    num_of_patch = 150
+                    delta_theta_pacth = 2*3.1415/150
+                    theta_patch = i * delta_theta
+                    
+                    delta_theta_pacth_out = 0.035
+                    num_of_patch_out = 27
+                    for j in range(num_of_patch_out):
+                        k = j-num_of_patch_out//2
+                        theta_patch = i * delta_theta
+                        centre_offset = 0.44+1.45
+                        patch_centre = (np.cos(theta_patch+k*delta_theta_pacth_out) * (r_via+centre_offset) + self.ring_loc[0], np.sin(theta_patch+k*delta_theta_pacth_out) *(r_via+centre_offset) + self.ring_loc[1])
+                        self.add_rect(layer=('M5','drawing'),
+                            bbox=BBox(right=patch_centre[0]+0.5*patch_width,
+                                    bottom=patch_centre[1]-0.5*patch_width,
+                                    left=patch_centre[0]-0.5*patch_width,
+                                    top=patch_centre[1]+0.5*patch_width,
+                                    resolution=self.grid.resolution)
+                            
+                        )
                 
                 if offset == 0.5:
                     metal_ring_vias = self.new_template(params=dict(top_layer=('M5','drawing'),
