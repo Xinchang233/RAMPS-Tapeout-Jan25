@@ -1263,9 +1263,10 @@ class RingRibWg_sr(BPG.PhotonicTemplateBase):
                     num_of_patch = 150
                     delta_theta_pacth = 2*3.1415/150
                     theta_patch = i * delta_theta
-                    change_y_bottom = 0
-                    change_x_left = 0
+                    
                     for j in range(num_of_patch):
+                        change_y_bottom = 0
+                        change_x_left = 0
                         if j >=0:
                             if j == 95 or j == 18:
                                 change_in_x = 0.5
