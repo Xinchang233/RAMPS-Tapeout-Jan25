@@ -553,11 +553,35 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             heater_params['electrode_label'] = "RING_HEAT_L"
             heater_master = self.new_template(params=heater_params, temp_cls=RingHeater)
             self.add_instance(master=heater_master,loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
-             # Right ring heater
+            left_heater_loc = (self.ring_loc[0]-self.r_r_gap-self.r_core_cent-self.contact_dist/2.0, -0.3)
+            right_heater_loc = (self.ring_loc[0]-self.r_r_gap-self.r_core_cent+self.contact_dist/2.0, -0.3)
+            self.add_label(
+                label="RING_HEAT_L_P",
+                layer=('UA','label'),
+                bbox = BBox(left=left_heater_loc[0],right=left_heater_loc[0],top=left_heater_loc[1],bottom=left_heater_loc[1],resolution=self.grid.resolution)
+            )
+            self.add_label(
+                label="RING_HEAT_L_N",
+                layer=('UA','label'),
+                bbox = BBox(left=right_heater_loc[0],right=right_heater_loc[0],top=right_heater_loc[1],bottom=right_heater_loc[1],resolution=self.grid.resolution)
+            )
+            # Right ring heater
             heater_params['electrode_label'] = "RING_HEAT_R"
             heater_master = self.new_template(params=heater_params, temp_cls=RingHeater)
             self.add_instance(master=heater_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
-
+            left_heater_loc = (self.ring_loc[0]+self.r_r_gap+self.r_core_cent-self.contact_dist/2.0, -0.3)
+            right_heater_loc = (self.ring_loc[0]+self.r_r_gap+self.r_core_cent+self.contact_dist/2.0, -0.3)
+            self.add_label(
+                label="RING_HEAT_R_P",
+                layer=('UA','label'),
+                bbox = BBox(left=left_heater_loc[0],right=left_heater_loc[0],top=left_heater_loc[1],bottom=left_heater_loc[1],resolution=self.grid.resolution)
+            )
+            self.add_label(
+                label="RING_HEAT_R_N",
+                layer=('UA','label'),
+                bbox = BBox(left=right_heater_loc[0],right=right_heater_loc[0],top=right_heater_loc[1],bottom=right_heater_loc[1],resolution=self.grid.resolution)
+            )
+            
     def draw_input_wg_cena(self):
         """
         Draws input coupler waveguide of the rib-waveguide ring.
