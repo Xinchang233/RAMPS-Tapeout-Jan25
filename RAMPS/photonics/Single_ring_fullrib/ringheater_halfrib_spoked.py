@@ -1,4 +1,5 @@
 import BPG
+from bag.layout.util import BBox
 from BPG.objects import PhotonicPolygon, PhotonicRound
 from Photonic_Core_Layout.ViaStack.ViaStack import ViaStack
 import numpy as np
@@ -156,12 +157,15 @@ class RingHeater(BPG.PhotonicTemplateBase):
         self.add_label(
             label=self.electrode_label_p,
             layer=self.electrode_top_lpp[0],
-            bbox=left_electrode.bbox,
+            bbox = BBox(left=left_heater_loc[0],right=left_heater_loc[0],top=left_heater_loc[1],bottom=left_heater_loc[1],resolution=self.grid.resolution)
+
+            # bbox=left_electrode.bbox,
         )
         self.add_label(
             label=self.electrode_label_n,
             layer=self.electrode_top_lpp[0],
-            bbox=right_electrode.bbox,
+            bbox = BBox(left=right_heater_loc[0],right=right_heater_loc[0],top=right_heater_loc[1],bottom=right_heater_loc[1],resolution=self.grid.resolution)
+            # bbox=right_electrode.bbox,
         )
 
     def draw_heater_ring_and_contacts(self,
