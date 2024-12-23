@@ -478,7 +478,17 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.add_instance(master=spoked_ring_master, loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
         spoked_ring_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
         self.add_instance(master=spoked_ring_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
-
+        self.add_label(
+                    label="RING_STN",
+                    layer=("M5","label"),
+                    bbox=BBox(left=self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + 2*self.r_core_cent-0.2,right=self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + 2*self.r_core_cent-0.2,top=0,bottom=0,resolution=self.grid.resolution)
+                )
+        self.add_label(
+                    label="RING_STP",
+                    layer=("M5","label"),
+                    bbox=BBox(left=self.ring_loc[0] -(self.r_r_gap/2+self.core_width / 2) - 2*self.r_core_cent+0.2,right=self.ring_loc[0] - (self.r_r_gap/2+self.core_width / 2) - 2*self.r_core_cent+0.2,top=0,bottom=0,resolution=self.grid.resolution)
+                )
+        
     def draw_heater(self):
         rout = self.r_core_cent + self.core_width / 2
         ring_width = self.core_width / 2 + self.slab_width / 2
@@ -539,8 +549,12 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         if not self.params['heater_disable']:
             # Compute the width from the heater resistance design function
             heater_params['width'] = 1.2
+            # Put left ring heater
+            heater_params['electrode_label'] = "RING_HEAT_L"
             heater_master = self.new_template(params=heater_params, temp_cls=RingHeater)
             self.add_instance(master=heater_master,loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
+             # Right ring heater
+            heater_params['electrode_label'] = "RING_HEAT_R"
             heater_master = self.new_template(params=heater_params, temp_cls=RingHeater)
             self.add_instance(master=heater_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
 
@@ -1591,6 +1605,13 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
+        
+        self.add_label(
+            label="RING_GND",
+            layer=("BA","label"),
+            bbox=BBox(left=0,right=0,top=0,bottom=0,resolution=self.grid.resolution)
+            # bbox=BBox.transform(loc=(0,0),orient="R0")
+        ) 
 
 
     def place_heater_contact_electrodes(self):
