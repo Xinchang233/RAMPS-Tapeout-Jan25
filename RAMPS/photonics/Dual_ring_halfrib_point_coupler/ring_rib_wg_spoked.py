@@ -478,16 +478,35 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.add_instance(master=spoked_ring_master, loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
         spoked_ring_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
         self.add_instance(master=spoked_ring_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
-        self.add_label(
-                    label="RING_STN",
-                    layer=("M5","label"),
-                    bbox=BBox(left=self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + 2*self.r_core_cent-0.2,right=self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + 2*self.r_core_cent-0.2,top=0,bottom=0,resolution=self.grid.resolution)
-                )
-        self.add_label(
-                    label="RING_STP",
-                    layer=("M5","label"),
-                    bbox=BBox(left=self.ring_loc[0] -(self.r_r_gap/2+self.core_width / 2) - 2*self.r_core_cent+0.2,right=self.ring_loc[0] - (self.r_r_gap/2+self.core_width / 2) - 2*self.r_core_cent+0.2,top=0,bottom=0,resolution=self.grid.resolution)
-                )
+
+        self.add_pin_primitive(
+            net_name="RING_STN",
+            label="RING_STN",
+            layer=("M5","label"),
+            bbox=BBox(left=self.ring_loc[0] + (self.r_r_gap / 2 + self.core_width / 2) + 2 * self.r_core_cent - 0.2-0.05,
+                      right=self.ring_loc[0] + (self.r_r_gap / 2 + self.core_width / 2) + 2 * self.r_core_cent - 0.2+0.05,
+                      top=0.05,
+                      bottom=-0.05,
+                      resolution=self.grid.resolution),
+
+            show=True
+            )
+
+
+        self.add_pin_primitive(
+            net_name="RING_STP",
+            label="RING_STP",
+            layer=("M5","label"),
+            bbox=BBox(left=self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - 2 * self.r_core_cent + 0.2-0.05,
+                      right=self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - 2 * self.r_core_cent + 0.2+0.05,
+                      top=0.05,
+                      bottom=-0.05,
+                      resolution=self.grid.resolution)
+            ,
+
+            show=True
+            )
+
         
     def draw_heater(self):
         rout = self.r_core_cent + self.core_width / 2
@@ -555,15 +574,30 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             self.add_instance(master=heater_master,loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
             left_heater_loc = (self.ring_loc[0]-self.r_r_gap-self.r_core_cent-self.contact_dist/2.0, -0.3)
             right_heater_loc = (self.ring_loc[0]-self.r_r_gap-self.r_core_cent+self.contact_dist/2.0, -0.3)
-            self.add_label(
+            self.add_pin_primitive(
+                net_name="RING_HEAT_L_P",
                 label="RING_HEAT_L_P",
                 layer=('UA','label'),
-                bbox = BBox(left=left_heater_loc[0],right=left_heater_loc[0],top=left_heater_loc[1],bottom=left_heater_loc[1],resolution=self.grid.resolution)
+                bbox = BBox(left=left_heater_loc[0]-0.4,
+                            right=left_heater_loc[0],
+                            top=left_heater_loc[1]+0.2,
+                            bottom=left_heater_loc[1]-0.2,
+                            resolution=self.grid.resolution),
+
+                show=True
             )
-            self.add_label(
+
+            self.add_pin_primitive(
+                net_name="RING_HEAT_L_N",
                 label="RING_HEAT_L_N",
                 layer=('UA','label'),
-                bbox = BBox(left=right_heater_loc[0],right=right_heater_loc[0],top=right_heater_loc[1],bottom=right_heater_loc[1],resolution=self.grid.resolution)
+                bbox = BBox(left=right_heater_loc[0]+0.4,
+                            right=right_heater_loc[0],
+                            top=right_heater_loc[1]+0.2,
+                            bottom=right_heater_loc[1]-0.2,
+                            resolution=self.grid.resolution),
+
+                show=True
             )
             # Right ring heater
             #heater_params['electrode_label'] = "RING_HEAT_R"
@@ -571,15 +605,29 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             self.add_instance(master=heater_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
             left_heater_loc = (self.ring_loc[0]+self.r_r_gap+self.r_core_cent-self.contact_dist/2.0, -0.3)
             right_heater_loc = (self.ring_loc[0]+self.r_r_gap+self.r_core_cent+self.contact_dist/2.0, -0.3)
-            self.add_label(
+            self.add_pin_primitive(
+                net_name="RING_HEAT_R_P",
                 label="RING_HEAT_R_P",
                 layer=('UA','label'),
-                bbox = BBox(left=left_heater_loc[0],right=left_heater_loc[0],top=left_heater_loc[1],bottom=left_heater_loc[1],resolution=self.grid.resolution)
+                bbox = BBox(left=left_heater_loc[0] - 0.4,
+                            right=left_heater_loc[0],
+                            top=left_heater_loc[1]+0.2,
+                            bottom=left_heater_loc[1]-0.2,
+                            resolution=self.grid.resolution),
+
+                show=True
             )
-            self.add_label(
+
+            self.add_pin_primitive(
+                net_name="RING_HEAT_R_N",
                 label="RING_HEAT_R_N",
                 layer=('UA','label'),
-                bbox = BBox(left=right_heater_loc[0],right=right_heater_loc[0],top=right_heater_loc[1],bottom=right_heater_loc[1],resolution=self.grid.resolution)
+                bbox = BBox(left=right_heater_loc[0] + 0.4,
+                            right=right_heater_loc[0],
+                            top=right_heater_loc[1]+0.2,
+                            bottom=right_heater_loc[1]-0.2,
+                            resolution=self.grid.resolution),
+                show=True
             )
             
     def draw_input_wg_cena(self):
@@ -1630,13 +1678,14 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        self.add_label(
+
+        self.add_pin_primitive(
+            net_name="RING_GND",
             label="RING_GND",
             layer=("BA","label"),
-            bbox=BBox(left=0,right=0,top=0,bottom=0,resolution=self.grid.resolution)
-            # bbox=BBox.transform(loc=(0,0),orient="R0")
-        ) 
-
+            bbox=BBox(left=-0.05,right=0.05,top=0.05,bottom=-0.05,resolution=self.grid.resolution),
+            show=True
+            )
 
     def place_heater_contact_electrodes(self):
         # calculate the corner coordinate of the left (ground) pad
