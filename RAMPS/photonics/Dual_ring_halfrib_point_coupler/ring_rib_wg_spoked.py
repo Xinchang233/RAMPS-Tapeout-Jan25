@@ -550,7 +550,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             # Compute the width from the heater resistance design function
             heater_params['width'] = 1.2
             # Put left ring heater
-            heater_params['electrode_label'] = "RING_HEAT_L"
+            #heater_params['electrode_label'] = "RING_HEAT_L"
             heater_master = self.new_template(params=heater_params, temp_cls=RingHeater)
             self.add_instance(master=heater_master,loc=(self.ring_loc[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.ring_loc[1]))
             left_heater_loc = (self.ring_loc[0]-self.r_r_gap-self.r_core_cent-self.contact_dist/2.0, -0.3)
@@ -566,7 +566,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                 bbox = BBox(left=right_heater_loc[0],right=right_heater_loc[0],top=right_heater_loc[1],bottom=right_heater_loc[1],resolution=self.grid.resolution)
             )
             # Right ring heater
-            heater_params['electrode_label'] = "RING_HEAT_R"
+            #heater_params['electrode_label'] = "RING_HEAT_R"
             heater_master = self.new_template(params=heater_params, temp_cls=RingHeater)
             self.add_instance(master=heater_master, loc=(self.ring_loc[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.ring_loc[1]))
             left_heater_loc = (self.ring_loc[0]+self.r_r_gap+self.r_core_cent-self.contact_dist/2.0, -0.3)
