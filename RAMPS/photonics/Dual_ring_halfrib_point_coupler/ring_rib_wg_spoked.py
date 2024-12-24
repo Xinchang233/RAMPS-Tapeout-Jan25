@@ -820,9 +820,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg.add_bend_90(rmin=3, size=terminator_effective_size, turn_left=False,width=self.drop_core_width)
         Wg.add_straight_wg(length=coupling_region_length,width=self.drop_core_width)
         Wg.add_bend_90(rmin=2, size=bend90_size, turn_left=False, width=self.drop_core_width)
-        Wg.add_straight_wg(length=2,width=self.drop_core_width)
-        Wg.add_offset_bend(offset=bend90_size+0.5*coupling_region_length, rmin=2)
-        Wg.add_straight_wg(length=2,width=self.drop_core_width)
+        #hsoh: WG is right below RF signal metal, which is concerning.
+        #Wg.add_straight_wg(length=2,width=self.drop_core_width)
+        #Wg.add_offset_bend(offset=bend90_size+0.5*coupling_region_length, rmin=2)
+        #Wg.add_straight_wg(length=2,width=self.drop_core_width)
 
         self.extract_photonic_ports(
             inst=Wg.inst[list(Wg.inst)[-1]],
@@ -841,9 +842,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg.add_bend_90(rmin=3, size=terminator_effective_size, turn_left=True,width=self.drop_core_width)
         Wg.add_straight_wg(length=coupling_region_length,width=self.drop_core_width)
         Wg.add_bend_90(rmin=2, size=bend90_size, turn_left=True, width=self.drop_core_width)
-        Wg.add_straight_wg(length=2,width=self.drop_core_width)
-        Wg.add_offset_bend(offset=-(bend90_size+0.5*coupling_region_length), rmin=2)
-        Wg.add_straight_wg(length=2,width=self.drop_core_width)
+        # hsoh: WG is right below RF signal metal, which is concerning.
+        #Wg.add_straight_wg(length=2,width=self.drop_core_width)
+        #Wg.add_offset_bend(offset=-(bend90_size+0.5*coupling_region_length), rmin=2)
+        #Wg.add_straight_wg(length=2,width=self.drop_core_width)
 
         self.extract_photonic_ports(
             inst=Wg.inst[list(Wg.inst)[-1]],
