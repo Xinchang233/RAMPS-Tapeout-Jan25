@@ -13,10 +13,25 @@ gds_filename: Dual_ring_halfrib_spoked_standard
 layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked'
 layout_class: 'RingRibWg'
 layout_params:
+        # Coupling parameters to be changed
+        # -------------------------------------
+        #   Ring-Bus      Ring-Ring      Drop
+        #   coup_gap       r_r_gap     drop_gap
+        # -------------------------------------
+        #    0.134         0.165         0.400
+        #    0.134         0.205         0.400
+        #    0.134         0.245         0.400
+        #    0.154         0.165         0.450
+        #    0.154         0.205         0.450
+        #    0.154         0.245         0.450
+        # -------------------------------------
+        coup_gap: 0.134
+        r_r_gap: 0.165
+        drop_gap: 0.4
+
         # Parameters of rib-waveguide ring
         basic_metal_routing: True
         r_core_cent: 6
-        r_r_gap: 0.4 #0.145
         core_layer: !!python/tuple ['si_full_free', 'drawing']
         core_width: 0.41
         core_slot_width: 0
@@ -24,7 +39,6 @@ layout_params:
         slab_layer: !!python/tuple ['si_partial_free', 'drawing']
         slab_width: 2
         slab_slot_width: 0
-        drop_gap: 0.4
         coup_gap_drop: 0.5
         # Parameters of coupler waveguide
         rmin_in: 10
@@ -34,7 +48,6 @@ layout_params:
         coup_core_width: 0.36
         coup_slab_length: 0.45
         coup_length: 15.0 #not used
-        coup_gap: 0.1 #0.154
         coup_radius: 12.0 #not used
         coup_angle: 60.0 #not used
         curve_rate: 1.0 #not used

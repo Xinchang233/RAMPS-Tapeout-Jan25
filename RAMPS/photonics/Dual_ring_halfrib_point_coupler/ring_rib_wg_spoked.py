@@ -35,7 +35,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         # Parameters of rib-waveguide ring
         # --------------------------------
         self.r_core_cent = self.params['r_core_cent']
-        self.drop_gap = 0.4
+        self.drop_gap = self.params['drop_gap']
         self.drop_core_width = 0.35
         self.core_layer = self.params['core_layer']
         self.core_width = self.params['core_width']
@@ -809,7 +809,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         bend90_size = 4
         terminator_effective_size = 11
         terminator_end_width = 0.05
-        drop_gap = 0.4
+        drop_gap = self.drop_gap
         
         # PD L
         self.add_photonic_port(name='terminator_L_end', center=(self.ring_1_centre[0]-self.r_core_cent-0.5*self.core_width-drop_gap-0.5*self.drop_core_width+terminator_effective_size-2*terminator_effective_size, self.ring_1_centre[1]+0.5*coupling_region_length+terminator_effective_size),
