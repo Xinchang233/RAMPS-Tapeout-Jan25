@@ -391,13 +391,13 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=15,
                                 resolution=self.grid.resolution)
                       )
-        # self.add_rect(layer=('IH', 'drawing'),
-        #               bbox=BBox(right=0.15+0.25*self.r_r_gap,
-        #                         bottom=-1.5+0.13,
-        #                         left=-0.15-0.25*self.r_r_gap,
-        #                         top=1.5-0.13,
-        #                         resolution=self.grid.resolution)
-        #               )
+        self.add_rect(layer=('IH', 'drawing'),
+                      bbox=BBox(right=0.5*self.r_r_gap+0.08,
+                                bottom=-1.3,
+                                left=-0.5*self.r_r_gap-0.08,
+                                top=1.3,
+                                resolution=self.grid.resolution)
+                      )
 
     def draw_spoked_rings(self):
         spoke_params = dict(
