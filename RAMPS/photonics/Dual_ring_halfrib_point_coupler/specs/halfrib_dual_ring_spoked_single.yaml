@@ -10,7 +10,7 @@ gds_filename: Dual_ring_halfrib_spoked_single
 #bag_config_path: 'BPG/examples/tech/bag_config.yaml'
 
 # Generator Params
-layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked'
+layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked_single'
 
 layout_class: 'Single_Ring'
 layout_params:
