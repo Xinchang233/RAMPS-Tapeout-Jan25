@@ -2004,6 +2004,19 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
+        # patch
+        wire1_bottom = self.modu_centre[1]-0.5*width-0.91
+        wire1_top = self.modu_centre[1] + 0.5*width+0.91
+        wire1_right = self.modu_centre[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - offset_distance+0.35
+        wire1_left = wire1_right-width
+
+        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
         #y1
         wire1_bottom = self.modu_centre[1]
         wire1_top = self.modu_centre[1]+15
