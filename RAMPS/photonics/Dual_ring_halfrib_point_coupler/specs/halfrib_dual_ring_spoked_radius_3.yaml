@@ -31,7 +31,7 @@ layout_params:
 
         # Parameters of rib-waveguide ring
         basic_metal_routing: True
-        r_core_cent: 6.06
+        r_core_cent: 6.031
         core_layer: !!python/tuple ['si_full_free', 'drawing']
         core_width: 0.41
         core_slot_width: 0
