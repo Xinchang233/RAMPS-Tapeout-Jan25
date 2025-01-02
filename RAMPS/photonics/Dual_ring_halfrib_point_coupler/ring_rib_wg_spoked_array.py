@@ -539,11 +539,19 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=self.modu_centre[1]+15,
                                 resolution=self.grid.resolution)
                       )
+        # self.add_rect(layer=('IH', 'drawing'),
+        #               bbox=BBox(right=self.modu_centre[0]+16,
+        #                         bottom=self.modu_centre[1]-15,
+        #                         left=self.modu_centre[0]-16,
+        #                         top=self.modu_centre[1]+15,
+        #                         resolution=self.grid.resolution)
+        #               )
+        
         self.add_rect(layer=('IH', 'drawing'),
-                      bbox=BBox(right=self.modu_centre[0]+16,
-                                bottom=self.modu_centre[1]-15,
-                                left=self.modu_centre[0]-16,
-                                top=self.modu_centre[1]+15,
+                      bbox=BBox(right=self.modu_centre[0]+0.5*self.r_r_gap+0.08,
+                                bottom=self.modu_centre[1]-1.3,
+                                left=self.modu_centre[0]-0.5*self.r_r_gap-0.08,
+                                top=self.modu_centre[1]+1.3,
                                 resolution=self.grid.resolution)
                       )
 
