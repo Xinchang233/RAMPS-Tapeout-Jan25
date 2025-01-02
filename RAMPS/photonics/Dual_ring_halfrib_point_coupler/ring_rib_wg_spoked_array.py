@@ -4,6 +4,7 @@ from bag.layout.util import BBox
 from Photonic_Core_Layout.ViaStack.ViaStack import ViaStack
 from Photonic_Core_Layout.AdiabaticPaths.AdiabaticPaths import AdiabaticPaths
 from ..Single_ring_fullrib.ringheater_halfrib_spoked import RingHeater
+from ..Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked import RingRibWg
 from ..Taper.StripToRibTaper import StripToRibTaper
 from ..Spoke.SpokeBase import SpokeBase
 from typing import TYPE_CHECKING, List, Union, Optional
@@ -634,7 +635,6 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.add_instance(master=heater_master, loc=(self.modu_centre[0] + (self.r_r_gap/2+self.core_width / 2) + self.r_core_cent, self.modu_centre[1]))
         heater_master = self.new_template(params=spoke_params, temp_cls=RingRibWg_sr)
         self.add_instance(master=heater_master, loc=(self.modu_centre[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent, self.modu_centre[1]))
-
 
     def draw_heater(self):
         rout = self.r_core_cent + self.core_width / 2
@@ -1993,8 +1993,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         # draw left pad wiring
         # y WIRES
         # y0
-        wire1_bottom = self.modu_centre[1]
-        wire1_top = self.modu_centre[1] + width
+        wire1_bottom = self.modu_centre[1]-0.5*width
+        wire1_top = self.modu_centre[1] + 0.5*width
         wire1_left = -100+self.modu_centre[0]-width/2
         wire1_right = self.modu_centre[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - offset_distance+0.35
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -2021,8 +2021,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         # draw right pad wire
         # z wires
         # z0
-        wire1_top = self.modu_centre[1]+width
-        wire1_bottom = self.modu_centre[1]
+        wire1_top = self.modu_centre[1]+0.5*width
+        wire1_bottom = self.modu_centre[1]-0.5*width
         wire1_left = self.modu_centre[0] + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + offset_distance-0.35
         wire1_right = width/2+100+self.modu_centre[0]
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
