@@ -39,7 +39,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.pad_width = 40
         self.pad_length = 60
         self.pad_open_width = 36
-        self.pad_open_length = 56
+        self.pad_open_length = 52
         self.core_layer = self.params['core_layer']
         self.core_width = self.params['core_width']
         self.core_slot_width = self.params['core_slot_width']
