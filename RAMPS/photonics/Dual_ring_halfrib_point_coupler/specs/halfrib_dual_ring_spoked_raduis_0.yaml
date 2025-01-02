@@ -1,0 +1,201 @@
+
+# Directory Locations
+project_name: Dual_ring_halfrib_point_coupler
+
+# Output Settings
+lsf_filename: Dual_ring_halfrib_spoked_radius_0
+gds_filename: Dual_ring_halfrib_spoked_radius_0
+
+# Specify a generic technology as this is a public sample
+#bag_config_path: 'BPG/examples/tech/bag_config.yaml'
+
+# Generator Params
+layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked'
+layout_class: 'RingRibWg'
+layout_params:
+        # Coupling parameters to be changed
+        # -------------------------------------
+        #   Ring-Bus      Ring-Ring      Drop
+        #   coup_gap       r_r_gap     drop_gap
+        # -------------------------------------
+        #    0.134         0.165         0.400
+        #    0.134         0.205         0.400
+        #    0.134         0.245         0.400
+        #    0.154         0.165         0.450
+        #    0.154         0.205         0.450
+        #    0.154         0.245         0.450
+        # -------------------------------------
+        coup_gap: 0.134
+        r_r_gap: 0.165
+        drop_gap: 0.4
+
+        # Parameters of rib-waveguide ring
+        basic_metal_routing: True
+        r_core_cent: 6
+        core_layer: !!python/tuple ['si_full_free', 'drawing']
+        core_width: 0.41
+        core_slot_width: 0
+
+        slab_layer: !!python/tuple ['si_partial_free', 'drawing']
+        slab_width: 2
+        slab_slot_width: 0
+        coup_gap_drop: 0.5
+        # Parameters of coupler waveguide
+        rmin_in: 10
+        alpha_zero_in: 32
+        angle_coupling:  60
+        bent_coupler: True
+        coup_core_width: 0.36
+        coup_slab_length: 0.45
+        coup_length: 15.0 #not used
+        coup_radius: 12.0 #not used
+        coup_angle: 60.0 #not used
+        curve_rate: 1.0 #not used
+        coup_angle_in: 35.0 #not used
+        # Parameters of drop port waveguide
+        drop_coup_radius: 12
+        drop_coup_angle_in: 35
+        drop_coup_angle: 30
+
+
+        label: {P: 'RING_STP', N: 'RING_STN'}
+        outer_electrode_ring_layers:
+        - !!python/tuple ['M1', 'drawing']
+        - !!python/tuple ['M2', 'drawing']
+        - !!python/tuple ['M3', 'drawing']
+        - !!python/tuple ['M4', 'drawing']
+        - !!python/tuple ['M5', 'drawing']
+        # - !!python/tuple ['BA', 'drawing']
+
+
+
+        inner_electrode_ring_layers:
+
+        - !!python/tuple ['M1', 'drawing']
+        - !!python/tuple ['M2', 'drawing']
+        - !!python/tuple ['M3', 'drawing']
+        - !!python/tuple ['M4', 'drawing']
+        - !!python/tuple ['M5', 'drawing']
+        - !!python/tuple ['BA', 'drawing']
+
+
+        # Parameters of GS electrodes
+        gs_electrodes: True
+        gs_core_dist: 2.0
+        gs_bottom_width: 1.2
+        gs_bottom_length: 5.5
+        gs_pad_layer: !!python/tuple ['LB', 'drawing']
+        gs_pad_open_layer: !!python/tuple ['DV', 'drawing']
+        gs_pad_open_inclusion: 2.0
+        gs_pad_width: 50.0 #real pad=36
+        gs_pad_length: 50.0
+        gs_pad_pitch: 78.6 #61.4 for 40 and 100 for 78.6
+        gs_pad_to_ring_dist: 50.0 #14
+
+        in_out_taper: False
+        in_out_port_width: 0.35
+        taper_length: 20
+        taper_layer1: !!python/tuple ['si_full_free', 'drawing']
+        # taper_layer1=('si_fullfree', 'drawing'),
+        taper_layer2: !!python/tuple ['si_partial', 'drawing']
+
+        # Heater params
+        # Standard params
+        heater_disable: False
+        heater_radius_offset: 0.3
+        resistance: 1000
+        contact_dist: 1
+        contact_width: 1.2
+        heater_device_layer: !!python/tuple ['si_full_free', 'drawing']
+        heater_disk_layers:
+          - !!python/tuple ['n_heavy_sil', 'drawing']
+        heater_electrode_top_layer: !!python/tuple ['UA', 'drawing']
+        heater_electrode_top_x_span: 0.8 #1.6 FOR 1.2
+        heater_electrode_top_y_span: 2.5 #1.6 FOR 1.2
+        # Either heater label format is acceptable
+        heater_label: {P: 'HEATER', N: 'HEATER_N'}
+      #  heater_label: 'HEATER'
+        heater_electrode_bottom_x_span: 0.8
+        heater_electrode_bottom_y_span: 2.5
+        # Advanced parameters
+        heater_disk_layer_extension: 0.3
+        # Technology parameter
+        heater_electrode_bottom_layer: !!python/tuple ['RXbar', 'drawing']
+        heater_pad_to_ring_dist: 50
+
+        doping_spoke_info:
+        #IJ=n_mod_phot
+        - {rin: 3.6, rout: 5.83, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_mod_phot', 'drawing'],  spoke_width_percentage: 0.6}
+        #- {rin: 5.83, rout: 6.05, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_mod_phot', 'drawing'],  spoke_width_percentage: 1.6}
+        - {rin: 5.83, rout: 6.1, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_mod_phot', 'drawing'],  spoke_width_percentage: 1.6}
+
+      #PK=n_inter_phot
+       # - {rin: 4.45, rout: 4.975, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_inter_phot', 'drawing'],  spoke_width_percentage: 0.3}
+       # - {rin: 3.2, rout: 4.45, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_inter_phot', 'drawing'],  spoke_width_percentage: 0.7}
+       # - {rin: 3, rout: 3.8, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_inter_phot', 'drawing'],spoke_width_percentage: 0.88}
+      #IK=n_heavy_phot
+        - {rin: 3.6, rout: 5.09, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_heavy_phot', 'drawing'],  spoke_width_percentage: 0.6}
+
+      #PLN=n_heavy_sil
+        - {rin: 3, rout: 4.25, num: 16, spoke_offset: 0, layer: !!python/tuple ['n_heavy_sil', 'drawing'],  spoke_width_percentage: 2}
+
+      #IH=p_mod_phot
+        - {rin: 3.6, rout: 5.83, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_mod_phot', 'drawing'],  spoke_width_percentage: 1.25}
+        #- {rin: 5.83, rout: 6.05, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_mod_phot', 'drawing'],  spoke_width_percentage: 0.4}
+        #- {rin: 6.05, rout: 6.25, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_mod_phot', 'drawing'],spoke_width_percentage: 2}
+        - {rin: 5.83, rout: 6.1, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_mod_phot', 'drawing'],  spoke_width_percentage: 0.4}
+        - {rin: 6.1, rout: 6.3, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_mod_phot', 'drawing'],spoke_width_percentage: 2}
+
+      #PQ=p_inter_phot
+        #- {rin: 4.45, rout: 4.975, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],  spoke_width_percentage: 0.3}
+        #- {rin: 3.2, rout: 4.45, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],  spoke_width_percentage: 0.7}
+        #- {rin: 3.12, rout: 3.8, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],spoke_width_percentage: 1}
+      #IM=p_heavy_phot
+        - {rin: 3.59, rout: 5, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_phot', 'drawing'],  spoke_width_percentage: 0.96}
+
+      #PLP=p_heavy_sil
+        - {rin: 3.6, rout: 5.19, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_sil', 'drawing'],  spoke_width_percentage: 0.7}
+
+        extra_ring_info:
+        spoke_num: 16
+
+        # Advanced parameters: can change between designs per technology, but not recommended for standard users
+        access_length: 30
+        p_via_radius_offset: 0.3
+        n_via_radius_offset: 1
+        high_doping_rout_offset: 0.0
+        high_doping_rin_offset: 0.1
+        electrode_offset: 0.4
+        electrode_width_inner: 0.4
+        electrode_width_outer: 0.4
+        drop_taper_length: 15
+        salicide_radius_extension: 0.9
+        high_doping_n_rin_offset: -0.1
+
+        # Advanced tech params: should not need to change between designs in a given technology
+        high_p_doping_layer: !!python/tuple ['p_heavy_sil', 'drawing']
+        high_n_doping_layer: !!python/tuple ['n_heavy_sil', 'drawing']
+        salicide_lpp:
+        bottom_metal_electrode_layer: !!python/tuple ['si_full_free', 'drawing']
+        bottom_electrode_label_layer: !!python/tuple ['M1', 'label']
+
+        outer_electrode_ring_layer_inds: []
+        outer_electrode_ring_layer_inds: []
+
+        n_contact_offset: 0  # n spoke is aligned on the +x axis
+        p_contact_offset: 0.5  # p spoke is offset
+
+        layer: !!python/tuple ['si_full_free', 'drawing']
+        si_spoke_offset_percentage: 0.25 #determine the Si spoke width for the contact ton place with a reasonable width
+
+
+
+
+# Cadence related parameters
+impl_lib: 'RingRibWg'
+impl_cell: 'RingRibWg_cell'
+
+# Vestigial parameters required by BAG class
+sweep_params:
+  intent: [standard]
+root_dir: 'data'
