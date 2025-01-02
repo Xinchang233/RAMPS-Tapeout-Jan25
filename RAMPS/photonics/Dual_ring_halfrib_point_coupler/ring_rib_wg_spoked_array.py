@@ -1411,7 +1411,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         metal_width = 2
         # heater wiring to the left upper pad
-        wire1_top = 120+self.modu_centre[1]
+        # D Wires
+        # D0
+        wire1_top = 30+self.modu_centre[1]
         wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5+self.modu_centre[1]
         wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width+self.modu_centre[0]
         wire1_right = wire1_left + metal_width
@@ -1423,38 +1425,85 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        wire1_top = 120+self.modu_centre[1]+0.5*metal_width
-        wire1_bottom = 120+self.modu_centre[1]-0.5*metal_width
-        wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width+self.modu_centre[0]-100
-        wire1_right = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent +self.modu_centre[0]
+        # D1
+        wire1_top =30+self.modu_centre[1]+1*metal_width
+        wire1_bottom = 30+self.modu_centre[1]
+        wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width+self.modu_centre[0]
+        wire1_right = self.modu_centre[0]+70
         self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire1_right,
+                    bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
                                 left=wire1_left,
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
-                      )
+                    )
+        # D2
+        wire1_top =self.modu_centre[1]+150
+        wire1_bottom = 30+self.modu_centre[1]
+        wire1_left = self.modu_centre[0]+70
+        wire1_right = self.modu_centre[0]+70+metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+        #D3
+        wire1_top = self.modu_centre[1]+150
+        wire1_bottom = self.modu_centre[1]+150-metal_width
+        wire1_left = self.modu_centre[0]
+        wire1_right = self.modu_centre[0]+70+metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+        #D4
+        wire1_top = self.modu_centre[1]+150
+        wire1_bottom = self.modu_centre[1]+90.5
+        wire1_left = self.modu_centre[0]-0.5*metal_width
+        wire1_right = self.modu_centre[0]+0.5*metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
         
         via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
+                                                         bottom_layer=('UA', 'drawing'),
+                                                         top_x_span=14.6,
+                                                         top_y_span=8.1,
+                                                         bottom_x_span=14.6,
+                                                         bottom_y_span=8.1,
                                                          align='center_align',
                                                          top_bot_offset=0.0),
                                              temp_cls=ViaStack)
 
         self.add_instance(master=via_stack_master,
                           inst_name='test_via_stack',
-                          loc=(wire1_left+10,0.5*(wire1_top+wire1_bottom)),
+                          loc=(self.modu_centre[0]-100,self.modu_centre[1]+90.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0]+100,self.modu_centre[1]+90.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0],self.modu_centre[1]+90.95),
                           orient='R0')
 
 
 
 
         # # heater wiring to the right upper pad
-        wire1_top = 120+self.modu_centre[1]
+        # A wire
+        #A0
+        wire1_top = 20+self.modu_centre[1]
         wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5+self.modu_centre[1]
         wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]
         wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + metal_width+self.modu_centre[0]
@@ -1465,11 +1514,23 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        
-        wire1_top = 120+self.modu_centre[1]+0.5*metal_width
-        wire1_bottom = 120+self.modu_centre[1]-0.5*metal_width
+        # A1
+        wire1_top = 20+self.modu_centre[1]+0.5*metal_width
+        wire1_bottom = 20+self.modu_centre[1]-0.5*metal_width
         wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]
-        wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]+100
+        wire1_right = self.modu_centre[0]+100
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        # A2
+        wire1_top = self.modu_centre[1]+95
+        wire1_bottom = 20+self.modu_centre[1]-0.5*metal_width
+        wire1_left = self.modu_centre[0]+100-0.5*metal_width
+        wire1_right = self.modu_centre[0]+100+0.5*metal_width
         self.add_rect(layer=self.heater_electrode_top_layer,
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1478,23 +1539,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(wire1_right-10,0.5*(wire1_top+wire1_bottom)),
-                          orient='R0')
-
+        
 
         # draw central upper pad wire(bring from left ring)
+        # B WIRES C WIRES
         wire1_top = 3 * offset_distance+self.modu_centre[1]
         wire1_bottom = -self.heater_electrode_top_y_span / 2-0.5+self.modu_centre[1]
         wire1_left = self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent+self.modu_centre[0]
@@ -1515,6 +1563,66 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 bottom=wire2_bottom,
                                 left=wire2_left,
                                 top=wire2_top,
+                                resolution=self.grid.resolution)
+                      )
+        # C1
+        wire_verticl_middle_bottom = wire1_top
+        wire_verticl_middle_top = self.modu_centre[1]+26
+        wire_verticl_middle_left = self.modu_centre[0]-metal_width/2
+        wire_verticl_middle_right = self.modu_centre[0]+metal_width/2
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C2
+        wire_verticl_middle_bottom = self.modu_centre[1]+26-metal_width
+        wire_verticl_middle_top = self.modu_centre[1]+26
+        wire_verticl_middle_left = self.modu_centre[0]+metal_width/2
+        wire_verticl_middle_right = self.modu_centre[0]+80
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C3
+        wire_verticl_middle_bottom = self.modu_centre[1]+26-metal_width
+        wire_verticl_middle_top = self.modu_centre[1]+155
+        wire_verticl_middle_left = self.modu_centre[0]+80-metal_width
+        wire_verticl_middle_right = self.modu_centre[0]+80
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C4
+        wire_verticl_middle_bottom = self.modu_centre[1]+155
+        wire_verticl_middle_top = self.modu_centre[1]+155+metal_width
+        wire_verticl_middle_left = self.modu_centre[0]-100
+        wire_verticl_middle_right = self.modu_centre[0]+80
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C5
+        wire_verticl_middle_bottom = self.modu_centre[1]+90.5
+        wire_verticl_middle_top = self.modu_centre[1]+155
+        wire_verticl_middle_left = self.modu_centre[0]-100-0.5*metal_width
+        wire_verticl_middle_right = self.modu_centre[0]-100+0.5*metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
                                 resolution=self.grid.resolution)
                       )
 
@@ -1541,33 +1649,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire2_top,
                                 resolution=self.grid.resolution)
                       )
-        
-        wire_verticl_middle_top = self.modu_centre[1]+140
-        wire_verticl_middle_bottom = wire1_top - metal_width
-        wire_verticl_middle_left = self.modu_centre[0]-metal_width/2
-        wire_verticl_middle_right = self.modu_centre[0]+metal_width/2
-        self.add_rect(layer=self.heater_electrode_top_layer,
-                      bbox=BBox(right=wire_verticl_middle_right,
-                                bottom=wire_verticl_middle_bottom,
-                                left=wire_verticl_middle_left,
-                                top=wire_verticl_middle_top,
-                                resolution=self.grid.resolution)
-                      )
-        
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
 
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire_verticl_middle_left+wire_verticl_middle_right),wire_verticl_middle_top-2),
-                          orient='R0')
+        
+        
         
         
     def place_heater_contact_electrodes_basic_up(self):
@@ -1617,7 +1701,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         metal_width = 2
         # heater wiring to the left upper pad
-        wire1_bottom = -120+self.modu_centre[1]
+        # A wires
+        #A0
+        wire1_bottom = -20+self.modu_centre[1]
         wire1_top = self.heater_electrode_top_y_span / 2+self.modu_centre[1]
         wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width+self.modu_centre[0]
         wire1_right = wire1_left + metal_width
@@ -1628,11 +1714,23 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                     )
-        
-        wire1_top = -120+self.modu_centre[1]+0.5*metal_width
-        wire1_bottom = -120+self.modu_centre[1]-0.5*metal_width
-        wire1_left = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width+self.modu_centre[0]-100
-        wire1_right = -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent +self.modu_centre[0]
+        #A1
+        wire1_top = -20+self.modu_centre[1]+0.5*metal_width
+        wire1_bottom = -20+self.modu_centre[1]-0.5*metal_width
+        wire1_left = self.modu_centre[0]-100-0.5*metal_width
+        wire1_right =  -self.contact_dist / 2 - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - metal_width+self.modu_centre[0]+metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        #A2
+        wire1_top = -20+self.modu_centre[1]+0.5*metal_width
+        wire1_bottom = self.modu_centre[1]-95
+        wire1_left = self.modu_centre[0]-100-0.5*metal_width
+        wire1_right = self.modu_centre[0]-100+0.5*metal_width
         self.add_rect(layer=self.heater_electrode_top_layer,
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1641,27 +1739,38 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
+        
+        
         via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
+                                                         bottom_layer=('UA', 'drawing'),
+                                                         top_x_span=14.6,
+                                                         top_y_span=8.1,
+                                                         bottom_x_span=14.6,
+                                                         bottom_y_span=8.1,
                                                          align='center_align',
                                                          top_bot_offset=0.0),
                                              temp_cls=ViaStack)
 
         self.add_instance(master=via_stack_master,
                           inst_name='test_via_stack',
-                          loc=(wire1_left+10,0.5*(wire1_top+wire1_bottom)),
+                          loc=(self.modu_centre[0]-100,self.modu_centre[1]-90.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0]+100,self.modu_centre[1]-90.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0],self.modu_centre[1]-90.95),
                           orient='R0')
 
 
 
 
-        # # heater wiring to the right upper pad
+        # # heater wiring to the right upper pad Wire D
+        # D0
         wire1_top = self.heater_electrode_top_y_span / 2+self.modu_centre[1]
-        wire1_bottom = -120+self.modu_centre[1]
+        wire1_bottom = -30+self.modu_centre[1]
         wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]
         wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + metal_width+self.modu_centre[0]
         self.add_rect(layer=self.heater_electrode_top_layer,
@@ -1671,11 +1780,11 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                     )
-        
-        wire1_top = -120+self.modu_centre[1]+0.5*metal_width
-        wire1_bottom = -120+self.modu_centre[1]-0.5*metal_width
-        wire1_left = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]
-        wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]+100
+        # D1
+        wire1_top =-30+self.modu_centre[1]
+        wire1_bottom = -30+self.modu_centre[1]-1*metal_width
+        wire1_left = self.modu_centre[0]-70
+        wire1_right = self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + metal_width+self.modu_centre[0]
         self.add_rect(layer=self.heater_electrode_top_layer,
                     bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1683,21 +1792,43 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                     )
-        
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(wire1_right-10,0.5*(wire1_top+wire1_bottom)),
-                          orient='R0')
+        # D2
+        wire1_top =-30+self.modu_centre[1]
+        wire1_bottom = self.modu_centre[1]-150
+        wire1_left = self.modu_centre[0]-70-metal_width
+        wire1_right = self.modu_centre[0]-70
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+        #D3
+        wire1_top = self.modu_centre[1]-150+metal_width
+        wire1_bottom = self.modu_centre[1]-150
+        wire1_left = self.modu_centre[0]-70-metal_width
+        wire1_right = self.modu_centre[0]
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+        #D4
+        wire1_top = self.modu_centre[1]-90.5
+        wire1_bottom = self.modu_centre[1]-150
+        wire1_left = self.modu_centre[0]-0.5*metal_width
+        wire1_right = self.modu_centre[0]+0.5*metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+   
 
 
         # draw central upper pad wire(bring from left ring)
@@ -1725,6 +1856,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                     )
 
         # draw central upper pad wire(bring from right ring)
+        # B Wire C Wire
         wire1_top = self.heater_electrode_top_y_span / 2+self.modu_centre[1]
         wire1_bottom = -3 * offset_distance+self.modu_centre[1]
         wire1_right = -self.contact_dist / 2 + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent+self.modu_centre[0]
@@ -1747,7 +1879,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire2_top,
                                 resolution=self.grid.resolution)
                     )
-        wire_verticl_middle_bottom = self.modu_centre[1]-140
+        # C1
+        wire_verticl_middle_bottom = self.modu_centre[1]-26
         wire_verticl_middle_top = wire1_bottom 
         wire_verticl_middle_left = self.modu_centre[0]-metal_width/2
         wire_verticl_middle_right = self.modu_centre[0]+metal_width/2
@@ -1758,21 +1891,58 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire_verticl_middle_top,
                                 resolution=self.grid.resolution)
                       )
+        #C2
+        wire_verticl_middle_bottom = self.modu_centre[1]-26
+        wire_verticl_middle_top = wire_verticl_middle_bottom+metal_width
+        wire_verticl_middle_left = self.modu_centre[0]-80
+        wire_verticl_middle_right = self.modu_centre[0]+metal_width/2
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C3
+        wire_verticl_middle_bottom = self.modu_centre[1]-155-metal_width
+        wire_verticl_middle_top = self.modu_centre[1]-26+metal_width
+        wire_verticl_middle_left = self.modu_centre[0]-80
+        wire_verticl_middle_right = self.modu_centre[0]-80+metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C4
+        wire_verticl_middle_bottom = self.modu_centre[1]-155-metal_width
+        wire_verticl_middle_top = self.modu_centre[1]-155
+        wire_verticl_middle_left = self.modu_centre[0]-80
+        wire_verticl_middle_right = self.modu_centre[0]+100
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        #C5
+        wire_verticl_middle_bottom = self.modu_centre[1]-155-metal_width
+        wire_verticl_middle_top = self.modu_centre[1]-90.5
+        wire_verticl_middle_left = self.modu_centre[0]+100-0.5*metal_width
+        wire_verticl_middle_right = self.modu_centre[0]+100+0.5*metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
         
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire_verticl_middle_left+wire_verticl_middle_right),wire_verticl_middle_bottom+2),
-                          orient='R0')
+    
+        
+        
     # vertical wire upto upto middle pad
     def place_contact_electrodes_basic_up(self):
         # calculate the corner coordinate of the left (ground) pad
@@ -1821,6 +1991,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         width = 2
         # draw left pad wiring
+        # y WIRES
+        # y0
         wire1_bottom = self.modu_centre[1]
         wire1_top = self.modu_centre[1] + width
         wire1_left = -100+self.modu_centre[0]-width/2
@@ -1832,9 +2004,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        
+        #y1
         wire1_bottom = self.modu_centre[1]
-        wire1_top = wire1_bottom+40
+        wire1_top = self.modu_centre[1]+15
         wire1_left = -100+self.modu_centre[0]-width/2
         wire1_right = wire1_left+width
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -1845,23 +2017,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire1_right+wire1_left),wire1_top-15),
-                          orient='R0')
-
 
         # draw right pad wire
+        # z wires
+        # z0
         wire1_top = self.modu_centre[1]+width
         wire1_bottom = self.modu_centre[1]
         wire1_left = self.modu_centre[0] + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + offset_distance-0.35
@@ -1873,9 +2032,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        
+        # z1
         wire1_bottom = self.modu_centre[1]
-        wire1_top = wire1_bottom+40
+        wire1_top = wire1_bottom+15
         wire1_right = 100+self.modu_centre[0]+width/2
         wire1_left = wire1_right-width
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -1886,20 +2045,6 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire1_right+wire1_left),wire1_top-15),
-                          orient='R0')
         
         width = 4
         
@@ -1917,8 +2062,20 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         wire1_bottom = 3+ self.modu_centre[1]
         wire1_top = 3.5+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1
-        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 0.2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 0.2
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        
+        wire1_bottom = 2.5+ self.modu_centre[1]
+        wire1_top = 3+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1.6
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1.6
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1928,9 +2085,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                       )
 
         wire1_bottom = 2+ self.modu_centre[1]
-        wire1_top = 3+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.4
-        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.4
+        wire1_top = 2.5+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1941,8 +2098,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         wire1_bottom = 1+ self.modu_centre[1]
         wire1_top = 2+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
-        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.65
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1986,7 +2143,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                       )
         # vertical wire upto middle pad
         wire3_bottom = 4+ self.modu_centre[1]
-        wire3_top = 25+ self.modu_centre[1] #self.central_pad_loc[1] - dim1 / 2
+        wire3_top = 15+ self.modu_centre[1] #self.central_pad_loc[1] - dim1 / 2
         wire3_right = width / 2+ self.modu_centre[0]
         wire3_left = - width / 2+ self.modu_centre[0]
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
@@ -1997,20 +2154,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('BA', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire3_right+wire3_left),wire3_top-1),
-                          orient='R0')
+    
 
         wire1_top = 1+ self.modu_centre[1]
         wire1_bottom = -1+ self.modu_centre[1]
@@ -2035,123 +2179,38 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        # wire1_top = 3.5 + self.modu_centre[1]
-        # wire1_bottom = 4+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent - 0.3
-        # wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent + 0.3
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        
+        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
+                                                         bottom_layer=('M5', 'drawing'),
+                                                         top_x_span=14.6,
+                                                         top_y_span=8.1,
+                                                         bottom_x_span=14.6,
+                                                         bottom_y_span=8.1,
+                                                         align='center_align',
+                                                         top_bot_offset=0.0),
+                                             temp_cls=ViaStack)
+        middle_via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
+                                                         bottom_layer=('BA', 'drawing'),
+                                                         top_x_span=14.6,
+                                                         top_y_span=8.1,
+                                                         bottom_x_span=14.6,
+                                                         bottom_y_span=8.1,
+                                                         align='center_align',
+                                                         top_bot_offset=0.0),
+                                             temp_cls=ViaStack)
 
-        # wire1_top = 3+ self.modu_centre[1]
-        # wire1_bottom = 3.5+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1
-        # wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-
-        # wire1_top = 2+ self.modu_centre[1]
-        # wire1_bottom = 3+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.4
-        # wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.4
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-
-        # wire1_top = 1+ self.modu_centre[1]
-        # wire1_bottom = 2+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
-        # wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-
-        # wire1_top = 0+ self.modu_centre[1]
-        # wire1_bottom = 1+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
-        # wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-        # wire1_top = -1+ self.modu_centre[1]
-        # wire1_bottom = 1+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5
-        # wire1_right = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-        # wire1_top = -1+ self.modu_centre[1]
-        # wire1_bottom = 1+ self.modu_centre[1]
-        # wire1_left = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8
-        # wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-        # # vertical wire upto middle pad
-        # wire3_top = 4+ self.modu_centre[1]
-        # wire3_bottom = 25+ self.modu_centre[1] #self.central_pad_loc[1] - dim1 / 2
-        # wire3_right = width / 2+ self.modu_centre[0]
-        # wire3_left = - width / 2+ self.modu_centre[0]
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire3_right,
-        #                         bottom=wire3_bottom,
-        #                         left=wire3_left,
-        #                         top=wire3_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-
-        # wire1_top = -1+ self.modu_centre[1]
-        # wire1_bottom = 1+ self.modu_centre[1]
-        # wire1_left = 6.1 / 2+ self.modu_centre[0]
-        # wire1_right = 6.4 / 2+ self.modu_centre[0]
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
-
-        # wire1_top = -1+ self.modu_centre[1]
-        # wire1_bottom = 1+ self.modu_centre[1]
-        # wire1_left = -6.4 / 2+ self.modu_centre[0]
-        # wire1_right = -6.1 / 2+ self.modu_centre[0]
-        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-        #               bbox=BBox(right=wire1_right,
-        #                         bottom=wire1_bottom,
-        #                         left=wire1_left,
-        #                         top=wire1_top,
-        #                         resolution=self.grid.resolution)
-        #               )
+        self.add_instance(master=middle_via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0],self.modu_centre[1]+10.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0]-100,self.modu_centre[1]+10.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0]+100,self.modu_centre[1]+10.95),
+                          orient='R0')
         
         
     def place_contact_electrodes_basic(self):
@@ -2214,7 +2273,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                       )
         
         wire1_top = self.modu_centre[1]
-        wire1_bottom = wire1_top-40
+        wire1_bottom = self.modu_centre[1]-15
         wire1_left = -100+self.modu_centre[0]-width/2
         wire1_right = wire1_left+width
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -2224,20 +2283,6 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire1_right+wire1_left),wire1_bottom+15),
-                          orient='R0')
 
 
         # draw right pad wire
@@ -2254,7 +2299,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                       )
         
         wire1_top = self.modu_centre[1]
-        wire1_bottom = wire1_top-40
+        wire1_bottom = self.modu_centre[1]-15
         wire1_right = 100+self.modu_centre[0]+width/2
         wire1_left = wire1_right-width
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -2265,21 +2310,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('M5', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire1_right+wire1_left),wire1_bottom+15),
-                          orient='R0')
-
+        
         width = 4
         # draw central pad wire(bring from left ring)
         wire1_top = -3.5 + self.modu_centre[1]
@@ -2296,8 +2327,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         wire1_top = -3+ self.modu_centre[1]
         wire1_bottom = -3.5+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1
-        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 0.2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 0.2
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -2306,10 +2337,22 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
 
-        wire1_top = -2+ self.modu_centre[1]
+        wire1_top = -2.5+ self.modu_centre[1]
         wire1_bottom = -3+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.4
-        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.4
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 1.6
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 1.6
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        
+        wire1_top = -2+ self.modu_centre[1]
+        wire1_bottom = -2.5+ self.modu_centre[1]
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -2320,8 +2363,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         wire1_top = -1+ self.modu_centre[1]
         wire1_bottom = -2+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.85
-        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.85
+        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65
+        wire1_right = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.65
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -2364,8 +2407,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 resolution=self.grid.resolution)
                       )
         # vertical wire upto middle pad
+        #x0 x wires
         wire3_top = -4+ self.modu_centre[1]
-        wire3_bottom = -25+ self.modu_centre[1] #self.central_pad_loc[1] - dim1 / 2
+        wire3_bottom = -10.95+ self.modu_centre[1] #self.central_pad_loc[1] - dim1 / 2
         wire3_right = width / 2+ self.modu_centre[0]
         wire3_left = - width / 2+ self.modu_centre[0]
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
@@ -2375,21 +2419,6 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire3_top,
                                 resolution=self.grid.resolution)
                       )
-        
-        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
-                                                         bottom_layer=('BA', 'drawing'),
-                                                         top_x_span=10,
-                                                         top_y_span=5,
-                                                         bottom_x_span=20,
-                                                         bottom_y_span=5,
-                                                         align='center_align',
-                                                         top_bot_offset=0.0),
-                                             temp_cls=ViaStack)
-
-        self.add_instance(master=via_stack_master,
-                          inst_name='test_via_stack',
-                          loc=(0.5*(wire3_right+wire3_left),wire3_bottom+1),
-                          orient='R0')
 
         wire1_top = 1+ self.modu_centre[1]
         wire1_bottom = -1+ self.modu_centre[1]
@@ -2414,6 +2443,38 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
+        
+        via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
+                                                         bottom_layer=('M5', 'drawing'),
+                                                         top_x_span=14.6,
+                                                         top_y_span=8.1,
+                                                         bottom_x_span=14.6,
+                                                         bottom_y_span=8.1,
+                                                         align='center_align',
+                                                         top_bot_offset=0.0),
+                                             temp_cls=ViaStack)
+        middle_via_stack_master = self.new_template(params=dict(top_layer=('LB', 'drawing'),
+                                                         bottom_layer=('BA', 'drawing'),
+                                                         top_x_span=14.6,
+                                                         top_y_span=8.1,
+                                                         bottom_x_span=14.6,
+                                                         bottom_y_span=8.1,
+                                                         align='center_align',
+                                                         top_bot_offset=0.0),
+                                             temp_cls=ViaStack)
+
+        self.add_instance(master=middle_via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0],self.modu_centre[1]-10.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0]-100,self.modu_centre[1]-10.95),
+                          orient='R0')
+        self.add_instance(master=via_stack_master,
+                          inst_name='test_via_stack',
+                          loc=(self.modu_centre[0]+100,self.modu_centre[1]-10.95),
+                          orient='R0')
         
     
     def place_heater_contact_electrodes(self):
