@@ -11,7 +11,7 @@ gds_filename: Dual_ring_halfrib_spoked_array
 
 # Generator Params
 layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked_array'
-layout_class: 'RingRibWg'
+layout_class: 'Standalone_and_WDM'
 layout_params:
         # Parameters of rib-waveguide ring
         basic_metal_routing: True

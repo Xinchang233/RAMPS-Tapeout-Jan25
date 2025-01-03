@@ -18,7 +18,7 @@ from ..Single_ring_halfrib_dep.ring_rib_wg import RingRibWg_sr
 from ..triple_rings_full_si.Ring_new.wrapped_coupler_tapeout import adiabatic_coupler_cena
 from ..triple_rings_full_si.Ring_new.AdiabaticRouter import AdiabaticRouter
 
-class RingRibWg(BPG.PhotonicTemplateBase):
+class Standalone_and_WDM(BPG.PhotonicTemplateBase):
     """
     This class generates rib-waveguide ring modulator
     """
