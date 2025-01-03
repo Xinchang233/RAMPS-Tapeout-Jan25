@@ -346,141 +346,221 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         )
 
     def draw_layout(self):
-        self.y_offset = 7.709
+        self.y_offset = 7.709-0.266
         """
         Draws all components of rib-waveguide ring modulator
         """
         self.draw_pad_array()
         
         # Row 1
+        row = 1
         yB = 560
         yA = 640
         self.yA=yA
         self.yB=yB
+        
         self.row_y_centre = 0.5*(yA+yB)
+        
         self.radius_A = [6,6.01,6.02]
-        self.radius_B = [6,6,6.031]
         self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_ring_A = [0.233,0.233,0.233]
+        
+        self.radius_B = [6,6,6.031]
         self.ring_bus_B = [0.134,0.134,0.134]
-        self.device_ID="test1B0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB],ring_bus=0.2,ring_ring=0.233,radius=6)
-        self.device_ID="test1A0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],ring_ring=self.ring_bus_A[0], radius=self.radius_A[0])
-        self.device_ID="test1B1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="test1A1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],ring_ring=self.ring_bus_A[1], radius=self.radius_A[1])
-        self.device_ID="test1B2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],radius=self.radius_B[2])
-        self.device_ID="test1A2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],ring_ring=self.ring_bus_A[2], radius=self.radius_A[2])
+        self.ring_ring_B= [0.233,0.233,0.233]
+        
+        self.device_ID=f"test{row}B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
+        self.device_ID=f"test{row}A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],   ring_bus=self.ring_bus_A[0],  ring_ring=self.ring_ring_A[0],  radius=self.radius_A[0])
+        self.device_ID=f"test{row}B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB],   ring_bus=self.ring_bus_B[1],  ring_ring=self.ring_ring_B[1],  radius=self.radius_B[1])
+        self.device_ID=f"test{row}A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],    ring_bus=self.ring_bus_A[1],  ring_ring=self.ring_ring_A[1],  radius=self.radius_A[1])
+        self.device_ID=f"test{row}B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
+        self.device_ID=f"test{row}A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
-        self.rout_WDM(row=1,device="A0")
+        self.route_WDM_and_standalone(row=row,device="A0")
 
         
+        # Row 2
+        row=2
         yB = yB-240
         yA = yA-240
         self.yA=yA
         self.yB=yB
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        
+        self.row_y_centre = 0.5*(yA+yB)
+        
+        self.radius_A = [6,6.01,6.02]
+        self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_ring_A = [0.233,0.233,0.233]
+        
+        self.radius_B = [6,6,6.031]
+        self.ring_bus_B = [0.134,0.134,0.134]
+        self.ring_ring_B= [0.233,0.233,0.233]
+        
+        self.device_ID=f"test{row}B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
+        self.device_ID=f"test{row}A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],   ring_bus=self.ring_bus_A[0],  ring_ring=self.ring_ring_A[0],  radius=self.radius_A[0])
+        self.device_ID=f"test{row}B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB],   ring_bus=self.ring_bus_B[1],  ring_ring=self.ring_ring_B[1],  radius=self.radius_B[1])
+        self.device_ID=f"test{row}A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],    ring_bus=self.ring_bus_A[1],  ring_ring=self.ring_ring_A[1],  radius=self.radius_A[1])
+        self.device_ID=f"test{row}B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
+        self.device_ID=f"test{row}A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.route_WDM_and_standalone(row=row,device="A0")
         
+        
+        # Row 3
+        row = 3
         yB = yB-240
         yA = yA-240
         self.yA=yA
         self.yB=yB
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        
+        self.row_y_centre = 0.5*(yA+yB)
+        
+        self.radius_A = [6,6.01,6.02]
+        self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_ring_A = [0.233,0.233,0.233]
+        
+        self.radius_B = [6,6,6.031]
+        self.ring_bus_B = [0.134,0.134,0.134]
+        self.ring_ring_B= [0.233,0.233,0.233]
+        
+        self.device_ID=f"test{row}B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
+        self.device_ID=f"test{row}A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],   ring_bus=self.ring_bus_A[0],  ring_ring=self.ring_ring_A[0],  radius=self.radius_A[0])
+        self.device_ID=f"test{row}B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB],   ring_bus=self.ring_bus_B[1],  ring_ring=self.ring_ring_B[1],  radius=self.radius_B[1])
+        self.device_ID=f"test{row}A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],    ring_bus=self.ring_bus_A[1],  ring_ring=self.ring_ring_A[1],  radius=self.radius_A[1])
+        self.device_ID=f"test{row}B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
+        self.device_ID=f"test{row}A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.route_WDM_and_standalone(row=row,device="A0")
         
+        
+        # Row 4
+        row = 4
         yB = yB-240
         yA = yA-240
         self.yA=yA
         self.yB=yB
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        
+        self.row_y_centre = 0.5*(yA+yB)
+        
+        self.radius_A = [6,6.01,6.02]
+        self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_ring_A = [0.233,0.233,0.233]
+        
+        self.radius_B = [6,6,6.031]
+        self.ring_bus_B = [0.134,0.134,0.134]
+        self.ring_ring_B= [0.233,0.233,0.233]
+        
+        self.device_ID=f"test{row}B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
+        self.device_ID=f"test{row}A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],   ring_bus=self.ring_bus_A[0],  ring_ring=self.ring_ring_A[0],  radius=self.radius_A[0])
+        self.device_ID=f"test{row}B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB],   ring_bus=self.ring_bus_B[1],  ring_ring=self.ring_ring_B[1],  radius=self.radius_B[1])
+        self.device_ID=f"test{row}A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],    ring_bus=self.ring_bus_A[1],  ring_ring=self.ring_ring_A[1],  radius=self.radius_A[1])
+        self.device_ID=f"test{row}B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
+        self.device_ID=f"test{row}A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.route_WDM_and_standalone(row=row,device="A0")
         
+        # Row 5
+        row = 5
         yB = yB-240
         yA = yA-240
         self.yA=yA
         self.yB=yB
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        
+        self.row_y_centre = 0.5*(yA+yB)
+        
+        self.radius_A = [6,6.01,6.02]
+        self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_ring_A = [0.233,0.233,0.233]
+        
+        self.radius_B = [6,6,6.031]
+        self.ring_bus_B = [0.134,0.134,0.134]
+        self.ring_ring_B= [0.233,0.233,0.233]
+        
+        self.device_ID=f"test{row}B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
+        self.device_ID=f"test{row}A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],   ring_bus=self.ring_bus_A[0],  ring_ring=self.ring_ring_A[0],  radius=self.radius_A[0])
+        self.device_ID=f"test{row}B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB],   ring_bus=self.ring_bus_B[1],  ring_ring=self.ring_ring_B[1],  radius=self.radius_B[1])
+        self.device_ID=f"test{row}A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],    ring_bus=self.ring_bus_A[1],  ring_ring=self.ring_ring_A[1],  radius=self.radius_A[1])
+        self.device_ID=f"test{row}B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
+        self.device_ID=f"test{row}A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.route_WDM_and_standalone(row=row,device="A0")
         
+        
+        # Row 6
+        row = 6
         yB = yB-240
         yA = yA-240
         self.yA=yA
         self.yB=yB
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        
+        self.row_y_centre = 0.5*(yA+yB)
+        
+        self.radius_A = [6,6.01,6.02]
+        self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_ring_A = [0.233,0.233,0.233]
+        
+        self.radius_B = [6,6,6.031]
+        self.ring_bus_B = [0.134,0.134,0.134]
+        self.ring_ring_B= [0.233,0.233,0.233]
+        
+        self.device_ID=f"test{row}B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
+        self.device_ID=f"test{row}A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],   ring_bus=self.ring_bus_A[0],  ring_ring=self.ring_ring_A[0],  radius=self.radius_A[0])
+        self.device_ID=f"test{row}B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB],   ring_bus=self.ring_bus_B[1],  ring_ring=self.ring_ring_B[1],  radius=self.radius_B[1])
+        self.device_ID=f"test{row}A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],    ring_bus=self.ring_bus_A[1],  ring_ring=self.ring_ring_A[1],  radius=self.radius_A[1])
+        self.device_ID=f"test{row}B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
+        self.device_ID=f"test{row}A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.route_WDM_and_standalone(row=row,device="A0")
         
-    def rout_WDM(self,row=1,device="A0"):
+    def route_WDM_and_standalone(self,row=1,device="A0"):
         relative_y_0 = -self.ring_bus_A[0]-self.radius_A[0]
         relative_y_1 = -self.ring_bus_A[1]-self.radius_A[1]
         relative_y_2 = -self.ring_bus_A[2]-self.radius_A[2]
         relative_y_3 = -self.ring_bus_B[2]-self.radius_B[2]
-        offset_to_left_gc = (90+self.row_y_centre)-(self.modu_centre[1]+relative_y_0)+self.y_offset
-                
+        offset_to_left_gc = (90+self.row_y_centre)-(self.yA+relative_y_0)+self.y_offset
+        offset_to_right_gc = (90+self.row_y_centre)-(self.yA+relative_y_3)+self.y_offset+abs(self.yA-self.yB)
         start_device_ID = f"test{row}{device}"
         # ring xA0
         Wg_A0L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{start_device_ID}_PORT_IN'),
@@ -526,11 +606,11 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
         Wg_A2R.add_straight_wg(length=10, width= 0.35)
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
-        Wg_A2R.add_straight_wg(length=40, width= 0.35)
+        Wg_A2R.add_straight_wg(length=40+50, width= 0.35)
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
         Wg_A2R.add_straight_wg(length=abs(self.yA-self.yB)-10-10-10-10-10, width= 0.35)
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
-        Wg_A2R.add_straight_wg(length=5, width= 0.35)
+        Wg_A2R.add_straight_wg(length=5+50, width= 0.35)
         Wg_A2R.add_offset_bend(offset=-relative_y_3+relative_y_2,rmin=10,width=0.35)
         Wg_A2R.add_straight_wg(length=15, width= 0.35)
 
@@ -543,8 +623,70 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         Wg_B2L.add_straight_wg(length=20, width= 0.35)
 
+        Wg_B2R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{fourth_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B2R.add_straight_wg(length=20, width= 0.35)
+        Wg_B2R.add_straight_wg(length=20+60, width= 0.35)
+        Wg_B2R.add_offset_bend(offset=-offset_to_right_gc,rmin=10,width=0.35)
+        Wg_B2R.add_straight_wg(length=150, width= 0.35)
+        
+        """Start to do standalone"""
+        relative_y_B0 = -self.radius_B[0]-self.ring_bus_B[0]
+        relative_y_B1 = -self.radius_B[1]-self.ring_bus_B[1]
+        B0_to_gc_offset_y = (-90+self.row_y_centre)-(self.yB+relative_y_B0)+self.y_offset
+        B1_to_gc_offset_y = (0+self.row_y_centre)-(self.yB+relative_y_B1)+self.y_offset
+
+        fifth_device_ID = f"test{row}B0"
+        Wg_B0L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{fifth_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B0L.add_straight_wg(length=10, width= 0.35)
+        Wg_B0L.add_offset_bend(offset=B0_to_gc_offset_y,rmin=10,width=0.35)
+        Wg_B0L.add_straight_wg(length=250, width= 0.35)
+        
+        Wg_B0R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{fifth_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B0R.add_straight_wg(length=10, width= 0.35)
+        Wg_B0R.add_offset_bend(offset=24,rmin=10,width=0.35)
+        Wg_B0R.add_straight_wg(length=680, width= 0.35)
+        Wg_B0R.add_offset_bend(offset=-B0_to_gc_offset_y-24,rmin=10,width=0.35)
+        Wg_B0R.add_straight_wg(length=120, width= 0.35)
+
+        six_device_ID = f"test{row}B1"
+        Wg_B1L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{six_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B1L.add_straight_wg(length=10, width= 0.35)
+        Wg_B1L.add_offset_bend(offset=-20,rmin=10,width=0.35)
+        Wg_B1L.add_straight_wg(length=60, width= 0.35)
+        Wg_B1L.add_offset_bend(offset=B1_to_gc_offset_y+20,rmin=10,width=0.35)
+        Wg_B1L.add_straight_wg(length=470, width= 0.35)
+        
+        Wg_B1R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{six_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B1R.add_straight_wg(length=10, width= 0.35)
+        Wg_B1R.add_offset_bend(offset=20,rmin=10,width=0.35)
+        Wg_B1R.add_straight_wg(length=380, width= 0.35)
+        Wg_B1R.add_offset_bend(offset=-B1_to_gc_offset_y-20,rmin=10,width=0.35)
+        Wg_B1R.add_straight_wg(length=120, width= 0.35)
+
+
+
+
+
+
+
+
 
         
+
+
+        
+            # offset_to_left_gc = (90+self.row_y_centre)-(self.yA+relative_y_0)+self.y_offset
+
         
         
         
