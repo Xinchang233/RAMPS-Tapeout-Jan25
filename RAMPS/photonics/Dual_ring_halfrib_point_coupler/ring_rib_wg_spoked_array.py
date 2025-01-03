@@ -366,8 +366,8 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
         self.device_ID="testA2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
-        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
 
         
         yB = yB-240
