@@ -685,11 +685,11 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
         Wg_A2R.add_straight_wg(length=40+50, width= 0.35)
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
-        Wg_A2R.add_straight_wg(length=abs(self.yA-self.yB)-10-10-10-10-10, width= 0.35)
+        Wg_A2R.add_straight_wg(length=abs(self.yA-self.yB)-10-10-10-10-10+15, width= 0.35)
         Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
-        Wg_A2R.add_straight_wg(length=5+50, width= 0.35)
-        Wg_A2R.add_offset_bend(offset=-relative_y_3+relative_y_2,rmin=10,width=0.35)
-        Wg_A2R.add_straight_wg(length=15, width= 0.35)
+        Wg_A2R.add_straight_wg(length=5, width= 0.35)
+        Wg_A2R.add_offset_bend(offset=-relative_y_3+relative_y_2-15,rmin=10,width=0.35)
+        Wg_A2R.add_straight_wg(length=15+23, width= 0.35)
 
 
         
@@ -704,8 +704,10 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
                              layer=('si_full_free', 'drawing'), name='init_port')
 
         Wg_B2R.add_straight_wg(length=20, width= 0.35)
-        Wg_B2R.add_straight_wg(length=20+60, width= 0.35)
-        Wg_B2R.add_offset_bend(offset=-offset_to_right_gc,rmin=10,width=0.35)
+        Wg_B2R.add_offset_bend(offset=15,rmin=10,width=0.35)
+
+        Wg_B2R.add_straight_wg(length=20+30, width= 0.35)
+        Wg_B2R.add_offset_bend(offset=-offset_to_right_gc-15,rmin=10,width=0.35)
         Wg_B2R.add_straight_wg(length=150, width= 0.35)
         
         """Start to do standalone"""
