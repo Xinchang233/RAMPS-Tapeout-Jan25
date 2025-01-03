@@ -9,6 +9,8 @@ from ..Taper.StripToRibTaper import StripToRibTaper
 from ..Spoke.SpokeBase import SpokeBase
 from typing import TYPE_CHECKING, List, Union, Optional
 from BPG.objects import PhotonicPolygon, PhotonicRound, PhotonicRect
+from importlib import import_module
+
 
 from typing import TYPE_CHECKING, List, Union, Optional
 from BPG.objects import PhotonicPolygon, PhotonicRound, PhotonicRect
@@ -364,6 +366,9 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
         self.device_ID="testA2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+
         
         yB = yB-240
         yA = yA-240
@@ -2004,7 +2009,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        # patch
+        # y0 patch
         wire1_bottom = self.modu_centre[1]-0.5*width-0.91
         wire1_top = self.modu_centre[1] + 0.5*width+0.91
         wire1_right = self.modu_centre[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - offset_distance+0.35
@@ -2045,6 +2050,20 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
+        
+        # z0 patch
+        wire1_bottom = self.modu_centre[1]-0.5*width-0.91
+        wire1_top = self.modu_centre[1] + 0.5*width+0.91
+        wire1_left = self.modu_centre[0] + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + offset_distance-0.35
+        wire1_right = wire1_left+width
+        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+                bbox=BBox(right=wire1_right,
+                        bottom=wire1_bottom,
+                        left=wire1_left,
+                        top=wire1_top,
+                        resolution=self.grid.resolution)
+                )
+
         # z1
         wire1_bottom = self.modu_centre[1]
         wire1_top = wire1_bottom+15
@@ -2273,8 +2292,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
         width = 2
         # draw left pad wiring
-        wire1_top = self.modu_centre[1]
-        wire1_bottom = wire1_top - width
+        # Z wires
+        # z0
+        wire1_top = self.modu_centre[1]+0.5*width
+        wire1_bottom = self.modu_centre[1] - 0.5*width
         wire1_left = -100+self.modu_centre[0]-width/2
         wire1_right = self.modu_centre[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - offset_distance+0.35
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -2284,7 +2305,20 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        
+        # z0 patch
+        wire1_bottom = self.modu_centre[1]-0.5*width-0.91
+        wire1_top = self.modu_centre[1] + 0.5*width+0.91
+        wire1_right = self.modu_centre[0] - (self.r_r_gap / 2 + self.core_width / 2) - self.r_core_cent - offset_distance+0.35
+        wire1_left = wire1_right-width
+
+        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        # z1
         wire1_top = self.modu_centre[1]
         wire1_bottom = self.modu_centre[1]-15
         wire1_left = -100+self.modu_centre[0]-width/2
@@ -2299,8 +2333,10 @@ class RingRibWg(BPG.PhotonicTemplateBase):
 
 
         # draw right pad wire
-        wire1_top = self.modu_centre[1]
-        wire1_bottom = wire1_top - width
+        # Y wires
+        # y0
+        wire1_top = self.modu_centre[1]+0.5*width
+        wire1_bottom = self.modu_centre[1] - 0.5*width
         wire1_left = self.modu_centre[0] + (self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + offset_distance-0.35
         wire1_right = 100+self.modu_centre[0]+width/2
         self.add_rect(layer=self.outer_electrode_ring_layers[-1],
@@ -2310,7 +2346,21 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
+        # y0 patch
+        wire1_bottom = self.modu_centre[1]-0.5*width-0.91
+        wire1_top = self.modu_centre[1] + 0.5*width+0.91
+        wire1_left = self.modu_centre[0] +(self.r_r_gap / 2 + self.core_width / 2) + self.r_core_cent + offset_distance - 0.35
+        wire1_right = wire1_left+width
+
+        self.add_rect(layer=self.outer_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
         
+        # y1
         wire1_top = self.modu_centre[1]
         wire1_bottom = self.modu_centre[1]-15
         wire1_right = 100+self.modu_centre[0]+width/2
@@ -2778,6 +2828,93 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                         'length': self.taper_length}
         self.taper_master = self.new_template(params=taper_params,
                                               temp_cls=StripToRibTaper)
+        
+    def put_gratings(self,number=3,gc_x=float,gc_y=float):
+        self.grating_coupler_module = 'cena_top.RAMPS.photonics.gf45spclo_photonics.ph45spclo.iograt'
+        self.grating_coupler_class = 'iograt_1311'
+        gc_module = import_module(self.grating_coupler_module)
+        gc_class = getattr(gc_module, self.grating_coupler_class)
+        self.gc_master = self.new_template(params=None, temp_cls=gc_class)
+        if gc_x < 0:
+            orient = "R0"
+            if number == 2:
+                y = [90+gc_y, -90+gc_y]
+                
+                grating_L0 = self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[0]),
+                    orient=orient,
+                )
+                self.extract_photonic_ports(inst=grating_L0,port_names="IN",port_renaming="GC_L0",show = True)
+                Wg1 = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port('IN'),
+                              layer=('si_full_free', 'drawing'), name='init_port')
+
+                Wg1.add_straight_wg(length=20, width= 0.35)
+                
+                
+                grating_L1 = self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[1]),
+                    orient=orient,
+                )
+                self.add_photonic_port(name='grating_L1', orient='R180',
+                                    center=(gc_x,y[1]), width = 0.35,
+                                    layer=('RX', 'port'), resolution=self.grid.resolution, unit_mode=False, show=False)
+                
+                grating_L2 = self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[2]),
+                    orient=orient,
+                )
+                self.add_photonic_port(name='grating_L1', orient='R180',
+                                    center=(gc_x,y[2]), width = 0.35,
+                                    layer=('RX', 'port'), resolution=self.grid.resolution, unit_mode=False, show=False)
+                
+                
+            if number == 3:
+                y = [90+gc_y, gc_y, -90+gc_y]
+                for i in range(len(y)):
+                    self.add_instance(
+                        master=self.gc_master,
+                        loc=(gc_x,y[i]),
+                        orient=orient,
+                    )
+            if number == 4:
+                y = [100+gc_y, 50+gc_y, -50+gc_y,-100+gc_y]
+                for i in range(len(y)):
+                    self.add_instance(
+                        master=self.gc_master,
+                        loc=(gc_x,y[i]),
+                        orient=orient,
+                    )
+        else:
+            orient = "R180"
+                
+            
+        if number == 2:
+            y = [90+gc_y, -90+gc_y]
+            for i in range(len(y)):
+                self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[i]),
+                    orient=orient,
+                )
+        if number == 3:
+            y = [90+gc_y, gc_y, -90+gc_y]
+            for i in range(len(y)):
+                self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[i]),
+                    orient=orient,
+                )
+        if number == 4:
+            y = [100+gc_y, 50+gc_y, -50+gc_y,-100+gc_y]
+            for i in range(len(y)):
+                self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[i]),
+                    orient=orient,
+                )
 
 
 
