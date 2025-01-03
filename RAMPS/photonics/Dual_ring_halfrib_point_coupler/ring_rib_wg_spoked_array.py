@@ -2830,7 +2830,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                                               temp_cls=StripToRibTaper)
         
     def put_gratings(self,number=3,gc_x=float,gc_y=float):
-        self.grating_coupler_module = 'cena_top.RAMPS.photonics.gf45spclo_photonics.ph45spclo.iograt'
+        self.grating_coupler_module = 'RAMPS-Tapeout-Jan25.RAMPS.photonics.gf45spclo_photonics.ph45spclo.iograt'
         self.grating_coupler_class = 'iograt_1311'
         gc_module = import_module(self.grating_coupler_module)
         gc_class = getattr(gc_module, self.grating_coupler_class)
