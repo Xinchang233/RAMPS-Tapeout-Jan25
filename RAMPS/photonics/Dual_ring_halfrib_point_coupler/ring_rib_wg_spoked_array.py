@@ -381,8 +381,8 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
         self.device_ID=f"test{row}A2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
-        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
         self.route_WDM_and_standalone(row=row,device="A0")
 
         
@@ -415,8 +415,8 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
         self.device_ID=f"test{row}A2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
-        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
         self.route_WDM_and_standalone(row=row,device="A0")
         
         
@@ -449,8 +449,8 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
         self.device_ID=f"test{row}A2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
-        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
         self.route_WDM_and_standalone(row=row,device="A0")
         
         
@@ -483,10 +483,9 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
         self.device_ID=f"test{row}A2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
-        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
         self.route_WDM_and_standalone(row=row,device="A0")
-        
         # Row 5
         row = 5
         yB = yB-240
@@ -516,8 +515,8 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
         self.device_ID=f"test{row}A2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
-        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
         self.route_WDM_and_standalone(row=row,device="A0")
         
         
@@ -550,10 +549,88 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],  ring_bus=self.ring_bus_B[2],  ring_ring=self.ring_ring_B[2],  radius=self.radius_B[2])
         self.device_ID=f"test{row}A2"
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],    ring_bus=self.ring_bus_A[2],  ring_ring=self.ring_ring_A[2],  radius=self.radius_A[2])
-        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
-        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
         self.route_WDM_and_standalone(row=row,device="A0")
+        # self.route_WDM_special()
+
+    def route_WDM_special(self,row=6):
+        relative_y_0 = -self.ring_bus_A[0]-self.radius_A[0]
+        relative_y_1 = -self.ring_bus_A[1]-self.radius_A[1]
+        relative_y_B0 = -self.radius_B[0]-self.ring_bus_B[0]
+        relative_y_B1 = -self.radius_B[1]-self.ring_bus_B[1]
+        offset_to_left_gc = (0+self.row_y_centre)-(self.yA+relative_y_0)+self.y_offset
+        offset_to_right_gc = (0+self.row_y_centre)-(self.yA+relative_y_B1)+self.y_offset+abs(self.yA-self.yB)
+        start_device_ID = f"test{row}A0"
+         # ring xA0
+        Wg_A0L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{start_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A0L.add_straight_wg(length=20, width= 0.35)
+        Wg_A0L.add_straight_wg(length=60, width= 0.35)
+        Wg_A0L.add_offset_bend(offset=offset_to_left_gc,rmin=10,width=0.35)
+        Wg_A0L.add_straight_wg(length=150, width= 0.35)
+        Wg_A0R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{start_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A0R.add_straight_wg(length=20, width= 0.35)
+        Wg_A0R.add_offset_bend(offset=-relative_y_1+relative_y_0,rmin=10,width=0.35)
+        Wg_A0R.add_straight_wg(length=233, width= 0.35)
         
+        # ring xA1
+        second_device_ID = f"test{row}A1"
+        Wg_A1L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{second_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A1L.add_straight_wg(length=20, width= 0.35)
+        Wg_A1R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{second_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A1R.add_straight_wg(length=10, width= 0.35)
+        Wg_A1R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
+        Wg_A1R.add_straight_wg(length=10, width= 0.35)
+        Wg_A1R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
+        Wg_A1R.add_straight_wg(length=40+50+300, width= 0.35)
+        Wg_A1R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
+        Wg_A1R.add_straight_wg(length=abs(self.yA-self.yB)-10-10-10-10-10+15, width= 0.35)
+        Wg_A1R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
+        Wg_A1R.add_straight_wg(length=10, width= 0.35)
+        Wg_A1R.add_offset_bend(offset=-relative_y_B0+relative_y_1-15,rmin=10,width=0.35)
+        Wg_A1R.add_straight_wg(length=40, width= 0.35)
+        
+        # ring xB0
+        third_device_ID=f"test{row}B0"
+        Wg_B0L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{third_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+        Wg_B0L.add_straight_wg(length=20, width= 0.35)
+        
+        Wg_B0R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{third_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+        Wg_B0R.add_straight_wg(length=10, width= 0.35)
+        Wg_B0R.add_offset_bend(offset=15,rmin=10,width=0.35)
+        Wg_B0R.add_straight_wg(length=160, width= 0.35)
+        Wg_B0R.add_offset_bend(offset=-relative_y_B1+relative_y_B0-15,rmin=10,width=0.35)
+        
+        # ring xB1
+        fourth_device_ID=f"test{row}B0"
+        Wg_B0L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{fourth_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+        Wg_B0L.add_straight_wg(length=20, width= 0.35)
+        Wg_B2R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{fourth_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B2R.add_straight_wg(length=20, width= 0.35)
+        Wg_B2R.add_offset_bend(offset=15,rmin=10,width=0.35)
+
+        Wg_B2R.add_straight_wg(length=20+60, width= 0.35)
+        Wg_B2R.add_offset_bend(offset=-offset_to_right_gc-15,rmin=10,width=0.35)
+        Wg_B2R.add_straight_wg(length=150, width= 0.35)
+
+
+
+
+
+          
     def route_WDM_and_standalone(self,row=1,device="A0"):
         relative_y_0 = -self.ring_bus_A[0]-self.radius_A[0]
         relative_y_1 = -self.ring_bus_A[1]-self.radius_A[1]
@@ -698,9 +775,15 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         
     def draw_pad_array(self):
         for M in range(6):
-            for N in range(18):
-                self.draw_single_pad("up",[50*N-425,240*M-685])
-                self.draw_single_pad("down",[50*N-425,240*M-685+170])
+            if M>=0:
+                for N in range(18):
+                    self.draw_single_pad("up",[50*N-425,240*M-685])
+                    self.draw_single_pad("down",[50*N-425,240*M-685+170])
+            else:
+                for N in range(12):
+                    self.draw_single_pad("up",[50*N-425,240*M-685])
+                    self.draw_single_pad("down",[50*N-425,240*M-685+170])
+                    
     
     def draw_single_pad(self,oreintation=str,centre=[0,0]):
         
@@ -3187,6 +3270,15 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
                         loc=(gc_x,y[i]),
                         orient=orient,
                     )
+                    
+            if number == 1:
+                y = [gc_y]
+                for i in range(len(y)):
+                    self.add_instance(
+                        master=self.gc_master,
+                        loc=(gc_x,y[i]),
+                        orient=orient,
+                    )
             if number == 4:
                 y = [100+gc_y, 50+gc_y, -50+gc_y,-100+gc_y]
                 for i in range(len(y)):
@@ -3209,6 +3301,15 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
                 )
         if number == 3:
             y = [90+gc_y, gc_y, -90+gc_y]
+            for i in range(len(y)):
+                self.add_instance(
+                    master=self.gc_master,
+                    loc=(gc_x,y[i]),
+                    orient=orient,
+                )
+                
+        if number == 1:
+            y = [gc_y]
             for i in range(len(y)):
                 self.add_instance(
                     master=self.gc_master,
