@@ -346,6 +346,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         )
 
     def draw_layout(self):
+        self.y_offset = 7.709
         """
         Draws all components of rib-waveguide ring modulator
         """
@@ -354,6 +355,34 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         # Row 1
         yB = 560
         yA = 640
+        self.yA=yA
+        self.yB=yB
+        self.row_y_centre = 0.5*(yA+yB)
+        self.radius_A = [6,6.01,6.02]
+        self.radius_B = [6,6,6.031]
+        self.ring_bus_A = [0.134,0.134,0.134]
+        self.ring_bus_B = [0.134,0.134,0.134]
+        self.device_ID="test1B0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB],ring_bus=0.2,ring_ring=0.233,radius=6)
+        self.device_ID="test1A0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA],ring_ring=self.ring_bus_A[0], radius=self.radius_A[0])
+        self.device_ID="test1B1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
+        self.device_ID="test1A1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA],ring_ring=self.ring_bus_A[1], radius=self.radius_A[1])
+        self.device_ID="test1B2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB],radius=self.radius_B[2])
+        self.device_ID="test1A2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA],ring_ring=self.ring_bus_A[2], radius=self.radius_A[2])
+        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        self.rout_WDM(row=1,device="A0")
+
+        
+        yB = yB-240
+        yA = yA-240
+        self.yA=yA
+        self.yB=yB
         self.device_ID="testB0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
         self.device_ID="testA0"
@@ -368,82 +397,161 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
         # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
         # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        
+        yB = yB-240
+        yA = yA-240
+        self.yA=yA
+        self.yB=yB
+        self.device_ID="testB0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
+        self.device_ID="testA0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
+        self.device_ID="testB1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
+        self.device_ID="testA1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
+        self.device_ID="testB2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
+        self.device_ID="testA2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        
+        yB = yB-240
+        yA = yA-240
+        self.yA=yA
+        self.yB=yB
+        self.device_ID="testB0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
+        self.device_ID="testA0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
+        self.device_ID="testB1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
+        self.device_ID="testA1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
+        self.device_ID="testB2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
+        self.device_ID="testA2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        
+        yB = yB-240
+        yA = yA-240
+        self.yA=yA
+        self.yB=yB
+        self.device_ID="testB0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
+        self.device_ID="testA0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
+        self.device_ID="testB1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
+        self.device_ID="testA1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
+        self.device_ID="testB2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
+        self.device_ID="testA2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        
+        yB = yB-240
+        yA = yA-240
+        self.yA=yA
+        self.yB=yB
+        self.device_ID="testB0"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
+        self.device_ID="testA0"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
+        self.device_ID="testB1"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
+        self.device_ID="testA1"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
+        self.device_ID="testB2"
+        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
+        self.device_ID="testA2"
+        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        # self.put_gratings(number=3,gc_x=-600,gc_y=0.5*(yA+yB))
+        # self.put_gratings(number=3,gc_x=600,gc_y=0.5*(yA+yB))
+        
+    def rout_WDM(self,row=1,device="A0"):
+        relative_y_0 = -self.ring_bus_A[0]-self.radius_A[0]
+        relative_y_1 = -self.ring_bus_A[1]-self.radius_A[1]
+        relative_y_2 = -self.ring_bus_A[2]-self.radius_A[2]
+        relative_y_3 = -self.ring_bus_B[2]-self.radius_B[2]
+        offset_to_left_gc = (90+self.row_y_centre)-(self.modu_centre[1]+relative_y_0)+self.y_offset
+                
+        start_device_ID = f"test{row}{device}"
+        # ring xA0
+        Wg_A0L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{start_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A0L.add_straight_wg(length=20, width= 0.35)
+        Wg_A0L.add_straight_wg(length=60, width= 0.35)
+        Wg_A0L.add_offset_bend(offset=offset_to_left_gc,rmin=10,width=0.35)
+        Wg_A0L.add_straight_wg(length=150, width= 0.35)
+        
+        Wg_A0R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{start_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A0R.add_straight_wg(length=20, width= 0.35)
+        Wg_A0R.add_offset_bend(offset=-relative_y_1+relative_y_0,rmin=10,width=0.35)
+        Wg_A0R.add_straight_wg(length=233, width= 0.35)
+        
+        # ring xA1
+        second_device_ID = f"test{row}A1"
+        Wg_A1L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{second_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A1L.add_straight_wg(length=20, width= 0.35)
+        
+        Wg_A1R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{second_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A1R.add_straight_wg(length=20, width= 0.35)
+        Wg_A1R.add_offset_bend(offset=-relative_y_2+relative_y_1,rmin=10,width=0.35)
+        Wg_A1R.add_straight_wg(length=233, width= 0.35)
+        
+        #ring xA2
+        third_device_ID = f"test{row}A2"
+        Wg_A2L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{third_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A2L.add_straight_wg(length=20, width= 0.35)
+
+        Wg_A2R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{third_device_ID}_PORT_OUT'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_A2R.add_straight_wg(length=10, width= 0.35)
+        Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
+        Wg_A2R.add_straight_wg(length=10, width= 0.35)
+        Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=False,width=0.35)
+        Wg_A2R.add_straight_wg(length=40, width= 0.35)
+        Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
+        Wg_A2R.add_straight_wg(length=abs(self.yA-self.yB)-10-10-10-10-10, width= 0.35)
+        Wg_A2R.add_bend_90(rmin=10,size=10,turn_left=True,width=0.35)
+        Wg_A2R.add_straight_wg(length=5, width= 0.35)
+        Wg_A2R.add_offset_bend(offset=-relative_y_3+relative_y_2,rmin=10,width=0.35)
+        Wg_A2R.add_straight_wg(length=15, width= 0.35)
+
 
         
-        yB = yB-240
-        yA = yA-240
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        #ring xB2
+        fourth_device_ID = f"test{row}B2"
+        Wg_B2L = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{fourth_device_ID}_PORT_IN'),
+                             layer=('si_full_free', 'drawing'), name='init_port')
+
+        Wg_B2L.add_straight_wg(length=20, width= 0.35)
+
+
         
-        yB = yB-240
-        yA = yA-240
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
         
-        yB = yB-240
-        yA = yA-240
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
         
-        yB = yB-240
-        yA = yA-240
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
         
-        yB = yB-240
-        yA = yA-240
-        self.device_ID="testB0"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB])
-        self.device_ID="testA0"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-325,yA])
-        self.device_ID="testB1"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[25,yB])
-        self.device_ID="testA1"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[-25,yA])
-        self.device_ID="testB2"
-        self.draw_one_unit(rf_orientation="down",modu_centre=[325,yB])
-        self.device_ID="testA2"
-        self.draw_one_unit(rf_orientation="up",modu_centre=[275,yA])
+        
+        
+        
+        
 
         
     def draw_pad_array(self):
@@ -488,7 +596,11 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                 
             
     # Modulator Unit
-    def draw_one_unit(self,rf_orientation=str,modu_centre=[0,0]):
+    def draw_one_unit(self,rf_orientation=str,modu_centre=[0,0],ring_ring=0.4,ring_bus=0.4,radius=6):
+        self.r_r_gap = ring_ring
+        self.r_core_cent = radius
+        self.coup_gap = ring_bus
+        
         self.modu_centre = modu_centre
         if rf_orientation.lower() == "down":
             self.draw_input_wg()
@@ -570,7 +682,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             s_pad_loc = None,
             heaterpad1_loc = None,
             heaterpad2_loc = None,
-            r_core_cent = self.params['r_core_cent'],
+            r_core_cent = self.r_core_cent,
             drop_gap = self.params['drop_gap'],
             core_layer = self.params['core_layer'],
             core_width = self.params['core_width'],
@@ -582,7 +694,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
             coup_core_width = self.params['coup_core_width'],
             coup_slab_width = self.params['coup_slab_width'],
             coup_length = self.params['coup_length'],
-            coup_gap = self.params['coup_gap'],
+            coup_gap = self.coup_gap,
             coup_radius = self.params['coup_radius'],
             coup_angle = self.params['coup_angle'],
             curve_rate = self.params['curve_rate'],
@@ -882,35 +994,35 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.extract_photonic_ports(
             inst=coup_core,
             port_names=['PORT_IN', 'PORT_OUT'],
-            port_renaming={'PORT_IN': 'PORT_IN',
-                           'PORT_OUT': 'PORT_OUT'},
+            port_renaming={'PORT_IN': f'{self.device_ID}_PORT_IN',
+                           'PORT_OUT': f'{self.device_ID}_PORT_OUT'},
             show=False)
 
-        Wg = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port('PORT_IN'),
-                             layer=('si_full_free', 'drawing'), name='init_port')
+        # Wg = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{self.device_ID}_PORT_IN'),
+        #                      layer=('si_full_free', 'drawing'), name='init_port')
 
-        Wg.add_straight_wg(length=20, width= 0.35)
+        # Wg.add_straight_wg(length=20, width= 0.35)
 
-        self.extract_photonic_ports(
-            inst=Wg.inst[list(Wg.inst)[-1]],
-            port_names=['PORT_IN', 'PORT_OUT'],
-            port_renaming={'PORT_IN': 'PORT_IN',
-                           'PORT_OUT': 'PORT0',
-                           },
-            show=True)
+        # self.extract_photonic_ports(
+        #     inst=Wg.inst[list(Wg.inst)[-1]],
+        #     port_names=['PORT_IN', 'PORT_OUT'],
+        #     port_renaming={'PORT_IN': 'PORT_IN',
+        #                    'PORT_OUT': 'PORT0',
+        #                    },
+        #     show=True)
 
-        Wg1 = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port('PORT_OUT'),
-                              layer=('si_full_free', 'drawing'), name='init_port')
+        # Wg1 = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port(f'{self.device_ID}_PORT_OUT'),
+        #                       layer=('si_full_free', 'drawing'), name='init_port')
 
-        Wg1.add_straight_wg(length=20, width= 0.35)
+        # Wg1.add_straight_wg(length=20, width= 0.35)
 
-        self.extract_photonic_ports(
-            inst=Wg1.inst[list(Wg1.inst)[-1]],
-            port_names=['PORT_IN', 'PORT_OUT'],
-            port_renaming={'PORT_IN': 'PORT_IN',
-                           'PORT_OUT': 'PORT1',
-                           },
-            show=True)
+        # self.extract_photonic_ports(
+        #     inst=Wg1.inst[list(Wg1.inst)[-1]],
+        #     port_names=['PORT_IN', 'PORT_OUT'],
+        #     port_renaming={'PORT_IN': 'PORT_IN',
+        #                    'PORT_OUT': 'PORT1',
+        #                    },
+        #     show=True)
 
         # attach input output tapers
         if self.in_out_taper:
@@ -1457,7 +1569,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #D3
         wire1_top = self.modu_centre[1]+150
         wire1_bottom = self.modu_centre[1]+150-metal_width
-        wire1_left = self.modu_centre[0]
+        wire1_left = self.modu_centre[0]+20
         wire1_right = self.modu_centre[0]+70+metal_width
         self.add_rect(layer=self.heater_electrode_top_layer,
                     bbox=BBox(right=wire1_right,
@@ -1469,8 +1581,23 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #D4
         wire1_top = self.modu_centre[1]+150
         wire1_bottom = self.modu_centre[1]+90.5
-        wire1_left = self.modu_centre[0]-0.5*metal_width
-        wire1_right = self.modu_centre[0]+0.5*metal_width
+        wire1_right = self.modu_centre[0]+20+metal_width
+        wire1_left = self.modu_centre[0]+20
+
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+        
+        #D5
+        wire1_top = self.modu_centre[1]+90.5+0.5*metal_width
+        wire1_bottom = self.modu_centre[1]+90.5-0.5*metal_width
+        wire1_right = self.modu_centre[0]+20+metal_width
+        wire1_left = self.modu_centre[0]
+
         self.add_rect(layer=self.heater_electrode_top_layer,
                     bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1609,7 +1736,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #C4
         wire_verticl_middle_bottom = self.modu_centre[1]+155
         wire_verticl_middle_top = self.modu_centre[1]+155+metal_width
-        wire_verticl_middle_left = self.modu_centre[0]-100
+        wire_verticl_middle_left = self.modu_centre[0]-100+20
         wire_verticl_middle_right = self.modu_centre[0]+80
         self.add_rect(layer=self.heater_electrode_top_layer,
                       bbox=BBox(right=wire_verticl_middle_right,
@@ -1620,9 +1747,22 @@ class RingRibWg(BPG.PhotonicTemplateBase):
                       )
         #C5
         wire_verticl_middle_bottom = self.modu_centre[1]+90.5
-        wire_verticl_middle_top = self.modu_centre[1]+155
-        wire_verticl_middle_left = self.modu_centre[0]-100-0.5*metal_width
-        wire_verticl_middle_right = self.modu_centre[0]-100+0.5*metal_width
+        wire_verticl_middle_top = self.modu_centre[1]+155+metal_width
+        wire_verticl_middle_left = self.modu_centre[0]-100+20
+        wire_verticl_middle_right = self.modu_centre[0]-100+20+metal_width
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        
+        #C6
+        wire_verticl_middle_bottom = self.modu_centre[1]+90.5
+        wire_verticl_middle_top = self.modu_centre[1]+90.5+metal_width
+        wire_verticl_middle_left = self.modu_centre[0]-100
+        wire_verticl_middle_right = self.modu_centre[0]-100+20+metal_width
         self.add_rect(layer=self.heater_electrode_top_layer,
                       bbox=BBox(right=wire_verticl_middle_right,
                                 bottom=wire_verticl_middle_bottom,
@@ -1813,7 +1953,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         wire1_top = self.modu_centre[1]-150+metal_width
         wire1_bottom = self.modu_centre[1]-150
         wire1_left = self.modu_centre[0]-70-metal_width
-        wire1_right = self.modu_centre[0]
+        wire1_right = self.modu_centre[0]-20
         self.add_rect(layer=self.heater_electrode_top_layer,
                     bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1824,8 +1964,21 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #D4
         wire1_top = self.modu_centre[1]-90.5
         wire1_bottom = self.modu_centre[1]-150
-        wire1_left = self.modu_centre[0]-0.5*metal_width
-        wire1_right = self.modu_centre[0]+0.5*metal_width
+        wire1_left = self.modu_centre[0]-20-metal_width
+        wire1_right = self.modu_centre[0]-20
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                    bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                    )
+        
+        #D5
+        wire1_top = self.modu_centre[1]-90.5+0.5*metal_width
+        wire1_bottom = self.modu_centre[1]-90.5-0.5*metal_width
+        wire1_left = self.modu_centre[0]-20-metal_width
+        wire1_right = self.modu_centre[0]
         self.add_rect(layer=self.heater_electrode_top_layer,
                     bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1924,7 +2077,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         wire_verticl_middle_bottom = self.modu_centre[1]-155-metal_width
         wire_verticl_middle_top = self.modu_centre[1]-155
         wire_verticl_middle_left = self.modu_centre[0]-80
-        wire_verticl_middle_right = self.modu_centre[0]+100
+        wire_verticl_middle_right = self.modu_centre[0]+100-20
         self.add_rect(layer=self.heater_electrode_top_layer,
                       bbox=BBox(right=wire_verticl_middle_right,
                                 bottom=wire_verticl_middle_bottom,
@@ -1935,8 +2088,21 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         #C5
         wire_verticl_middle_bottom = self.modu_centre[1]-155-metal_width
         wire_verticl_middle_top = self.modu_centre[1]-90.5
-        wire_verticl_middle_left = self.modu_centre[0]+100-0.5*metal_width
-        wire_verticl_middle_right = self.modu_centre[0]+100+0.5*metal_width
+        wire_verticl_middle_left = self.modu_centre[0]+100-20-metal_width
+        wire_verticl_middle_right = self.modu_centre[0]+100-20
+        self.add_rect(layer=self.heater_electrode_top_layer,
+                      bbox=BBox(right=wire_verticl_middle_right,
+                                bottom=wire_verticl_middle_bottom,
+                                left=wire_verticl_middle_left,
+                                top=wire_verticl_middle_top,
+                                resolution=self.grid.resolution)
+                      )
+        
+        #C6
+        wire_verticl_middle_bottom = self.modu_centre[1]-90.5-0.5*metal_width
+        wire_verticl_middle_top = self.modu_centre[1]-90.5+0.5*metal_width
+        wire_verticl_middle_left = self.modu_centre[0]+100-20-metal_width
+        wire_verticl_middle_right = self.modu_centre[0]+100
         self.add_rect(layer=self.heater_electrode_top_layer,
                       bbox=BBox(right=wire_verticl_middle_right,
                                 bottom=wire_verticl_middle_bottom,
