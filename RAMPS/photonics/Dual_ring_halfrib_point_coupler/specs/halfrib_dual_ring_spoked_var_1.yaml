@@ -26,8 +26,8 @@ layout_params:
         #    0.154         0.245         0.450
         # -------------------------------------
         coup_gap: 0.134
-        r_r_gap: 0.165
-        drop_gap: 0.4
+        r_r_gap: 0.167
+        drop_gap: 0.399
 
         # Parameters of rib-waveguide ring
         basic_metal_routing: True
