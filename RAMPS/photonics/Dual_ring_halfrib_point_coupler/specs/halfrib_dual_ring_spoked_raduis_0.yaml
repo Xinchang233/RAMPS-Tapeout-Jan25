@@ -3,20 +3,35 @@
 project_name: Dual_ring_halfrib_point_coupler
 
 # Output Settings
-lsf_filename: Dual_ring_halfrib_spoked_array
-gds_filename: Dual_ring_halfrib_spoked_array
+lsf_filename: Dual_ring_halfrib_spoked_radius_0
+gds_filename: Dual_ring_halfrib_spoked_radius_0
 
 # Specify a generic technology as this is a public sample
 #bag_config_path: 'BPG/examples/tech/bag_config.yaml'
 
 # Generator Params
-layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked_array'
-layout_class: 'Standalone_and_WDM'
+layout_package: 'RAMPS-Tapeout-Jan25.RAMPS.photonics.Dual_ring_halfrib_point_coupler.ring_rib_wg_spoked'
+layout_class: 'RingRibWg'
 layout_params:
+        # Coupling parameters to be changed
+        # -------------------------------------
+        #   Ring-Bus      Ring-Ring      Drop
+        #   coup_gap       r_r_gap     drop_gap
+        # -------------------------------------
+        #    0.134         0.165         0.400
+        #    0.134         0.205         0.400
+        #    0.134         0.245         0.400
+        #    0.154         0.165         0.450
+        #    0.154         0.205         0.450
+        #    0.154         0.245         0.450
+        # -------------------------------------
+        coup_gap: 0.134
+        r_r_gap: 0.165
+        drop_gap: 0.4
+
         # Parameters of rib-waveguide ring
         basic_metal_routing: True
         r_core_cent: 6
-        r_r_gap: 0.4 #0.145
         core_layer: !!python/tuple ['si_full_free', 'drawing']
         core_width: 0.41
         core_slot_width: 0
@@ -24,7 +39,6 @@ layout_params:
         slab_layer: !!python/tuple ['si_partial_free', 'drawing']
         slab_width: 2
         slab_slot_width: 0
-        drop_gap: 0.4
         coup_gap_drop: 0.5
         # Parameters of coupler waveguide
         rmin_in: 10
@@ -34,7 +48,6 @@ layout_params:
         coup_core_width: 0.36
         coup_slab_length: 0.45
         coup_length: 15.0 #not used
-        coup_gap: 0.1 #0.154
         coup_radius: 12.0 #not used
         coup_angle: 60.0 #not used
         curve_rate: 1.0 #not used
@@ -45,13 +58,16 @@ layout_params:
         drop_coup_angle: 30
 
 
-        label: {P: 'P_labelname', N: 'N_labelhere'}
+        label: {P: 'RING_STP', N: 'RING_STN'}
         outer_electrode_ring_layers:
         - !!python/tuple ['M1', 'drawing']
         - !!python/tuple ['M2', 'drawing']
         - !!python/tuple ['M3', 'drawing']
         - !!python/tuple ['M4', 'drawing']
         - !!python/tuple ['M5', 'drawing']
+        # - !!python/tuple ['BA', 'drawing']
+
+
 
         inner_electrode_ring_layers:
 
@@ -135,10 +151,10 @@ layout_params:
         #- {rin: 3.2, rout: 4.45, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],  spoke_width_percentage: 0.7}
         #- {rin: 3.12, rout: 3.8, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_inter_phot', 'drawing'],spoke_width_percentage: 1}
       #IM=p_heavy_phot
-        - {rin: 3.59, rout: 4.89, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_phot', 'drawing'],  spoke_width_percentage: 0.96}
+        - {rin: 3.59, rout: 5, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_phot', 'drawing'],  spoke_width_percentage: 0.96}
 
       #PLP=p_heavy_sil
-        - {rin: 3.6, rout: 5.09, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_sil', 'drawing'],  spoke_width_percentage: 0.7}
+        - {rin: 3.6, rout: 5.19, num: 16, spoke_offset: 0.5, layer: !!python/tuple ['p_heavy_sil', 'drawing'],  spoke_width_percentage: 0.7}
 
         extra_ring_info:
         spoke_num: 16
