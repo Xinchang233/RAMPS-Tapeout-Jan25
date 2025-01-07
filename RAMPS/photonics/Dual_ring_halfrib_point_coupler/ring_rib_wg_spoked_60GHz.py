@@ -368,10 +368,17 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         Wg_R = AdiabaticRouter(gen_cls=self, init_port=self.get_photonic_port('PORT_OUT'),
                              layer=('si_full_free', 'drawing'), name='init_port')
 
+        Wg_R.add_straight_wg(length=20-10, width= 0.35)
+        Wg_R.add_straight_wg(length=40-30, width= 0.35)
+        Wg_R.add_bend_90(rmin=10,size=15,turn_left=True)
         Wg_R.add_straight_wg(length=20, width= 0.35)
+        Wg_R.add_bend_90(rmin=10,size=15,turn_left=True)
         Wg_R.add_straight_wg(length=40, width= 0.35)
-        Wg_R.add_offset_bend(offset=-(y_offset_R+y_pitch-27.886),rmin=10, width= 0.35)
-        Wg_R.add_straight_wg(length=x_offset_R-20-40-10, width= 0.35)
+        Wg_R.add_bend_90(rmin=10,size=15,turn_left=False)
+        Wg_R.add_bend_90(rmin=10,size=15,turn_left=False)
+
+        Wg_R.add_offset_bend(offset=-(y_offset_R+y_pitch-27.886-15-15-15-15-20),rmin=10, width= 0.35)
+        Wg_R.add_straight_wg(length=x_offset_R-20-40-60+10, width= 0.35)
         
         
         self.grating_coupler_module = 'RAMPS-Tapeout-Jan25.RAMPS.photonics.gf45spclo_photonics.ph45spclo.iograt'
@@ -381,7 +388,7 @@ class RingRibWg(BPG.PhotonicTemplateBase):
         self.gc_master = self.new_template(params=None, temp_cls=gc_class)
         
         self.add_instance(master=self.gc_master,loc=(-0.5*self.r_r_gap-0.5*self.core_width-self.r_core_cent-x_pitch_L-x_offset_L-2.4-4.064+5.078,y_offset_L-13),orient="R0")
-        self.add_instance(master=self.gc_master,loc=(+0.5*self.r_r_gap+0.5*self.core_width+self.r_core_cent-x_pitch_L+x_offset_R+49-23.25+3.05,y_offset_L-13),orient="R180")
+        self.add_instance(master=self.gc_master,loc=(+0.5*self.r_r_gap+0.5*self.core_width+self.r_core_cent-x_pitch_L+x_offset_R+49-23.25+3.05-100,y_offset_L-13),orient="R180")
 
     def put_gratings(self,gc_x=float,gc_y=float):
         self.grating_coupler_module = 'RAMPS-Tapeout-Jan25.RAMPS.photonics.gf45spclo_photonics.ph45spclo.iograt'
