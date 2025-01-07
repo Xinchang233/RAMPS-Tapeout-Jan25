@@ -362,12 +362,12 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.row_y_centre = 0.5*(yA+yB)
         
         self.radius_A = [6,6.01,6.02]
-        self.ring_bus_A = [0.134,0.134,0.134]
-        self.ring_ring_A = [0.233,0.233,0.233]
+        self.ring_bus_A = [0.15,0.15,0.15]
+        self.ring_ring_A = [0.175,0.175,0.175]
         
         self.radius_B = [6,6,6.031]
-        self.ring_bus_B = [0.134,0.134,0.134]
-        self.ring_ring_B= [0.233,0.233,0.233]
+        self.ring_bus_B = [0.15,0.14,0.15]
+        self.ring_ring_B= [0.15,0.15,0.175]
         
         self.device_ID=f"test{row}B0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
@@ -396,12 +396,12 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.row_y_centre = 0.5*(yA+yB)
         
         self.radius_A = [6,6.01,6.02]
-        self.ring_bus_A = [0.134,0.134,0.134]
-        self.ring_ring_A = [0.233,0.233,0.233]
+        self.ring_bus_A = [0.13,0.13,0.13]
+        self.ring_ring_A = [0.205,0.205,0.205]
         
         self.radius_B = [6,6,6.031]
-        self.ring_bus_B = [0.134,0.134,0.134]
-        self.ring_ring_B= [0.233,0.233,0.233]
+        self.ring_bus_B = [0.15,0.14,0.13]
+        self.ring_ring_B= [0.17,0.17,0.205]
         
         self.device_ID=f"test{row}B0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
@@ -430,12 +430,12 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.row_y_centre = 0.5*(yA+yB)
         
         self.radius_A = [6,6.01,6.02]
-        self.ring_bus_A = [0.134,0.134,0.134]
-        self.ring_ring_A = [0.233,0.233,0.233]
+        self.ring_bus_A = [0.12,0.12,0.12]
+        self.ring_ring_A = [0.175,0.175,0.175]
         
         self.radius_B = [6,6,6.031]
-        self.ring_bus_B = [0.134,0.134,0.134]
-        self.ring_ring_B= [0.233,0.233,0.233]
+        self.ring_bus_B = [0.15,0.14,0.12]
+        self.ring_ring_B= [0.19,0.19,0.175]
         
         self.device_ID=f"test{row}B0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
@@ -464,12 +464,12 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.row_y_centre = 0.5*(yA+yB)
         
         self.radius_A = [6,6.01,6.02]
-        self.ring_bus_A = [0.134,0.134,0.134]
-        self.ring_ring_A = [0.233,0.233,0.233]
+        self.ring_bus_A = [0.15,0.15,0.15]
+        self.ring_ring_A = [0.205,0.205,0.205]
         
         self.radius_B = [6,6,6.031]
-        self.ring_bus_B = [0.134,0.134,0.134]
-        self.ring_ring_B= [0.233,0.233,0.233]
+        self.ring_bus_B = [0.13,0.12,0.15]
+        self.ring_ring_B= [0.15,0.15,0.205]
         
         self.device_ID=f"test{row}B0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
@@ -496,12 +496,12 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.row_y_centre = 0.5*(yA+yB)
         
         self.radius_A = [6,6.01,6.02]
-        self.ring_bus_A = [0.134,0.134,0.134]
-        self.ring_ring_A = [0.233,0.233,0.233]
+        self.ring_bus_A = [0.13,0.13,0.13]
+        self.ring_ring_A = [0.175,0.175,0.175]
         
         self.radius_B = [6,6,6.031]
-        self.ring_bus_B = [0.134,0.134,0.134]
-        self.ring_ring_B= [0.233,0.233,0.233]
+        self.ring_bus_B = [0.13,0.12,0.13]
+        self.ring_ring_B= [0.17,0.17,0.175]
         
         self.device_ID=f"test{row}B0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
@@ -530,12 +530,12 @@ class Standalone_and_WDM(BPG.PhotonicTemplateBase):
         self.row_y_centre = 0.5*(yA+yB)
         
         self.radius_A = [6,6.01,6.02]
-        self.ring_bus_A = [0.134,0.134,0.134]
-        self.ring_ring_A = [0.233,0.233,0.233]
+        self.ring_bus_A = [0.12,0.12,0.12]
+        self.ring_ring_A = [0.205,0.205,0.205]
         
         self.radius_B = [6,6,6.031]
-        self.ring_bus_B = [0.134,0.134,0.134]
-        self.ring_ring_B= [0.233,0.233,0.233]
+        self.ring_bus_B = [0.13,0.12,0.12]
+        self.ring_ring_B= [0.19,0.19,0.205]
         
         self.device_ID=f"test{row}B0"
         self.draw_one_unit(rf_orientation="down",modu_centre=[-275,yB], ring_bus=self.ring_bus_B[0],  ring_ring=self.ring_ring_B[0],  radius=self.radius_B[0])
