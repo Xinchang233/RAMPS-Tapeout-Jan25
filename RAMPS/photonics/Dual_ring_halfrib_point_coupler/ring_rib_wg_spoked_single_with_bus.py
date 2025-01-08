@@ -1557,33 +1557,44 @@ class Single_Ring(BPG.PhotonicTemplateBase):
         
         ######################################################################
 
-        wire1_bottom = 1+ self.modu_centre[1]
-        wire1_top = 2+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65+off_set
-        wire1_right = 9
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
-        wire1_bottom = -2+ self.modu_centre[1]
-        wire1_top = -1+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65+off_set
-        wire1_right = 9
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_bottom = 1+ self.modu_centre[1]
+        # wire1_top = 2+ self.modu_centre[1]
+        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65+off_set
+        # wire1_right = 9
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # wire1_bottom = -2+ self.modu_centre[1]
+        # wire1_top = -1+ self.modu_centre[1]
+        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.65+off_set
+        # wire1_right = 9
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
 
-        wire1_bottom = 0+ self.modu_centre[1]
-        wire1_top = 1+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 3+off_set
-        wire1_right = 9
+        # wire1_bottom = 0+ self.modu_centre[1]
+        # wire1_top = 1+ self.modu_centre[1]
+        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 3+off_set
+        # wire1_right = 9
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        wire1_left = -1+ self.modu_centre[0]
+        wire1_right = 0+ self.modu_centre[0]
+        wire1_top = self.modu_centre[1] + (self.r_r_gap / 2) + self.r_core_cent - 3-off_set
+        wire1_bottom = -9
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1591,10 +1602,10 @@ class Single_Ring(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
-        wire1_bottom = -1+ self.modu_centre[1]
-        wire1_top = 0+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 3+off_set
-        wire1_right = 9
+        wire1_left = 0+ self.modu_centre[0]
+        wire1_right = 1+ self.modu_centre[0]
+        wire1_top = self.modu_centre[1] + (self.r_r_gap / 2) + self.r_core_cent - 3-off_set
+        wire1_bottom = -9
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1602,20 +1613,64 @@ class Single_Ring(BPG.PhotonicTemplateBase):
                                 top=wire1_top,
                                 resolution=self.grid.resolution)
                       )
+        wire1_left = -2+ self.modu_centre[0]
+        wire1_right = -1+ self.modu_centre[0]
+        wire1_top = self.modu_centre[1] + (self.r_r_gap / 2) + self.r_core_cent - 2.65-off_set
+        wire1_bottom = -9
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        wire1_left = 1+ self.modu_centre[0]
+        wire1_right = 2+ self.modu_centre[0]
+        wire1_top = self.modu_centre[1] + (self.r_r_gap / 2) + self.r_core_cent - 2.65-off_set
+        wire1_bottom = -9
+        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+                      bbox=BBox(right=wire1_right,
+                                bottom=wire1_bottom,
+                                left=wire1_left,
+                                top=wire1_top,
+                                resolution=self.grid.resolution)
+                      )
+        # wire1_bottom = -1+ self.modu_centre[1]
+        # wire1_top = 0+ self.modu_centre[1]
+        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 3+off_set
+        # wire1_right = 9
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
         #######################################
         
         
-        wire1_top = 1+ self.modu_centre[1]
-        wire1_bottom = -1+ self.modu_centre[1]
-        wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5+off_set
-        wire1_right = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8+off_set
-        self.add_rect(layer=self.inner_electrode_ring_layers[-1],
-                      bbox=BBox(right=wire1_right,
-                                bottom=wire1_bottom,
-                                left=wire1_left,
-                                top=wire1_top,
-                                resolution=self.grid.resolution)
-                      )
+        # wire1_top = 1+ self.modu_centre[1]
+        # wire1_bottom = -1+ self.modu_centre[1]
+        # wire1_left = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5+off_set
+        # wire1_right = self.modu_centre[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8+off_set
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        # wire1_top = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.5-off_set
+        # wire1_bottom = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8-off_set
+        # wire1_left = -1
+        # wire1_right = 1
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
         # wire1_top = 1+ self.modu_centre[1]
         # wire1_bottom = -1+ self.modu_centre[1]
         # wire1_left = self.modu_centre[0] + (self.r_r_gap / 2) + self.r_core_cent - 2.8+off_set
@@ -1627,10 +1682,22 @@ class Single_Ring(BPG.PhotonicTemplateBase):
         #                         top=wire1_top,
         #                         resolution=self.grid.resolution)
         #               )
-        wire1_top = 1
-        wire1_bottom = -1
-        wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5+off_set
-        wire1_right = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8+off_set
+        # wire1_top = 1
+        # wire1_bottom = -1
+        # wire1_left = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.5+off_set
+        # wire1_right = self.ring_loc[0] - (self.r_r_gap / 2) - self.r_core_cent + 2.8+off_set
+        # self.add_rect(layer=self.inner_electrode_ring_layers[-1],
+        #               bbox=BBox(right=wire1_right,
+        #                         bottom=wire1_bottom,
+        #                         left=wire1_left,
+        #                         top=wire1_top,
+        #                         resolution=self.grid.resolution)
+        #               )
+        
+        wire1_right = 1
+        wire1_left = -1
+        wire1_bottom = self.ring_loc[1] + (self.r_r_gap / 2) + self.r_core_cent - 2.8-off_set
+        wire1_top = self.ring_loc[1] + (self.r_r_gap / 2) + self.r_core_cent - 2.5-off_set
         self.add_rect(layer=self.inner_electrode_ring_layers[-1],
                       bbox=BBox(right=wire1_right,
                                 bottom=wire1_bottom,
@@ -1680,7 +1747,7 @@ class Single_Ring(BPG.PhotonicTemplateBase):
             net_name="RING_GND",
             label="RING_GND",
             layer=("BA","label"),
-            bbox=BBox(left=8.85,right=8.9,top=0.05,bottom=-0.05,resolution=self.grid.resolution),
+            bbox=BBox(left=-0.05,right=0.05,top=-8.85,bottom=-8.9,resolution=self.grid.resolution),
             show=True
             )
 
