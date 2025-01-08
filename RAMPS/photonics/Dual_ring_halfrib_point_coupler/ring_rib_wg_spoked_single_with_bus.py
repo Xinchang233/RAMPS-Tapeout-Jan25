@@ -692,7 +692,7 @@ class Single_Ring(BPG.PhotonicTemplateBase):
                                             temp_cls=AdiabaticPaths)
 
             # find the location of bent coupler
-            loc = (self.ring_loc[0] - core_master.arc_list[-1]['x'][-1] / 2 -(self.r_r_gap/2+self.core_width / 2)-self.r_core_cent,
+            loc = (self.ring_loc[0] - core_master.arc_list[-1]['x'][-1] / 2,# -(self.r_r_gap/2+self.core_width / 2)-self.r_core_cent,
                    self.ring_loc[1] - max(core_master.arc_list[3]['y']) -
                    self.r_core_cent - self.coup_gap - (self.core_width + self.coup_core_width) / 2)
             self.ring_1_centre = [self.ring_loc[0]  -(self.r_r_gap/2+self.core_width / 2)-self.r_core_cent,
